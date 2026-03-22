@@ -1,24 +1,24 @@
 import { h } from "hastscript";
 import { visit } from "unist-util-visit";
 
-// 来自霞葉： https://kasuha.com/posts/fuwari-enhance-ep1/
+// From Kasuha: https://kasuha.com/posts/fuwari-enhance-ep1/
 
 /**
- * 加密 mailto 链接以保护邮箱地址免受爬虫抓取的 rehype 插件
+ * Rehype plugin to encrypt mailto links to protect email addresses from crawlers
  *
- * @param {Object} options - 插件选项
- * @param {string} [options.method='base64'] - 编码方式: 'base64' or 'rot13'
+ * @param {Object} options - Plugin options
+ * @param {string} [options.method='base64'] - Encoding method: 'base64' or 'rot13'
  * @returns {Function} A transformer function for the rehype plugin
  */
 export default function rehypeEmailProtection(options = {}) {
 	const { method = "base64" } = options;
 
-	// Base64 编码函数
+	// Base64 encoding function
 	const base64Encode = (str) => {
 		return btoa(str);
 	};
 
-	// ROT13 编码函数
+	// ROT13 encoding function
 	const rot13Encode = (str) => {
 		return str.replace(/[a-zA-Z]/g, (char) => {
 			const start = char <= "Z" ? 65 : 97;
@@ -28,12 +28,12 @@ export default function rehypeEmailProtection(options = {}) {
 		});
 	};
 
-	// 根据选择的方法进行编码
+	// Encode according to selected method
 	const encode = (str) => {
 		return method === "rot13" ? rot13Encode(str) : base64Encode(str);
 	};
 
-	// 生成解码 JavaScript 代码
+	// Generate decoding JavaScript code
 	const generateDecodeScript = () => {
 		if (method === "rot13") {
 			return `
@@ -55,12 +55,12 @@ export default function rehypeEmailProtection(options = {}) {
 		let hasEmailLinks = false;
 
 		visit(tree, "element", (node, index, parent) => {
-			// 只处理 a 元素
+			// Only process a elements
 			if (node.tagName !== "a") {
 				return;
 			}
 
-			// 检查是否是 mailto 链接
+			// Check if it's a mailto link
 			const href = node.properties?.href;
 			if (!href || !href.startsWith("mailto:")) {
 				return;
@@ -68,11 +68,11 @@ export default function rehypeEmailProtection(options = {}) {
 
 			hasEmailLinks = true;
 
-			// 提取邮箱地址
+			// Extract email address
 			const email = href.replace("mailto:", "");
 			const encodedEmail = encode(email);
 
-			// 创建加密的链接元素（移除原始的 href 属性，避免重复定义）
+			// Create encrypted link element (remove original href attribute to avoid duplicates)
 			const otherProperties = { ...node.properties };
 			delete otherProperties.href;
 			const protectedLink = h(
@@ -98,13 +98,13 @@ export default function rehypeEmailProtection(options = {}) {
 				node.children,
 			);
 
-			// 替换当前的 a 节点
+			// Replace current a node
 			if (parent && typeof index === "number") {
 				parent.children[index] = protectedLink;
 			}
 		});
 
-		// 如果页面中有邮箱链接，添加样式
+		// Add styles if there are email links on the page
 		if (hasEmailLinks) {
 			visit(tree, "element", (node) => {
 				if (node.tagName === "head") {

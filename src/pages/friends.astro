@@ -13,7 +13,7 @@ import I18nKey from "@/i18n/i18nKey";
 import { i18n } from "@/i18n/translation";
 import MainGridLayout from "@/layouts/MainGridLayout.astro";
 
-// 检查页面是否启用
+// Check if page is enabled
 if (!siteConfig.pages.friends) {
 	return Astro.redirect("/404/");
 }
@@ -26,17 +26,17 @@ if (!friendsPost) {
 
 const { Content } = await render(friendsPost);
 
-// 检查评论系统是否启用
+// Check if comment system is enabled
 const isCommentEnabled =
 	commentConfig?.type &&
 	commentConfig.type !== "none" &&
 	friendsPageConfig.showComment !== false;
 
-// 使用配置文件中的友链数据，按权重排序
+// Use friend link data from config, sorted by weight
 const items = getEnabledFriends();
 const allTags = [...new Set(items.flatMap((item) => item.tags || []))].sort();
 
-// 页面标题和描述
+// Page title and description
 const title = friendsPageConfig.title || i18n(I18nKey.friends);
 const description =
 	friendsPageConfig.description || i18n(I18nKey.friendsDescription);
@@ -47,7 +47,7 @@ const description =
     class="flex w-full rounded-(--radius-large) overflow-hidden relative min-h-32"
   >
     <div class="card-base z-10 px-9 py-6 relative w-full">
-      <!-- 页面标题和描述 -->
+      <!-- Page title and description -->
       <div class="mb-4">
         <div class="flex items-center gap-3 mb-3">
           <div
@@ -68,7 +68,7 @@ const description =
         }
       </div>
 
-      <!-- 标签筛选 -->
+      <!-- Tag filter -->
       {
         items.length > 0 && (
           <friend-filter class="flex flex-wrap gap-2 mb-6">
@@ -100,10 +100,10 @@ const description =
               data-tags={item.tags?.join(",")}
               class="friend-card group flex items-center gap-3 p-2.5 rounded-xl border border-(--line-divider) hover:border-(--primary) hover:bg-(--card-bg) transition-all duration-300 hover:shadow-lg relative overflow-hidden"
             >
-              {/* 背景装饰 - 仅悬停显示 */}
+              {/* Background decoration - hover only */}
               <div class="absolute inset-0 bg-(--primary) opacity-0 group-hover:opacity-5 transition-opacity duration-300 pointer-events-none" />
 
-              {/* 头像 */}
+              {/* Avatar */}
               <div class="relative w-16 h-16 shrink-0 rounded-xl overflow-hidden bg-zinc-100 dark:bg-zinc-800 border border-black/5 dark:border-white/5 group-hover:scale-105 transition-transform duration-300">
                 <img
                   src={item.imgurl}
@@ -112,13 +112,13 @@ const description =
                 />
               </div>
 
-              {/* 内容 */}
+              {/* Content */}
               <div class="grow min-w-0 flex flex-col justify-center gap-0.5">
                 <div class="flex items-center justify-between">
                   <div class="font-bold text-base text-neutral-900 dark:text-neutral-100 group-hover:text-(--primary) transition-colors truncate pr-4">
                     {item.title}
                   </div>
-                  {/* 外部链接图标 */}
+                  {/* External link icon */}
                   <Icon
                     name="material-symbols:arrow-outward-rounded"
                     class="text-(--primary) text-lg opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300"
@@ -132,7 +132,7 @@ const description =
                   {item.desc}
                 </div>
 
-                {/* 标签 */}
+                {/* Tags */}
                 <div class="flex flex-wrap gap-1 mt-1">
                   {item.tags && item.tags.length > 0
                     ? item.tags
@@ -160,7 +160,7 @@ const description =
     </div>
   )}
 
-  <!-- 评论区 -->
+  <!-- Comment section -->
   {isCommentEnabled && (
     <div class="mt-4">
       <Comment post={friendsPost} customPath="/friends/" />

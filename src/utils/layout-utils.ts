@@ -1,14 +1,14 @@
 import { backgroundWallpaper } from "../config";
 
-// 将单个值或数组统一为数组
+// Standardize single value or array into an array
 const toArray = (src: string | string[] | undefined): string[] => {
 	if (!src) return [];
 	if (Array.isArray(src)) return src;
 	return [src];
 };
 
-// 背景图片处理工具函数
-// 返回所有配置的图片（用于构建时渲染所有图片）
+// Background image processing utilities
+// Return all configured images (used for rendering during build)
 export const getBackgroundImages = () => {
 	const bgSrc = backgroundWallpaper.src;
 
@@ -30,7 +30,7 @@ export const getBackgroundImages = () => {
 			isMultiple: desktopImages.length > 1 || mobileImages.length > 1,
 		};
 	}
-	// 如果是字符串或数组，同时用于桌面端和移动端
+	// If it's a string or array, use it for both desktop and mobile
 	const images = toArray(bgSrc as string | string[]);
 	return {
 		desktop: images,
@@ -39,7 +39,7 @@ export const getBackgroundImages = () => {
 	};
 };
 
-// 类型守卫函数
+// Type guard function
 export const isBannerSrcObject = (
 	src:
 		| string
@@ -54,15 +54,15 @@ export const isBannerSrcObject = (
 	);
 };
 
-// 获取默认背景图片（返回第一张，用于 SEO 等场景）
+// Get default background image (first one, used for SEO etc.)
 export const getDefaultBackground = (): string => {
 	const images = getBackgroundImages();
 	return images.desktop[0] || images.mobile[0] || "";
 };
 
-// 检查是否为首页
+// Check if current page is the homepage
 export const isHomePage = (pathname: string): boolean => {
-	// 获取 base URL
+	// Get base URL
 	const baseUrl = import.meta.env.BASE_URL || "/";
 	const baseUrlNoSlash = baseUrl.endsWith("/") ? baseUrl.slice(0, -1) : baseUrl;
 
@@ -73,7 +73,7 @@ export const isHomePage = (pathname: string): boolean => {
 	return false;
 };
 
-// 获取横幅偏移量
+// Get banner offset based on position
 export const getBannerOffset = (position = "center") => {
 	const bannerOffsetByPosition = {
 		top: "100vh",

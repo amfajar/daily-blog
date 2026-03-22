@@ -58,17 +58,16 @@ const defaultOverlayCardOpacity = getDefaultOverlayCardOpacity();
 const isWallpaperSwitchable = backgroundWallpaper.switchable ?? true;
 const allowLayoutSwitch = siteConfig.postListLayout.allowSwitch;
 const showThemeColor = !siteConfig.themeColor.fixed;
-// 是否允许用户切换水波纹动画（只看 switchable 配置）
 const isWavesSwitchable =
 	backgroundWallpaper.banner?.waves?.switchable ?? false;
-// 检查是否启用横幅标题配置
+// Check if banner title configuration is enabled
 const isBannerTitleEnabled =
 	backgroundWallpaper.banner?.homeText?.enable ?? false;
-// 是否允许用户切换横幅标题
+// Whether to allow user to toggle banner title
 const isBannerTitleSwitchable =
 	isBannerTitleEnabled &&
 	(backgroundWallpaper.banner?.homeText?.switchable ?? false);
-// 是否有任何横幅设置可显示（后续添加新设置时在此处添加条件）
+// Whether there are any banner settings to display (add conditions here when adding new settings)
 const hasBannerSettings = isWavesSwitchable || isBannerTitleSwitchable;
 const overlaySwitchableConfig =
 	backgroundWallpaper.overlay?.switchable ?? false;
@@ -97,7 +96,7 @@ let overlaySettingsIsDefault = $derived(
 		(!isOverlayCardOpacitySwitchable ||
 			overlayCardOpacity === defaultOverlayCardOpacity),
 );
-// 横幅设置是否全部为默认值（用于控制恢复默认按钮的显隐）
+// Whether all banner settings are at default values (used to control visibility of reset button)
 let bannerSettingsIsDefault = $derived(
 	(!isBannerTitleSwitchable ||
 		bannerTitleEnabled === defaultBannerTitleEnabled) &&
@@ -124,7 +123,7 @@ function resetLayout() {
 	currentLayout = defaultLayout;
 	localStorage.setItem("postListLayout", defaultLayout);
 
-	// 触发自定义事件，通知页面布局已改变
+	// Trigger custom event to notify that page layout has changed
 	const event = new CustomEvent("layoutChange", {
 		detail: { layout: defaultLayout },
 	});
@@ -227,13 +226,13 @@ function switchLayout() {
 	currentLayout = currentLayout === "list" ? "grid" : "list";
 	localStorage.setItem("postListLayout", currentLayout);
 
-	// 触发自定义事件，通知页面布局已改变
+	// Trigger custom event to notify that page layout has changed
 	const event = new CustomEvent("layoutChange", {
 		detail: { layout: currentLayout },
 	});
 	window.dispatchEvent(event);
 
-	// 动画完成后重置状态
+	// Reset status after animation completion
 	setTimeout(() => {
 		isSwitching = false;
 	}, 500);
@@ -243,21 +242,21 @@ onMount(() => {
 	mounted = true;
 	checkScreenSize();
 
-	// 从localStorage读取保存的壁纸模式
+	// Read saved wallpaper mode from localStorage
 	wallpaperMode = getStoredWallpaperMode();
 
-	// 从localStorage读取水波纹动画状态
+	// Read waves animation state from localStorage
 	wavesEnabled = getStoredWavesEnabled();
 
-	// 从localStorage读取横幅标题状态
+	// Read banner title state from localStorage
 	bannerTitleEnabled = getStoredBannerTitleEnabled();
 
-	// 从localStorage读取全屏透明设置状态
+	// Read fullscreen overlay transparency settings state from localStorage
 	overlayOpacity = getStoredOverlayOpacity();
 	overlayBlur = getStoredOverlayBlur();
 	overlayCardOpacity = getStoredOverlayCardOpacity();
 
-	// 从localStorage读取用户偏好布局
+	// Read user preference layout from localStorage
 	const savedLayout = localStorage.getItem("postListLayout");
 	if (savedLayout && (savedLayout === "list" || savedLayout === "grid")) {
 		currentLayout = savedLayout;
@@ -265,7 +264,7 @@ onMount(() => {
 		currentLayout = siteConfig.postListLayout.defaultMode;
 	}
 
-	// 监听窗口大小变化
+	// Listen for window size changes
 	window.addEventListener("resize", checkScreenSize);
 
 	return () => {
@@ -273,7 +272,7 @@ onMount(() => {
 	};
 });
 
-// 监听布局变化事件
+// Listen for layout change events
 onMount(() => {
 	const handleCustomEvent = (event: Event) => {
 		const customEvent = event as CustomEvent<{ layout: "list" | "grid" }>;

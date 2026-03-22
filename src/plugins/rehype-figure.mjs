@@ -3,48 +3,48 @@ import { visit } from "unist-util-visit";
 import { shouldAddNoReferrer } from "../utils/image-utils.ts";
 
 /**
- * 将带有 alt 文本的图片转换为包含 figcaption 的 figure 元素的 rehype 插件
+ * Rehype plugin to convert images with alt text into figure elements containing figcaption
  *
  * @returns {Function} A transformer function for the rehype plugin
  */
 export default function rehypeFigure() {
 	return (tree) => {
 		visit(tree, "element", (node, index, parent) => {
-			// 只处理 img 元素
+			// Only process img elements
 			if (node.tagName !== "img") {
 				return;
 			}
 
 			const imgProps = { ...node.properties };
 
-			// 添加 referrerpolicy（如果需要）解决 403 问题
-			// 无论是否有 alt，都要检查并添加 referrerpolicy
+			// Add referrerpolicy (if needed) to resolve 403 issues
+			// Check and add referrerpolicy regardless of alt presence
 			if (imgProps.src && shouldAddNoReferrer(imgProps.src)) {
 				imgProps.referrerpolicy = "no-referrer";
 			}
 
-			// 获取 alt 属性
+			// Get alt attribute
 			const alt = imgProps.alt;
 
-			// 如果没有 alt 属性或 alt 为空字符串，则只更新属性并保持原样
+			// If no alt attribute or alt is empty, only update attributes and keep as is
 			if (!alt || alt.trim() === "") {
 				node.properties = imgProps;
 				return;
 			}
 
-			// 创建 figure 元素，包含处理后的 img 和居中的 figcaption
+			// Create figure element containing processed img and centered figcaption
 			const figure = h("figure", [
-				// 使用原始属性的 img 节点
+				// Use img node with original attributes
 				h("img", {
 					...imgProps,
 				}),
 				h("figcaption", alt),
 			]);
 
-			// 居中显示
+			// Center display
 			const centerFigure = h("center", figure);
 
-			// 替换当前的 img 节点为 figure 节点
+			// Replace current img node with figure node
 			if (parent && typeof index === "number") {
 				parent.children[index] = centerFigure;
 			}

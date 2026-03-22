@@ -7,7 +7,7 @@ import { i18n } from "@/i18n/translation";
 import MainGridLayout from "@/layouts/MainGridLayout.astro";
 import { getAlbumCover, scanAlbumPhotos } from "@/utils/gallery-utils";
 
-// 检查页面是否启用
+// Check if page is enabled
 if (!siteConfig.pages.gallery) {
 	return Astro.redirect("/404/");
 }
@@ -15,14 +15,14 @@ if (!siteConfig.pages.gallery) {
 const title = i18n(I18nKey.gallery);
 const description = i18n(I18nKey.galleryDescription);
 
-// 构建相册数据（扫描照片、获取封面）
+// Build album data (scan photos, get covers)
 const albums = galleryConfig.albums.map((album) => {
 	const photos = scanAlbumPhotos(album.id);
 	const cover = getAlbumCover(album, photos);
 	return { ...album, cover, photoCount: photos.length };
 });
 
-// 收集所有标签用于筛选
+// Collect all tags for filtering
 const allTags = [...new Set(albums.flatMap((a) => a.tags || []))].sort();
 ---
 
@@ -31,7 +31,7 @@ const allTags = [...new Set(albums.flatMap((a) => a.tags || []))].sort();
     class="flex w-full rounded-(--radius-large) overflow-hidden relative min-h-32"
   >
     <div class="card-base z-10 px-9 py-6 relative w-full">
-      <!-- 页面标题和描述 -->
+      <!-- Page title and description -->
       <div class="mb-4">
         <div class="flex items-center gap-3 mb-3">
           <div
@@ -50,7 +50,7 @@ const allTags = [...new Set(albums.flatMap((a) => a.tags || []))].sort();
         )}
       </div>
 
-      <!-- 标签筛选 -->
+      <!-- Tag filter -->
       {albums.length > 0 && allTags.length > 0 && (
         <gallery-filter class="flex flex-wrap gap-2 mb-6">
           <button
@@ -70,7 +70,7 @@ const allTags = [...new Set(albums.flatMap((a) => a.tags || []))].sort();
         </gallery-filter>
       )}
 
-      <!-- 相册卡片网格 -->
+      <!-- Album card grid -->
       {albums.length > 0 ? (
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 my-4">
           {albums.map((album) => (

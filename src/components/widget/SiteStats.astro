@@ -17,26 +17,26 @@ interface Props {
 
 const { class: className, style } = Astro.props;
 
-// 从配置中获取站点开始日期
+// Get site start date from configuration
 const siteStartDate = siteConfig.siteStartDate || "2025-01-01";
 
-// 获取所有文章
+// Get all posts
 const posts = await getSortedPosts();
 const categories = await getCategoryList();
 const tags = await getTagList();
 
-// 计算总字数
+// Calculate total word count
 let totalWords = 0;
 for (const post of posts) {
 	if (post.body) {
-		// 移除代码块和内联代码后计算字数
+		// Calculate word count after removing code blocks and inline code
 		let text = post.body
-			.replace(/```[\s\S]*?```/g, "") // 移除代码块
-			.replace(/`[^`]*`/g, "") // 移除内联代码
-			.replace(/\s+/g, " ") // 合并空白
+			.replace(/```[\s\S]*?```/g, "") // Remove code blocks
+			.replace(/`[^`]*`/g, "") // Remove inline code
+			.replace(/\s+/g, " ") // Merge whitespace
 			.trim();
 
-		// 分别计算中文字符和英文字符
+		// Calculate characters
 		const chineseChars = text.match(/[\u4e00-\u9fa5]/g) || [];
 		const englishChars = text.match(/[a-zA-Z]/g) || [];
 
@@ -44,12 +44,12 @@ for (const post of posts) {
 	}
 }
 
-// 格式化数字（添加千位分隔符）
+// Format number (add thousand separator)
 function formatNumber(num: number): string {
 	return num.toLocaleString();
 }
 
-// 获取最新文章日期（用于客户端计算）
+// Get latest post date (for client-side calculation)
 const latestPost = posts.reduce((latest, post) => {
 	if (!latest) return post;
 	return post.data.published > latest.data.published ? post : latest;
@@ -86,7 +86,7 @@ const stats = [
 	{
 		icon: "material-symbols:calendar-clock-outline",
 		label: i18n(I18nKey.siteStatsRunningDays),
-		value: 0, // 将由客户端更新
+		value: 0, // Will be updated by client
 		suffix: i18n(I18nKey.siteStatsDays).replace("{days}", ""),
 		dynamic: true,
 		id: "running-days",
@@ -94,7 +94,7 @@ const stats = [
 	{
 		icon: "mingcute:heartbeat-line",
 		label: i18n(I18nKey.siteStatsLastUpdate),
-		value: 0, // 将由客户端更新
+		value: 0, // Will be updated by client
 		suffix: i18n(I18nKey.siteStatsDaysAgo).replace("{days}", ""),
 		dynamic: true,
 		id: "last-update",
@@ -136,7 +136,7 @@ const stats = [
   function updateDynamicStats() {
     const today = new Date();
 
-    // 更新运行天数
+    // Update running days
     const startDate = new Date(siteStartDate);
     const diffTime = Math.abs(today.getTime() - startDate.getTime());
     const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
@@ -146,7 +146,7 @@ const stats = [
       element.textContent = diffDays.toString();
     });
 
-    // 更新最后活动时间
+    // Update last activity time
     if (lastPostDate) {
       const lastPost = new Date(lastPostDate);
       const timeSinceLastPost = Math.abs(today.getTime() - lastPost.getTime());
@@ -169,10 +169,10 @@ const stats = [
     }
   }
 
-  // 页面加载时更新
+  // Update on page load
   updateDynamicStats();
 
-  // 页面切换时重新更新
+  // Re-update on content change
   document.addEventListener("swup:contentReplaced", () => {
     setTimeout(updateDynamicStats, 100);
   });

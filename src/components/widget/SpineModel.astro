@@ -4,7 +4,7 @@ import { spineModelConfig } from "@/config/pioConfig";
 import { url } from "@/utils/url-utils";
 ---
 
-<!-- Spine Web Player CSS 将在 script 中动态加载 -->{
+<!-- Spine Web Player CSS will be dynamically loaded in the script -->{
   spineModelConfig.enable && (
     <div
       id="spine-model-container"
@@ -24,7 +24,7 @@ import { url } from "@/utils/url-utils";
   )
 }
 
-<!-- 引入消息框组件 -->
+<!-- Include message box component -->
 <MessageBox />
 
 <script is:inline define:vars={{ spineModelConfig, modelPath: url(spineModelConfig.model.path), atlasPath: url(spineModelConfig.model.path.replace(".json", ".atlas")), cssPath: url("/pio/static/spine-player.min.css"), jsPath: url("/pio/static/spine-player.min.js") }}>
@@ -155,10 +155,10 @@ import { url } from "@/utils/url-utils";
 
     console.log("🎯 Initializing Spine Model...");
 
-    // 先清理可能存在的旧实例
+    // First cleanup any existing old instances
     cleanupSpineModel();
 
-    // 首先加载 CSS
+    // First load CSS
     loadSpineCSS();
 
     // 加载 Spine Web Player 运行时
@@ -297,15 +297,19 @@ import { url } from "@/utils/url-utils";
                   }
                 }
 
-                // 显示随机消息
-                const messages = spineModelConfig.interactive.clickMessages;
-                if (messages && messages.length > 0) {
-                  const randomMessage =
+                // Display random messages
+                const messages = spineModelConfig.interactive?.clickMessages || [
+      "Hello! Ilya~",
+      "Is there anything I can help with?",
+      "The weather is really nice today!",
+      "Want to play a game together?",
+      "Remember to take a break!",
+    ];        const randomMessage =
                     messages[Math.floor(Math.random() * messages.length)];
                   showMessage(randomMessage);
                 }
 
-                // 500ms 后重置防抖标志
+                // Reset debounce flag after 500ms
                 setTimeout(() => {
                   isClickProcessing = false;
                 }, 500);
@@ -338,7 +342,7 @@ import { url } from "@/utils/url-utils";
             errorDiv.style.display = "block";
             errorDiv.innerHTML = `
               <div style="color: #ff4444; padding: 20px; text-align: center; font-size: 14px;">
-                <div>⚠️ Spine 模型加载失败</div>
+                <div>⚠️ Failed to load Spine model</div>
                 <div style="font-size: 12px; margin-top: 8px; color: #888;">${reason}</div>
               </div>
             `;
@@ -359,8 +363,8 @@ import { url } from "@/utils/url-utils";
         errorDiv.style.display = "block";
         errorDiv.innerHTML = `
           <div style="color: #ff4444; padding: 20px; text-align: center; font-size: 14px;">
-            <div>⚠️ Spine 运行时加载失败</div>
-            <div style="font-size: 12px; margin-top: 8px; color: #888;">${error instanceof Error ? error.message : "未知错误"}</div>
+            <div>⚠️ Failed to load Spine runtime</div>
+            <div style="font-size: 12px; margin-top: 8px; color: #888;">${error instanceof Error ? error.message : "Unknown error"}</div>
           </div>
         `;
       }

@@ -11,7 +11,7 @@ import rehypeAutolinkHeadings from "rehype-autolink-headings";
 import rehypeComponents from "rehype-components"; /* Render the custom directive content */
 import rehypeKatex from "rehype-katex";
 import katex from "katex";
-import "katex/dist/contrib/mhchem.mjs"; // 加载 mhchem 扩展
+import "katex/dist/contrib/mhchem.mjs"; // Load mhchem extension
 import rehypeSlug from "rehype-slug";
 import remarkDirective from "remark-directive"; /* Handle directives */
 import remarkMath from "remark-math";
@@ -41,16 +41,16 @@ export default defineConfig({
 	base: "/",
 	trailingSlash: "always",
 
-	// 图像优化配置
+	// Image optimization configuration
 	image: {
-		// 全局响应式布局
+		// Global responsive layout
 		layout: "constrained",
 	},
 
 	experimental: {
-		// Rust 编译器以提升构建性能（实验性），部分平台可能会导致构建失败，可以根据需要启用或禁用
+		// Rust compiler to improve build performance (experimental). May cause build failure on some platforms, enable/disable as needed.
 		rustCompiler: false, 
-		// 队列渲染以优化性能（实验性）
+		// Queued rendering for performance optimization (experimental)
 		queuedRendering: { enabled: true }, 
 	},
 
@@ -75,11 +75,11 @@ export default defineConfig({
 			updateHead: true,
 			updateBodyClass: false,
 			globalInstance: true,
-			// 滚动相关配置优化
+			// Scroll configuration optimization
 			resolveUrl: (url) => url,
 			animateHistoryBrowsing: false,
 			skipPopStateHandling: (event) => {
-				// 跳过锚点链接的处理，让浏览器原生处理
+				// Skip anchor links, let the browser handle them naturally
 				return event.state && event.state.url && event.state.url.includes("#");
 			},
 		}),
@@ -98,13 +98,13 @@ export default defineConfig({
 			useDarkModeMediaQuery: false,
 			themeCssSelector: (theme) => `[data-theme='${theme.name}']`,
 			plugins: [
-				// pluginLanguageBadge 配置 - 从expressiveCodeConfig读取设置
+				// pluginLanguageBadge config - read settings from expressiveCodeConfig
 				...(expressiveCodeConfig.pluginLanguageBadge?.enable === true
 					? [pluginLanguageBadge()]
 					: []),
 				pluginCollapsibleSections(),
 				pluginLineNumbers(),
-				// pluginCollapsible 配置 - 从expressiveCodeConfig读取设置，使用i18n文本
+				// pluginCollapsible config - read settings from expressiveCodeConfig, use i18n text
 				...(expressiveCodeConfig.pluginCollapsible?.enable === true
 					? [
 							pluginCollapsible({
@@ -159,7 +159,7 @@ export default defineConfig({
 		svelte(),
 		sitemap({
 			filter: (page) => {
-				// 根据页面开关配置过滤sitemap
+				// Filter sitemap based on page configuration
 				const url = new URL(page);
 				const pathname = url.pathname;
 
@@ -202,7 +202,7 @@ export default defineConfig({
 			rehypeMermaid,
 			rehypeFigure,
 			[rehypeExternalLinks, { siteUrl: siteConfig.site_url }],
-			[rehypeEmailProtection, { method: "base64" }], // 邮箱保护插件，支持 'base64' 或 'rot13'
+			[rehypeEmailProtection, { method: "base64" }], // Email protection plugin, supports 'base64' or 'rot13'
 			[
 				rehypeComponents,
 				{
@@ -247,7 +247,7 @@ export default defineConfig({
 			minify: "esbuild",
 			esbuildOptions: {
 				minify: true,
-				// 移除 console.log 和 debugger
+				// Remove console.log and debugger
 				drop: ["console", "debugger"], 
 			},
 			rollupOptions: {
@@ -262,7 +262,7 @@ export default defineConfig({
 					warn(warning);
 				},
 			},
-			// CSS 优化
+			// CSS optimization
 			cssCodeSplit: true,
 			cssMinify: "esbuild",
 		},

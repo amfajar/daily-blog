@@ -5,7 +5,7 @@ export function remarkMermaid() {
 		visit(tree, "code", (node) => {
 			if (node.lang === "mermaid") {
 				const code = node.value;
-				// 将 mermaid 代码块转换为自定义节点类型
+				// Convert mermaid code block to custom node type
 				node.type = "mermaid";
 				node.data = {
 					hName: "div",
@@ -13,10 +13,10 @@ export function remarkMermaid() {
 						className: ["mermaid-container"],
 						"data-mermaid-code": code,
 					},
-					// MDX 兼容：将代码存为子节点，防止 MDX 编译器丢失 hProperties
+					// MDX compatibility: Store code as child node to prevent MDX compiler from losing hProperties
 					hChildren: [{ type: "text", value: code }],
 				};
-				// 清除 value，避免 remark-rehype 将其当作纯文本处理
+				// Clear value to prevent remark-rehype from treating it as plain text
 				node.value = undefined;
 			}
 		});

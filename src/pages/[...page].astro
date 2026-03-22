@@ -7,7 +7,7 @@ import MainGridLayout from "@/layouts/MainGridLayout.astro";
 import { getSortedPosts } from "@/utils/content-utils";
 export const getStaticPaths = (async ({ paginate }) => {
 	const allBlogPosts = await getSortedPosts();
-	// 使用配置中的文章数量
+	// Use post count from configuration
 	const pageSize = siteConfig.pagination.postsPerPage;
 	return paginate(allBlogPosts, { pageSize });
 }) satisfies GetStaticPaths;

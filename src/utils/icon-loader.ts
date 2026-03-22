@@ -53,15 +53,15 @@ export function initIconLoader() {
 			showIcon();
 		});
 
-		// 监听图标加载错误
+		// Listen for icon loading errors
 		iconElement.addEventListener("error", () => {
-			// 保持显示fallback
+			// Keep showing fallback indicator on error
 			if (iconName) {
 				console.warn(`Failed to load icon: ${iconName}`);
 			}
 		});
 
-		// 使用MutationObserver监听shadow DOM变化
+		// Monitor shadow DOM changes using MutationObserver
 		if (window.MutationObserver) {
 			const observer = new MutationObserver(() => {
 				if (checkIconLoaded()) {
@@ -69,7 +69,7 @@ export function initIconLoader() {
 				}
 			});
 
-			// 监听iconify-icon元素的变化
+			// Watch for changes within iconify-icon elements
 			observer.observe(iconElement, {
 				childList: true,
 				subtree: true,

@@ -10,7 +10,7 @@ export interface Props {
 
 const { class: className = "", configId } = Astro.props as Props;
 
-// 根据configId选择对应的广告配置
+// Select corresponding ad configuration based on configId
 const getAdConfig = (id?: string): AdConfig => {
 	switch (id) {
 		case "ad1":
@@ -18,32 +18,32 @@ const getAdConfig = (id?: string): AdConfig => {
 		case "ad2":
 			return adConfig2;
 		default:
-			return adConfig1; // 默认配置
+			return adConfig1; // Default configuration
 	}
 };
 
 const currentAdConfig = getAdConfig(configId);
 
-// 检查广告是否过期
+// Check if ad is expired
 const isExpired = currentAdConfig.expireDate
 	? new Date() > new Date(currentAdConfig.expireDate)
 	: false;
 
-// 如果过期则不显示
+// Do not display if expired
 if (isExpired) {
 	return null;
 }
 
-// 处理自定义边距
+// Handle custom padding
 const getPaddingStyle = () => {
-	if (!currentAdConfig.padding) return "p-4"; // 默认边距
+	if (!currentAdConfig.padding) return "p-4"; // Default padding
 
 	if (currentAdConfig.padding.all !== undefined) {
-		// 统一边距
+		// Unified padding
 		return currentAdConfig.padding.all === "0" ? "p-0" : "";
 	}
 
-	// 单独边距
+	// Individual padding
 	const { top, right, bottom, left } = currentAdConfig.padding;
 	return (
 		[
@@ -71,13 +71,13 @@ const paddingClass = getPaddingStyle();
   data-display-count={currentAdConfig.displayCount}
   data-closable={currentAdConfig.closable}
 >
-  <!-- 关闭按钮 -->
+  <!-- Close Button -->
   {
     currentAdConfig.closable && (
       <button
         class="absolute top-2 right-2 w-6 h-6 flex items-center justify-center rounded-full bg-neutral-200 hover:bg-neutral-300 dark:bg-neutral-700 dark:hover:bg-neutral-600 text-neutral-500 hover:text-neutral-700 dark:text-neutral-400 dark:hover:text-neutral-200 transition-all duration-200 z-10 close-ad-btn"
-        title="关闭广告"
-        aria-label="关闭广告"
+        title="Close Ad"
+        aria-label="Close Ad"
       >
         <svg
           class="w-4 h-4"
@@ -128,7 +128,7 @@ const paddingClass = getPaddingStyle();
             >
               <img
                 src={currentAdConfig.image.src.startsWith('/') ? url(currentAdConfig.image.src) : currentAdConfig.image.src}
-                alt={currentAdConfig.image.alt || "广告图片"}
+                alt={currentAdConfig.image.alt || "Advertisement Image"}
                 class={`w-full h-auto transition-transform duration-300 group-hover:scale-105 ${
                   paddingClass === "p-0"
                     ? "rounded-(--radius-large)"
@@ -140,7 +140,7 @@ const paddingClass = getPaddingStyle();
           ) : (
             <img
               src={currentAdConfig.image.src.startsWith('/') ? url(currentAdConfig.image.src) : currentAdConfig.image.src}
-              alt={currentAdConfig.image.alt || "广告图片"}
+              alt={currentAdConfig.image.alt || "Advertisement Image"}
               class={`w-full h-auto ${
                 paddingClass === "p-0"
                   ? "rounded-(--radius-large)"
@@ -197,7 +197,7 @@ const paddingClass = getPaddingStyle();
 
 <script>
   document.addEventListener("DOMContentLoaded", () => {
-    // 清理旧的localStorage关闭状态，确保广告可以重新显示
+    // Cleanup old localStorage close state to ensure ads can be re-displayed
     localStorage.removeItem("ad-closed");
 
     const adWidgets = document.querySelectorAll(
@@ -211,7 +211,7 @@ const paddingClass = getPaddingStyle();
       );
       const isClosable = widget.getAttribute("data-closable") === "true";
 
-      // 检查显示次数限制
+      // Check display count limit
       if (displayCount > 0) {
         const storageKey = "ad-display-count";
         const currentCount = parseInt(localStorage.getItem(storageKey) || "0");
@@ -224,13 +224,13 @@ const paddingClass = getPaddingStyle();
         localStorage.setItem(storageKey, (currentCount + 1).toString());
       }
 
-      // 绑定关闭按钮事件（关闭后刷新页面会重新显示）
+      // Bind close button event (will re-display after page refresh)
       if (closeBtn && isClosable) {
         closeBtn.addEventListener("click", (e) => {
           e.preventDefault();
           e.stopPropagation();
 
-          // 添加关闭动画
+          // Add close animation
           widget.style.transform = "translateX(100%)";
           widget.style.opacity = "0";
           widget.style.transition = "all 0.3s ease-out";

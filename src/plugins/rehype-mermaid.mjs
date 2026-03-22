@@ -3,7 +3,7 @@ import { visit } from "unist-util-visit";
 import mermaidRenderScript from "./mermaid-render-script.js?raw";
 
 /**
- * 递归提取 HAST 节点树中的所有文本内容
+ * Recursively extract all text content from the HAST node tree
  */
 function extractText(node) {
 	if (node.type === "text") return node.value || "";
@@ -20,14 +20,14 @@ export function rehypeMermaid() {
 				node.properties.className &&
 				node.properties.className.includes("mermaid-container")
 			) {
-				// 优先使用 data-mermaid-code 属性，为空时从子节点文本提取（MDX 兼容）
+				// Prioritize using data-mermaid-code attribute, extract from child node text if empty (MDX compatible)
 				let mermaidCode = node.properties["data-mermaid-code"] || "";
 				if (!mermaidCode) {
 					mermaidCode = extractText(node).trim();
 				}
 				const mermaidId = `mermaid-${Math.random().toString(36).slice(-6)}`;
 
-				// 创建 Mermaid 容器
+				// Create Mermaid container
 				const mermaidContainer = h(
 					"div",
 					{
@@ -46,7 +46,7 @@ export function rehypeMermaid() {
 					],
 				);
 
-				// 创建客户端渲染脚本
+				// Create client-side rendering script
 				const renderScript = h(
 					"script",
 					{
@@ -55,7 +55,7 @@ export function rehypeMermaid() {
 					mermaidRenderScript,
 				);
 
-				// 替换原始节点
+				// Replace original node
 				node.tagName = "div";
 				node.properties = { class: "mermaid-diagram-container" };
 				node.children = [mermaidContainer, renderScript];

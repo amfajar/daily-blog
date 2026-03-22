@@ -1,13 +1,13 @@
 import { url } from "@/utils/url-utils";
 /**
- * 导航工具函数
- * 提供统一的页面导航功能，支持 Swup 无刷新跳转
+ * Navigation utility functions
+ * Provides unified page navigation with Swup support for seamless transitions
  */
 
 /**
- * 导航到指定页面
- * @param url 目标页面URL
- * @param options 导航选项
+ * Navigates to a specific page
+ * @param url Target page URL
+ * @param options Navigation options
  */
 export function navigateToPage(
 	url: string,
@@ -16,13 +16,13 @@ export function navigateToPage(
 		force?: boolean;
 	},
 ): void {
-	// 检查 URL 是否有效
+	// Check if URL is valid
 	if (!url || typeof url !== "string") {
 		console.warn("navigateToPage: Invalid URL provided");
 		return;
 	}
 
-	// 如果是外部链接，直接跳转
+	// Open external links in a new tab
 	if (
 		url.startsWith("http://") ||
 		url.startsWith("https://") ||
@@ -32,7 +32,7 @@ export function navigateToPage(
 		return;
 	}
 
-	// 如果是锚点链接，滚动到对应位置
+	// Smooth scroll for anchor links
 	if (url.startsWith("#")) {
 		const element = document.getElementById(url.slice(1));
 		if (element) {
@@ -41,10 +41,10 @@ export function navigateToPage(
 		return;
 	}
 
-	// 检查 Swup 是否可用
+	// Check if Swup is available
 	if (typeof window !== "undefined" && window.swup) {
 		try {
-			// 使用 Swup 进行无刷新跳转
+			// Use Swup for seamless navigation
 			if (options?.replace) {
 				window.swup.navigate(url, { history: false });
 			} else {
@@ -52,18 +52,18 @@ export function navigateToPage(
 			}
 		} catch (error) {
 			console.error("Swup navigation failed:", error);
-			// 降级到普通跳转
+			// Fallback to standard navigation if Swup fails
 			fallbackNavigation(url, options);
 		}
 	} else {
-		// Swup 不可用时的降级处理
+		// Fallback when Swup is not available
 		fallbackNavigation(url, options);
 	}
 }
 
 /**
- * 降级导航函数
- * 当 Swup 不可用时使用普通的页面跳转
+ * Fallback navigation function
+ * Uses standard page navigation when Swup is unavailable
  */
 function fallbackNavigation(
 	url: string,
@@ -80,15 +80,15 @@ function fallbackNavigation(
 }
 
 /**
- * 检查 Swup 是否已准备就绪
+ * Check if Swup is ready
  */
 export function isSwupReady(): boolean {
 	return typeof window !== "undefined" && !!window.swup;
 }
 
 /**
- * 等待 Swup 准备就绪
- * @param timeout 超时时间（毫秒）
+ * Wait for Swup to be ready
+ * @param timeout Timeout in milliseconds
  */
 export function waitForSwup(timeout = 5000): Promise<boolean> {
 	return new Promise((resolve) => {
@@ -107,10 +107,10 @@ export function waitForSwup(timeout = 5000): Promise<boolean> {
 			}
 		};
 
-		// 监听 Swup 启用事件
+		// Listen for Swup enable event
 		document.addEventListener("swup:enable", checkSwup);
 
-		// 设置超时
+		// Set timeout
 		timeoutId = setTimeout(() => {
 			document.removeEventListener("swup:enable", checkSwup);
 			resolve(false);
@@ -119,15 +119,15 @@ export function waitForSwup(timeout = 5000): Promise<boolean> {
 }
 
 /**
- * 预加载页面
- * @param url 要预加载的页面URL
+ * Preload a page
+ * @param url URL to preload
  */
 export function preloadPage(url: string): void {
 	if (!url || typeof url !== "string") {
 		return;
 	}
 
-	// 如果 Swup 可用，使用其预加载功能
+	// Use Swup preloading if available
 	if (isSwupReady() && window.swup.preload) {
 		try {
 			window.swup.preload(url);
@@ -138,14 +138,14 @@ export function preloadPage(url: string): void {
 }
 
 /**
- * 获取当前页面路径
+ * Get current page path
  */
 export function getCurrentPath(): string {
 	return typeof window !== "undefined" ? window.location.pathname : "";
 }
 
 /**
- * 检查是否为首页
+ * Check if current page is the homepage
  */
 export function isHomePage(): boolean {
 	const path = getCurrentPath();
@@ -153,7 +153,7 @@ export function isHomePage(): boolean {
 }
 
 /**
- * 检查是否为文章页面
+ * Check if current page is a post page
  */
 export function isPostPage(): boolean {
 	const path = getCurrentPath();
@@ -161,10 +161,10 @@ export function isPostPage(): boolean {
 }
 
 /**
- * 检查两个路径是否相等
+ * Compare if two paths are equal
  */
 export function pathsEqual(path1: string, path2: string): boolean {
-	// 标准化路径（移除末尾斜杠）
+	// Normalize paths by removing trailing slashes
 	const normalize = (path: string) => {
 		return path.endsWith("/") && path.length > 1 ? path.slice(0, -1) : path;
 	};

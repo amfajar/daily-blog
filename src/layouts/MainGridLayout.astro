@@ -70,25 +70,25 @@ const {
 	bannerPostMeta,
 } = Astro.props;
 
-// 检查背景壁纸模式和是否允许切换
+// Check wallpaper mode and switchability
 const isBannerMode = backgroundWallpaper.mode === "banner";
 const isOverlayMode = backgroundWallpaper.mode === "overlay";
 const isBackgroundEnabled = backgroundWallpaper.mode !== "none";
 const isWallpaperSwitchable = backgroundWallpaper.switchable ?? true;
 
-// 检查是否启用水波纹动画效果
+// Check if water ripple animation is enabled
 const wavesConfig = backgroundWallpaper.banner?.waves?.enable;
 const wavesSwitchable = backgroundWallpaper.banner?.waves?.switchable ?? false;
-// 处理分设备控制的水波纹动画
+// Handle device-specific water ripples
 const wavesEnabledOnDesktop =
 	typeof wavesConfig === "object" ? wavesConfig.desktop : wavesConfig;
 const wavesEnabledOnMobile =
 	typeof wavesConfig === "object" ? wavesConfig.mobile : wavesConfig;
-// 是否需要渲染水波纹元素（任一设备启用 或 允许用户切换）
+// Whether to render waves elements (enabled on any device or switchable)
 const shouldRenderWaves =
 	wavesEnabledOnDesktop || wavesEnabledOnMobile || wavesSwitchable;
 
-// 处理分设备控制的横幅信贷显示
+// Handle device-specific banner credit display
 const creditEnableConfig = backgroundWallpaper.banner?.credit?.enable;
 const creditEnabledOnDesktop =
 	typeof creditEnableConfig === "object"
@@ -102,7 +102,7 @@ const creditEnabledOnMobile =
 const hasBannerCredit =
 	isBannerMode && isBackgroundEnabled && creditEnableConfig;
 
-// 处理分设备控制的横幅信贷文本和链接
+// Handle device-specific banner credit text and URL
 const creditTextConfig = backgroundWallpaper.banner?.credit?.text;
 const creditTextDesktop =
 	typeof creditTextConfig === "object"
@@ -123,13 +123,13 @@ const creditUrlMobile =
 		? creditUrlConfig.mobile
 		: creditUrlConfig;
 
-// 检查是否为首页
+// Check if homepage
 const isHomePageCheck = isHomePage(Astro.url.pathname);
 
-// 检查是否在文章详情页
+// Check if in post detail page
 const isPostPage = !!postSlug;
 
-// 随机选择副标题（当打字机关闭且为数组时）
+// Randomly select subtitle (when typewriter is off and subtitle is an array)
 const getRandomSubtitle = () => {
 	const subtitle = backgroundWallpaper.banner?.homeText?.subtitle;
 	if (Array.isArray(subtitle)) {
@@ -140,7 +140,7 @@ const getRandomSubtitle = () => {
 };
 const randomSubtitle = getRandomSubtitle();
 
-// 主页横幅文本只在首页且全局开关为 true 时显示，不区分设备
+// Home banner text only shown on homepage if enabled
 const homeTextEnable = backgroundWallpaper.banner?.homeText?.enable;
 const showHomeText = isBannerMode && !!homeTextEnable && isHomePageCheck;
 
@@ -159,30 +159,30 @@ const showBannerPageTitle =
 	!isHomePageCheck &&
 	!isPostPage &&
 	!!title;
-// 手机端非首页不显示banner的CSS类
+// CSS class to hide banner on mobile non-home pages
 const mobileNonHomeBannerClass = !isHomePageCheck ? "mobile-hide-banner" : "";
 
-// 计算主内容区域位置，考虑手机端非首页时banner被隐藏
+// Calculate main content position, accounting for hidden banner on mobile non-home
 const mainPanelTop =
 	isBannerMode && isBackgroundEnabled
 		? `calc(${BANNER_HEIGHT}vh - ${MAIN_PANEL_OVERLAPS_BANNER_HEIGHT}rem)`
 		: "5.5rem";
 
-// 当banner模式被禁用时，主内容区域应该始终从顶栏下面开始
-// 非首页在小于1024px时会通过 mobile-main-no-banner CSS类覆盖top值为5.5rem
+// When banner mode is disabled, the main panel should start below navbar
+// For non-home pages <1024px, the mobile-main-no-banner class overrides top to 5.5rem
 const finalMainPanelTop =
 	isBannerMode && isBackgroundEnabled ? mainPanelTop : "5.5rem";
 
-// 获取响应式侧边栏配置
+// Get responsive sidebar configuration
 const sidebarConfig = getResponsiveSidebarConfig();
 
-// 在文章页面且启用了showBothSidebarsOnPostPage时，确保对侧组件参与网格计算
+// Ensure both sidebars are accounted for in grid calculation on post pages if enabled
 const shouldShowBothSidebarsOnPostPage: boolean =
 	isPostPage &&
 	sidebarLayoutConfig.position !== "both" &&
 	!!sidebarLayoutConfig.showBothSidebarsOnPostPage;
 
-// position为left时，对侧为右侧；position为right时，对侧为左侧
+// If position=left, opposite is right; if position=right, opposite is left
 const shouldAddRightSidebar: boolean =
 	shouldShowBothSidebarsOnPostPage && sidebarLayoutConfig.position === "left";
 const shouldAddLeftSidebar: boolean =
@@ -199,8 +199,8 @@ const effectiveHasLeftComponents: boolean =
 	(shouldAddLeftSidebar &&
 		sidebarLayoutConfig.leftComponents.some((comp) => comp.enable));
 
-// 使用effective值重新生成网格类
-// 当position为right且文章页临时显示左侧栏时，tabletSidebar应为right（保持显示主侧栏）
+// Regenerate grid classes with effective values
+// If position=right and left sidebar is shown on post page, tabletSidebar should be right
 const effectiveTabletSidebar = shouldAddLeftSidebar
 	? ("right" as const)
 	: sidebarConfig.tabletSidebar;
@@ -229,7 +229,7 @@ if (
 	updatedGridConfig.hasLeftComponents &&
 	updatedGridConfig.hasRightComponents
 ) {
-	// 双侧栏：Footer 在平板与桌面都跟随内容列
+	// Dual sidebars: Footer follows content column on tablet and desktop
 	if (updatedGridConfig.tabletSidebar === "right") {
 		footerClass.push(
 			"md:col-start-1 md:col-span-1 xl:col-start-2 xl:col-span-1",
@@ -243,13 +243,13 @@ if (
 	updatedGridConfig.hasLeftComponents &&
 	!updatedGridConfig.hasRightComponents
 ) {
-	// 仅左侧栏：内容列在第2列
+	// Left sidebar only: Content column in index 2
 	footerClass.push("md:col-start-2 md:col-span-1 xl:col-start-2 xl:col-span-1");
 } else if (
 	!updatedGridConfig.hasLeftComponents &&
 	updatedGridConfig.hasRightComponents
 ) {
-	// 仅右侧栏：内容列在第1列
+	// Right sidebar only: Content column in index 1
 	footerClass.push("md:col-start-1 md:col-span-1 xl:col-start-1 xl:col-span-1");
 } else {
 	footerClass.push("md:col-start-1 md:col-span-1 xl:col-start-1 xl:col-span-1");
@@ -257,10 +257,10 @@ if (
 
 const footerClassName = footerClass.join(" ");
 
-// 检查是否应该启用半透明效果
+// Check for semi-transparency
 const shouldEnableTransparency = isOverlayMode && isBackgroundEnabled;
 
-// 为组件添加半透明效果的CSS类
+// Add transparency class to components
 const transparentClass = shouldEnableTransparency
 	? "wallpaper-transparent"
 	: "";
@@ -276,7 +276,7 @@ const mobileQuality = Math.round(configQuality * 0.9);
 <Layout title={title} banner={banner} description={description} lang={lang} setOGTypeArticle={setOGTypeArticle} postSlug={postSlug}>
 
 
-<!-- 为全屏壁纸模式添加body类 -->
+<!-- Add body class for fullscreen wallpaper mode -->
 {shouldEnableTransparency && (
 	<script>
 		document.body.classList.add('wallpaper-transparent');
@@ -304,7 +304,7 @@ const mobileQuality = Math.round(configQuality * 0.9);
     </div>
 </div>
 
-<!-- Wallpaper - 如果允许切换则始终渲染，否则只渲染当前模式 -->
+<!-- Wallpaper - render always if switchable, otherwise only current mode -->
 {(isWallpaperSwitchable || isBannerMode || isOverlayMode) && (
 <div id="wallpaper-wrapper" class:list={[
 	`absolute z-10 w-full transition duration-700 overflow-hidden ${mobileNonHomeBannerClass}`,
@@ -316,11 +316,11 @@ const mobileQuality = Math.round(configQuality * 0.9);
 			? `--overlay-opacity: ${backgroundWallpaper.overlay?.opacity ?? 0.8}; --overlay-z-index: ${backgroundWallpaper.overlay?.zIndex ?? -1}; --overlay-blur: ${backgroundWallpaper.overlay?.blur ?? 0}px;`
 			: `top: -${BANNER_HEIGHT_EXTEND}vh`
 }>
-    <!-- 背景图片显示 -->
+    <!-- Background images -->
     <div class="relative h-full w-full" id="banner-images-container"
          data-mobile-count={backgroundImages.mobile.length}
          data-desktop-count={backgroundImages.desktop.length}>
-        <!-- Mobile: 默认渲染第一张，其余放入 template 避免浏览器预加载 -->
+        <!-- Mobile: First image renders by default, others in template to avoid preloading -->
         {backgroundImages.mobile.length > 0 && (
             <div class="banner-image-slot-mobile absolute inset-0 block lg:hidden">
                 <ImageWrapper
@@ -351,7 +351,7 @@ const mobileQuality = Math.round(configQuality * 0.9);
                 />
             </template>
         ))}
-        <!-- Desktop: 默认渲染第一张，其余放入 template -->
+        <!-- Desktop: First image renders by default, others in template -->
         {backgroundImages.desktop.length > 0 && (
             <div class="banner-image-slot-desktop absolute inset-0 hidden lg:block">
                 <ImageWrapper
@@ -386,7 +386,7 @@ const mobileQuality = Math.round(configQuality * 0.9);
         ))}
     </div>
 
-    <!-- 客户端随机选择图片脚本 -->
+    <!-- Client-side script for random image selection -->
     <script is:inline data-swup-ignore-script>
         (function randomizeBannerImage() {
             var container = document.getElementById('banner-images-container');
@@ -397,7 +397,7 @@ const mobileQuality = Math.round(configQuality * 0.9);
 
             if (mobileCount <= 1 && desktopCount <= 1) return;
 
-            // F5 刷新重置，Swup 切换保留
+            // Reset on F5 refresh, persistent with Swup transitions
             if (typeof window.__bannerRandomIndex === 'undefined') {
                 window.__bannerRandomIndex = {
                     mobile: mobileCount > 1 ? Math.floor(Math.random() * mobileCount) : 0,
@@ -405,7 +405,7 @@ const mobileQuality = Math.round(configQuality * 0.9);
                 };
             }
 
-            // 从 template 替换默认图片（index 0 = 已渲染的默认图，>0 = template）
+            // Replace default image from template (index 0 is default, >0 is template)
             function applyRandom(slotClass, tplClass, randomIndex) {
                 if (randomIndex === 0) return;
                 var slot = container.querySelector('.' + slotClass);
@@ -426,7 +426,7 @@ const mobileQuality = Math.round(configQuality * 0.9);
         {showBannerDim && <div class="banner-dim-overlay absolute inset-0"></div>}
     </div>
 
-    <div id="banner-overlay-container" class="absolute inset-0 z-20 pointer-events-none transition-swup-fade">    <!-- Home page text overlay - 始终渲染以便切换模式时控制显示 -->
+    <div id="banner-overlay-container" class="absolute inset-0 z-20 pointer-events-none transition-swup-fade">    <!-- Home page text overlay - Render always for mode switching -->
     {homeTextEnable && (
         <div class={`banner-home-text-overlay absolute inset-0 z-20 flex items-center justify-center ${!showHomeText ? 'hidden' : ''}`}>
             <div class="w-4/5 lg:w-3/4 text-center mb-0">
@@ -539,7 +539,7 @@ const mobileQuality = Math.round(configQuality * 0.9);
     )}
     </div>
 
-    <!-- Water waves effect - 如果允许切换或任一设备启用则渲染 -->
+    <!-- Water waves effect - Render if switchable or enabled on any device -->
     {shouldRenderWaves ? (
     <div class={`waves absolute -bottom-px h-[10vh] max-h-37.5 min-h-12.5 w-full md:h-[15vh]
         ${!wavesEnabledOnMobile ? 'hidden' : ''} ${!wavesEnabledOnDesktop ? 'md:hidden' : ''} ${wavesEnabledOnDesktop ? 'md:block' : ''}`}
@@ -592,7 +592,7 @@ const mobileQuality = Math.round(configQuality * 0.9);
 </div>
 )}
 
-{/* 当壁纸未渲染时，添加空的 Swup 占位容器，避免 Swup 找不到容器而回退为整页加载 */}
+<!-- Render empty Swup placeholder if wallpaper is disabled to avoid whole-page reloads -->
 {!(isWallpaperSwitchable || isBannerMode || isOverlayMode) && (
 <>
     <div id="banner-overlay-container" class="hidden"></div>
@@ -651,11 +651,11 @@ const mobileQuality = Math.round(configQuality * 0.9);
             </a>}
 
 
-            {/* 渲染左侧边栏 - 根据position和tabletSidebar配置显示 */}
+            {/* Render left sidebar - Based on position and tabletSidebar config */}
             {/*
-                如果全局配置为双侧栏(position: both)或仅左侧栏(position: left)，则使用静态容器(不被swup替换)，避免闪烁。
-                如果全局配置为仅右侧栏(position: right)，则使用动态容器(被swup替换)，以便在文章页显示左侧栏。
-                注意：为了满足swup要求所有containers必须存在，我们在所有模式下都必须渲染 #left-sidebar-dynamic。
+                If position is 'both' or 'left', use a static container (not replaced by swup) to avoid flickering.
+                If position is 'right', use a dynamic container (swup-replaced) to show left sidebar on post pages.
+                Note: All swup containers must exist in all modes, so #left-sidebar-dynamic is always rendered.
             */}
             {sidebarLayoutConfig.position !== "right" ? (
                 <>
@@ -680,14 +680,14 @@ const mobileQuality = Math.round(configQuality * 0.9);
                     
             {/* 主内容区包装器 - 包含静态栏位和swup容器，作为单个grid item */}
             <div class={staticBarClass}>
-                {/* 分类导航栏 - 在所有页面渲染，由客户端JS控制显隐 */}
+                {/* Category navigation bar - Rendered on all pages, visibility controlled by client JS */}
                 {siteConfig.categoryBar && <CategoryBar />}
 
-                {/* 主内容区 - 始终渲染，确保 Swup 容器存在 */}
+                {/* Main content area - Render always to ensure Swup container presence */}
                 <main id="swup-container" class="transition-main">
-                {/* 携带网格布局类名，用于JS更新父容器 */}
+                {/* Carry grid layout class for JS updates of parent container */}
                 <div id="grid-class-carrier" data-grid-class={gridCols} class="hidden"></div>
-                {/* 为每个页面提供一个隐藏的h1标题，用于SEO和可访问性 */}
+                {/* Hidden h1 title for SEO and accessibility */}
                 <h1 class="sr-only">{title}</h1>
                 <div id="content-wrapper" class="onload-animation transition-leaving">
                     <slot></slot>
@@ -695,12 +695,11 @@ const mobileQuality = Math.round(configQuality * 0.9);
             </main>
             </div>
 
-            {/* 右侧边栏 - 双侧边栏模式或仅右侧栏模式 */}
+            {/* Right sidebar - Dual or right-only modes */}
             {/*
-                如果全局配置为双侧栏(position: both)或仅右侧栏(position: right)，则使用静态容器(不被swup替换)，避免闪烁。
-                如果全局配置为单侧栏(position: left)，则使用动态容器(被swup替换)，以便在文章页显示右侧栏。
-                注意：为了满足swup要求所有containers必须存在，我们在所有模式下都必须渲染 #right-sidebar-dynamic。
-                右侧边栏的显示由CSS类控制。
+                If position is 'both' or 'right', use a static container to avoid flickering.
+                If position is 'left', use a dynamic container to show right sidebar on post pages.
+                Note: All swup containers must exist, so #right-sidebar-dynamic is always rendered.
             */}
             {(sidebarLayoutConfig.position === "both" || sidebarLayoutConfig.position === "right") ? (
                 <>
@@ -719,7 +718,7 @@ const mobileQuality = Math.round(configQuality * 0.9);
                 </div>
             )}
 
-            {/* 移动端底部组件 - 768px及以下显示 */}
+            {/* Mobile bottom components - Shown at 768px and below */}
             {sidebarLayoutConfig.mobileBottomComponents && sidebarLayoutConfig.mobileBottomComponents.length > 0 && (
                 <div id="mobile-bottom-sidebar" class="col-span-1 block md:hidden mt-4">
                     <SideBar side="bottom" class={`${transparentClass}`} headings={headings}></SideBar>
@@ -742,7 +741,7 @@ const mobileQuality = Math.round(configQuality * 0.9);
 </Layout>
 
 <style is:global>
-  /* 右侧栏平滑过渡 */
+  /* Smooth transition for right sidebar */
   #right-sidebar {
     transition: opacity 0.35s ease-in-out,
                 transform 0.35s ease-in-out;

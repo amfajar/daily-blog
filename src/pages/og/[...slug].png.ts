@@ -30,7 +30,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
 	const publishedPosts = allPosts.filter((post) => !post.data.draft);
 
 	return publishedPosts.map((post) => {
-		// 将 id 转换为 slug（移除扩展名）以匹配路由参数
+		// Convert id to slug (remove extension) to match route params
 		const slug = removeFileExtension(post.id);
 		return {
 			params: { slug },
@@ -106,12 +106,12 @@ export async function GET({
 	// Avatar + icon: still read from disk (small assets)
 	let avatarBase64: string;
 
-	// 检查头像是否为 URL
+	// Check if avatar is a URL
 	if (profileConfig.avatar?.startsWith("http")) {
-		// 如果是 URL，直接使用
+		// If it's a URL, use it directly
 		avatarBase64 = profileConfig.avatar;
 	} else {
-		// 如果是本地路径，从 public 目录读取
+		// If it's a local path, read from the public directory
 		const avatarPath = profileConfig.avatar?.startsWith("/")
 			? `./public${profileConfig.avatar}`
 			: `./src/${profileConfig.avatar}`;

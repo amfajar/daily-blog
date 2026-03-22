@@ -23,7 +23,7 @@ export function getLanguageDisplayName(langCode: string): string {
 		chinese_simplified: "Simplified Chinese",
 		chinese_traditional: "Traditional Chinese",
 		english: "English",
-		japanese: "日本語",
+		japanese: "Japanese",
 		korean: "한국어",
 		spanish: "Español",
 		thai: "ไทย",

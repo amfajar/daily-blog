@@ -1,44 +1,44 @@
 export type UserSubjectCollectionResponse = {
-	data: UserSubjectCollection[];
-	total: number;
-	limit: number;
-	offset: number;
+	data: UserSubjectCollection[]; // Item list
+	total: number; // Total count
+	limit: number; // Items per page
+	offset: number; // Current offset
 };
 
 export type UserSubjectCollection = {
-	subject_id: number; // 条目 ID
-	subject_type: SubjectType; // 条目类型
-	rate: number; // 评分
-	type: CollectionType; // 收藏类型
-	comment?: string | null; // 评价
-	tags: string[]; // 标签
-	ep_status: number; // 章节进度
-	vol_status: number; // 卷进度
-	updated_at: string; // 更新时间（ISO 8601 格式）
-	private: boolean; // 是否私有
-	subject: SlimSubject; // 条目信息
+	subject_id: number; // Subject ID
+	subject_type: SubjectType; // Subject type
+	rate: number; // User rating
+	type: CollectionType; // Collection type
+	comment?: string | null; // User comment
+	tags: string[]; // User tags
+	ep_status: number; // Episode progress
+	vol_status: number; // Volume progress
+	updated_at: string; // Last update time (ISO 8601 format)
+	private: boolean; // Is private
+	subject: SlimSubject; // Subject details
 };
 
-// 1: 想看，2: 看过，3: 在看，4: 搁置，5: 抛弃
+// 1: Wish, 2: Watched, 3: Watching, 4: On Hold, 5: Dropped
 export type CollectionType = 1 | 2 | 3 | 4 | 5;
 
 export type SlimSubject = {
-	id: number; // ID
-	type: SubjectType; // 类型
-	name: string; // 名称
-	name_cn: string; // 中文名
-	short_summary: string; // 简介
-	date?: string | null; // 日期 YYYY-MM-DD
-	images: SubjectImages; // 图片
-	volumes: number; // 卷数
-	eps: number; // 集数
-	collection_total: number; // 收藏人数
-	score: number; // 评分
-	rank: number; // 排名
-	tags: SubjectTag[]; // 标签
+	id: number; // Subject ID
+	type: SubjectType; // Subject type
+	name: string; // Name
+	name_cn: string; // Chinese name
+	short_summary: string; // Short summary
+	date?: string | null; // Date YYYY-MM-DD
+	images: SubjectImages; // Images
+	volumes: number; // Number of volumes
+	eps: number; // Number of episodes
+	collection_total: number; // Total collectors
+	score: number; // Score
+	rank: number; // Rank
+	tags: SubjectTag[]; // Tags
 };
 
-// 1: 书籍，2: 动画，3: 音乐，4: 游戏，6: 三次元
+// 1: Book, 2: Anime, 3: Music, 4: Game, 6: Real
 export type SubjectType = 1 | 2 | 3 | 4 | 6;
 
 export type SubjectTag = {

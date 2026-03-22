@@ -1,25 +1,25 @@
 /**
- * 统一导航栏样式
+ * Unified Navigation Bar Styles
  * 
- * 模式说明：
+ * Mode Description:
  * ============================================
- * 1. 壁纸模式 (backgroundWallpaper.mode):
- *    - "banner": 横幅壁纸模式 (有 #wallpaper-wrapper)
- *    - "overlay": 全屏壁纸模式 (body.wallpaper-transparent)
- *    - "none": 纯色背景无壁纸
+ * 1. Wallpaper Mode (backgroundWallpaper.mode):
+ *    - "banner": Banner wallpaper mode (with #wallpaper-wrapper)
+ *    - "overlay": Fullscreen wallpaper mode (body.wallpaper-transparent)
+ *    - "none": Solid color background without wallpaper
  * 
- * 2. 导航栏配置 (banner.navbar):
- *    - transparentMode: "semi" | "full" | "semifull" (仅在 Banner 模式下生效)
- *    - enableBlur: true/false (仅在 Banner 模式下生效)
+ * 2. Navigation Bar Config (banner.navbar):
+ *    - transparentMode: "semi" | "full" | "semifull" (Only effective in Banner mode)
+ *    - enableBlur: true/false (Only effective in Banner mode)
  * 
- * 注意：Overlay 模式下的导航栏始终跟随卡片样式 (var(--card-bg-transparent) + blur)，
- * 不受 Banner 配置 (transparentMode, enableBlur) 的影响。
+ * Note: In Overlay mode, the navigation bar always follows the card style (var(--card-bg-transparent) + blur),
+ * independent of Banner configurations (transparentMode, enableBlur).
  * ============================================
  */
 
 /* ============================================
- * 基础导航栏样式
- * 适用: 所有模式，所有设备
+ * Base Navigation Bar Styles
+ * Applicable: All modes, all devices
  * ============================================ */
 #navbar>div {
     background: var(--card-bg);
@@ -28,7 +28,7 @@
     transition: all var(--duration-medium) var(--ease-standard);
 }
 
-/* 通用滚动阴影：用于提升导航栏与页面内容的分层感 */
+/* Universal scroll shadow: Used to enhance the layered feel between navigation bar and page content */
 #navbar.navbar-sticky-shadow>div {
     box-shadow: var(--shadow-navbar) !important;
 }
@@ -38,9 +38,9 @@
 }
 
 /* ============================================
- * 桌面端 - 亮色主题 - Banner模式
- * 适用: 桌面端(≥1024px) + Banner模式 + 亮色主题
- * 遵循: transparentMode, enableBlur 配置
+ * Desktop - Light Theme - Banner Mode
+ * Applicable: Desktop (≥1024px) + Banner Mode + Light Theme
+ * Follows: transparentMode, enableBlur configurations
  * ============================================ */
 @media (min-width: 1024px) {
 
@@ -90,8 +90,8 @@
 }
 
 /* ============================================
- * 移动端 - 亮色主题 - Banner模式
- * 适用: 移动端(≤1023px) + Banner模式 + 亮色主题 + 仅首页生效
+ * Mobile - Light Theme - Banner Mode
+ * Applicable: Mobile (≤1023px) + Banner Mode + Light Theme + Home Page Only
  * ============================================ */
 @media (max-width: 1023px) {
 
@@ -141,7 +141,7 @@
 }
 
 /* ============================================
- * 桌面端 - 暗色主题 - Banner模式
+ * Desktop - Dark Theme - Banner Mode
  * ============================================ */
 @media (min-width: 1024px) {
 
@@ -179,7 +179,7 @@
 }
 
 /* ============================================
- * 移动端 - 暗色主题 - Banner模式
+ * Mobile - Dark Theme - Banner Mode
  * ============================================ */
 @media (max-width: 1023px) {
 
@@ -218,7 +218,7 @@
 
 
 /* ============================================
- * 关闭毛玻璃模糊效果 - Banner模式
+ * Disable glass blur effect - Banner Mode
  * ============================================ */
 body:has(#wallpaper-wrapper) #navbar[data-transparent-mode="semi"][data-enable-blur="false"]>div,
 body:has(#wallpaper-wrapper) #navbar[data-transparent-mode="semi"][data-enable-blur="false"].scrolled>div {
@@ -235,7 +235,7 @@ body:has(#wallpaper-wrapper) #navbar[data-transparent-mode="semifull"][data-enab
     backdrop-filter: none !important;
 }
 
-/* 页面切换期间强制 semifull 保持透明，避免自动回顶时出现背景闪烁 */
+/* Force semifull to stay transparent during page transitions to avoid background flickering during scroll-to-top */
 .is-page-transitioning #wallpaper-wrapper~* #navbar[data-transparent-mode="semifull"]>div,
 .is-page-transitioning #wallpaper-wrapper~* #navbar[data-transparent-mode="semifull"].scrolled>div,
 .is-page-transitioning body:has(#wallpaper-wrapper) #navbar[data-transparent-mode="semifull"]>div,
@@ -248,8 +248,8 @@ body:has(#wallpaper-wrapper) #navbar[data-transparent-mode="semifull"][data-enab
 }
 
 
-/* 调整下拉菜单和浮动面板的背景透明度 */
-/* 亮色主题 */
+/* Adjust background transparency of dropdown menus and floating panels */
+/* Light Theme */
 #wallpaper-wrapper~* .dropdown-content,
 #wallpaper-wrapper~* .float-panel,
 body:has(#wallpaper-wrapper) .dropdown-content,
@@ -261,7 +261,7 @@ body.wallpaper-transparent .float-panel {
     border: 1px solid rgba(0, 0, 0, 0.05) !important;
 }
 
-/* 暗色主题 */
+/* Dark Theme */
 :root.dark #wallpaper-wrapper~* .dropdown-content,
 :root.dark #wallpaper-wrapper~* .float-panel,
 :root.dark body:has(#wallpaper-wrapper) .dropdown-content,
@@ -274,11 +274,11 @@ body.wallpaper-transparent .float-panel {
 }
 
 /* ============================================
- * 全宽导航栏适配 (Full Width Navbar)
- * 确保在开启全宽模式时覆盖所有圆角和宽度限制
- * 针对所有模式（Banner模式、壁纸模式、透明模式）统一去除圆角
- * 使用高优先级选择器确保覆盖原主题样式
- * 仅在桌面端 (min-width: 1024px) 生效，移动端保留圆角
+ * Full Width Navbar Adaptation
+ * Ensure all border-radius and width limits are overridden when full-width mode is enabled
+ * Uniformly remove border-radius for all modes (Banner, Wallpaper, Transparent)
+ * Use high-priority selectors to ensure original theme styles are overridden
+ * Effective only on desktop (min-width: 1024px); mobile retains border-radius
  * ============================================ */
 @media (min-width: 1024px) {
     #navbar-wrapper #navbar[data-full-width="true"] > div,
@@ -293,7 +293,7 @@ body.wallpaper-transparent .float-panel {
 }
 
 /* ============================================
- * 小于1280px时隐藏导航栏菜单图标
+ * Hide navigation bar menu icons below 1280px
  * ============================================ */
 @media (max-width: 1279px) {
     .navbar-icon {

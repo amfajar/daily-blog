@@ -129,7 +129,7 @@
         
         img {
           @apply object-cover w-full grow rounded-xl m-0;
-          /* 使图片自动填满所在网格高度（自适应裁剪居中，不拉伸变形） */
+          /* Make images automatically fill the grid height (adaptive cropping centered, no distortion) */
           height: 100%;
         }
         

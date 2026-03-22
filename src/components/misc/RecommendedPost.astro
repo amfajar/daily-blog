@@ -17,7 +17,7 @@ const relatedIds = JSON.stringify(relatedPosts.map((p) => p.id));
 ---
 
 <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
-  {/* 左栏：相关文章（静态） */}
+  {/* Left column: Related posts (static) */}
   {relatedPosts.length > 0 && (
     <div class="card-base p-5 md:p-6 flex flex-col">
       <div class="flex items-center gap-2 pb-3 mb-1 border-b border-dashed border-(--line-divider)">
@@ -66,7 +66,7 @@ const relatedIds = JSON.stringify(relatedPosts.map((p) => p.id));
     </div>
   )}
 
-  {/* 右栏：随机文章（客户端 fetch 渲染） */}
+  {/* Right column: Random posts (client-side fetch rendering) */}
   <div class="card-base p-5 md:p-6 flex flex-col">
     <div class="flex items-center gap-2 pb-3 mb-1 border-b border-dashed border-(--line-divider)">
       <Icon
@@ -175,7 +175,7 @@ function renderRandomPosts() {
     container.appendChild(fragment);
   }
 
-  // 使用缓存避免 swup 导航时重复请求
+  // Use cache to avoid redundant requests during swup navigation
   if (window.__allPostMetaCache) {
     render(window.__allPostMetaCache);
   } else {

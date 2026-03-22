@@ -9,17 +9,17 @@
 
 @plugin '@tailwindcss/typography';
 
-/* 暗色模式选择器配置 */
+/* Dark mode selector configuration */
 @custom-variant dark (&:where(.dark, .dark *));
 
-/* Tailwind v4 配置 - 从 tailwind.config.cjs 迁移 */
+/* Tailwind v4 config - migrated from tailwind.config.cjs */
 @theme {
   --font-sans:
     'Roboto', 'sans-serif', ui-sans-serif, system-ui, sans-serif,
     'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
 }
 
-/* 自定义工具类 - Tailwind v4 使用 @utility 定义 */
+/* Custom utilities - Defined with @utility in Tailwind v4 */
 @utility expand-animation {
   position: relative;
   z-index: 0;
@@ -44,12 +44,12 @@
   }
 }
 
-/* 确保平滑滚动 */
+/* Ensure smooth scrolling */
 html {
     scroll-behavior: smooth;
 }
 
-/* 页面顶部渐变高光效果 */
+/* Top gradient highlight effect */
 .top-gradient-highlight {
     position: fixed;
     top: 0;
@@ -62,43 +62,43 @@ html {
     transition: all var(--duration-medium) var(--ease-standard);
 }
 
-/* 暗色主题下的渐变高光效果 */
+/* Top gradient highlight in dark theme */
 :root.dark .top-gradient-highlight {
     background: linear-gradient(to bottom, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0.3) 30%, rgba(0, 0, 0, 0.15) 60%, rgba(0, 0, 0, 0.05) 80%, transparent 100%);
 }
 
 @layer components {
-    /* View Transitions API 主题切换动画 */
-    /* 为整个文档根元素设置视图过渡 */
+    /* View Transitions API theme toggle animation */
+    /* Set view transition for the document root */
     ::view-transition-old(root),
     ::view-transition-new(root) {
         animation-duration: 0.5s;
         animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-        /* 使用混合模式使颜色过渡更平滑 */
+        /* Use blend mode for smoother color transitions */
         mix-blend-mode: normal;
     }
     
-    /* 视图过渡组 - 使用交叉淡化效果 */
+    /* View transition group - Use cross-fade effect */
     ::view-transition-group(root) {
         animation-duration: 0.5s;
         animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
     }
     
-    /* 淡出旧视图 - 使用更平滑的曲线 */
+    /* Fade out old view - Use smoother curve */
     ::view-transition-old(root) {
         animation-name: theme-fade-out;
-        /* 确保背景色同步切换 */
+        /* Ensure background color switches synchronously */
         z-index: 2;
     }
     
-    /* 淡入新视图 - 使用更平滑的曲线 */
+    /* Fade in new view - Use smoother curve */
     ::view-transition-new(root) {
         animation-name: theme-fade-in;
-        /* 确保新视图在上层 */
+        /* Ensure new view is on top */
         z-index: 1;
     }
     
-    /* 定义淡出动画 - 使用更平滑的缓动函数 */
+    /* Define fade-out animation - Use smoother easing function */
     @keyframes theme-fade-out {
         0% {
             opacity: 1;
@@ -108,7 +108,7 @@ html {
         }
     }
     
-    /* 定义淡入动画 - 从下层淡入 */
+    /* Define fade-in animation - Fade in from below */
     @keyframes theme-fade-in {
         0% {
             opacity: 0;
@@ -118,7 +118,7 @@ html {
         }
     }
     
-    /* 确保边框和分隔线元素在主题切换时有更明确的过渡时长 */
+    /* Ensure borders and dividers have clear transition durations during theme changes */
     .transition,
     [class*="border"],
     [class*="transition"] {
@@ -127,8 +127,8 @@ html {
         transition-duration: 0.15s;
     }
     
-    /* 主题过渡保护类 - 仅在非 View Transitions 模式下使用 */
-    /* 当使用 View Transitions API 时，浏览器会自动处理过渡，不需要禁用 transition */
+    /* Theme transition protection class - Only used in non-View Transitions mode */
+    /* Browser handles transitions automatically with View Transitions API; no need to disable transitions */
     .is-theme-transitioning:not(.use-view-transition) *,
     .is-theme-transitioning:not(.use-view-transition) *::before,
     .is-theme-transitioning:not(.use-view-transition) *::after {
@@ -136,8 +136,8 @@ html {
         animation: none !important;
     }
     
-    /* 在主题切换时禁用代码块的复杂效果以提升性能 */
-    /* 使用 View Transitions 时也需要禁用代码块动画，因为它们太多了 */
+    /* Disable complex code block effects during theme changes to improve performance */
+    /* Also disable code block animations with View Transitions as there are too many */
     .is-theme-transitioning .expressive-code,
     .is-theme-transitioning .expressive-code * {
         transition: none !important;
@@ -145,7 +145,7 @@ html {
         will-change: auto !important;
     }
     
-    /* 禁用复杂选择器元素的过渡 - 仅在非 View Transitions 模式下 */
+    /* Disable transitions for complex selectors - Only in non-View Transitions mode */
     .is-theme-transitioning:not(.use-view-transition) .float-panel,
     .is-theme-transitioning:not(.use-view-transition) .float-panel *,
     .is-theme-transitioning:not(.use-view-transition) .music-player,
@@ -158,22 +158,22 @@ html {
         animation: none !important;
     }
     
-    /* 强制使用 contain 隔离渲染上下文 - 仅在非 View Transitions 模式下 */
+    /* Force contain to isolate rendering context - Only in non-View Transitions mode */
     .is-theme-transitioning:not(.use-view-transition) .post-card,
     .is-theme-transitioning:not(.use-view-transition) .widget,
     .is-theme-transitioning:not(.use-view-transition) .float-panel {
         contain: layout style paint !important;
     }
     
-    /* 水波纹效果精确同步处理 - 仅在非 View Transitions 模式下 */
+    /* Waves effect precise sync handling - Only in non-View Transitions mode */
     .is-theme-transitioning:not(.use-view-transition) svg use {
-        /* 禁用过渡但保持动画 */
+        /* Disable transition but keep animation */
         transition: none;
-        /* 强制立即继承页面背景色 */
+        /* Force immediate inheritance of page background color */
         fill: currentColor;
     }
     
-    /* 导航栏主题切换保护 - 仅在非 View Transitions 模式下禁用过渡 */
+    /* Navbar theme toggle protection - Disable transitions only in non-View Transitions mode */
     .is-theme-transitioning:not(.use-view-transition) #navbar > div,
     .is-theme-transitioning:not(.use-view-transition) #navbar[data-transparent-mode] > div,
     .is-theme-transitioning:not(.use-view-transition) #navbar[data-transparent-mode].scrolled > div,
@@ -188,7 +188,7 @@ html {
         backdrop-filter: none !important;
     }
     
-    /* 导航栏相关浮动面板的过渡禁用 */
+    /* Disable transitions for navbar-related floating panels */
     .is-theme-transitioning .dropdown-content,
     .is-theme-transitioning .float-panel,
     .is-theme-transitioning #display-setting,
@@ -200,24 +200,24 @@ html {
         backdrop-filter: none !important;
     }
     
-    /* 水波纹容器的颜色传递 */
+    /* Color passing for waves container */
     .is-theme-transitioning #header-waves {
-        /* 设置当前颜色为页面背景色，供SVG继承 */
+        /* Set current color to page background, for SVG inheritance */
         color: var(--page-bg);
-        /* 确保与页面在同一合成层 */
+        /* Ensure it's on the same composite layer as the page */
         isolation: isolate;
-        /* 优化渲染性能 */
+        /* Optimize rendering performance */
         contain: layout style paint;
-        /* GPU层合成 */
+        /* GPU layer compositing */
         transform: translateZ(0);
-        /* 确保没有背景色 */
+        /* Ensure no background color */
         background: transparent;
     }
     
     .is-theme-transitioning #header-waves use {
-        /* 保持动画连续性 */
+        /* Maintain animation continuity */
         will-change: transform;
-        /* GPU优化 */
+        /* GPU optimization */
         transform: translateZ(0);
     }
     
@@ -228,7 +228,7 @@ html {
         @apply rounded-(--radius-large) overflow-hidden bg-(--card-bg-transparent) transition-colors duration-150;
     }
 
-    /* 开启边框和阴影效果时的样式 */
+    /* Styles when border and shadow effects are enabled */
     .enable-card-border .card-base {
         @apply transition-all duration-300 border border-(--line-divider) shadow-xs;
     }
@@ -236,13 +236,13 @@ html {
         @apply transition-all duration-300 border border-(--line-divider) shadow-xs;
     }
 
-    /* 导航栏样式适配 */
+    /* Navbar style adaptation */
     .enable-card-border #navbar > div:not(.absolute) {
         @apply transition-all duration-300 border shadow-xs;
         border-color: var(--line-divider) !important;
     }
     
-    /* 全屏壁纸模式下的半透明效果 */
+    /* Translucency effect in fullscreen wallpaper mode */
     .wallpaper-transparent .card-base {
         background-color: var(--card-bg-transparent) !important;
     }
@@ -252,7 +252,7 @@ html {
         background-color: var(--card-bg-transparent) !important;
     }
 
-    /* Overlay 模式下，滚动后提高导航栏背景模糊度，增强与正文区分 */
+    /* In Overlay mode, increase navbar blur after scroll to enhance distinction from content */
     .wallpaper-transparent #navbar.navbar-sticky-shadow > div {
         backdrop-filter: blur(20px) !important;
      
@@ -354,7 +354,7 @@ html {
         @apply text-black/25 dark:text-white/25
     }
 
-    /* 下拉菜单样式 */
+    /* Dropdown menu styles */
     .dropdown-container {
         @apply relative;
     }
@@ -389,7 +389,7 @@ html {
         @apply rounded-b-[calc(var(--radius-large)-0.5rem)];
     }
 
-    /* 移动端菜单样式 */
+    /* Mobile menu styles */
     .mobile-submenu {
         @apply max-h-0 overflow-hidden transition-all duration-300 ease-in-out;
     }
@@ -402,14 +402,14 @@ html {
         @apply rotate-180;
     }
 
-    /* 响应式隐藏 */
+    /* Responsive hide */
     @media (max-width: 768px) {
         .dropdown-container {
             @apply hidden;
         }
     }
 
-    /* 无障碍支持 */
+    /* Accessibility support */
     .dropdown-container:focus-within .dropdown-menu {
         @apply opacity-100 visible pointer-events-auto translate-y-0;
     }
@@ -466,7 +466,7 @@ html {
 }
 
 
-/*剧透效果*/
+/* Spoiler effect */
 .custom-md spoiler {
   --_spoiler-mask: var(--primary);
   @apply hover:bg-transparent px-1 py-0.5 overflow-hidden rounded-md transition-all duration-150;
@@ -480,12 +480,12 @@ html {
   }
 }
 
-/* 浅色模式：使用更浅的主题色且完全不透明 */
+/* Light Mode: Use a lighter theme color and keep it fully opaque */
 :root:not(.dark) .custom-md spoiler {
   --_spoiler-mask: color-mix(in oklch, var(--primary) 55%, white 45%);
 }
 
-/* 文章列表布局切换样式 */
+/* Post list layout switch styles */
 .post-list-layout-switch {
   @apply flex items-center gap-2 mb-6 p-3 bg-(--card-bg) rounded-lg border border-(--line-divider);
 }
@@ -510,7 +510,7 @@ html {
   @apply bg-(--bg-secondary) text-(--text-secondary) hover:bg-(--bg-hover);
 }
 
-/* 网格模式下的文章卡片样式调整 */
+/* Post card adjustments in grid mode */
 .post-list-container.grid-mode .post-card-item {
   @apply w-full;
 }
@@ -538,27 +538,27 @@ html {
   @apply line-clamp-2;
 }
 
-/* 网格模式下的卡片内容区域调整 */
+/* Card content area adjustments in grid mode */
 .post-list-container.grid-mode .post-card-item > div {
   @apply p-4;
 }
 
-/* 网格模式下的元数据样式调整 */
+/* Meta data adjustments in grid mode */
 .post-list-container.grid-mode .post-card-item .post-meta {
   @apply mb-2;
 }
 
-/* 网格模式下的描述文本调整 */
+/* Description text adjustments in grid mode */
 .post-list-container.grid-mode .post-card-item .description {
   @apply text-sm mb-2 line-clamp-2;
 }
 
-/* 网格模式下的统计信息调整 */
+/* Stats information adjustments in grid mode */
 .post-list-container.grid-mode .post-card-item .stats {
   @apply text-xs;
 }
 
-/* 响应式分页样式 */
+/* Responsive pagination styles */
 .device-mobile .pagination-info {
   @apply text-xs;
 }
@@ -571,7 +571,7 @@ html {
   @apply text-base;
 }
 
-/* 分页信息样式 */
+/* Pagination info styles */
 .pagination-info {
   @apply text-sm text-(--text-secondary) text-center mb-2;
 }

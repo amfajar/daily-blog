@@ -9,7 +9,7 @@ const config = sakuraConfig;
 		let windowWidth = window.innerWidth;
 		let windowHeight = window.innerHeight;
 
-		// 樱花对象类
+		// Sakura object class
 		class Sakura {
 			constructor(x, y, s, r, a, fn, idx, img, limitArray, config) {
 				this.x = x;
@@ -38,7 +38,7 @@ const config = sakuraConfig;
 				this.y = this.fn.y(this.y, this.y);
 				this.r = this.fn.r(this.r);
 				this.a = this.fn.a(this.a);
-				// 如果樱花越界，重新调整位置
+				// If sakura is out of bounds, reset position
 				if (
 					this.x > windowWidth ||
 					this.x < 0 ||
@@ -46,11 +46,11 @@ const config = sakuraConfig;
 					this.y < 0 ||
 					this.a <= 0
 				) {
-					// 如果樱花不做限制
+					// If sakura has no limit
 					if (this.limitArray[this.idx] === -1) {
 						this.resetPosition();
 					}
-					// 否则樱花有限制
+					// Otherwise sakura has limit
 					else {
 						if (this.limitArray[this.idx] > 0) {
 							this.resetPosition();
@@ -78,7 +78,7 @@ const config = sakuraConfig;
 			}
 		}
 
-		// 樱花列表类
+		// Sakura list class
 		class SakuraList {
 			constructor() {
 				this.list = [];
@@ -109,7 +109,7 @@ const config = sakuraConfig;
 			}
 		}
 
-		// 获取随机值的函数
+		// Function to get random values
 		function getRandom(option, config) {
 			let ret;
 			let random;
@@ -156,7 +156,7 @@ const config = sakuraConfig;
 			return ret;
 		}
 
-		// 樱花管理器类
+		// Sakura manager class
 		class SakuraManager {
 			constructor(config) {
 				this.config = config;
@@ -168,17 +168,17 @@ const config = sakuraConfig;
 				this.isRunning = false;
 			}
 
-			// 初始化樱花特效
+			// Initialize sakura effect
 			async init() {
 				if (!this.config.enable || this.isRunning) {
 					return;
 				}
 
-				// 创建图片对象
+				// Create image object
 				this.img = new Image();
-				this.img.src = '/assets/images/sakura.png'; // 使用樱花图片
+				this.img.src = '/assets/images/sakura.png'; // Use sakura image
 
-				// 等待图片加载完成
+				// Wait for image to load
 				await new Promise((resolve, reject) => {
 					if (this.img) {
 						this.img.onload = () => resolve();
@@ -192,7 +192,7 @@ const config = sakuraConfig;
 				this.isRunning = true;
 			}
 
-			// 创建画布
+			// Create canvas
 			createCanvas() {
 				this.canvas = document.createElement('canvas');
 				this.canvas.height = windowHeight;
@@ -202,11 +202,11 @@ const config = sakuraConfig;
 				document.body.appendChild(this.canvas);
 				this.ctx = this.canvas.getContext('2d');
 
-				// 监听窗口大小变化
+				// Listen for window size changes
 				window.addEventListener('resize', this.handleResize.bind(this));
 			}
 
-			// 创建樱花列表
+			// Create sakura list
 			createSakuraList() {
 				if (!this.img || !this.ctx) return;
 
@@ -247,7 +247,7 @@ const config = sakuraConfig;
 				}
 			}
 
-			// 开始动画
+			// Start animation
 			startAnimation() {
 				if (!this.ctx || !this.canvas || !this.sakuraList) return;
 
@@ -263,7 +263,7 @@ const config = sakuraConfig;
 				this.animationId = requestAnimationFrame(animate);
 			}
 
-			// 处理窗口大小变化
+			// Handle window size changes
 			handleResize() {
 				windowWidth = window.innerWidth;
 				windowHeight = window.innerHeight;
@@ -273,7 +273,7 @@ const config = sakuraConfig;
 				}
 			}
 
-			// 停止樱花特效
+			// Stop sakura effect
 			stop() {
 				if (this.animationId) {
 					cancelAnimationFrame(this.animationId);
@@ -289,7 +289,7 @@ const config = sakuraConfig;
 				this.isRunning = false;
 			}
 
-			// 切换樱花特效
+			// Toggle sakura effect
 			toggle() {
 				if (this.isRunning) {
 					this.stop();
@@ -298,7 +298,7 @@ const config = sakuraConfig;
 				}
 			}
 
-			// 更新配置
+			// Update configuration
 			updateConfig(newConfig) {
 				const wasRunning = this.isRunning;
 				if (wasRunning) {
@@ -310,16 +310,16 @@ const config = sakuraConfig;
 				}
 			}
 
-			// 获取运行状态
+			// Get running status
 			getIsRunning() {
 				return this.isRunning;
 			}
 		}
 
-		// 创建全局樱花管理器实例
+		// Create global sakura manager instance
 		let globalSakuraManager = null;
 
-		// 初始化樱花特效
+		// Initialize sakura effect
 		function initSakura(config) {
 			if (globalSakuraManager) {
 				globalSakuraManager.updateConfig(config);
@@ -331,14 +331,14 @@ const config = sakuraConfig;
 			}
 		}
 
-		// 樱花特效初始化
+		// Sakura effect initialization
 		(function() {
-			// 全局标记，确保樱花特效只初始化一次
+			// Global flag to ensure sakura effect is only initialized once
 			if (window.sakuraInitialized) {
 				return;
 			}
 			
-			// 初始化樱花特效的函数
+			// Function to initialize sakura effect
 			const setupSakura = () => {
 				if (sakuraConfig.enable && !window.sakuraInitialized) {
 					initSakura(sakuraConfig);
@@ -346,7 +346,7 @@ const config = sakuraConfig;
 				}
 			};
 			
-			// 页面加载完成后初始化樱花特效
+			// Initialize sakura effect after page load
 			if (document.readyState === 'loading') {
 				document.addEventListener('DOMContentLoaded', setupSakura);
 			} else {

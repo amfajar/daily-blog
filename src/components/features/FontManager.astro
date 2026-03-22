@@ -3,7 +3,7 @@ import { siteConfig } from "@/config";
 
 const { font: fontConfig } = siteConfig;
 
-// 获取选中的字体
+// Get selected fonts
 const getSelectedFonts = () => {
 	if (!fontConfig.enable || !fontConfig.selected) return [];
 
@@ -13,12 +13,12 @@ const getSelectedFonts = () => {
 
 	return selectedIds
 		.map((id) => fontConfig.fonts[id])
-		.filter((font) => font?.src); // 过滤掉系统字体和不存在的字体
+		.filter((font) => font?.src); // Filter out system fonts and non-existent fonts
 };
 
 const selectedFonts = getSelectedFonts();
 
-// 生成字体CSS类名
+// Generate font CSS class names
 const generateFontClasses = () => {
 	if (!fontConfig.enable) return [];
 
@@ -31,7 +31,7 @@ const generateFontClasses = () => {
 
 const fontClasses = generateFontClasses();
 
-// 生成font-family回退样式
+// Generate font-family fallback style
 const generateFontFamilyStyle = () => {
 	if (!fontConfig.enable || !fontConfig.selected) return "";
 
@@ -55,19 +55,19 @@ const generateFontFamilyStyle = () => {
 const fontFamilyStyle = generateFontFamilyStyle();
 ---
 
-<!-- 字体样式表链接 -->{
+<!-- Font stylesheet links -->{
   selectedFonts.map((font) => {
-    // 判断是否为外部链接
+    // Check if it's an external link
     const isExternalUrl =
       font.src.startsWith("http://") ||
       font.src.startsWith("https://") ||
       font.src.startsWith("//");
 
     if (isExternalUrl) {
-      // 外部字体链接 (如 Google Fonts, CDN等)
+      // External font link (e.g., Google Fonts, CDN, etc.)
       return <link rel="stylesheet" href={font.src} />;
     } else {
-      // 本地字体文件
+      // Local font file
       return (
         <style
           set:html={`
@@ -86,7 +86,7 @@ const fontFamilyStyle = generateFontFamilyStyle();
   })
 }
 
-<!-- 字体预加载链接 -->
+<!-- Font preload links -->
 {
   fontConfig.enable &&
     fontConfig.preload &&
@@ -103,7 +103,7 @@ const fontFamilyStyle = generateFontFamilyStyle();
       ))
 }
 
-<!-- 全局字体样式 -->
+<!-- Global font styles -->
 {
   fontConfig.enable && fontFamilyStyle && (
     <style
@@ -113,12 +113,12 @@ const fontFamilyStyle = generateFontFamilyStyle();
       --font-family-fallback: ${(fontConfig.fallback || []).join(", ")};
     }
     
-    /* 应用自定义字体到body */
+    /* Apply custom font to body */
     body {
       ${fontFamilyStyle}
     }
     
-    /* 为每个选中的字体生成对应的CSS类 */
+    /* Generate CSS classes for each selected font */
     ${selectedFonts
       .map((font) => {
         return `
@@ -130,9 +130,9 @@ const fontFamilyStyle = generateFontFamilyStyle();
       })
       .join("\n")}
     
-    /* 为整体启用字体的body添加类名 */
+    /* Add class name to body when fonts are enabled globally */
     ${fontClasses.map((className) => `.${className}`).join(",\n")} {
-      /* 字体相关的全局样式可以在这里添加 */
+      /* Global styles related to fonts can be added here */
     }
   `}
     />
@@ -140,13 +140,13 @@ const fontFamilyStyle = generateFontFamilyStyle();
 }
 
 <script>
-  // 字体加载优化和错误处理
+  // Font loading optimization and error handling
   if (document.fonts && typeof document.fonts.ready !== "undefined") {
     document.fonts.ready
       .then(() => {
         console.log("All fonts have been loaded");
 
-        // 触发自定义事件，通知字体加载完成
+        // Trigger custom event to notify font loading complete
         document.dispatchEvent(new CustomEvent("fontsLoaded"));
       })
       .catch((error: Error) => {
@@ -154,7 +154,7 @@ const fontFamilyStyle = generateFontFamilyStyle();
       });
   }
 
-  // 字体加载性能监控
+  // Font loading performance monitoring
   if (typeof PerformanceObserver !== "undefined") {
     const observer = new PerformanceObserver((list) => {
       list.getEntries().forEach((entry) => {
@@ -167,7 +167,7 @@ const fontFamilyStyle = generateFontFamilyStyle();
     try {
       observer.observe({ entryTypes: ["resource"] });
     } catch (e) {
-      // 浏览器不支持时静默失败
+      // Fail silently if browser doesn't support
     }
   }
 </script>

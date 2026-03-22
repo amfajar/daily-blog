@@ -7,12 +7,12 @@ import { i18n } from "@/i18n/translation";
 import MainGridLayout from "@/layouts/MainGridLayout.astro";
 import { url } from "@/utils/url-utils";
 
-// 检查页面是否启用
+// Check if page is enabled
 if (!siteConfig.pages.sponsor) {
 	return Astro.redirect("/404/");
 }
 
-// 检查评论系统是否启用
+// Check if comment system is enabled
 const isCommentEnabled =
 	commentConfig?.type &&
 	commentConfig.type !== "none" &&
@@ -29,7 +29,7 @@ const showSponsorsList = sponsorConfig.showSponsorsList !== false;
 <MainGridLayout title={title} description={description}>
   <div class="flex w-full rounded-(--radius-large) overflow-hidden relative min-h-32">
     <div class="card-base z-10 px-9 py-6 relative w-full">
-      <!-- 页面标题和描述 -->
+      <!-- Page title and description -->
       <div class="mb-8">
         <div class="flex items-center gap-3 mb-3">
             <div class="h-8 w-8 rounded-lg bg-(--primary) flex items-center justify-center text-white dark:text-black/70">
@@ -57,12 +57,12 @@ const showSponsorsList = sponsorConfig.showSponsorsList !== false;
         )}
       </div>
 
-      <!-- 赞助方式 -->
+      <!-- Sponsor methods -->
       <div class="mb-8">
         <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
                     {enabledMethods.map((method) => (
                       <div class="flex flex-col items-center card-base p-6 rounded-lg bg-neutral-50 dark:bg-neutral-900/50 border border-neutral-200 dark:border-neutral-800 hover:border-(--primary) transition-colors">
-                        <!-- 图标和名称 -->
+                        <!-- Icon and name -->
                         <div class="flex items-center gap-3 mb-4">
                           {method.icon && (
                             <Icon name={method.icon} class="text-2xl text-neutral-900 dark:text-neutral-100 transition-colors" />
@@ -72,14 +72,14 @@ const showSponsorsList = sponsorConfig.showSponsorsList !== false;
                           </h3>
                         </div>
 
-                        <!-- 描述 -->
+                        <!-- Description -->
                         {method.description && (
                           <p class="text-sm text-neutral-600 dark:text-neutral-400 mb-4 text-center">
                             {method.description}
                           </p>
                         )}
 
-                        <!-- 二维码或链接 -->
+                        <!-- QR code or link -->
                         {method.qrCode && (
                           <div class="relative w-full max-w-[200px] aspect-square bg-white rounded-lg p-4 shadow-md mb-4">
                             <img
@@ -109,7 +109,7 @@ const showSponsorsList = sponsorConfig.showSponsorsList !== false;
     </div>
   </div>
 
-  <!-- 赞助者列表 -->
+  <!-- Sponsors list -->
   {showSponsorsList && (
     <div class="flex w-full rounded-(--radius-large) overflow-hidden relative mt-4">
       <div class="card-base z-10 px-9 py-6 relative w-full">
@@ -132,12 +132,12 @@ const showSponsorsList = sponsorConfig.showSponsorsList !== false;
           <div class="sponsor-grid">
             {sponsors.map((sponsor) => (
               <div class="group flex items-center gap-3 p-3 rounded-xl border border-(--line-divider) hover:border-(--primary) transition-all duration-200">
-                {/* 头像占位 */}
+                {/* Avatar placeholder */}
                 <div class="w-9 h-9 rounded-full bg-(--primary)/10 flex items-center justify-center shrink-0 group-hover:bg-(--primary)/20 transition-colors">
                   <span class="text-sm font-bold text-(--primary)">{sponsor.name.charAt(0)}</span>
                 </div>
 
-                {/* 信息 */}
+                {/* Information */}
                 <div class="flex-1 min-w-0">
                   <div class="flex items-center gap-2">
                     <span class="font-semibold text-sm text-neutral-900 dark:text-neutral-100 truncate">
@@ -166,7 +166,7 @@ const showSponsorsList = sponsorConfig.showSponsorsList !== false;
       </div>
     </div>
   )}
-  <!-- 评论区 -->
+  <!-- Comment section -->
   {isCommentEnabled && (
     <div class="mt-4">
       <Comment customPath="/sponsor/" title="sponsor"  />
@@ -175,7 +175,7 @@ const showSponsorsList = sponsorConfig.showSponsorsList !== false;
 </MainGridLayout>
 
 <style>
-  /* 透明模式下使用半透明背景 */
+  /* Use semi-transparent background in transparent wallpaper mode */
   :global(body.wallpaper-transparent .usage-info-box) {
     background-color: rgba(var(--primary-rgb, 70, 130, 180), 0.15) !important;
   }

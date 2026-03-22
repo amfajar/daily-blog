@@ -1,8 +1,8 @@
 import { visit } from "unist-util-visit";
 
 /**
- * 为文章中的外部链接添加 target="_blank" 和 rel="noopener noreferrer"
- * 仅处理以 http:// 或 https:// 开头且不属于本站的链接
+ * Add target="_blank" and rel="noopener noreferrer" to external links in the article
+ * Only process links starting with http:// or https:// that do not belong to this site
  *
  * @param {Object} options
  * @param {string} [options.siteUrl] - 站点URL，用于判断是否为内部链接
@@ -24,10 +24,10 @@ export default function rehypeExternalLinks(options = {}) {
 			const href = node.properties?.href;
 			if (typeof href !== "string") return;
 
-			// 只处理 http/https 绝对链接
+			// Only process http/https absolute links
 			if (!href.startsWith("http://") && !href.startsWith("https://")) return;
 
-			// 跳过本站链接
+			// Skip internal links
 			if (siteHost) {
 				try {
 					if (new URL(href).host === siteHost) return;

@@ -6,7 +6,7 @@ import { url } from "@/utils/url-utils";
 
 const currentYear = new Date().getFullYear();
 
-// 读取FooterConfig.html文件内容
+// Read FooterConfig.html file content
 let customFooterHtml = "";
 if (footerConfig.enable) {
 	try {
@@ -17,10 +17,10 @@ if (footerConfig.enable) {
 			"FooterConfig.html",
 		);
 		customFooterHtml = fs.readFileSync(footerConfigPath, "utf-8");
-		// 移除HTML注释
+		// Remove HTML comments
 		customFooterHtml = customFooterHtml.replace(/<!--[\s\S]*?-->/g, "").trim();
 	} catch (error) {
-		console.warn("FooterConfig.html文件读取失败:", error.message);
+		console.warn("Failed to read FooterConfig.html:", error.message);
 	}
 }
 ---
@@ -66,9 +66,9 @@ if (footerConfig.enable) {
       >
     </div>
     <!-- 
-      注意：请勿随意修改或删除 "Powered by Astro & Firefly" 部分，这是对开源项目的尊重和支持。
-      如果您需要在底部增加内容，请在src/config/footerConfig.ts中修改enable属性为true，然后编辑src/config/FooterConfig.html文件。
-      您可以随意在src/config/FooterConfig.html中随意添加自定义内容，不需要修改Footer.astro文件。
+      Note: Please do not modify or delete the "Powered by Astro & Firefly" part; this is a sign of respect and support for open source projects.
+      If you need to add content to the footer, please set the 'enable' property to true in src/config/footerConfig.ts, then edit src/config/FooterConfig.html.
+      You can add any custom content to src/config/FooterConfig.html as you like; there's no need to modify Footer.astro.
     -->
   </div>
 </div>

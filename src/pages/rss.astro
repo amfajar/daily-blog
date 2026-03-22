@@ -12,7 +12,7 @@ const recentPosts = posts.slice(0, 6);
 
 <MainGridLayout title={i18n(I18nKey.rss)} description={i18n(I18nKey.rssDescription)}>
     <div class="onload-animation">
-        <!-- RSS 标题和介绍 -->
+        <!-- RSS Title and Introduction -->
         <div class="card-base rounded-(--radius-large) p-8 mb-6">
             <div class="text-center">
                 <div class="inline-flex items-center justify-center w-16 h-16 bg-(--primary) rounded-2xl mb-4">
@@ -25,7 +25,7 @@ const recentPosts = posts.slice(0, 6);
             </div>
         </div>
 
-        <!-- RSS 链接复制区域 -->
+        <!-- RSS Link Copy Area -->
         <div class="card-base rounded-(--radius-large) p-6 mb-6">
             <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
                 <div class="flex items-center">
@@ -54,7 +54,7 @@ const recentPosts = posts.slice(0, 6);
             </div>
         </div>
 
-        <!-- 最新文章预览 -->
+        <!-- Latest Posts Preview -->
         <div class="card-base rounded-(--radius-large) p-6 mb-6">
             <h2 class="text-xl font-bold text-90 mb-4 flex items-center">
                 <Icon name="material-symbols:article" class="mr-2 text-(--primary)" />
@@ -83,7 +83,7 @@ const recentPosts = posts.slice(0, 6);
             </div>
         </div>
 
-        <!-- RSS 说明 -->
+        <!-- RSS Explanation -->
         <div class="card-base rounded-(--radius-large) p-6">
             <h2 class="text-xl font-bold text-90 mb-4 flex items-center">
                 <Icon name="material-symbols:help-outline" class="mr-2 text-(--primary)" />
@@ -111,11 +111,11 @@ const recentPosts = posts.slice(0, 6);
             const copyBtn = document.getElementById('copy-rss-btn');
             if (!copyBtn) return;
             
-            // 移除旧的事件监听器（通过克隆节点的方式）
+            // Remove old event listener (by cloning the node)
             const newBtn = copyBtn.cloneNode(true);
             copyBtn.parentNode?.replaceChild(newBtn, copyBtn);
             
-            // 绑定新的事件监听器
+            // Bind new event listener
             newBtn.addEventListener('click', async function() {
                 const url = this.getAttribute('data-url');
                 if (!url) return;
@@ -140,15 +140,15 @@ const recentPosts = posts.slice(0, 6);
             });
         }
         
-        // 立即初始化（支持直接访问页面和刷新）
+        // Initialize immediately (supports direct page access and refresh)
         if (document.readyState === 'loading') {
             document.addEventListener('DOMContentLoaded', initRssCopy);
         } else {
-            // DOM 已加载，直接初始化
+            // DOM is already loaded, initialize directly
             setTimeout(initRssCopy, 0);
         }
         
-        // 支持 Swup 客户端路由（如果存在）
+        // Support Swup client-side routing (if present)
         if (typeof window !== 'undefined' && (window as any).swup) {
             (window as any).swup.hooks.on('content:replace', () => {
                 // 延迟执行以确保 DOM 已更新
