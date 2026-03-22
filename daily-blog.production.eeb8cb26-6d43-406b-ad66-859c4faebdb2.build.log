@@ -1,0 +1,1313 @@
+2026-03-22T18:35:33.078Z	Initializing build environment...
+2026-03-22T18:35:34.404Z	Success: Finished initializing build environment
+2026-03-22T18:35:34.893Z	Cloning repository...
+2026-03-22T18:35:40.235Z	Restoring from dependencies cache
+2026-03-22T18:35:40.237Z	Restoring from build output cache
+2026-03-22T18:35:41.337Z	Detected the following tools from environment: pnpm@9.14.4, nodejs@22.16.0
+2026-03-22T18:35:42.564Z	Installing project dependencies: pnpm install --frozen-lockfile
+2026-03-22T18:35:43.165Z	Lockfile is up to date, resolution step is skipped
+2026-03-22T18:35:43.261Z	Progress: resolved 1, reused 0, downloaded 0, added 0
+2026-03-22T18:35:43.421Z	Packages: +1123
+2026-03-22T18:35:43.422Z	++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+2026-03-22T18:35:44.263Z	Progress: resolved 1123, reused 0, downloaded 22, added 7
+2026-03-22T18:35:45.267Z	Progress: resolved 1123, reused 0, downloaded 106, added 92
+2026-03-22T18:35:46.267Z	Progress: resolved 1123, reused 0, downloaded 262, added 250
+2026-03-22T18:35:47.268Z	Progress: resolved 1123, reused 0, downloaded 354, added 344
+2026-03-22T18:35:48.282Z	Progress: resolved 1123, reused 0, downloaded 448, added 445
+2026-03-22T18:35:49.281Z	Progress: resolved 1123, reused 0, downloaded 570, added 568
+2026-03-22T18:35:50.283Z	Progress: resolved 1123, reused 0, downloaded 827, added 815
+2026-03-22T18:35:51.285Z	Progress: resolved 1123, reused 0, downloaded 892, added 878
+2026-03-22T18:35:52.285Z	Progress: resolved 1123, reused 0, downloaded 1024, added 1017
+2026-03-22T18:35:53.293Z	Progress: resolved 1123, reused 0, downloaded 1120, added 1120
+2026-03-22T18:35:54.294Z	Progress: resolved 1123, reused 0, downloaded 1122, added 1120
+2026-03-22T18:35:54.881Z	Progress: resolved 1123, reused 0, downloaded 1123, added 1123, done
+2026-03-22T18:35:55.291Z	.../esbuild@0.27.4/node_modules/esbuild postinstall$ node install.js
+2026-03-22T18:35:55.291Z	.../.pnpm/swup@4.8.2/node_modules/swup postinstall$ opencollective-postinstall || true
+2026-03-22T18:35:55.323Z	.../sharp@0.34.5/node_modules/sharp install$ node install/check.js || npm run build
+2026-03-22T18:35:55.396Z	.../.pnpm/swup@4.8.2/node_modules/swup postinstall: Done
+2026-03-22T18:35:55.413Z	.../esbuild@0.27.4/node_modules/esbuild postinstall: Done
+2026-03-22T18:35:55.454Z	.../sharp@0.34.5/node_modules/sharp install: Done
+2026-03-22T18:35:55.680Z	
+2026-03-22T18:35:55.681Z	dependencies:
+2026-03-22T18:35:55.682Z	+ @astrojs/check 0.9.8
+2026-03-22T18:35:55.682Z	+ @astrojs/compiler-rs 0.1.5
+2026-03-22T18:35:55.682Z	+ @astrojs/mdx 5.0.2
+2026-03-22T18:35:55.682Z	+ @astrojs/rss 4.0.17
+2026-03-22T18:35:55.682Z	+ @astrojs/sitemap 3.7.1
+2026-03-22T18:35:55.682Z	+ @astrojs/svelte 8.0.2
+2026-03-22T18:35:55.683Z	+ @expressive-code/core 0.41.7
+2026-03-22T18:35:55.683Z	+ @expressive-code/plugin-collapsible-sections 0.41.7
+2026-03-22T18:35:55.683Z	+ @expressive-code/plugin-line-numbers 0.41.7
+2026-03-22T18:35:55.683Z	+ @fancyapps/ui 6.1.13
+2026-03-22T18:35:55.683Z	+ @fontsource-variable/jetbrains-mono 5.2.8
+2026-03-22T18:35:55.683Z	+ @fontsource/roboto 5.2.10
+2026-03-22T18:35:55.683Z	+ @iconify-json/fa7-brands 1.2.2
+2026-03-22T18:35:55.683Z	+ @iconify-json/fa7-regular 1.2.3
+2026-03-22T18:35:55.683Z	+ @iconify-json/fa7-solid 1.2.4
+2026-03-22T18:35:55.683Z	+ @iconify-json/material-symbols 1.2.63
+2026-03-22T18:35:55.683Z	+ @iconify-json/mingcute 1.2.7
+2026-03-22T18:35:55.683Z	+ @iconify-json/simple-icons 1.2.74
+2026-03-22T18:35:55.683Z	+ @iconify/utils 3.1.0
+2026-03-22T18:35:55.683Z	+ @swup/astro 1.8.0
+2026-03-22T18:35:55.683Z	+ @tailwindcss/typography 0.5.19
+2026-03-22T18:35:55.684Z	+ astro 6.0.6
+2026-03-22T18:35:55.684Z	+ astro-expressive-code 0.41.7
+2026-03-22T18:35:55.684Z	+ astro-icon 1.1.5
+2026-03-22T18:35:55.684Z	+ dayjs 1.11.20
+2026-03-22T18:35:55.684Z	+ expressive-code-collapsible 0.1.0
+2026-03-22T18:35:55.684Z	+ expressive-code-language-badge 1.1.0
+2026-03-22T18:35:55.684Z	+ glob 11.1.0
+2026-03-22T18:35:55.684Z	+ gray-matter 4.0.3
+2026-03-22T18:35:55.684Z	+ hastscript 9.0.1
+2026-03-22T18:35:55.685Z	+ katex 0.16.38
+2026-03-22T18:35:55.685Z	+ marked 16.4.2
+2026-03-22T18:35:55.686Z	+ mdast-util-find-and-replace 3.0.2
+2026-03-22T18:35:55.686Z	+ mdast-util-to-string 4.0.0
+2026-03-22T18:35:55.686Z	+ node-html-parser 7.0.2
+2026-03-22T18:35:55.686Z	+ overlayscrollbars 2.14.0
+2026-03-22T18:35:55.686Z	+ pagefind 1.4.0
+2026-03-22T18:35:55.686Z	+ photoswipe 5.4.4
+2026-03-22T18:35:55.686Z	+ qrcode 1.5.4
+2026-03-22T18:35:55.687Z	+ reading-time 1.5.0
+2026-03-22T18:35:55.687Z	+ rehype-autolink-headings 7.1.0
+2026-03-22T18:35:55.687Z	+ rehype-callouts 2.1.2
+2026-03-22T18:35:55.687Z	+ rehype-components 0.3.0
+2026-03-22T18:35:55.687Z	+ rehype-katex 7.0.1
+2026-03-22T18:35:55.687Z	+ rehype-slug 6.0.0
+2026-03-22T18:35:55.687Z	+ remark-directive 3.0.1
+2026-03-22T18:35:55.687Z	+ remark-directive-rehype 0.4.2
+2026-03-22T18:35:55.687Z	+ remark-math 6.0.0
+2026-03-22T18:35:55.687Z	+ remark-sectionize 2.1.0
+2026-03-22T18:35:55.687Z	+ sanitize-html 2.17.2
+2026-03-22T18:35:55.687Z	+ satori 0.19.2
+2026-03-22T18:35:55.688Z	+ sharp 0.34.5
+2026-03-22T18:35:55.688Z	+ stylus 0.64.0
+2026-03-22T18:35:55.688Z	+ svelte 5.53.11
+2026-03-22T18:35:55.688Z	+ typescript 5.9.3
+2026-03-22T18:35:55.688Z	+ unist-util-is 6.0.1
+2026-03-22T18:35:55.688Z	+ unist-util-visit 5.1.0
+2026-03-22T18:35:55.688Z	
+2026-03-22T18:35:55.688Z	devDependencies:
+2026-03-22T18:35:55.688Z	+ @astrojs/ts-plugin 1.10.7
+2026-03-22T18:35:55.689Z	+ @biomejs/biome 2.4.8
+2026-03-22T18:35:55.689Z	+ @iconify-json/mdi 1.2.3
+2026-03-22T18:35:55.689Z	+ @iconify-json/svg-spinners 1.2.4
+2026-03-22T18:35:55.689Z	+ @iconify/types 2.0.0
+2026-03-22T18:35:55.689Z	+ @rollup/plugin-yaml 4.1.2
+2026-03-22T18:35:55.689Z	+ @tailwindcss/vite 4.1.18
+2026-03-22T18:35:55.690Z	+ @types/hast 3.0.4
+2026-03-22T18:35:55.690Z	+ @types/mdast 4.0.4
+2026-03-22T18:35:55.690Z	+ @types/qrcode 1.5.6
+2026-03-22T18:35:55.690Z	+ @types/sanitize-html 2.16.1
+2026-03-22T18:35:55.691Z	+ postcss-import 16.1.1
+2026-03-22T18:35:55.691Z	+ postcss-nesting 13.0.2
+2026-03-22T18:35:55.691Z	+ tailwindcss 4.1.18
+2026-03-22T18:35:55.691Z	
+2026-03-22T18:35:55.718Z	Done in 13s
+2026-03-22T18:35:55.892Z	Executing user build command: pnpm run build
+2026-03-22T18:35:56.388Z	
+2026-03-22T18:35:56.388Z	> firefly@6.8.1 build /opt/buildhome/repo
+2026-03-22T18:35:56.388Z	> node scripts/fetch-contents.js && node scripts/generate-icons.js && astro build && pagefind --site dist
+2026-03-22T18:35:56.388Z	
+2026-03-22T18:35:56.427Z	[Fetch Contents] Cloning vault repository...
+2026-03-22T18:35:56.427Z	[Fetch Contents] Running: git clone https://github.com/amfajar/blog-contents.git "/opt/buildhome/repo/vault"
+2026-03-22T18:35:56.431Z	Cloning into '/opt/buildhome/repo/vault'...
+2026-03-22T18:35:57.065Z	[Fetch Contents] Successfully synchronized vault content.
+2026-03-22T18:35:57.162Z	🔍 扫描源文件中的图标使用...
+2026-03-22T18:35:57.163Z	
+2026-03-22T18:35:57.166Z	📁 找到 12 个源文件
+2026-03-22T18:35:57.166Z	
+2026-03-22T18:35:57.168Z	🎨 发现 18 个不同的图标:
+2026-03-22T18:35:57.168Z	
+2026-03-22T18:35:57.168Z	   fa7-solid: 3 个图标
+2026-03-22T18:35:57.168Z	   material-symbols: 14 个图标
+2026-03-22T18:35:57.168Z	   svg-spinners: 1 个图标
+2026-03-22T18:35:57.168Z	
+2026-03-22T18:35:57.243Z	✅ 成功加载 18 个图标
+2026-03-22T18:35:57.248Z	
+2026-03-22T18:35:57.248Z	📝 已生成: /opt/buildhome/repo/src/constants/icons.ts
+2026-03-22T18:35:57.248Z	📦 文件大小: 10.29 KB
+2026-03-22T18:35:57.248Z	
+2026-03-22T18:36:01.847Z	18:36:01 [content] Syncing content
+2026-03-22T18:36:01.853Z	18:36:01 [WARN] [glob-loader] The base directory "/opt/buildhome/repo/vault/Belajar/05. BI Analyst/05. Projects/" does not exist.
+2026-03-22T18:36:10.825Z	18:36:10 [content] Synced content
+2026-03-22T18:36:10.826Z	18:36:10 [types] Generated 9.89s
+2026-03-22T18:36:10.827Z	18:36:10 [build] output: "static"
+2026-03-22T18:36:10.827Z	18:36:10 [build] mode: "static"
+2026-03-22T18:36:10.827Z	18:36:10 [build] directory: /opt/buildhome/repo/dist/
+2026-03-22T18:36:10.827Z	18:36:10 [build] Collecting build info...
+2026-03-22T18:36:10.827Z	18:36:10 [build] ✓ Completed in 10.07s.
+2026-03-22T18:36:10.829Z	18:36:10 [build] Building static entrypoints...
+2026-03-22T18:36:25.688Z	18:36:25 [vite] ✓ built in 14.68s
+2026-03-22T18:36:27.782Z	18:36:27 [vite] ✓ built in 2.08s
+2026-03-22T18:36:27.791Z	18:36:27 [build] Rearranging server assets...
+2026-03-22T18:36:27.906Z	
+2026-03-22T18:36:27.906Z	 generating static routes 
+2026-03-22T18:36:28.677Z	18:36:28   ├─ /404.html (+131ms) 
+2026-03-22T18:36:28.723Z	18:36:28   ├─ /about/index.html (+47ms) 
+2026-03-22T18:36:28.733Z	18:36:28   ├─ /api/allPostMeta.json (+9ms) 
+2026-03-22T18:36:28.772Z	18:36:28   ├─ /archive/index.html (+39ms) 
+2026-03-22T18:36:28.781Z	18:36:28   ├─ /bangumi/index.html (+9ms) 
+2026-03-22T18:36:28.785Z	18:36:28   ├─ /friends/index.html (+4ms) 
+2026-03-22T18:36:28.787Z	18:36:28   ├─ /gallery/firefly-2026/index.html (+2ms) 
+2026-03-22T18:36:28.793Z	18:36:28   ├─ /gallery/index.html (+6ms) 
+2026-03-22T18:36:28.802Z	18:36:28   ├─ /guestbook/index.html (+9ms) 
+2026-03-22T18:36:28.809Z	The collection "portfolio" does not exist or is empty. Please check your content config file for errors.
+2026-03-22T18:36:28.840Z	18:36:28   ├─ /portfolio/index.html (+37ms) 
+2026-03-22T18:36:28.894Z	18:36:28   ├─ /posts/japanese-daily-log/index.html (+54ms) 
+2026-03-22T18:36:28.936Z	18:36:28   ├─ /posts/bi-analyst-notes/index.html (+42ms) 
+2026-03-22T18:36:28.975Z	18:36:28   ├─ /posts/problem-solving-20-march-2026/index.html (+39ms) 
+2026-03-22T18:36:29.013Z	18:36:28   ├─ /posts/problem-solving-16-march-2026/index.html (+38ms) 
+2026-03-22T18:36:29.060Z	18:36:29   ├─ /posts/untitled/index.html (+47ms) 
+2026-03-22T18:36:29.102Z	18:36:29   ├─ /posts/komunikasi-20-march-2026/index.html (+42ms) 
+2026-03-22T18:36:29.155Z	18:36:29   ├─ /posts/komunikasi-16-march-2026/index.html (+49ms) 
+2026-03-22T18:36:29.197Z	18:36:29   ├─ /posts/english-daily-log/index.html (+46ms) 
+2026-03-22T18:36:29.240Z	18:36:29   ├─ /posts/journal/index.html (+43ms) 
+2026-03-22T18:36:29.281Z	18:36:29   ├─ /roadmap/index.html (+41ms) 
+2026-03-22T18:36:29.285Z	18:36:29   ├─ /robots.txt (+4ms) 
+2026-03-22T18:36:29.316Z	18:36:29   ├─ /rss/index.html (+31ms) 
+2026-03-22T18:36:29.481Z	18:36:29   ├─ /rss.xml (+165ms) 
+2026-03-22T18:36:29.527Z	18:36:29   ├─ /search/index.html (+45ms) 
+2026-03-22T18:36:29.531Z	18:36:29   ├─ /sponsor/index.html (+5ms) 
+2026-03-22T18:36:29.560Z	18:36:29   ├─ /index.html (+29ms) 
+2026-03-22T18:36:29.560Z	18:36:29 ✓ Completed in 1.76s.
+2026-03-22T18:36:29.560Z	
+2026-03-22T18:36:29.560Z	 generating optimized images 
+2026-03-22T18:36:29.744Z	18:36:29   ▶ /_astro/firefly.EzH7fIYR_2kkPj.webp (before: 26kB, after: 0kB) (+182ms) (1/50)
+2026-03-22T18:36:29.766Z	18:36:29   ▶ /_astro/firefly.EzH7fIYR_Z1fPAp8.webp (before: 26kB, after: 2kB) (+22ms) (2/50)
+2026-03-22T18:36:29.811Z	18:36:29   ▶ /_astro/avatar.BcAu2wMi_yT6PR.webp (before: 28kB, after: 20kB) (+249ms) (3/50)
+2026-03-22T18:36:29.832Z	18:36:29   ▶ /_astro/firefly.EzH7fIYR_16B3gR.webp (before: 26kB, after: 12kB) (+66ms) (4/50)
+2026-03-22T18:36:29.946Z	18:36:29   ▶ /_astro/avatar.BcAu2wMi_Z2kMBUQ.webp (before: 28kB, after: 68kB) (+135ms) (5/50)
+2026-03-22T18:36:31.068Z	18:36:31   ▶ /_astro/m1.DqqgjsGn_ZOjiWI.webp (before: 299kB, after: 71kB) (+1.24s) (6/50)
+2026-03-22T18:36:31.207Z	18:36:31   ▶ /_astro/m2.B5kTqdCO_1mllz8.webp (before: 294kB, after: 66kB) (+1.26s) (7/50)
+2026-03-22T18:36:32.179Z	18:36:32   ▶ /_astro/m1.DqqgjsGn_Z1Ig6it.webp (before: 299kB, after: 90kB) (+1.11s) (8/50)
+2026-03-22T18:36:32.379Z	18:36:32   ▶ /_astro/m2.B5kTqdCO_soyen.webp (before: 294kB, after: 85kB) (+1.17s) (9/50)
+2026-03-22T18:36:33.202Z	18:36:33   ▶ /_astro/m1.DqqgjsGn_ZbBVOt.webp (before: 299kB, after: 155kB) (+1.02s) (10/50)
+2026-03-22T18:36:33.476Z	18:36:33   ▶ /_astro/m2.B5kTqdCO_1CrLdN.webp (before: 294kB, after: 149kB) (+1.10s) (11/50)
+2026-03-22T18:36:35.418Z	18:36:35   ▶ /_astro/m1.DqqgjsGn_1cmzpv.webp (before: 299kB, after: 610kB) (+2.22s) (12/50)
+2026-03-22T18:36:35.670Z	18:36:35   ▶ /_astro/m2.B5kTqdCO_Z23JPl9.webp (before: 294kB, after: 613kB) (+2.19s) (13/50)
+2026-03-22T18:36:36.406Z	18:36:36   ▶ /_astro/m3.DGa_nZZV_2f7R4K.webp (before: 240kB, after: 64kB) (+988ms) (14/50)
+2026-03-22T18:36:36.499Z	18:36:36   ▶ /_astro/m4.BH-lD-3t_ZKFJHX.webp (before: 246kB, after: 59kB) (+827ms) (15/50)
+2026-03-22T18:36:37.350Z	18:36:37   ▶ /_astro/m3.DGa_nZZV_1lb4J0.webp (before: 240kB, after: 82kB) (+944ms) (16/50)
+2026-03-22T18:36:37.410Z	18:36:37   ▶ /_astro/m4.BH-lD-3t_Z1ECx3I.webp (before: 246kB, after: 75kB) (+912ms) (17/50)
+2026-03-22T18:36:38.424Z	18:36:38   ▶ /_astro/m4.BH-lD-3t_1DXrET.webp (before: 246kB, after: 133kB) (+1.01s) (18/50)
+2026-03-22T18:36:38.504Z	18:36:38   ▶ /_astro/m3.DGa_nZZV_Z1xA57u.webp (before: 240kB, after: 142kB) (+1.15s) (19/50)
+2026-03-22T18:36:40.582Z	18:36:40   ▶ /_astro/m4.BH-lD-3t_Z22e9T3.webp (before: 246kB, after: 529kB) (+2.16s) (20/50)
+2026-03-22T18:36:40.872Z	18:36:40   ▶ /_astro/m3.DGa_nZZV_Z9AxRv.webp (before: 240kB, after: 546kB) (+2.37s) (21/50)
+2026-03-22T18:36:41.478Z	18:36:41   ▶ /_astro/m5.D_Epxsab_MipJw.webp (before: 250kB, after: 60kB) (+894ms) (22/50)
+2026-03-22T18:36:41.823Z	18:36:41   ▶ /_astro/m6.BY42_Be2_2gmeme.webp (before: 238kB, after: 65kB) (+945ms) (23/50)
+2026-03-22T18:36:43.038Z	18:36:43   ▶ /_astro/m5.D_Epxsab_Z6DmAe.webp (before: 250kB, after: 78kB) (+1.56s) (24/50)
+2026-03-22T18:36:43.303Z	18:36:43   ▶ /_astro/m6.BY42_Be2_1mpr1t.webp (before: 238kB, after: 82kB) (+1.49s) (25/50)
+2026-03-22T18:36:44.047Z	18:36:44   ▶ /_astro/m5.D_Epxsab_ZUqF2c.webp (before: 250kB, after: 137kB) (+1.01s) (26/50)
+2026-03-22T18:36:44.423Z	18:36:44   ▶ /_astro/m6.BY42_Be2_ZUhKeK.webp (before: 238kB, after: 138kB) (+1.12s) (27/50)
+2026-03-22T18:36:46.219Z	18:36:46   ▶ /_astro/m5.D_Epxsab_sxQcM.webp (before: 250kB, after: 551kB) (+2.17s) (28/50)
+2026-03-22T18:36:46.421Z	18:36:46   ▶ /_astro/d1.v_J1gD3P_tz0F7.webp (before: 71kB, after: 70kB) (+201ms) (29/50)
+2026-03-22T18:36:46.665Z	18:36:46   ▶ /_astro/m6.BY42_Be2_sGL0e.webp (before: 238kB, after: 535kB) (+2.24s) (30/50)
+2026-03-22T18:36:46.830Z	18:36:46   ▶ /_astro/d1.v_J1gD3P_ZDw30v.webp (before: 71kB, after: 124kB) (+406ms) (31/50)
+2026-03-22T18:36:46.991Z	18:36:46   ▶ /_astro/d2.B57ICuoV_1oCTE1.webp (before: 95kB, after: 95kB) (+327ms) (32/50)
+2026-03-22T18:36:47.263Z	18:36:47   ▶ /_astro/d1.v_J1gD3P_Z1Vvudv.webp (before: 71kB, after: 168kB) (+435ms) (33/50)
+2026-03-22T18:36:47.386Z	18:36:47   ▶ /_astro/d2.B57ICuoV_gwPXo.webp (before: 95kB, after: 158kB) (+394ms) (34/50)
+2026-03-22T18:36:47.589Z	18:36:47   ▶ /_astro/d3.CGCRs0-H_Z4ue21.webp (before: 99kB, after: 87kB) (+327ms) (35/50)
+2026-03-22T18:36:47.858Z	18:36:47   ▶ /_astro/d2.B57ICuoV_Z11rAeB.webp (before: 95kB, after: 214kB) (+472ms) (36/50)
+2026-03-22T18:36:48.013Z	18:36:48   ▶ /_astro/d3.CGCRs0-H_Z11YS4k.webp (before: 99kB, after: 150kB) (+419ms) (37/50)
+2026-03-22T18:36:48.116Z	18:36:48   ▶ /_astro/d4.Brgr35k-_QbpD3.webp (before: 73kB, after: 74kB) (+257ms) (38/50)
+2026-03-22T18:36:48.560Z	18:36:48   ▶ /_astro/d3.CGCRs0-H_Z10cu3m.webp (before: 99kB, after: 222kB) (+549ms) (39/50)
+2026-03-22T18:36:48.577Z	18:36:48   ▶ /_astro/d4.Brgr35k-_ZgTD2z.webp (before: 73kB, after: 126kB) (+460ms) (40/50)
+2026-03-22T18:36:49.013Z	18:36:49   ▶ /_astro/d4.Brgr35k-_Z1yT5fz.webp (before: 73kB, after: 170kB) (+435ms) (41/50)
+2026-03-22T18:36:49.102Z	18:36:49   ▶ /_astro/d3.CGCRs0-H_ZjDwU6.webp (before: 99kB, after: 235kB) (+543ms) (42/50)
+2026-03-22T18:36:49.337Z	18:36:49   ▶ /_astro/d6.DetxM4Sl_wvX9N.webp (before: 64kB, after: 62kB) (+235ms) (43/50)
+2026-03-22T18:36:49.359Z	18:36:49   ▶ /_astro/d5.z7QGp_dj_1EwU7g.webp (before: 50kB, after: 60kB) (+345ms) (44/50)
+2026-03-22T18:36:49.737Z	18:36:49   ▶ /_astro/d6.DetxM4Sl_ZpXFRv.webp (before: 64kB, after: 106kB) (+400ms) (45/50)
+2026-03-22T18:36:49.801Z	18:36:49   ▶ /_astro/d5.z7QGp_dj_H2g4W.webp (before: 50kB, after: 93kB) (+442ms) (46/50)
+2026-03-22T18:36:50.278Z	18:36:50   ▶ /_astro/d6.DetxM4Sl_ZobhQx.webp (before: 64kB, after: 152kB) (+541ms) (47/50)
+2026-03-22T18:36:50.338Z	18:36:50   ▶ /_astro/d5.z7QGp_dj_IOE5U.webp (before: 50kB, after: 130kB) (+537ms) (48/50)
+2026-03-22T18:36:50.753Z	18:36:50   ▶ /_astro/d6.DetxM4Sl_hmEgI.webp (before: 64kB, after: 159kB) (+475ms) (49/50)
+2026-03-22T18:36:50.834Z	18:36:50   ▶ /_astro/d5.z7QGp_dj_1pnBeb.webp (before: 50kB, after: 131kB) (+496ms) (50/50)
+2026-03-22T18:36:50.835Z	18:36:50 ✓ Completed in 21.27s.
+2026-03-22T18:36:50.836Z	
+2026-03-22T18:36:50.850Z	18:36:50 [build] ✓ Completed in 40.02s.
+2026-03-22T18:36:50.868Z	18:36:50 [@astrojs/sitemap] `sitemap-index.xml` created at `dist`
+2026-03-22T18:36:50.869Z	18:36:50 [build] 23 page(s) built in 50.11s
+2026-03-22T18:36:50.869Z	18:36:50 [build] Complete!
+2026-03-22T18:36:51.107Z	
+2026-03-22T18:36:51.107Z	Running Pagefind v1.4.0 (Extended)
+2026-03-22T18:36:51.107Z	Running from: "/opt/buildhome/repo"
+2026-03-22T18:36:51.107Z	Source:       "dist"
+2026-03-22T18:36:51.107Z	Output:       "dist/pagefind"
+2026-03-22T18:36:51.108Z	
+2026-03-22T18:36:51.108Z	[Walking source directory]
+2026-03-22T18:36:51.111Z	Found 23 files matching **/*.{html}
+2026-03-22T18:36:51.111Z	
+2026-03-22T18:36:51.111Z	[Parsing files]
+2026-03-22T18:36:51.270Z	Found a data-pagefind-body element on the site.
+2026-03-22T18:36:51.270Z	↳ Ignoring pages without this tag.
+2026-03-22T18:36:51.270Z	
+2026-03-22T18:36:51.270Z	[Reading languages]
+2026-03-22T18:36:51.270Z	6 pages found without an <html> element. 
+2026-03-22T18:36:51.270Z	Pages without an outer <html> element will not be processed by default. 
+2026-03-22T18:36:51.270Z	If adding this element is not possible, use the root selector config to target a different root element.
+2026-03-22T18:36:51.270Z	  * "/friends/" has no <html> element
+2026-03-22T18:36:51.271Z	  * "/gallery/firefly-2026/" has no <html> element
+2026-03-22T18:36:51.271Z	  * "/gallery/" has no <html> element
+2026-03-22T18:36:51.271Z	  * "/guestbook/" has no <html> element
+2026-03-22T18:36:51.271Z	  * "/sponsor/" has no <html> element
+2026-03-22T18:36:51.271Z	  * "/bangumi/" has no <html> element
+2026-03-22T18:36:51.271Z	Discovered 1 language: en
+2026-03-22T18:36:51.271Z	
+2026-03-22T18:36:51.271Z	[Building search indexes]
+2026-03-22T18:36:51.271Z	Total: 
+2026-03-22T18:36:51.271Z	  Indexed 1 language
+2026-03-22T18:36:51.273Z	  Indexed 10 pages
+2026-03-22T18:36:51.274Z	  Indexed 279 words
+2026-03-22T18:36:51.274Z	  Indexed 0 filters
+2026-03-22T18:36:51.274Z	  Indexed 0 sorts
+2026-03-22T18:36:51.283Z	
+2026-03-22T18:36:51.283Z	Finished in 0.176 seconds
+2026-03-22T18:36:51.302Z	Success: Build command completed
+2026-03-22T18:36:51.470Z	Executing user deploy command: npx wrangler deploy
+2026-03-22T18:36:55.929Z	npm warn exec The following package was not found and will be installed: wrangler@4.76.0
+2026-03-22T18:37:03.810Z	
+2026-03-22T18:37:03.810Z	 ⛅️ wrangler 4.76.0
+2026-03-22T18:37:03.810Z	───────────────────
+2026-03-22T18:37:03.912Z	
+2026-03-22T18:37:03.915Z	Detected Project Settings:
+2026-03-22T18:37:03.915Z	 - Worker Name: daily-blog
+2026-03-22T18:37:03.915Z	 - Framework: Astro
+2026-03-22T18:37:03.916Z	 - Build Command: pnpm run build
+2026-03-22T18:37:03.916Z	 - Output Directory: dist
+2026-03-22T18:37:03.917Z	
+2026-03-22T18:37:03.917Z	? Do you want to modify these settings?
+2026-03-22T18:37:03.917Z	🤖 Using fallback value in non-interactive context: no
+2026-03-22T18:37:03.918Z	
+2026-03-22T18:37:03.918Z	📦 Install packages:
+2026-03-22T18:37:03.918Z	 - wrangler (devDependency)
+2026-03-22T18:37:03.918Z	
+2026-03-22T18:37:03.918Z	📝 Update package.json scripts:
+2026-03-22T18:37:03.918Z	 - "deploy": "pnpm run build && wrangler deploy"
+2026-03-22T18:37:03.919Z	 - "preview": "pnpm run build && wrangler dev"
+2026-03-22T18:37:03.919Z	
+2026-03-22T18:37:03.919Z	🛠️  Configuring project for Astro with "astro add cloudflare"
+2026-03-22T18:37:03.919Z	
+2026-03-22T18:37:03.919Z	? Proceed with setup?
+2026-03-22T18:37:03.919Z	🤖 Using fallback value in non-interactive context: yes
+2026-03-22T18:37:27.282Z	├ Adding Wrangler files to the .gitignore file
+2026-03-22T18:37:27.283Z	│ updated .gitignore file
+2026-03-22T18:37:27.284Z	│
+2026-03-22T18:37:27.284Z	[build] Running: pnpm run build
+2026-03-22T18:37:27.685Z	[build] 
+2026-03-22T18:37:27.688Z	[build] > firefly@6.8.1 build /opt/buildhome/repo
+2026-03-22T18:37:27.688Z	[build] > node scripts/fetch-contents.js && node scripts/generate-icons.js && astro build && pagefind --site dist
+2026-03-22T18:37:27.688Z	[build] 
+2026-03-22T18:37:27.688Z	[build] 
+2026-03-22T18:37:27.722Z	[build] [Fetch Contents] Vault directory already exists.
+2026-03-22T18:37:27.723Z	[build] 
+2026-03-22T18:37:27.723Z	[build] [Fetch Contents] CI environment. Re-cloning...
+2026-03-22T18:37:27.723Z	[build] 
+2026-03-22T18:37:27.735Z	[build] [Fetch Contents] Running: git clone https://github.com/amfajar/blog-contents.git "/opt/buildhome/repo/vault"
+2026-03-22T18:37:27.735Z	[build] 
+2026-03-22T18:37:27.742Z	[build] Cloning into '/opt/buildhome/repo/vault'...
+2026-03-22T18:37:27.743Z	[build] 
+2026-03-22T18:37:28.395Z	[build] [Fetch Contents] Successfully synchronized vault content.
+2026-03-22T18:37:28.396Z	[build] 
+2026-03-22T18:37:28.510Z	[build] 🔍 扫描源文件中的图标使用...
+2026-03-22T18:37:28.510Z	[build] 
+2026-03-22T18:37:28.513Z	[build] 
+2026-03-22T18:37:28.514Z	[build] 📁 找到 12 个源文件
+2026-03-22T18:37:28.514Z	[build] 
+2026-03-22T18:37:28.514Z	[build] 🎨 发现 18 个不同的图标:
+2026-03-22T18:37:28.515Z	[build] 
+2026-03-22T18:37:28.515Z	[build]    fa7-solid: 3 个图标
+2026-03-22T18:37:28.515Z	[build]    material-symbols: 14 个图标
+2026-03-22T18:37:28.515Z	[build] 
+2026-03-22T18:37:28.515Z	[build]    svg-spinners: 1 个图标
+2026-03-22T18:37:28.515Z	[build] 
+2026-03-22T18:37:28.515Z	[build] 
+2026-03-22T18:37:28.581Z	[build] ✅ 成功加载 18 个图标
+2026-03-22T18:37:28.581Z	[build] 
+2026-03-22T18:37:28.587Z	[build] 
+2026-03-22T18:37:28.587Z	[build] 📝 已生成: /opt/buildhome/repo/src/constants/icons.ts
+2026-03-22T18:37:28.587Z	[build] 📦 文件大小: 10.29 KB
+2026-03-22T18:37:28.587Z	[build] 
+2026-03-22T18:37:28.587Z	[build] 
+2026-03-22T18:37:32.703Z	[build] 18:37:32 [@astrojs/cloudflare] Enabling image processing with Cloudflare Images for production with the "IMAGES" Images binding.
+2026-03-22T18:37:32.703Z	[build] 18:37:32 [@astrojs/cloudflare] Enabling sessions with Cloudflare KV with the "SESSION" KV binding.
+2026-03-22T18:37:32.703Z	[build] 
+2026-03-22T18:37:33.970Z	[build] 18:37:33 [ERROR] [vite] (!) Failed to run dependency scan. Skipping dependency pre-bundling. Error:   Failed to scan for dependencies from entries:
+2026-03-22T18:37:33.970Z	[build]   /opt/buildhome/repo/src/config/FooterConfig.html
+2026-03-22T18:37:33.970Z	[build] /opt/buildhome/repo/src/layouts/Layout.astro
+2026-03-22T18:37:33.970Z	[build] /opt/buildhome/repo/src/layouts/MainGridLayout.astro
+2026-03-22T18:37:33.970Z	[build] /opt/buildhome/repo/src/pages/404.astro
+2026-03-22T18:37:33.970Z	[build] /opt/buildhome/repo/src/pages/[...page].astro
+2026-03-22T18:37:33.970Z	[build] /opt/buildhome/repo/src/pages/about.astro
+2026-03-22T18:37:33.970Z	[build] /opt/buildhome/repo/src/pages/archive.astro
+2026-03-22T18:37:33.970Z	[build] /opt/buildhome/repo/src/pages/bangumi.astro
+2026-03-22T18:37:33.970Z	[build] /opt/buildhome/repo/src/pages/friends.astro
+2026-03-22T18:37:33.971Z	[build] /opt/buildhome/repo/src/pages/guestbook.astro
+2026-03-22T18:37:33.971Z	[build] /opt/buildhome/repo/src/pages/portfolio.astro
+2026-03-22T18:37:33.971Z	[build] /opt/buildhome/repo/src/pages/roadmap.astro
+2026-03-22T18:37:33.971Z	[build] /opt/buildhome/repo/src/pages/rss.astro
+2026-03-22T18:37:33.971Z	[build] /opt/buildhome/repo/src/pages/search.astro
+2026-03-22T18:37:33.971Z	[build] /opt/buildhome/repo/src/pages/sponsor.astro
+2026-03-22T18:37:33.971Z	[build] /opt/buildhome/repo/src/components/comment/Artalk.astro
+2026-03-22T18:37:33.971Z	[build] /opt/buildhome/repo/src/components/comment/Disqus.astro
+2026-03-22T18:37:33.971Z	[build] /opt/buildhome/repo/src/components/comment/Giscus.astro
+2026-03-22T18:37:33.971Z	[build] /opt/buildhome/repo/src/components/comment/Twikoo.astro
+2026-03-22T18:37:33.971Z	[build] /opt/buildhome/repo/src/components/comment/Waline.astro
+2026-03-22T18:37:33.971Z	[build] /opt/buildhome/repo/src/components/comment/index.astro
+2026-03-22T18:37:33.971Z	[build] /opt/buildhome/repo/src/components/analytics/GoogleAnalytics.astro
+2026-03-22T18:37:33.972Z	[build] /opt/buildhome/repo/src/components/analytics/La51Analytics.astro
+2026-03-22T18:37:33.972Z	[build] /opt/buildhome/repo/src/components/analytics/MicrosoftClarity.astro
+2026-03-22T18:37:33.972Z	[build] /opt/buildhome/repo/src/components/analytics/UmamiAnalytics.astro
+2026-03-22T18:37:33.972Z	[build] /opt/buildhome/repo/src/components/common/ButtonLink.astro
+2026-03-22T18:37:33.972Z	[build] /opt/buildhome/repo/src/components/common/ButtonTag.astro
+2026-03-22T18:37:33.972Z	[build] /opt/buildhome/repo/src/components/common/ClientPagination.astro
+2026-03-22T18:37:33.972Z	[build] /opt/buildhome/repo/src/components/common/CoverImage.astro
+2026-03-22T18:37:33.972Z	[build] /opt/buildhome/repo/src/components/common/DropdownItem.astro
+2026-03-22T18:37:33.972Z	[build] /opt/buildhome/repo/src/components/common/DropdownItem.svelte
+2026-03-22T18:37:33.972Z	[build] /opt/buildhome/repo/src/components/common/DropdownPanel.astro
+2026-03-22T18:37:33.972Z	[build] /opt/buildhome/repo/src/components/common/DropdownPanel.svelte
+2026-03-22T18:37:33.972Z	[build] /opt/buildhome/repo/src/components/common/FloatingButton.astro
+2026-03-22T18:37:33.972Z	[build] /opt/buildhome/repo/src/components/common/Icon.svelte
+2026-03-22T18:37:33.972Z	[build] /opt/buildhome/repo/src/components/common/ImageWrapper.astro
+2026-03-22T18:37:33.972Z	[build] /opt/buildhome/repo/src/components/common/Markdown.astro
+2026-03-22T18:37:33.972Z	[build] /opt/buildhome/repo/src/components/common/Pagination.astro
+2026-03-22T18:37:33.972Z	[build] /opt/buildhome/repo/src/components/common/PioMessageBox.astro
+2026-03-22T18:37:33.972Z	[build] /opt/buildhome/repo/src/components/common/WidgetLayout.astro
+2026-03-22T18:37:33.972Z	[build] /opt/buildhome/repo/src/components/controls/ArchivePanel.svelte
+2026-03-22T18:37:33.972Z	[build] /opt/buildhome/repo/src/components/controls/BackToComment.astro
+2026-03-22T18:37:33.972Z	[build] /opt/buildhome/repo/src/components/controls/BackToHome.astro
+2026-03-22T18:37:33.972Z	[build] /opt/buildhome/repo/src/components/controls/BackToTop.astro
+2026-03-22T18:37:33.972Z	[build] /opt/buildhome/repo/src/components/controls/DisplaySettings.svelte
+2026-03-22T18:37:33.972Z	[build] /opt/buildhome/repo/src/components/controls/DisplaySettingsIntegrated.svelte
+2026-03-22T18:37:33.974Z	[build] /opt/buildhome/repo/src/components/controls/FloatingControls.astro
+2026-03-22T18:37:33.975Z	[build] /opt/buildhome/repo/src/components/controls/FloatingTOC.astro
+2026-03-22T18:37:33.975Z	[build] /opt/buildhome/repo/src/components/controls/LayoutSwitchButton.svelte
+2026-03-22T18:37:33.976Z	[build] /opt/buildhome/repo/src/components/controls/LightDarkSwitch.svelte
+2026-03-22T18:37:33.976Z	[build] /opt/buildhome/repo/src/components/controls/Search.svelte
+2026-03-22T18:37:33.976Z	[build] /opt/buildhome/repo/src/components/controls/WallpaperSwitch.svelte
+2026-03-22T18:37:33.976Z	[build] /opt/buildhome/repo/src/components/features/EncryptedPost.astro
+2026-03-22T18:37:33.976Z	[build] /opt/buildhome/repo/src/components/features/FancyboxManager.astro
+2026-03-22T18:37:33.976Z	[build] /opt/buildhome/repo/src/components/features/FontManager.astro
+2026-03-22T18:37:33.976Z	[build] /opt/buildhome/repo/src/components/features/KatexManager.astro
+2026-03-22T18:37:33.976Z	[build] /opt/buildhome/repo/src/components/features/Live2DWidget.astro
+2026-03-22T18:37:33.976Z	[build] /opt/buildhome/repo/src/components/features/MusicManager.astro
+2026-03-22T18:37:33.976Z	[build] /opt/buildhome/repo/src/components/features/MusicPlayer.astro
+2026-03-22T18:37:33.976Z	[build] /opt/buildhome/repo/src/components/features/SakuraEffect.astro
+2026-03-22T18:37:33.977Z	[build] /opt/buildhome/repo/src/components/features/SpineModel.astro
+2026-03-22T18:37:33.977Z	[build] /opt/buildhome/repo/src/components/features/TypewriterText.astro
+2026-03-22T18:37:33.977Z	[build] /opt/buildhome/repo/src/components/layout/CategoryBar.astro
+2026-03-22T18:37:33.977Z	[build] /opt/buildhome/repo/src/components/layout/ConfigCarrier.astro
+2026-03-22T18:37:33.977Z	[build] /opt/buildhome/repo/src/components/layout/DropdownMenu.astro
+2026-03-22T18:37:33.977Z	[build] /opt/buildhome/repo/src/components/layout/Footer.astro
+2026-03-22T18:37:33.977Z	[build] /opt/buildhome/repo/src/components/layout/NavMenuPanel.astro
+2026-03-22T18:37:33.977Z	[build] /opt/buildhome/repo/src/components/layout/Navbar.astro
+2026-03-22T18:37:33.979Z	[build] /opt/buildhome/repo/src/components/layout/PostCard.astro
+2026-03-22T18:37:33.979Z	[build] /opt/buildhome/repo/src/components/layout/PostMeta.astro
+2026-03-22T18:37:33.979Z	[build] /opt/buildhome/repo/src/components/layout/PostPage.astro
+2026-03-22T18:37:33.979Z	[build] /opt/buildhome/repo/src/components/layout/SideBar.astro
+2026-03-22T18:37:33.979Z	[build] /opt/buildhome/repo/src/components/misc/License.astro
+2026-03-22T18:37:33.979Z	[build] /opt/buildhome/repo/src/components/misc/RecommendedPost.astro
+2026-03-22T18:37:33.979Z	[build] /opt/buildhome/repo/src/components/misc/SharePoster.svelte
+2026-03-22T18:37:33.979Z	[build] /opt/buildhome/repo/src/components/pages/AdvancedSearch.svelte
+2026-03-22T18:37:33.979Z	[build] /opt/buildhome/repo/src/components/widget/Advertisement.astro
+2026-03-22T18:37:33.979Z	[build] /opt/buildhome/repo/src/components/widget/Announcement.astro
+2026-03-22T18:37:33.979Z	[build] /opt/buildhome/repo/src/components/widget/Calendar.astro
+2026-03-22T18:37:33.979Z	[build] /opt/buildhome/repo/src/components/widget/Categories.astro
+2026-03-22T18:37:33.979Z	[build] /opt/buildhome/repo/src/components/widget/Live2DWidget.astro
+2026-03-22T18:37:33.979Z	[build] /opt/buildhome/repo/src/components/widget/Music.astro
+2026-03-22T18:37:33.979Z	[build] /opt/buildhome/repo/src/components/widget/Profile.astro
+2026-03-22T18:37:33.979Z	[build] /opt/buildhome/repo/src/components/widget/SidebarTOC.astro
+2026-03-22T18:37:33.979Z	[build] /opt/buildhome/repo/src/components/widget/SiteStats.astro
+2026-03-22T18:37:33.979Z	[build] /opt/buildhome/repo/src/components/widget/SpineModel.astro
+2026-03-22T18:37:33.979Z	[build] /opt/buildhome/repo/src/components/widget/Tags.astro
+2026-03-22T18:37:33.979Z	[build] /opt/buildhome/repo/src/pages/gallery/[album].astro
+2026-03-22T18:37:33.979Z	[build] /opt/buildhome/repo/src/pages/gallery/index.astro
+2026-03-22T18:37:33.980Z	[build] /opt/buildhome/repo/src/pages/posts/[...slug].astro
+2026-03-22T18:37:33.980Z	[build] /opt/buildhome/repo/src/components/pages/bangumi/BangumiSection.astro
+2026-03-22T18:37:33.980Z	[build] /opt/buildhome/repo/src/components/pages/bangumi/Card.astro
+2026-03-22T18:37:33.980Z	[build] /opt/buildhome/repo/src/components/pages/bangumi/FilterControls.astro
+2026-03-22T18:37:33.980Z	[build] /opt/buildhome/repo/src/components/pages/bangumi/TabNav.astro
+2026-03-22T18:37:33.980Z	[build] /opt/buildhome/repo/src/components/pages/gallery/AlbumCard.astro
+2026-03-22T18:37:33.980Z	[build] /opt/buildhome/repo/src/components/pages/gallery/PhotoCard.astro
+2026-03-22T18:37:33.980Z	[build] 
+2026-03-22T18:37:33.980Z	[build]   ✘ [ERROR] No matching export in "html:/opt/buildhome/repo/src/components/widget/Advertisement.astro" for import "default"
+2026-03-22T18:37:33.980Z	[build] 
+2026-03-22T18:37:33.980Z	[build]     src/components/layout/SideBar.astro:2:7:
+2026-03-22T18:37:33.980Z	[build]       2 │ import Advertisement from "@/components/widget/Advertisement.astro";
+2026-03-22T18:37:33.980Z	[build]         ╵        ~~~~~~~~~~~~~
+2026-03-22T18:37:33.980Z	[build] 
+2026-03-22T18:37:33.980Z	[build] 
+2026-03-22T18:37:33.980Z	[build] ✘ [ERROR] No matching export in "html:/opt/buildhome/repo/src/components/widget/Announcement.astro" for import "default"
+2026-03-22T18:37:33.980Z	[build] 
+2026-03-22T18:37:33.980Z	[build]     src/components/layout/SideBar.astro:3:7:
+2026-03-22T18:37:33.980Z	[build]       3 │ import Announcement from "@/components/widget/Announcement.astro";
+2026-03-22T18:37:33.980Z	[build]         ╵        ~~~~~~~~~~~~
+2026-03-22T18:37:33.980Z	[build] 
+2026-03-22T18:37:33.980Z	[build] 
+2026-03-22T18:37:33.980Z	[build] ✘ [ERROR] No matching export in "html:/opt/buildhome/repo/src/components/widget/Calendar.astro" for import "default"
+2026-03-22T18:37:33.980Z	[build] 
+2026-03-22T18:37:33.980Z	[build]     src/components/layout/SideBar.astro:4:7:
+2026-03-22T18:37:33.980Z	[build]       4 │ import Calendar from "@/components/widget/Calendar.astro";
+2026-03-22T18:37:33.980Z	[build]         ╵        ~~~~~~~~
+2026-03-22T18:37:33.980Z	[build] 
+2026-03-22T18:37:33.981Z	[build] 
+2026-03-22T18:37:33.981Z	[build] ✘ [ERROR] No matching export in "html:/opt/buildhome/repo/src/components/widget/Categories.astro" for import "default"
+2026-03-22T18:37:33.981Z	[build] 
+2026-03-22T18:37:33.981Z	[build]     src/components/layout/SideBar.astro:5:7:
+2026-03-22T18:37:33.981Z	[build]       5 │ import Categories from "@/components/widget/Categories.astro";
+2026-03-22T18:37:33.981Z	[build]         ╵        ~~~~~~~~~~
+2026-03-22T18:37:33.981Z	[build] 
+2026-03-22T18:37:33.981Z	[build] 
+2026-03-22T18:37:33.981Z	[build] ✘ [ERROR] No matching export in "html:/opt/buildhome/repo/src/components/widget/Music.astro" for import "default"
+2026-03-22T18:37:33.981Z	[build] 
+2026-03-22T18:37:33.981Z	[build]     src/components/layout/SideBar.astro:6:7:
+2026-03-22T18:37:33.981Z	[build]       6 │ import Music from "@/components/widget/Music.astro";
+2026-03-22T18:37:33.983Z	[build]         ╵        ~~~~~
+2026-03-22T18:37:33.983Z	[build] 
+2026-03-22T18:37:33.984Z	[build] 
+2026-03-22T18:37:33.984Z	[build] ✘ [ERROR] No matching export in "html:/opt/buildhome/repo/src/components/widget/Profile.astro" for import "default"
+2026-03-22T18:37:33.984Z	[build] 
+2026-03-22T18:37:33.984Z	[build]     src/components/layout/SideBar.astro:7:7:
+2026-03-22T18:37:33.984Z	[build]       7 │ import Profile from "@/components/widget/Profile.astro";
+2026-03-22T18:37:33.984Z	[build]         ╵        ~~~~~~~
+2026-03-22T18:37:33.984Z	[build] 
+2026-03-22T18:37:33.984Z	[build] 
+2026-03-22T18:37:33.984Z	[build] ✘ [ERROR] No matching export in "html:/opt/buildhome/repo/src/components/widget/SidebarTOC.astro" for import "default"
+2026-03-22T18:37:33.984Z	[build] 
+2026-03-22T18:37:33.984Z	[build]     src/components/layout/SideBar.astro:8:7:
+2026-03-22T18:37:33.984Z	[build]       8 │ import SidebarTOC from "@/components/widget/SidebarTOC.astro";
+2026-03-22T18:37:33.984Z	[build]         ╵        ~~~~~~~~~~
+2026-03-22T18:37:33.984Z	[build] 
+2026-03-22T18:37:33.984Z	[build] 
+2026-03-22T18:37:33.984Z	[build] ✘ [ERROR] No matching export in "html:/opt/buildhome/repo/src/components/widget/SiteStats.astro" for import "default"
+2026-03-22T18:37:33.984Z	[build] 
+2026-03-22T18:37:33.984Z	[build]     src/components/layout/SideBar.astro:9:7:
+2026-03-22T18:37:33.984Z	[build]       9 │ import SiteStats from "@/components/widget/SiteStats.astro";
+2026-03-22T18:37:33.984Z	[build]         ╵        ~~~~~~~~~
+2026-03-22T18:37:33.984Z	[build] 
+2026-03-22T18:37:33.984Z	[build] 
+2026-03-22T18:37:33.984Z	[build] ✘ [ERROR] No matching export in "html:/opt/buildhome/repo/src/components/widget/Tags.astro" for import "default"
+2026-03-22T18:37:33.984Z	[build] 
+2026-03-22T18:37:33.985Z	[build]     src/components/layout/SideBar.astro:10:7:
+2026-03-22T18:37:33.985Z	[build]       10 │ import Tags from "@/components/widget/Tags.astro";
+2026-03-22T18:37:33.985Z	[build]          ╵        ~~~~
+2026-03-22T18:37:33.985Z	[build] 
+2026-03-22T18:37:33.985Z	[build] 
+2026-03-22T18:37:33.985Z	[build]     at failureErrorWithLog (/opt/buildhome/repo/node_modules/.pnpm/esbuild@0.27.4/node_modules/esbuild/lib/main.js:1748:15)
+2026-03-22T18:37:33.985Z	[build]     at /opt/buildhome/repo/node_modules/.pnpm/esbuild@0.27.4/node_modules/esbuild/lib/main.js:1207:25
+2026-03-22T18:37:33.985Z	[build]     at runOnEndCallbacks (/opt/buildhome/repo/node_modules/.pnpm/esbuild@0.27.4/node_modules/esbuild/lib/main.js:1588:45)
+2026-03-22T18:37:33.985Z	[build]     at buildResponseToResult (/opt/buildhome/repo/node_modules/.pnpm/esbuild@0.27.4/node_modules/esbuild/lib/main.js:1205:7)
+2026-03-22T18:37:33.985Z	[build]     at /opt/buildhome/repo/node_modules/.pnpm/esbuild@0.27.4/node_modules/esbuild/lib/main.js:1217:9
+2026-03-22T18:37:33.985Z	[build]     at new Promise (<anonymous>)
+2026-03-22T18:37:33.985Z	[build]     at requestCallbacks.on-end (/opt/buildhome/repo/node_modules/.pnpm/esbuild@0.27.4/node_modules/esbuild/lib/main.js:1216:54)
+2026-03-22T18:37:33.985Z	[build]     at handleRequest (/opt/buildhome/repo/node_modules/.pnpm/esbuild@0.27.4/node_modules/esbuild/lib/main.js:909:17)
+2026-03-22T18:37:33.987Z	[build]     at handleIncomingPacket (/opt/buildhome/repo/node_modules/.pnpm/esbuild@0.27.4/node_modules/esbuild/lib/main.js:934:7)
+2026-03-22T18:37:33.987Z	[build]     at Socket.readFromStdout (/opt/buildhome/repo/node_modules/.pnpm/esbuild@0.27.4/node_modules/esbuild/lib/main.js:862:7)
+2026-03-22T18:37:33.988Z	[build] 
+2026-03-22T18:37:35.913Z	[build] 18:37:35 [vite] Re-optimizing dependencies because lockfile has changed
+2026-03-22T18:37:35.914Z	[build] 
+2026-03-22T18:37:37.001Z	[build] 18:37:36 [content] Syncing content
+2026-03-22T18:37:37.001Z	[build] 
+2026-03-22T18:37:37.002Z	[build] 18:37:37 [content] Astro config changed
+2026-03-22T18:37:37.002Z	[build] 
+2026-03-22T18:37:37.002Z	[build] 18:37:37 [content] Clearing content store
+2026-03-22T18:37:37.002Z	[build] 
+2026-03-22T18:37:37.005Z	[build] 18:37:37 [WARN] [glob-loader] The base directory "/opt/buildhome/repo/vault/Belajar/05. BI Analyst/05. Projects/" does not exist.
+2026-03-22T18:37:37.006Z	[build] 
+2026-03-22T18:37:47.827Z	[build] 18:37:47 [content] Synced content
+2026-03-22T18:37:47.828Z	[build] 
+2026-03-22T18:37:47.845Z	[build] 18:37:47 [types] Generated 14.96s
+2026-03-22T18:37:47.846Z	[build] 
+2026-03-22T18:37:47.849Z	[build] 18:37:47 [build] output: "static"
+2026-03-22T18:37:47.850Z	[build] 18:37:47 [build] mode: "server"
+2026-03-22T18:37:47.850Z	[build] 18:37:47 [build] directory: /opt/buildhome/repo/dist/
+2026-03-22T18:37:47.850Z	[build] 18:37:47 [build] adapter: @astrojs/cloudflare
+2026-03-22T18:37:47.850Z	[build] 18:37:47 [build] Collecting build info...
+2026-03-22T18:37:47.850Z	[build] 
+2026-03-22T18:37:47.850Z	[build] 18:37:47 [build] ✓ Completed in 15.15s.
+2026-03-22T18:37:47.850Z	[build] 
+2026-03-22T18:37:47.877Z	[build] 18:37:47 [build] Building server entrypoints...
+2026-03-22T18:37:47.877Z	[build] 
+2026-03-22T18:37:49.654Z	[build] 18:37:49 [WARN] [vite] Unexpected Node.js imports for environment "prerender". Do you need to enable the "nodejs_compat" compatibility flag? Refer to https://developers.cloudflare.com/workers/runtime-apis/nodejs/ for more details.
+2026-03-22T18:37:49.654Z	[build]  - "node:fs" imported from "src/pages/og/[...slug].png.ts"
+2026-03-22T18:37:49.655Z	[build]  - "node:async_hooks" imported from "node_modules/.pnpm/svelte@5.53.11/node_modules/svelte/src/internal/server/render-context.js"
+2026-03-22T18:37:49.655Z	[build]  - "node:fs/promises" imported from "node_modules/.pnpm/@astrojs+mdx@5.0.2_astro@6.0.6_@types+node@25.5.0_jiti@2.6.1_lightningcss@1.30.2_rollup@2.80._elvqm7o7fzeyncri36fgkqhlvu/node_modules/@astrojs/mdx/dist/index.js"
+2026-03-22T18:37:49.655Z	[build]  - "node:url" imported from "node_modules/.pnpm/@astrojs+mdx@5.0.2_astro@6.0.6_@types+node@25.5.0_jiti@2.6.1_lightningcss@1.30.2_rollup@2.80._elvqm7o7fzeyncri36fgkqhlvu/node_modules/@astrojs/mdx/dist/index.js"
+2026-03-22T18:37:49.655Z	[build]  - "node:path" imported from "node_modules/.pnpm/astro@6.0.6_@types+node@25.5.0_jiti@2.6.1_lightningcss@1.30.2_rollup@2.80.0_stylus@0.64.0_ter_s3jnjgzmxrci4aiuayrullxbdi/node_modules/astro/dist/container/index.js"
+2026-03-22T18:37:49.657Z	[build] 
+2026-03-22T18:37:49.657Z	[build] 
+2026-03-22T18:37:51.397Z	[build] 18:37:51 [WARN] [vite] Unexpected Node.js imports for environment "prerender". Do you need to enable the "nodejs_compat" compatibility flag? Refer to https://developers.cloudflare.com/workers/runtime-apis/nodejs/ for more details.
+2026-03-22T18:37:51.397Z	[build]  - "node:path" imported from "src/pages/posts/[...slug].astro"
+2026-03-22T18:37:51.399Z	[build]  - "node:path" imported from "node_modules/.pnpm/astro@6.0.6_@types+node@25.5.0_jiti@2.6.1_lightningcss@1.30.2_rollup@2.80.0_stylus@0.64.0_ter_s3jnjgzmxrci4aiuayrullxbdi/node_modules/astro/dist/core/config/schemas/relative.js"
+2026-03-22T18:37:51.399Z	[build]  - "node:path" imported from "src/utils/gallery-utils.ts"
+2026-03-22T18:37:51.400Z	[build]  - "node:path" imported from "src/utils/content-utils.ts"
+2026-03-22T18:37:51.400Z	[build]  - "node:url" imported from "node_modules/.pnpm/astro@6.0.6_@types+node@25.5.0_jiti@2.6.1_lightningcss@1.30.2_rollup@2.80.0_stylus@0.64.0_ter_s3jnjgzmxrci4aiuayrullxbdi/node_modules/astro/dist/core/client-directive/build.js"
+2026-03-22T18:37:51.400Z	[build]  - "node:url" imported from "node_modules/.pnpm/astro@6.0.6_@types+node@25.5.0_jiti@2.6.1_lightningcss@1.30.2_rollup@2.80.0_stylus@0.64.0_ter_s3jnjgzmxrci4aiuayrullxbdi/node_modules/astro/dist/core/config/schemas/relative.js"
+2026-03-22T18:37:51.400Z	[build]  - "path" imported from "node_modules/.pnpm/postcss@8.5.8/node_modules/postcss/lib/input.js"
+2026-03-22T18:37:51.400Z	[build]  - "url" imported from "node_modules/.pnpm/postcss@8.5.8/node_modules/postcss/lib/input.js"
+2026-03-22T18:37:51.400Z	[build]  - "node:fs" imported from "src/utils/gallery-utils.ts"
+2026-03-22T18:37:51.400Z	[build]  - "node:fs" imported from "src/utils/content-utils.ts"
+2026-03-22T18:37:51.400Z	[build] 
+2026-03-22T18:37:51.400Z	[build] 
+2026-03-22T18:37:53.176Z	[build] 18:37:53 [WARN] [vite] Unexpected Node.js imports for environment "prerender". Do you need to enable the "nodejs_compat" compatibility flag? Refer to https://developers.cloudflare.com/workers/runtime-apis/nodejs/ for more details.
+2026-03-22T18:37:53.177Z	[build]  - "fs" imported from "node_modules/.pnpm/postcss@8.5.8/node_modules/postcss/lib/previous-map.js"
+2026-03-22T18:37:53.177Z	[build]  - "fs" imported from "node_modules/.pnpm/esbuild@0.27.4/node_modules/esbuild/lib/main.js"
+2026-03-22T18:37:53.177Z	[build]  - "path" imported from "node_modules/.pnpm/postcss@8.5.8/node_modules/postcss/lib/previous-map.js"
+2026-03-22T18:37:53.177Z	[build]  - "path" imported from "node_modules/.pnpm/postcss@8.5.8/node_modules/postcss/lib/map-generator.js"
+2026-03-22T18:37:53.177Z	[build]  - "path" imported from "node_modules/.pnpm/esbuild@0.27.4/node_modules/esbuild/lib/main.js"
+2026-03-22T18:37:53.177Z	[build]  - "node:module" imported from "node_modules/.pnpm/astro@6.0.6_@types+node@25.5.0_jiti@2.6.1_lightningcss@1.30.2_rollup@2.80.0_stylus@0.64.0_ter_s3jnjgzmxrci4aiuayrullxbdi/node_modules/astro/dist/core/viteUtils.js"
+2026-03-22T18:37:53.177Z	[build]  - "node:path" imported from "node_modules/.pnpm/astro@6.0.6_@types+node@25.5.0_jiti@2.6.1_lightningcss@1.30.2_rollup@2.80.0_stylus@0.64.0_ter_s3jnjgzmxrci4aiuayrullxbdi/node_modules/astro/dist/core/viteUtils.js"
+2026-03-22T18:37:53.177Z	[build]  - "node:path" imported from "src/components/layout/Footer.astro"
+2026-03-22T18:37:53.177Z	[build]  - "node:path" imported from "node_modules/.pnpm/@astrojs+mdx@5.0.2_astro@6.0.6_@types+node@25.5.0_jiti@2.6.1_lightningcss@1.30.2_rollup@2.80._elvqm7o7fzeyncri36fgkqhlvu/node_modules/@astrojs/mdx/dist/rehype-apply-frontmatter-export.js"
+2026-03-22T18:37:53.177Z	[build]  - "node:path" imported from "src/content.config.ts"
+2026-03-22T18:37:53.178Z	[build]  - "node:url" imported from "node_modules/.pnpm/astro@6.0.6_@types+node@25.5.0_jiti@2.6.1_lightningcss@1.30.2_rollup@2.80.0_stylus@0.64.0_ter_s3jnjgzmxrci4aiuayrullxbdi/node_modules/astro/dist/core/viteUtils.js"
+2026-03-22T18:37:53.178Z	[build]  - "node:url" imported from "node_modules/.pnpm/@astrojs+mdx@5.0.2_astro@6.0.6_@types+node@25.5.0_jiti@2.6.1_lightningcss@1.30.2_rollup@2.80._elvqm7o7fzeyncri36fgkqhlvu/node_modules/@astrojs/mdx/dist/rehype-apply-frontmatter-export.js"
+2026-03-22T18:37:53.178Z	[build]  - "url" imported from "node_modules/.pnpm/postcss@8.5.8/node_modules/postcss/lib/map-generator.js"
+2026-03-22T18:37:53.178Z	[build]  - "node:fs" imported from "src/components/layout/Footer.astro"
+2026-03-22T18:37:53.178Z	[build]  - "node:fs" imported from "src/content.config.ts"
+2026-03-22T18:37:53.178Z	[build]  - "node:crypto" imported from "src/utils/crypto-utils.ts"
+2026-03-22T18:37:53.178Z	[build]  - "os" imported from "node_modules/.pnpm/esbuild@0.27.4/node_modules/esbuild/lib/main.js"
+2026-03-22T18:37:53.178Z	[build]  - "child_process" imported from "node_modules/.pnpm/esbuild@0.27.4/node_modules/esbuild/lib/main.js"
+2026-03-22T18:37:53.178Z	[build]  - "crypto" imported from "node_modules/.pnpm/esbuild@0.27.4/node_modules/esbuild/lib/main.js"
+2026-03-22T18:37:53.178Z	[build]  - "tty" imported from "node_modules/.pnpm/esbuild@0.27.4/node_modules/esbuild/lib/main.js"
+2026-03-22T18:37:53.178Z	[build]  - "worker_threads" imported from "node_modules/.pnpm/esbuild@0.27.4/node_modules/esbuild/lib/main.js"
+2026-03-22T18:37:53.178Z	[build] 
+2026-03-22T18:37:53.178Z	[build] 
+2026-03-22T18:38:03.276Z	[build] 18:38:03 [WARN] [vite] Unexpected Node.js imports for environment "prerender". Do you need to enable the "nodejs_compat" compatibility flag? Refer to https://developers.cloudflare.com/workers/runtime-apis/nodejs/ for more details.
+2026-03-22T18:38:03.276Z	[build]  - "node:path" imported from "src/components/common/CoverImage.astro"
+2026-03-22T18:38:03.276Z	[build]  - "node:path" imported from "src/components/common/ImageWrapper.astro"
+2026-03-22T18:38:03.277Z	[build]  - "node:path" imported from "node_modules/.pnpm/astro@6.0.6_@types+node@25.5.0_jiti@2.6.1_lightningcss@1.30.2_rollup@2.80.0_stylus@0.64.0_ter_s3jnjgzmxrci4aiuayrullxbdi/node_modules/astro/dist/core/util.js"
+2026-03-22T18:38:03.277Z	[build]  - "node:path" imported from "node_modules/.pnpm/astro@6.0.6_@types+node@25.5.0_jiti@2.6.1_lightningcss@1.30.2_rollup@2.80.0_stylus@0.64.0_ter_s3jnjgzmxrci4aiuayrullxbdi/node_modules/astro/dist/content/loaders/glob.js"
+2026-03-22T18:38:03.277Z	[build]  - "node:path" imported from "src/components/layout/Navbar.astro"
+2026-03-22T18:38:03.277Z	[build]  - "node:path" imported from "node_modules/.pnpm/astro@6.0.6_@types+node@25.5.0_jiti@2.6.1_lightningcss@1.30.2_rollup@2.80.0_stylus@0.64.0_ter_s3jnjgzmxrci4aiuayrullxbdi/node_modules/astro/dist/content/utils.js"
+2026-03-22T18:38:03.277Z	[build]  - "node:path" imported from "node_modules/.pnpm/common-ancestor-path@2.0.0/node_modules/common-ancestor-path/dist/esm/index.js"
+2026-03-22T18:38:03.277Z	[build]  - "node:path" imported from "node_modules/.pnpm/astro@6.0.6_@types+node@25.5.0_jiti@2.6.1_lightningcss@1.30.2_rollup@2.80.0_stylus@0.64.0_ter_s3jnjgzmxrci4aiuayrullxbdi/node_modules/astro/dist/assets/utils/node.js"
+2026-03-22T18:38:03.277Z	[build]  - "stream" imported from "node_modules/.pnpm/reading-time@1.5.0/node_modules/reading-time/lib/stream.js"
+2026-03-22T18:38:03.277Z	[build]  - "stream" imported from " stream?commonjs-external"
+2026-03-22T18:38:03.277Z	[build]  - "stream" imported from "node_modules/.pnpm/pngjs@5.0.0/node_modules/pngjs/lib/png.js"
+2026-03-22T18:38:03.277Z	[build]  - "stream" imported from "node_modules/.pnpm/pngjs@5.0.0/node_modules/pngjs/lib/packer-async.js"
+2026-03-22T18:38:03.277Z	[build]  - "stream" imported from "node_modules/.pnpm/pngjs@5.0.0/node_modules/pngjs/lib/chunkstream.js"
+2026-03-22T18:38:03.277Z	[build]  - "util" imported from "node_modules/.pnpm/reading-time@1.5.0/node_modules/reading-time/lib/stream.js"
+2026-03-22T18:38:03.277Z	[build]  - "util" imported from " util?commonjs-external"
+2026-03-22T18:38:03.277Z	[build]  - "util" imported from "node_modules/.pnpm/pngjs@5.0.0/node_modules/pngjs/lib/png.js"
+2026-03-22T18:38:03.277Z	[build]  - "util" imported from "node_modules/.pnpm/pngjs@5.0.0/node_modules/pngjs/lib/packer-async.js"
+2026-03-22T18:38:03.277Z	[build]  - "util" imported from "node_modules/.pnpm/pngjs@5.0.0/node_modules/pngjs/lib/parser-async.js"
+2026-03-22T18:38:03.277Z	[build]  - "util" imported from "node_modules/.pnpm/debug@4.4.3/node_modules/debug/src/node.js"
+2026-03-22T18:38:03.277Z	[build]  - "util" imported from "node_modules/.pnpm/pngjs@5.0.0/node_modules/pngjs/lib/chunkstream.js"
+2026-03-22T18:38:03.277Z	[build]  - "util" imported from "node_modules/.pnpm/pngjs@5.0.0/node_modules/pngjs/lib/filter-parse-async.js"
+2026-03-22T18:38:03.277Z	[build]  - "util" imported from "node_modules/.pnpm/pngjs@5.0.0/node_modules/pngjs/lib/sync-inflate.js"
+2026-03-22T18:38:03.277Z	[build]  - "node:fs" imported from "node_modules/.pnpm/astro@6.0.6_@types+node@25.5.0_jiti@2.6.1_lightningcss@1.30.2_rollup@2.80.0_stylus@0.64.0_ter_s3jnjgzmxrci4aiuayrullxbdi/node_modules/astro/dist/core/util.js"
+2026-03-22T18:38:03.277Z	[build]  - "node:fs" imported from "node_modules/.pnpm/astro@6.0.6_@types+node@25.5.0_jiti@2.6.1_lightningcss@1.30.2_rollup@2.80.0_stylus@0.64.0_ter_s3jnjgzmxrci4aiuayrullxbdi/node_modules/astro/dist/content/loaders/file.js"
+2026-03-22T18:38:03.277Z	[build]  - "node:fs" imported from "node_modules/.pnpm/astro@6.0.6_@types+node@25.5.0_jiti@2.6.1_lightningcss@1.30.2_rollup@2.80.0_stylus@0.64.0_ter_s3jnjgzmxrci4aiuayrullxbdi/node_modules/astro/dist/content/loaders/glob.js"
+2026-03-22T18:38:03.277Z	[build]  - "node:fs" imported from "node_modules/.pnpm/astro@6.0.6_@types+node@25.5.0_jiti@2.6.1_lightningcss@1.30.2_rollup@2.80.0_stylus@0.64.0_ter_s3jnjgzmxrci4aiuayrullxbdi/node_modules/astro/dist/content/utils.js"
+2026-03-22T18:38:03.277Z	[build]  - "node:url" imported from "node_modules/.pnpm/astro@6.0.6_@types+node@25.5.0_jiti@2.6.1_lightningcss@1.30.2_rollup@2.80.0_stylus@0.64.0_ter_s3jnjgzmxrci4aiuayrullxbdi/node_modules/astro/dist/core/util.js"
+2026-03-22T18:38:03.277Z	[build]  - "node:url" imported from "node_modules/.pnpm/astro@6.0.6_@types+node@25.5.0_jiti@2.6.1_lightningcss@1.30.2_rollup@2.80.0_stylus@0.64.0_ter_s3jnjgzmxrci4aiuayrullxbdi/node_modules/astro/dist/content/loaders/file.js"
+2026-03-22T18:38:03.277Z	[build]  - "node:url" imported from "node_modules/.pnpm/astro@6.0.6_@types+node@25.5.0_jiti@2.6.1_lightningcss@1.30.2_rollup@2.80.0_stylus@0.64.0_ter_s3jnjgzmxrci4aiuayrullxbdi/node_modules/astro/dist/content/loaders/glob.js"
+2026-03-22T18:38:03.277Z	[build]  - "node:url" imported from "node_modules/.pnpm/astro@6.0.6_@types+node@25.5.0_jiti@2.6.1_lightningcss@1.30.2_rollup@2.80.0_stylus@0.64.0_ter_s3jnjgzmxrci4aiuayrullxbdi/node_modules/astro/dist/vite-plugin-utils/index.js"
+2026-03-22T18:38:03.284Z	[build]  - "node:url" imported from "node_modules/.pnpm/astro@6.0.6_@types+node@25.5.0_jiti@2.6.1_lightningcss@1.30.2_rollup@2.80.0_stylus@0.64.0_ter_s3jnjgzmxrci4aiuayrullxbdi/node_modules/astro/dist/content/utils.js"
+2026-03-22T18:38:03.284Z	[build]  - "node:url" imported from "node_modules/.pnpm/astro@6.0.6_@types+node@25.5.0_jiti@2.6.1_lightningcss@1.30.2_rollup@2.80.0_stylus@0.64.0_ter_s3jnjgzmxrci4aiuayrullxbdi/node_modules/astro/dist/assets/utils/node.js"
+2026-03-22T18:38:03.284Z	[build]  - "fs" imported from " fs?commonjs-external"
+2026-03-22T18:38:03.284Z	[build]  - "fs" imported from "node_modules/.pnpm/source-map@0.7.6/node_modules/source-map/lib/read-wasm.js"
+2026-03-22T18:38:03.284Z	[build]  - "fs" imported from "node_modules/.pnpm/qrcode@1.5.4/node_modules/qrcode/lib/renderer/png.js"
+2026-03-22T18:38:03.284Z	[build]  - "fs" imported from "node_modules/.pnpm/qrcode@1.5.4/node_modules/qrcode/lib/renderer/utf8.js"
+2026-03-22T18:38:03.284Z	[build]  - "fs" imported from "node_modules/.pnpm/qrcode@1.5.4/node_modules/qrcode/lib/renderer/svg.js"
+2026-03-22T18:38:03.284Z	[build]  - "fs" imported from "node_modules/.pnpm/tinyglobby@0.2.15/node_modules/tinyglobby/dist/index.mjs"
+2026-03-22T18:38:03.284Z	[build]  - "fs" imported from "node_modules/.pnpm/fdir@6.5.0_picomatch@4.0.3/node_modules/fdir/dist/index.mjs"
+2026-03-22T18:38:03.284Z	[build]  - "os" imported from " os?commonjs-external"
+2026-03-22T18:38:03.284Z	[build]  - "path" imported from " path?commonjs-external"
+2026-03-22T18:38:03.284Z	[build]  - "path" imported from "node_modules/.pnpm/source-map@0.7.6/node_modules/source-map/lib/read-wasm.js"
+2026-03-22T18:38:03.285Z	[build]  - "path" imported from "node_modules/.pnpm/tinyglobby@0.2.15/node_modules/tinyglobby/dist/index.mjs"
+2026-03-22T18:38:03.285Z	[build]  - "path" imported from "node_modules/.pnpm/fdir@6.5.0_picomatch@4.0.3/node_modules/fdir/dist/index.mjs"
+2026-03-22T18:38:03.285Z	[build]  - "child_process" imported from " child_process?commonjs-external"
+2026-03-22T18:38:03.285Z	[build]  - "crypto" imported from " crypto?commonjs-external"
+2026-03-22T18:38:03.285Z	[build]  - "tty" imported from " tty?commonjs-external"
+2026-03-22T18:38:03.285Z	[build]  - "tty" imported from "node_modules/.pnpm/debug@4.4.3/node_modules/debug/src/node.js"
+2026-03-22T18:38:03.285Z	[build]  - "url" imported from "node_modules/.pnpm/source-map@0.7.6/node_modules/source-map/lib/url.js"
+2026-03-22T18:38:03.285Z	[build]  - "url" imported from "node_modules/.pnpm/tinyglobby@0.2.15/node_modules/tinyglobby/dist/index.mjs"
+2026-03-22T18:38:03.285Z	[build]  - "url" imported from " url?commonjs-external"
+2026-03-22T18:38:03.285Z	[build]  - "zlib" imported from "node_modules/.pnpm/pngjs@5.0.0/node_modules/pngjs/lib/parser-async.js"
+2026-03-22T18:38:03.285Z	[build]  - "zlib" imported from "node_modules/.pnpm/pngjs@5.0.0/node_modules/pngjs/lib/packer.js"
+2026-03-22T18:38:03.285Z	[build]  - "zlib" imported from "node_modules/.pnpm/pngjs@5.0.0/node_modules/pngjs/lib/parser-sync.js"
+2026-03-22T18:38:03.285Z	[build]  - "zlib" imported from "node_modules/.pnpm/pngjs@5.0.0/node_modules/pngjs/lib/packer-sync.js"
+2026-03-22T18:38:03.285Z	[build]  - "zlib" imported from "node_modules/.pnpm/pngjs@5.0.0/node_modules/pngjs/lib/sync-inflate.js"
+2026-03-22T18:38:03.286Z	[build]  - "zlib" imported from " zlib?commonjs-external"
+2026-03-22T18:38:03.286Z	[build]  - "module" imported from "node_modules/.pnpm/fdir@6.5.0_picomatch@4.0.3/node_modules/fdir/dist/index.mjs"
+2026-03-22T18:38:03.286Z	[build]  - "node:fs/promises" imported from "node_modules/.pnpm/astro@6.0.6_@types+node@25.5.0_jiti@2.6.1_lightningcss@1.30.2_rollup@2.80.0_stylus@0.64.0_ter_s3jnjgzmxrci4aiuayrullxbdi/node_modules/astro/dist/assets/utils/node.js"
+2026-03-22T18:38:03.286Z	[build]  - "assert" imported from "node_modules/.pnpm/pngjs@5.0.0/node_modules/pngjs/lib/sync-inflate.js"
+2026-03-22T18:38:03.286Z	[build]  - "assert" imported from " assert?commonjs-external"
+2026-03-22T18:38:03.286Z	[build]  - "buffer" imported from "node_modules/.pnpm/pngjs@5.0.0/node_modules/pngjs/lib/sync-inflate.js"
+2026-03-22T18:38:03.286Z	[build]  - "buffer" imported from " buffer?commonjs-external"
+2026-03-22T18:38:03.286Z	[build] 
+2026-03-22T18:38:03.286Z	[build] 
+2026-03-22T18:38:07.673Z	[build] 18:38:07 [vite] ✓ built in 19.63s
+2026-03-22T18:38:07.678Z	[build] 
+2026-03-22T18:38:08.965Z	[build] 18:38:08 [vite] ✓ built in 1.28s
+2026-03-22T18:38:08.967Z	[build] 
+2026-03-22T18:38:11.017Z	[build] 18:38:11 [vite] ✓ built in 2.05s
+2026-03-22T18:38:11.020Z	[build] 
+2026-03-22T18:38:11.087Z	[build] 
+2026-03-22T18:38:11.087Z	[build]  prerendering static routes 
+2026-03-22T18:38:11.088Z	[build] 
+2026-03-22T18:38:30.775Z	[build] Failed to get static paths from the Cloudflare prerender server (500: Internal Server Error).
+2026-03-22T18:38:30.775Z	[build] Error: No such module "node:fs".
+2026-03-22T18:38:30.775Z	[build]   imported from "dist/server/.prerender/chunks/_album__BrNuxwQx.mjs"
+2026-03-22T18:38:30.775Z	[build]     at async Object.fetch (file:///opt/buildhome/repo/node_modules/.pnpm/miniflare@4.20260317.1/node_modules/miniflare/dist/src/workers/core/entry.worker.js:4622:22)
+2026-03-22T18:38:30.775Z	[build]   Location:
+2026-03-22T18:38:30.775Z	[build]     /opt/buildhome/repo/node_modules/.pnpm/miniflare@4.20260317.1/node_modules/miniflare/dist/src/workers/core/entry.worker.js:4622:22
+2026-03-22T18:38:30.775Z	[build]   Stack trace:
+2026-03-22T18:38:30.776Z	[build]     at async Object.fetch (file:///opt/buildhome/repo/node_modules/.pnpm/miniflare@4.20260317.1/node_modules/miniflare/dist/src/workers/core/entry.worker.js:4622:22)
+2026-03-22T18:38:30.776Z	[build]     at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+2026-03-22T18:38:30.776Z	[build]     at async BasicMinimalPluginContext.handler (file:///opt/buildhome/repo/node_modules/.pnpm/astro@6.0.6_@types+node@25.5.0_jiti@2.6.1_lightningcss@1.30.2_rollup@2.80.0_stylus@0.64.0_ter_s3jnjgzmxrci4aiuayrullxbdi/node_modules/astro/dist/core/build/static-build.js:132:11)
+2026-03-22T18:38:30.776Z	[build]     at async buildEnvironments (file:///opt/buildhome/repo/node_modules/.pnpm/astro@6.0.6_@types+node@25.5.0_jiti@2.6.1_lightningcss@1.30.2_rollup@2.80.0_stylus@0.64.0_ter_s3jnjgzmxrci4aiuayrullxbdi/node_modules/astro/dist/core/build/static-build.js:316:3)
+2026-03-22T18:38:30.776Z	[build]     at async AstroBuilder.build (file:///opt/buildhome/repo/node_modules/.pnpm/astro@6.0.6_@types+node@25.5.0_jiti@2.6.1_lightningcss@1.30.2_rollup@2.80.0_stylus@0.64.0_ter_s3jnjgzmxrci4aiuayrullxbdi/node_modules/astro/dist/core/build/index.js:158:5)
+2026-03-22T18:38:30.776Z	[build]     at async build (file:///opt/buildhome/repo/node_modules/.pnpm/astro@6.0.6_@types+node@25.5.0_jiti@2.6.1_lightningcss@1.30.2_rollup@2.80.0_stylus@0.64.0_ter_s3jnjgzmxrci4aiuayrullxbdi/node_modules/astro/dist/core/build/index.js:48:3)
+2026-03-22T18:38:30.776Z	[build] 
+2026-03-22T18:38:31.004Z	[build]  ELIFECYCLE  Command failed with exit code 1.
+2026-03-22T18:38:31.004Z	[build] 
+2026-03-22T18:38:31.118Z	✘ [ERROR] Error: Command failed with exit code 1: pnpm run build
+2026-03-22T18:38:31.118Z	
+2026-03-22T18:38:31.118Z	  Cloning into '/opt/buildhome/repo/vault'...
+2026-03-22T18:38:31.118Z	  18:37:33 [ERROR] [vite] (!) Failed to run dependency scan. Skipping dependency pre-bundling. Error:   Failed to scan for dependencies from entries:
+2026-03-22T18:38:31.118Z	    /opt/buildhome/repo/src/config/FooterConfig.html
+2026-03-22T18:38:31.118Z	  /opt/buildhome/repo/src/layouts/Layout.astro
+2026-03-22T18:38:31.118Z	  /opt/buildhome/repo/src/layouts/MainGridLayout.astro
+2026-03-22T18:38:31.118Z	  /opt/buildhome/repo/src/pages/404.astro
+2026-03-22T18:38:31.119Z	  /opt/buildhome/repo/src/pages/[...page].astro
+2026-03-22T18:38:31.119Z	  /opt/buildhome/repo/src/pages/about.astro
+2026-03-22T18:38:31.119Z	  /opt/buildhome/repo/src/pages/archive.astro
+2026-03-22T18:38:31.119Z	  /opt/buildhome/repo/src/pages/bangumi.astro
+2026-03-22T18:38:31.119Z	  /opt/buildhome/repo/src/pages/friends.astro
+2026-03-22T18:38:31.119Z	  /opt/buildhome/repo/src/pages/guestbook.astro
+2026-03-22T18:38:31.119Z	  /opt/buildhome/repo/src/pages/portfolio.astro
+2026-03-22T18:38:31.119Z	  /opt/buildhome/repo/src/pages/roadmap.astro
+2026-03-22T18:38:31.119Z	  /opt/buildhome/repo/src/pages/rss.astro
+2026-03-22T18:38:31.119Z	  /opt/buildhome/repo/src/pages/search.astro
+2026-03-22T18:38:31.119Z	  /opt/buildhome/repo/src/pages/sponsor.astro
+2026-03-22T18:38:31.119Z	  /opt/buildhome/repo/src/components/comment/Artalk.astro
+2026-03-22T18:38:31.120Z	  /opt/buildhome/repo/src/components/comment/Disqus.astro
+2026-03-22T18:38:31.120Z	  /opt/buildhome/repo/src/components/comment/Giscus.astro
+2026-03-22T18:38:31.120Z	  /opt/buildhome/repo/src/components/comment/Twikoo.astro
+2026-03-22T18:38:31.120Z	  /opt/buildhome/repo/src/components/comment/Waline.astro
+2026-03-22T18:38:31.120Z	  /opt/buildhome/repo/src/components/comment/index.astro
+2026-03-22T18:38:31.120Z	  /opt/buildhome/repo/src/components/analytics/GoogleAnalytics.astro
+2026-03-22T18:38:31.120Z	  /opt/buildhome/repo/src/components/analytics/La51Analytics.astro
+2026-03-22T18:38:31.120Z	  /opt/buildhome/repo/src/components/analytics/MicrosoftClarity.astro
+2026-03-22T18:38:31.120Z	  /opt/buildhome/repo/src/components/analytics/UmamiAnalytics.astro
+2026-03-22T18:38:31.120Z	  /opt/buildhome/repo/src/components/common/ButtonLink.astro
+2026-03-22T18:38:31.120Z	  /opt/buildhome/repo/src/components/common/ButtonTag.astro
+2026-03-22T18:38:31.120Z	  /opt/buildhome/repo/src/components/common/ClientPagination.astro
+2026-03-22T18:38:31.120Z	  /opt/buildhome/repo/src/components/common/CoverImage.astro
+2026-03-22T18:38:31.120Z	  /opt/buildhome/repo/src/components/common/DropdownItem.astro
+2026-03-22T18:38:31.120Z	  /opt/buildhome/repo/src/components/common/DropdownItem.svelte
+2026-03-22T18:38:31.120Z	  /opt/buildhome/repo/src/components/common/DropdownPanel.astro
+2026-03-22T18:38:31.120Z	  /opt/buildhome/repo/src/components/common/DropdownPanel.svelte
+2026-03-22T18:38:31.120Z	  /opt/buildhome/repo/src/components/common/FloatingButton.astro
+2026-03-22T18:38:31.120Z	  /opt/buildhome/repo/src/components/common/Icon.svelte
+2026-03-22T18:38:31.120Z	  /opt/buildhome/repo/src/components/common/ImageWrapper.astro
+2026-03-22T18:38:31.120Z	  /opt/buildhome/repo/src/components/common/Markdown.astro
+2026-03-22T18:38:31.120Z	  /opt/buildhome/repo/src/components/common/Pagination.astro
+2026-03-22T18:38:31.120Z	  /opt/buildhome/repo/src/components/common/PioMessageBox.astro
+2026-03-22T18:38:31.120Z	  /opt/buildhome/repo/src/components/common/WidgetLayout.astro
+2026-03-22T18:38:31.120Z	  /opt/buildhome/repo/src/components/controls/ArchivePanel.svelte
+2026-03-22T18:38:31.120Z	  /opt/buildhome/repo/src/components/controls/BackToComment.astro
+2026-03-22T18:38:31.121Z	  /opt/buildhome/repo/src/components/controls/BackToHome.astro
+2026-03-22T18:38:31.121Z	  /opt/buildhome/repo/src/components/controls/BackToTop.astro
+2026-03-22T18:38:31.121Z	  /opt/buildhome/repo/src/components/controls/DisplaySettings.svelte
+2026-03-22T18:38:31.121Z	  /opt/buildhome/repo/src/components/controls/DisplaySettingsIntegrated.svelte
+2026-03-22T18:38:31.121Z	  /opt/buildhome/repo/src/components/controls/FloatingControls.astro
+2026-03-22T18:38:31.121Z	  /opt/buildhome/repo/src/components/controls/FloatingTOC.astro
+2026-03-22T18:38:31.121Z	  /opt/buildhome/repo/src/components/controls/LayoutSwitchButton.svelte
+2026-03-22T18:38:31.121Z	  /opt/buildhome/repo/src/components/controls/LightDarkSwitch.svelte
+2026-03-22T18:38:31.121Z	  /opt/buildhome/repo/src/components/controls/Search.svelte
+2026-03-22T18:38:31.121Z	  /opt/buildhome/repo/src/components/controls/WallpaperSwitch.svelte
+2026-03-22T18:38:31.121Z	  /opt/buildhome/repo/src/components/features/EncryptedPost.astro
+2026-03-22T18:38:31.121Z	  /opt/buildhome/repo/src/components/features/FancyboxManager.astro
+2026-03-22T18:38:31.121Z	  /opt/buildhome/repo/src/components/features/FontManager.astro
+2026-03-22T18:38:31.121Z	  /opt/buildhome/repo/src/components/features/KatexManager.astro
+2026-03-22T18:38:31.121Z	  /opt/buildhome/repo/src/components/features/Live2DWidget.astro
+2026-03-22T18:38:31.121Z	  /opt/buildhome/repo/src/components/features/MusicManager.astro
+2026-03-22T18:38:31.121Z	  /opt/buildhome/repo/src/components/features/MusicPlayer.astro
+2026-03-22T18:38:31.121Z	  /opt/buildhome/repo/src/components/features/SakuraEffect.astro
+2026-03-22T18:38:31.121Z	  /opt/buildhome/repo/src/components/features/SpineModel.astro
+2026-03-22T18:38:31.121Z	  /opt/buildhome/repo/src/components/features/TypewriterText.astro
+2026-03-22T18:38:31.121Z	  /opt/buildhome/repo/src/components/layout/CategoryBar.astro
+2026-03-22T18:38:31.129Z	  /opt/buildhome/repo/src/components/layout/ConfigCarrier.astro
+2026-03-22T18:38:31.130Z	  /opt/buildhome/repo/src/components/layout/DropdownMenu.astro
+2026-03-22T18:38:31.130Z	  /opt/buildhome/repo/src/components/layout/Footer.astro
+2026-03-22T18:38:31.130Z	  /opt/buildhome/repo/src/components/layout/NavMenuPanel.astro
+2026-03-22T18:38:31.130Z	  /opt/buildhome/repo/src/components/layout/Navbar.astro
+2026-03-22T18:38:31.132Z	  /opt/buildhome/repo/src/components/layout/PostCard.astro
+2026-03-22T18:38:31.132Z	  /opt/buildhome/repo/src/components/layout/PostMeta.astro
+2026-03-22T18:38:31.132Z	  /opt/buildhome/repo/src/components/layout/PostPage.astro
+2026-03-22T18:38:31.133Z	  /opt/buildhome/repo/src/components/layout/SideBar.astro
+2026-03-22T18:38:31.133Z	  /opt/buildhome/repo/src/components/misc/License.astro
+2026-03-22T18:38:31.133Z	  /opt/buildhome/repo/src/components/misc/RecommendedPost.astro
+2026-03-22T18:38:31.133Z	  /opt/buildhome/repo/src/components/misc/SharePoster.svelte
+2026-03-22T18:38:31.133Z	  /opt/buildhome/repo/src/components/pages/AdvancedSearch.svelte
+2026-03-22T18:38:31.134Z	  /opt/buildhome/repo/src/components/widget/Advertisement.astro
+2026-03-22T18:38:31.134Z	  /opt/buildhome/repo/src/components/widget/Announcement.astro
+2026-03-22T18:38:31.134Z	  /opt/buildhome/repo/src/components/widget/Calendar.astro
+2026-03-22T18:38:31.134Z	  /opt/buildhome/repo/src/components/widget/Categories.astro
+2026-03-22T18:38:31.134Z	  /opt/buildhome/repo/src/components/widget/Live2DWidget.astro
+2026-03-22T18:38:31.134Z	  /opt/buildhome/repo/src/components/widget/Music.astro
+2026-03-22T18:38:31.134Z	  /opt/buildhome/repo/src/components/widget/Profile.astro
+2026-03-22T18:38:31.134Z	  /opt/buildhome/repo/src/components/widget/SidebarTOC.astro
+2026-03-22T18:38:31.134Z	  /opt/buildhome/repo/src/components/widget/SiteStats.astro
+2026-03-22T18:38:31.135Z	  /opt/buildhome/repo/src/components/widget/SpineModel.astro
+2026-03-22T18:38:31.135Z	  /opt/buildhome/repo/src/components/widget/Tags.astro
+2026-03-22T18:38:31.135Z	  /opt/buildhome/repo/src/pages/gallery/[album].astro
+2026-03-22T18:38:31.135Z	  /opt/buildhome/repo/src/pages/gallery/index.astro
+2026-03-22T18:38:31.135Z	  /opt/buildhome/repo/src/pages/posts/[...slug].astro
+2026-03-22T18:38:31.135Z	  /opt/buildhome/repo/src/components/pages/bangumi/BangumiSection.astro
+2026-03-22T18:38:31.135Z	  /opt/buildhome/repo/src/components/pages/bangumi/Card.astro
+2026-03-22T18:38:31.135Z	  /opt/buildhome/repo/src/components/pages/bangumi/FilterControls.astro
+2026-03-22T18:38:31.135Z	  /opt/buildhome/repo/src/components/pages/bangumi/TabNav.astro
+2026-03-22T18:38:31.135Z	  /opt/buildhome/repo/src/components/pages/gallery/AlbumCard.astro
+2026-03-22T18:38:31.135Z	  /opt/buildhome/repo/src/components/pages/gallery/PhotoCard.astro
+2026-03-22T18:38:31.135Z	  
+2026-03-22T18:38:31.135Z	    ✘ [ERROR] No matching export in "html:/opt/buildhome/repo/src/components/widget/Advertisement.astro" for import "default"
+2026-03-22T18:38:31.135Z	  
+2026-03-22T18:38:31.135Z	      src/components/layout/SideBar.astro:2:7:
+2026-03-22T18:38:31.135Z	        2 │ import Advertisement from "@/components/widget/Advertisement.astro";
+2026-03-22T18:38:31.135Z	          ╵        ~~~~~~~~~~~~~
+2026-03-22T18:38:31.135Z	  
+2026-03-22T18:38:31.135Z	  
+2026-03-22T18:38:31.135Z	  ✘ [ERROR] No matching export in "html:/opt/buildhome/repo/src/components/widget/Announcement.astro" for import "default"
+2026-03-22T18:38:31.135Z	  
+2026-03-22T18:38:31.135Z	      src/components/layout/SideBar.astro:3:7:
+2026-03-22T18:38:31.135Z	        3 │ import Announcement from "@/components/widget/Announcement.astro";
+2026-03-22T18:38:31.135Z	          ╵        ~~~~~~~~~~~~
+2026-03-22T18:38:31.135Z	  
+2026-03-22T18:38:31.135Z	  
+2026-03-22T18:38:31.135Z	  ✘ [ERROR] No matching export in "html:/opt/buildhome/repo/src/components/widget/Calendar.astro" for import "default"
+2026-03-22T18:38:31.135Z	  
+2026-03-22T18:38:31.135Z	      src/components/layout/SideBar.astro:4:7:
+2026-03-22T18:38:31.135Z	        4 │ import Calendar from "@/components/widget/Calendar.astro";
+2026-03-22T18:38:31.135Z	          ╵        ~~~~~~~~
+2026-03-22T18:38:31.135Z	  
+2026-03-22T18:38:31.135Z	  
+2026-03-22T18:38:31.135Z	  ✘ [ERROR] No matching export in "html:/opt/buildhome/repo/src/components/widget/Categories.astro" for import "default"
+2026-03-22T18:38:31.136Z	  
+2026-03-22T18:38:31.136Z	      src/components/layout/SideBar.astro:5:7:
+2026-03-22T18:38:31.136Z	        5 │ import Categories from "@/components/widget/Categories.astro";
+2026-03-22T18:38:31.136Z	          ╵        ~~~~~~~~~~
+2026-03-22T18:38:31.137Z	  
+2026-03-22T18:38:31.137Z	  
+2026-03-22T18:38:31.137Z	  ✘ [ERROR] No matching export in "html:/opt/buildhome/repo/src/components/widget/Music.astro" for import "default"
+2026-03-22T18:38:31.137Z	  
+2026-03-22T18:38:31.137Z	      src/components/layout/SideBar.astro:6:7:
+2026-03-22T18:38:31.137Z	        6 │ import Music from "@/components/widget/Music.astro";
+2026-03-22T18:38:31.137Z	          ╵        ~~~~~
+2026-03-22T18:38:31.137Z	  
+2026-03-22T18:38:31.137Z	  
+2026-03-22T18:38:31.137Z	  ✘ [ERROR] No matching export in "html:/opt/buildhome/repo/src/components/widget/Profile.astro" for import "default"
+2026-03-22T18:38:31.137Z	  
+2026-03-22T18:38:31.137Z	      src/components/layout/SideBar.astro:7:7:
+2026-03-22T18:38:31.137Z	        7 │ import Profile from "@/components/widget/Profile.astro";
+2026-03-22T18:38:31.137Z	          ╵        ~~~~~~~
+2026-03-22T18:38:31.137Z	  
+2026-03-22T18:38:31.137Z	  
+2026-03-22T18:38:31.138Z	  ✘ [ERROR] No matching export in "html:/opt/buildhome/repo/src/components/widget/SidebarTOC.astro" for import "default"
+2026-03-22T18:38:31.138Z	  
+2026-03-22T18:38:31.138Z	      src/components/layout/SideBar.astro:8:7:
+2026-03-22T18:38:31.138Z	        8 │ import SidebarTOC from "@/components/widget/SidebarTOC.astro";
+2026-03-22T18:38:31.138Z	          ╵        ~~~~~~~~~~
+2026-03-22T18:38:31.138Z	  
+2026-03-22T18:38:31.138Z	  
+2026-03-22T18:38:31.138Z	  ✘ [ERROR] No matching export in "html:/opt/buildhome/repo/src/components/widget/SiteStats.astro" for import "default"
+2026-03-22T18:38:31.138Z	  
+2026-03-22T18:38:31.139Z	      src/components/layout/SideBar.astro:9:7:
+2026-03-22T18:38:31.139Z	        9 │ import SiteStats from "@/components/widget/SiteStats.astro";
+2026-03-22T18:38:31.139Z	          ╵        ~~~~~~~~~
+2026-03-22T18:38:31.139Z	  
+2026-03-22T18:38:31.139Z	  
+2026-03-22T18:38:31.139Z	  ✘ [ERROR] No matching export in "html:/opt/buildhome/repo/src/components/widget/Tags.astro" for import "default"
+2026-03-22T18:38:31.139Z	  
+2026-03-22T18:38:31.139Z	      src/components/layout/SideBar.astro:10:7:
+2026-03-22T18:38:31.141Z	        10 │ import Tags from "@/components/widget/Tags.astro";
+2026-03-22T18:38:31.142Z	           ╵        ~~~~
+2026-03-22T18:38:31.142Z	  
+2026-03-22T18:38:31.142Z	  
+2026-03-22T18:38:31.142Z	      at failureErrorWithLog (/opt/buildhome/repo/node_modules/.pnpm/esbuild@0.27.4/node_modules/esbuild/lib/main.js:1748:15)
+2026-03-22T18:38:31.142Z	      at /opt/buildhome/repo/node_modules/.pnpm/esbuild@0.27.4/node_modules/esbuild/lib/main.js:1207:25
+2026-03-22T18:38:31.142Z	      at runOnEndCallbacks (/opt/buildhome/repo/node_modules/.pnpm/esbuild@0.27.4/node_modules/esbuild/lib/main.js:1588:45)
+2026-03-22T18:38:31.142Z	      at buildResponseToResult (/opt/buildhome/repo/node_modules/.pnpm/esbuild@0.27.4/node_modules/esbuild/lib/main.js:1205:7)
+2026-03-22T18:38:31.142Z	      at /opt/buildhome/repo/node_modules/.pnpm/esbuild@0.27.4/node_modules/esbuild/lib/main.js:1217:9
+2026-03-22T18:38:31.142Z	      at new Promise (<anonymous>)
+2026-03-22T18:38:31.142Z	      at requestCallbacks.on-end (/opt/buildhome/repo/node_modules/.pnpm/esbuild@0.27.4/node_modules/esbuild/lib/main.js:1216:54)
+2026-03-22T18:38:31.142Z	      at handleRequest (/opt/buildhome/repo/node_modules/.pnpm/esbuild@0.27.4/node_modules/esbuild/lib/main.js:909:17)
+2026-03-22T18:38:31.142Z	      at handleIncomingPacket (/opt/buildhome/repo/node_modules/.pnpm/esbuild@0.27.4/node_modules/esbuild/lib/main.js:934:7)
+2026-03-22T18:38:31.142Z	      at Socket.readFromStdout (/opt/buildhome/repo/node_modules/.pnpm/esbuild@0.27.4/node_modules/esbuild/lib/main.js:862:7)
+2026-03-22T18:38:31.142Z	  Failed to get static paths from the Cloudflare prerender server (500: Internal Server Error).
+2026-03-22T18:38:31.143Z	  Error: No such module "node:fs".
+2026-03-22T18:38:31.143Z	    imported from "dist/server/.prerender/chunks/_album__BrNuxwQx.mjs"
+2026-03-22T18:38:31.144Z	      at async Object.fetch (file:///opt/buildhome/repo/node_modules/.pnpm/miniflare@4.20260317.1/node_modules/miniflare/dist/src/workers/core/entry.worker.js:4622:22)
+2026-03-22T18:38:31.144Z	    Location:
+2026-03-22T18:38:31.144Z	      /opt/buildhome/repo/node_modules/.pnpm/miniflare@4.20260317.1/node_modules/miniflare/dist/src/workers/core/entry.worker.js:4622:22
+2026-03-22T18:38:31.144Z	    Stack trace:
+2026-03-22T18:38:31.144Z	      at async Object.fetch (file:///opt/buildhome/repo/node_modules/.pnpm/miniflare@4.20260317.1/node_modules/miniflare/dist/src/workers/core/entry.worker.js:4622:22)
+2026-03-22T18:38:31.144Z	      at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+2026-03-22T18:38:31.144Z	      at async BasicMinimalPluginContext.handler (file:///opt/buildhome/repo/node_modules/.pnpm/astro@6.0.6_@types+node@25.5.0_jiti@2.6.1_lightningcss@1.30.2_rollup@2.80.0_stylus@0.64.0_ter_s3jnjgzmxrci4aiuayrullxbdi/node_modules/astro/dist/core/build/static-build.js:132:11)
+2026-03-22T18:38:31.144Z	      at async buildEnvironments (file:///opt/buildhome/repo/node_modules/.pnpm/astro@6.0.6_@types+node@25.5.0_jiti@2.6.1_lightningcss@1.30.2_rollup@2.80.0_stylus@0.64.0_ter_s3jnjgzmxrci4aiuayrullxbdi/node_modules/astro/dist/core/build/static-build.js:316:3)
+2026-03-22T18:38:31.144Z	      at async AstroBuilder.build (file:///opt/buildhome/repo/node_modules/.pnpm/astro@6.0.6_@types+node@25.5.0_jiti@2.6.1_lightningcss@1.30.2_rollup@2.80.0_stylus@0.64.0_ter_s3jnjgzmxrci4aiuayrullxbdi/node_modules/astro/dist/core/build/index.js:158:5)
+2026-03-22T18:38:31.144Z	      at async build (file:///opt/buildhome/repo/node_modules/.pnpm/astro@6.0.6_@types+node@25.5.0_jiti@2.6.1_lightningcss@1.30.2_rollup@2.80.0_stylus@0.64.0_ter_s3jnjgzmxrci4aiuayrullxbdi/node_modules/astro/dist/core/build/index.js:48:3)
+2026-03-22T18:38:31.144Z	  
+2026-03-22T18:38:31.144Z	  > firefly@6.8.1 build /opt/buildhome/repo
+2026-03-22T18:38:31.144Z	  > node scripts/fetch-contents.js && node scripts/generate-icons.js && astro build && pagefind --site dist
+2026-03-22T18:38:31.144Z	  
+2026-03-22T18:38:31.144Z	  [Fetch Contents] Vault directory already exists.
+2026-03-22T18:38:31.144Z	  [Fetch Contents] CI environment. Re-cloning...
+2026-03-22T18:38:31.144Z	  [Fetch Contents] Running: git clone https://github.com/amfajar/blog-contents.git "/opt/buildhome/repo/vault"
+2026-03-22T18:38:31.144Z	  [Fetch Contents] Successfully synchronized vault content.
+2026-03-22T18:38:31.144Z	  🔍 扫描源文件中的图标使用...
+2026-03-22T18:38:31.144Z	  
+2026-03-22T18:38:31.144Z	  📁 找到 12 个源文件
+2026-03-22T18:38:31.144Z	  
+2026-03-22T18:38:31.144Z	  🎨 发现 18 个不同的图标:
+2026-03-22T18:38:31.144Z	  
+2026-03-22T18:38:31.144Z	     fa7-solid: 3 个图标
+2026-03-22T18:38:31.145Z	     material-symbols: 14 个图标
+2026-03-22T18:38:31.145Z	     svg-spinners: 1 个图标
+2026-03-22T18:38:31.145Z	  
+2026-03-22T18:38:31.145Z	  ✅ 成功加载 18 个图标
+2026-03-22T18:38:31.145Z	  
+2026-03-22T18:38:31.145Z	  📝 已生成: /opt/buildhome/repo/src/constants/icons.ts
+2026-03-22T18:38:31.145Z	  📦 文件大小: 10.29 KB
+2026-03-22T18:38:31.145Z	  
+2026-03-22T18:38:31.145Z	  18:37:32 [@astrojs/cloudflare] Enabling image processing with Cloudflare Images for production with the "IMAGES" Images binding.
+2026-03-22T18:38:31.145Z	  18:37:32 [@astrojs/cloudflare] Enabling sessions with Cloudflare KV with the "SESSION" KV binding.
+2026-03-22T18:38:31.145Z	  18:37:35 [vite] Re-optimizing dependencies because lockfile has changed
+2026-03-22T18:38:31.145Z	  18:37:36 [content] Syncing content
+2026-03-22T18:38:31.145Z	  18:37:37 [content] Astro config changed
+2026-03-22T18:38:31.145Z	  18:37:37 [content] Clearing content store
+2026-03-22T18:38:31.145Z	  18:37:37 [WARN] [glob-loader] The base directory "/opt/buildhome/repo/vault/Belajar/05. BI Analyst/05. Projects/" does not exist.
+2026-03-22T18:38:31.145Z	  18:37:47 [content] Synced content
+2026-03-22T18:38:31.145Z	  18:37:47 [types] Generated 14.96s
+2026-03-22T18:38:31.145Z	  18:37:47 [build] output: "static"
+2026-03-22T18:38:31.145Z	  18:37:47 [build] mode: "server"
+2026-03-22T18:38:31.145Z	  18:37:47 [build] directory: /opt/buildhome/repo/dist/
+2026-03-22T18:38:31.146Z	  18:37:47 [build] adapter: @astrojs/cloudflare
+2026-03-22T18:38:31.146Z	  18:37:47 [build] Collecting build info...
+2026-03-22T18:38:31.146Z	  18:37:47 [build] ✓ Completed in 15.15s.
+2026-03-22T18:38:31.146Z	  18:37:47 [build] Building server entrypoints...
+2026-03-22T18:38:31.146Z	  18:37:49 [WARN] [vite] Unexpected Node.js imports for environment "prerender". Do you need to enable the "nodejs_compat" compatibility flag? Refer to https://developers.cloudflare.com/workers/runtime-apis/nodejs/ for more details.
+2026-03-22T18:38:31.147Z	   - "node:fs" imported from "src/pages/og/[...slug].png.ts"
+2026-03-22T18:38:31.147Z	   - "node:async_hooks" imported from "node_modules/.pnpm/svelte@5.53.11/node_modules/svelte/src/internal/server/render-context.js"
+2026-03-22T18:38:31.147Z	   - "node:fs/promises" imported from "node_modules/.pnpm/@astrojs+mdx@5.0.2_astro@6.0.6_@types+node@25.5.0_jiti@2.6.1_lightningcss@1.30.2_rollup@2.80._elvqm7o7fzeyncri36fgkqhlvu/node_modules/@astrojs/mdx/dist/index.js"
+2026-03-22T18:38:31.147Z	   - "node:url" imported from "node_modules/.pnpm/@astrojs+mdx@5.0.2_astro@6.0.6_@types+node@25.5.0_jiti@2.6.1_lightningcss@1.30.2_rollup@2.80._elvqm7o7fzeyncri36fgkqhlvu/node_modules/@astrojs/mdx/dist/index.js"
+2026-03-22T18:38:31.147Z	   - "node:path" imported from "node_modules/.pnpm/astro@6.0.6_@types+node@25.5.0_jiti@2.6.1_lightningcss@1.30.2_rollup@2.80.0_stylus@0.64.0_ter_s3jnjgzmxrci4aiuayrullxbdi/node_modules/astro/dist/container/index.js"
+2026-03-22T18:38:31.147Z	  
+2026-03-22T18:38:31.147Z	  18:37:51 [WARN] [vite] Unexpected Node.js imports for environment "prerender". Do you need to enable the "nodejs_compat" compatibility flag? Refer to https://developers.cloudflare.com/workers/runtime-apis/nodejs/ for more details.
+2026-03-22T18:38:31.147Z	   - "node:path" imported from "src/pages/posts/[...slug].astro"
+2026-03-22T18:38:31.147Z	   - "node:path" imported from "node_modules/.pnpm/astro@6.0.6_@types+node@25.5.0_jiti@2.6.1_lightningcss@1.30.2_rollup@2.80.0_stylus@0.64.0_ter_s3jnjgzmxrci4aiuayrullxbdi/node_modules/astro/dist/core/config/schemas/relative.js"
+2026-03-22T18:38:31.147Z	   - "node:path" imported from "src/utils/gallery-utils.ts"
+2026-03-22T18:38:31.147Z	   - "node:path" imported from "src/utils/content-utils.ts"
+2026-03-22T18:38:31.147Z	   - "node:url" imported from "node_modules/.pnpm/astro@6.0.6_@types+node@25.5.0_jiti@2.6.1_lightningcss@1.30.2_rollup@2.80.0_stylus@0.64.0_ter_s3jnjgzmxrci4aiuayrullxbdi/node_modules/astro/dist/core/client-directive/build.js"
+2026-03-22T18:38:31.147Z	   - "node:url" imported from "node_modules/.pnpm/astro@6.0.6_@types+node@25.5.0_jiti@2.6.1_lightningcss@1.30.2_rollup@2.80.0_stylus@0.64.0_ter_s3jnjgzmxrci4aiuayrullxbdi/node_modules/astro/dist/core/config/schemas/relative.js"
+2026-03-22T18:38:31.147Z	   - "path" imported from "node_modules/.pnpm/postcss@8.5.8/node_modules/postcss/lib/input.js"
+2026-03-22T18:38:31.147Z	   - "url" imported from "node_modules/.pnpm/postcss@8.5.8/node_modules/postcss/lib/input.js"
+2026-03-22T18:38:31.147Z	   - "node:fs" imported from "src/utils/gallery-utils.ts"
+2026-03-22T18:38:31.147Z	   - "node:fs" imported from "src/utils/content-utils.ts"
+2026-03-22T18:38:31.147Z	  
+2026-03-22T18:38:31.147Z	  18:37:53 [WARN] [vite] Unexpected Node.js imports for environment "prerender". Do you need to enable the "nodejs_compat" compatibility flag? Refer to https://developers.cloudflare.com/workers/runtime-apis/nodejs/ for more details.
+2026-03-22T18:38:31.147Z	   - "fs" imported from "node_modules/.pnpm/postcss@8.5.8/node_modules/postcss/lib/previous-map.js"
+2026-03-22T18:38:31.147Z	   - "fs" imported from "node_modules/.pnpm/esbuild@0.27.4/node_modules/esbuild/lib/main.js"
+2026-03-22T18:38:31.147Z	   - "path" imported from "node_modules/.pnpm/postcss@8.5.8/node_modules/postcss/lib/previous-map.js"
+2026-03-22T18:38:31.148Z	   - "path" imported from "node_modules/.pnpm/postcss@8.5.8/node_modules/postcss/lib/map-generator.js"
+2026-03-22T18:38:31.148Z	   - "path" imported from "node_modules/.pnpm/esbuild@0.27.4/node_modules/esbuild/lib/main.js"
+2026-03-22T18:38:31.148Z	   - "node:module" imported from "node_modules/.pnpm/astro@6.0.6_@types+node@25.5.0_jiti@2.6.1_lightningcss@1.30.2_rollup@2.80.0_stylus@0.64.0_ter_s3jnjgzmxrci4aiuayrullxbdi/node_modules/astro/dist/core/viteUtils.js"
+2026-03-22T18:38:31.148Z	   - "node:path" imported from "node_modules/.pnpm/astro@6.0.6_@types+node@25.5.0_jiti@2.6.1_lightningcss@1.30.2_rollup@2.80.0_stylus@0.64.0_ter_s3jnjgzmxrci4aiuayrullxbdi/node_modules/astro/dist/core/viteUtils.js"
+2026-03-22T18:38:31.148Z	   - "node:path" imported from "src/components/layout/Footer.astro"
+2026-03-22T18:38:31.148Z	   - "node:path" imported from "node_modules/.pnpm/@astrojs+mdx@5.0.2_astro@6.0.6_@types+node@25.5.0_jiti@2.6.1_lightningcss@1.30.2_rollup@2.80._elvqm7o7fzeyncri36fgkqhlvu/node_modules/@astrojs/mdx/dist/rehype-apply-frontmatter-export.js"
+2026-03-22T18:38:31.148Z	   - "node:path" imported from "src/content.config.ts"
+2026-03-22T18:38:31.148Z	   - "node:url" imported from "node_modules/.pnpm/astro@6.0.6_@types+node@25.5.0_jiti@2.6.1_lightningcss@1.30.2_rollup@2.80.0_stylus@0.64.0_ter_s3jnjgzmxrci4aiuayrullxbdi/node_modules/astro/dist/core/viteUtils.js"
+2026-03-22T18:38:31.148Z	   - "node:url" imported from "node_modules/.pnpm/@astrojs+mdx@5.0.2_astro@6.0.6_@types+node@25.5.0_jiti@2.6.1_lightningcss@1.30.2_rollup@2.80._elvqm7o7fzeyncri36fgkqhlvu/node_modules/@astrojs/mdx/dist/rehype-apply-frontmatter-export.js"
+2026-03-22T18:38:31.148Z	   - "url" imported from "node_modules/.pnpm/postcss@8.5.8/node_modules/postcss/lib/map-generator.js"
+2026-03-22T18:38:31.148Z	   - "node:fs" imported from "src/components/layout/Footer.astro"
+2026-03-22T18:38:31.148Z	   - "node:fs" imported from "src/content.config.ts"
+2026-03-22T18:38:31.148Z	   - "node:crypto" imported from "src/utils/crypto-utils.ts"
+2026-03-22T18:38:31.148Z	   - "os" imported from "node_modules/.pnpm/esbuild@0.27.4/node_modules/esbuild/lib/main.js"
+2026-03-22T18:38:31.148Z	   - "child_process" imported from "node_modules/.pnpm/esbuild@0.27.4/node_modules/esbuild/lib/main.js"
+2026-03-22T18:38:31.148Z	   - "crypto" imported from "node_modules/.pnpm/esbuild@0.27.4/node_modules/esbuild/lib/main.js"
+2026-03-22T18:38:31.148Z	   - "tty" imported from "node_modules/.pnpm/esbuild@0.27.4/node_modules/esbuild/lib/main.js"
+2026-03-22T18:38:31.148Z	   - "worker_threads" imported from "node_modules/.pnpm/esbuild@0.27.4/node_modules/esbuild/lib/main.js"
+2026-03-22T18:38:31.148Z	  
+2026-03-22T18:38:31.149Z	  18:38:03 [WARN] [vite] Unexpected Node.js imports for environment "prerender". Do you need to enable the "nodejs_compat" compatibility flag? Refer to https://developers.cloudflare.com/workers/runtime-apis/nodejs/ for more details.
+2026-03-22T18:38:31.149Z	   - "node:path" imported from "src/components/common/CoverImage.astro"
+2026-03-22T18:38:31.149Z	   - "node:path" imported from "src/components/common/ImageWrapper.astro"
+2026-03-22T18:38:31.149Z	   - "node:path" imported from "node_modules/.pnpm/astro@6.0.6_@types+node@25.5.0_jiti@2.6.1_lightningcss@1.30.2_rollup@2.80.0_stylus@0.64.0_ter_s3jnjgzmxrci4aiuayrullxbdi/node_modules/astro/dist/core/util.js"
+2026-03-22T18:38:31.149Z	   - "node:path" imported from "node_modules/.pnpm/astro@6.0.6_@types+node@25.5.0_jiti@2.6.1_lightningcss@1.30.2_rollup@2.80.0_stylus@0.64.0_ter_s3jnjgzmxrci4aiuayrullxbdi/node_modules/astro/dist/content/loaders/glob.js"
+2026-03-22T18:38:31.149Z	   - "node:path" imported from "src/components/layout/Navbar.astro"
+2026-03-22T18:38:31.149Z	   - "node:path" imported from "node_modules/.pnpm/astro@6.0.6_@types+node@25.5.0_jiti@2.6.1_lightningcss@1.30.2_rollup@2.80.0_stylus@0.64.0_ter_s3jnjgzmxrci4aiuayrullxbdi/node_modules/astro/dist/content/utils.js"
+2026-03-22T18:38:31.149Z	   - "node:path" imported from "node_modules/.pnpm/common-ancestor-path@2.0.0/node_modules/common-ancestor-path/dist/esm/index.js"
+2026-03-22T18:38:31.149Z	   - "node:path" imported from "node_modules/.pnpm/astro@6.0.6_@types+node@25.5.0_jiti@2.6.1_lightningcss@1.30.2_rollup@2.80.0_stylus@0.64.0_ter_s3jnjgzmxrci4aiuayrullxbdi/node_modules/astro/dist/assets/utils/node.js"
+2026-03-22T18:38:31.149Z	   - "stream" imported from "node_modules/.pnpm/reading-time@1.5.0/node_modules/reading-time/lib/stream.js"
+2026-03-22T18:38:31.149Z	   - "stream" imported from " stream?commonjs-external"
+2026-03-22T18:38:31.149Z	   - "stream" imported from "node_modules/.pnpm/pngjs@5.0.0/node_modules/pngjs/lib/png.js"
+2026-03-22T18:38:31.149Z	   - "stream" imported from "node_modules/.pnpm/pngjs@5.0.0/node_modules/pngjs/lib/packer-async.js"
+2026-03-22T18:38:31.149Z	   - "stream" imported from "node_modules/.pnpm/pngjs@5.0.0/node_modules/pngjs/lib/chunkstream.js"
+2026-03-22T18:38:31.149Z	   - "util" imported from "node_modules/.pnpm/reading-time@1.5.0/node_modules/reading-time/lib/stream.js"
+2026-03-22T18:38:31.150Z	   - "util" imported from " util?commonjs-external"
+2026-03-22T18:38:31.150Z	   - "util" imported from "node_modules/.pnpm/pngjs@5.0.0/node_modules/pngjs/lib/png.js"
+2026-03-22T18:38:31.150Z	   - "util" imported from "node_modules/.pnpm/pngjs@5.0.0/node_modules/pngjs/lib/packer-async.js"
+2026-03-22T18:38:31.150Z	   - "util" imported from "node_modules/.pnpm/pngjs@5.0.0/node_modules/pngjs/lib/parser-async.js"
+2026-03-22T18:38:31.150Z	   - "util" imported from "node_modules/.pnpm/debug@4.4.3/node_modules/debug/src/node.js"
+2026-03-22T18:38:31.150Z	   - "util" imported from "node_modules/.pnpm/pngjs@5.0.0/node_modules/pngjs/lib/chunkstream.js"
+2026-03-22T18:38:31.150Z	   - "util" imported from "node_modules/.pnpm/pngjs@5.0.0/node_modules/pngjs/lib/filter-parse-async.js"
+2026-03-22T18:38:31.150Z	   - "util" imported from "node_modules/.pnpm/pngjs@5.0.0/node_modules/pngjs/lib/sync-inflate.js"
+2026-03-22T18:38:31.150Z	   - "node:fs" imported from "node_modules/.pnpm/astro@6.0.6_@types+node@25.5.0_jiti@2.6.1_lightningcss@1.30.2_rollup@2.80.0_stylus@0.64.0_ter_s3jnjgzmxrci4aiuayrullxbdi/node_modules/astro/dist/core/util.js"
+2026-03-22T18:38:31.150Z	   - "node:fs" imported from "node_modules/.pnpm/astro@6.0.6_@types+node@25.5.0_jiti@2.6.1_lightningcss@1.30.2_rollup@2.80.0_stylus@0.64.0_ter_s3jnjgzmxrci4aiuayrullxbdi/node_modules/astro/dist/content/loaders/file.js"
+2026-03-22T18:38:31.152Z	   - "node:fs" imported from "node_modules/.pnpm/astro@6.0.6_@types+node@25.5.0_jiti@2.6.1_lightningcss@1.30.2_rollup@2.80.0_stylus@0.64.0_ter_s3jnjgzmxrci4aiuayrullxbdi/node_modules/astro/dist/content/loaders/glob.js"
+2026-03-22T18:38:31.152Z	   - "node:fs" imported from "node_modules/.pnpm/astro@6.0.6_@types+node@25.5.0_jiti@2.6.1_lightningcss@1.30.2_rollup@2.80.0_stylus@0.64.0_ter_s3jnjgzmxrci4aiuayrullxbdi/node_modules/astro/dist/content/utils.js"
+2026-03-22T18:38:31.152Z	   - "node:url" imported from "node_modules/.pnpm/astro@6.0.6_@types+node@25.5.0_jiti@2.6.1_lightningcss@1.30.2_rollup@2.80.0_stylus@0.64.0_ter_s3jnjgzmxrci4aiuayrullxbdi/node_modules/astro/dist/core/util.js"
+2026-03-22T18:38:31.152Z	   - "node:url" imported from "node_modules/.pnpm/astro@6.0.6_@types+node@25.5.0_jiti@2.6.1_lightningcss@1.30.2_rollup@2.80.0_stylus@0.64.0_ter_s3jnjgzmxrci4aiuayrullxbdi/node_modules/astro/dist/content/loaders/file.js"
+2026-03-22T18:38:31.152Z	   - "node:url" imported from "node_modules/.pnpm/astro@6.0.6_@types+node@25.5.0_jiti@2.6.1_lightningcss@1.30.2_rollup@2.80.0_stylus@0.64.0_ter_s3jnjgzmxrci4aiuayrullxbdi/node_modules/astro/dist/content/loaders/glob.js"
+2026-03-22T18:38:31.152Z	   - "node:url" imported from "node_modules/.pnpm/astro@6.0.6_@types+node@25.5.0_jiti@2.6.1_lightningcss@1.30.2_rollup@2.80.0_stylus@0.64.0_ter_s3jnjgzmxrci4aiuayrullxbdi/node_modules/astro/dist/vite-plugin-utils/index.js"
+2026-03-22T18:38:31.152Z	   - "node:url" imported from "node_modules/.pnpm/astro@6.0.6_@types+node@25.5.0_jiti@2.6.1_lightningcss@1.30.2_rollup@2.80.0_stylus@0.64.0_ter_s3jnjgzmxrci4aiuayrullxbdi/node_modules/astro/dist/content/utils.js"
+2026-03-22T18:38:31.153Z	   - "node:url" imported from "node_modules/.pnpm/astro@6.0.6_@types+node@25.5.0_jiti@2.6.1_lightningcss@1.30.2_rollup@2.80.0_stylus@0.64.0_ter_s3jnjgzmxrci4aiuayrullxbdi/node_modules/astro/dist/assets/utils/node.js"
+2026-03-22T18:38:31.153Z	   - "fs" imported from " fs?commonjs-external"
+2026-03-22T18:38:31.153Z	   - "fs" imported from "node_modules/.pnpm/source-map@0.7.6/node_modules/source-map/lib/read-wasm.js"
+2026-03-22T18:38:31.153Z	   - "fs" imported from "node_modules/.pnpm/qrcode@1.5.4/node_modules/qrcode/lib/renderer/png.js"
+2026-03-22T18:38:31.153Z	   - "fs" imported from "node_modules/.pnpm/qrcode@1.5.4/node_modules/qrcode/lib/renderer/utf8.js"
+2026-03-22T18:38:31.153Z	   - "fs" imported from "node_modules/.pnpm/qrcode@1.5.4/node_modules/qrcode/lib/renderer/svg.js"
+2026-03-22T18:38:31.153Z	   - "fs" imported from "node_modules/.pnpm/tinyglobby@0.2.15/node_modules/tinyglobby/dist/index.mjs"
+2026-03-22T18:38:31.153Z	   - "fs" imported from "node_modules/.pnpm/fdir@6.5.0_picomatch@4.0.3/node_modules/fdir/dist/index.mjs"
+2026-03-22T18:38:31.153Z	   - "os" imported from " os?commonjs-external"
+2026-03-22T18:38:31.153Z	   - "path" imported from " path?commonjs-external"
+2026-03-22T18:38:31.153Z	   - "path" imported from "node_modules/.pnpm/source-map@0.7.6/node_modules/source-map/lib/read-wasm.js"
+2026-03-22T18:38:31.153Z	   - "path" imported from "node_modules/.pnpm/tinyglobby@0.2.15/node_modules/tinyglobby/dist/index.mjs"
+2026-03-22T18:38:31.153Z	   - "path" imported from "node_modules/.pnpm/fdir@6.5.0_picomatch@4.0.3/node_modules/fdir/dist/index.mjs"
+2026-03-22T18:38:31.153Z	   - "child_process" imported from " child_process?commonjs-external"
+2026-03-22T18:38:31.153Z	   - "crypto" imported from " crypto?commonjs-external"
+2026-03-22T18:38:31.153Z	   - "tty" imported from " tty?commonjs-external"
+2026-03-22T18:38:31.153Z	   - "tty" imported from "node_modules/.pnpm/debug@4.4.3/node_modules/debug/src/node.js"
+2026-03-22T18:38:31.153Z	   - "url" imported from "node_modules/.pnpm/source-map@0.7.6/node_modules/source-map/lib/url.js"
+2026-03-22T18:38:31.154Z	   - "url" imported from "node_modules/.pnpm/tinyglobby@0.2.15/node_modules/tinyglobby/dist/index.mjs"
+2026-03-22T18:38:31.154Z	   - "url" imported from " url?commonjs-external"
+2026-03-22T18:38:31.154Z	   - "zlib" imported from "node_modules/.pnpm/pngjs@5.0.0/node_modules/pngjs/lib/parser-async.js"
+2026-03-22T18:38:31.154Z	   - "zlib" imported from "node_modules/.pnpm/pngjs@5.0.0/node_modules/pngjs/lib/packer.js"
+2026-03-22T18:38:31.154Z	   - "zlib" imported from "node_modules/.pnpm/pngjs@5.0.0/node_modules/pngjs/lib/parser-sync.js"
+2026-03-22T18:38:31.154Z	   - "zlib" imported from "node_modules/.pnpm/pngjs@5.0.0/node_modules/pngjs/lib/packer-sync.js"
+2026-03-22T18:38:31.154Z	   - "zlib" imported from "node_modules/.pnpm/pngjs@5.0.0/node_modules/pngjs/lib/sync-inflate.js"
+2026-03-22T18:38:31.154Z	   - "zlib" imported from " zlib?commonjs-external"
+2026-03-22T18:38:31.154Z	   - "module" imported from "node_modules/.pnpm/fdir@6.5.0_picomatch@4.0.3/node_modules/fdir/dist/index.mjs"
+2026-03-22T18:38:31.154Z	   - "node:fs/promises" imported from "node_modules/.pnpm/astro@6.0.6_@types+node@25.5.0_jiti@2.6.1_lightningcss@1.30.2_rollup@2.80.0_stylus@0.64.0_ter_s3jnjgzmxrci4aiuayrullxbdi/node_modules/astro/dist/assets/utils/node.js"
+2026-03-22T18:38:31.154Z	   - "assert" imported from "node_modules/.pnpm/pngjs@5.0.0/node_modules/pngjs/lib/sync-inflate.js"
+2026-03-22T18:38:31.154Z	   - "assert" imported from " assert?commonjs-external"
+2026-03-22T18:38:31.154Z	   - "buffer" imported from "node_modules/.pnpm/pngjs@5.0.0/node_modules/pngjs/lib/sync-inflate.js"
+2026-03-22T18:38:31.154Z	   - "buffer" imported from " buffer?commonjs-external"
+2026-03-22T18:38:31.154Z	  
+2026-03-22T18:38:31.154Z	  18:38:07 [vite] ✓ built in 19.63s
+2026-03-22T18:38:31.154Z	  18:38:08 [vite] ✓ built in 1.28s
+2026-03-22T18:38:31.154Z	  18:38:11 [vite] ✓ built in 2.05s
+2026-03-22T18:38:31.154Z	  
+2026-03-22T18:38:31.154Z	   prerendering static routes 
+2026-03-22T18:38:31.154Z	   ELIFECYCLE  Command failed with exit code 1.
+2026-03-22T18:38:31.154Z	      at makeError (/opt/buildhome/.npm/_npx/32026684e21afda6/node_modules/wrangler/wrangler-dist/cli.js:132762:18)
+2026-03-22T18:38:31.154Z	      at handlePromise (/opt/buildhome/.npm/_npx/32026684e21afda6/node_modules/wrangler/wrangler-dist/cli.js:133229:29)
+2026-03-22T18:38:31.154Z	      at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+2026-03-22T18:38:31.154Z	      at async runCommand (/opt/buildhome/.npm/_npx/32026684e21afda6/node_modules/wrangler/wrangler-dist/cli.js:133426:5)
+2026-03-22T18:38:31.154Z	      at async runAutoConfig (/opt/buildhome/.npm/_npx/32026684e21afda6/node_modules/wrangler/wrangler-dist/cli.js:228944:7)
+2026-03-22T18:38:31.155Z	      at async Object.handler (/opt/buildhome/.npm/_npx/32026684e21afda6/node_modules/wrangler/wrangler-dist/cli.js:230237:41)
+2026-03-22T18:38:31.155Z	      at async /opt/buildhome/.npm/_npx/32026684e21afda6/node_modules/wrangler/wrangler-dist/cli.js:179020:26
+2026-03-22T18:38:31.155Z	      at async Object.handler (/opt/buildhome/.npm/_npx/32026684e21afda6/node_modules/wrangler/wrangler-dist/cli.js:178969:7) {
+2026-03-22T18:38:31.155Z	    shortMessage: 'Command failed with exit code 1: pnpm run build',
+2026-03-22T18:38:31.155Z	    command: 'pnpm run build',
+2026-03-22T18:38:31.155Z	    escapedCommand: 'pnpm run build',
+2026-03-22T18:38:31.155Z	    exitCode: 1,
+2026-03-22T18:38:31.155Z	    signal: undefined,
+2026-03-22T18:38:31.155Z	    signalDescription: undefined,
+2026-03-22T18:38:31.155Z	    stdout: '\n' +
+2026-03-22T18:38:31.155Z	      '> firefly@6.8.1 build /opt/buildhome/repo\n' +
+2026-03-22T18:38:31.155Z	      '> node scripts/fetch-contents.js && node scripts/generate-icons.js && astro build && pagefind --site dist\n' +
+2026-03-22T18:38:31.155Z	      '\n' +
+2026-03-22T18:38:31.155Z	      '[Fetch Contents] Vault directory already exists.\n' +
+2026-03-22T18:38:31.155Z	      '[Fetch Contents] CI environment. Re-cloning...\n' +
+2026-03-22T18:38:31.155Z	      '[Fetch Contents] Running: git clone https://github.com/amfajar/blog-contents.git "/opt/buildhome/repo/vault"\n' +
+2026-03-22T18:38:31.155Z	      '[Fetch Contents] Successfully synchronized vault content.\n' +
+2026-03-22T18:38:31.156Z	      '🔍 扫描源文件中的图标使用...\n' +
+2026-03-22T18:38:31.156Z	      '\n' +
+2026-03-22T18:38:31.156Z	      '📁 找到 12 个源文件\n' +
+2026-03-22T18:38:31.156Z	      '\n' +
+2026-03-22T18:38:31.157Z	      '🎨 发现 18 个不同的图标:\n' +
+2026-03-22T18:38:31.157Z	      '\n' +
+2026-03-22T18:38:31.157Z	      '   fa7-solid: 3 个图标\n' +
+2026-03-22T18:38:31.157Z	      '   material-symbols: 14 个图标\n' +
+2026-03-22T18:38:31.157Z	      '   svg-spinners: 1 个图标\n' +
+2026-03-22T18:38:31.157Z	      '\n' +
+2026-03-22T18:38:31.157Z	      '✅ 成功加载 18 个图标\n' +
+2026-03-22T18:38:31.157Z	      '\n' +
+2026-03-22T18:38:31.157Z	      '📝 已生成: /opt/buildhome/repo/src/constants/icons.ts\n' +
+2026-03-22T18:38:31.157Z	      '📦 文件大小: 10.29 KB\n' +
+2026-03-22T18:38:31.157Z	      '\n' +
+2026-03-22T18:38:31.157Z	      '\x1B[2m18:37:32\x1B[22m \x1B[34m[@astrojs/cloudflare]\x1B[39m Enabling image processing with Cloudflare Images for production with the "IMAGES" Images binding.\n' +
+2026-03-22T18:38:31.157Z	      '\x1B[2m18:37:32\x1B[22m \x1B[34m[@astrojs/cloudflare]\x1B[39m Enabling sessions with Cloudflare KV with the "SESSION" KV binding.\n' +
+2026-03-22T18:38:31.157Z	      '\x1B[2m18:37:35\x1B[22m \x1B[34m[vite]\x1B[39m Re-optimizing dependencies because lockfile has changed\n' +
+2026-03-22T18:38:31.157Z	      '\x1B[2m18:37:36\x1B[22m \x1B[34m[content]\x1B[39m Syncing content\n' +
+2026-03-22T18:38:31.157Z	      '\x1B[2m18:37:37\x1B[22m \x1B[34m[content]\x1B[39m Astro config changed\n' +
+2026-03-22T18:38:31.157Z	      '\x1B[2m18:37:37\x1B[22m \x1B[34m[content]\x1B[39m Clearing content store\n' +
+2026-03-22T18:38:31.158Z	      '\x1B[33m\x1B[1m18:37:37\x1B[22m [WARN] [glob-loader]\x1B[39m The base directory "/opt/buildhome/repo/vault/Belajar/05. BI Analyst/05. Projects/" does not exist.\n' +
+2026-03-22T18:38:31.187Z	      '\x1B[2m18:37:47\x1B[22m \x1B[34m[content]\x1B[39m Synced content\n' +
+2026-03-22T18:38:31.188Z	      '\x1B[2m18:37:47\x1B[22m \x1B[34m[types]\x1B[39m Generated \x1B[2m14.96s\x1B[22m\n' +
+2026-03-22T18:38:31.188Z	      '\x1B[2m18:37:47\x1B[22m \x1B[34m[build]\x1B[39m output: \x1B[34m"static"\x1B[39m\n' +
+2026-03-22T18:38:31.188Z	      '\x1B[2m18:37:47\x1B[22m \x1B[34m[build]\x1B[39m mode: \x1B[34m"server"\x1B[39m\n' +
+2026-03-22T18:38:31.188Z	      '\x1B[2m18:37:47\x1B[22m \x1B[34m[build]\x1B[39m directory: \x1B[34m/opt/buildhome/repo/dist/\x1B[39m\n' +
+2026-03-22T18:38:31.188Z	      '\x1B[2m18:37:47\x1B[22m \x1B[34m[build]\x1B[39m adapter: \x1B[32m@astrojs/cloudflare\x1B[39m\n' +
+2026-03-22T18:38:31.188Z	      '\x1B[2m18:37:47\x1B[22m \x1B[34m[build]\x1B[39m Collecting build info...\n' +
+2026-03-22T18:38:31.188Z	      '\x1B[2m18:37:47\x1B[22m \x1B[34m[build]\x1B[39m \x1B[32m✓ Completed in 15.15s.\x1B[39m\n' +
+2026-03-22T18:38:31.188Z	      '\x1B[2m18:37:47\x1B[22m \x1B[34m[build]\x1B[39m Building server entrypoints...\n' +
+2026-03-22T18:38:31.188Z	      '\x1B[33m\x1B[1m18:37:49\x1B[22m [WARN] [vite]\x1B[39m Unexpected Node.js imports for environment "prerender". Do you need to enable the "nodejs_compat" compatibility flag? Refer to https://developers.cloudflare.com/workers/runtime-apis/nodejs/ for more details.\n' +
+2026-03-22T18:38:31.188Z	      ' - "node:fs" imported from "src/pages/og/[...slug].png.ts"\n' +
+2026-03-22T18:38:31.188Z	      ' - "node:async_hooks" imported from "node_modules/.pnpm/svelte@5.53.11/node_modules/svelte/src/internal/server/render-context.js"\n' +
+2026-03-22T18:38:31.188Z	      ' - "node:fs/promises" imported from "node_modules/.pnpm/@astrojs+mdx@5.0.2_astro@6.0.6_@types+node@25.5.0_jiti@2.6.1_lightningcss@1.30.2_rollup@2.80._elvqm7o7fzeyncri36fgkqhlvu/node_modules/@astrojs/mdx/dist/index.js"\n' +
+2026-03-22T18:38:31.188Z	      ' - "node:url" imported from "node_modules/.pnpm/@astrojs+mdx@5.0.2_astro@6.0.6_@types+node@25.5.0_jiti@2.6.1_lightningcss@1.30.2_rollup@2.80._elvqm7o7fzeyncri36fgkqhlvu/node_modules/@astrojs/mdx/dist/index.js"\n' +
+2026-03-22T18:38:31.188Z	      ' - "node:path" imported from "node_modules/.pnpm/astro@6.0.6_@types+node@25.5.0_jiti@2.6.1_lightningcss@1.30.2_rollup@2.80.0_stylus@0.64.0_ter_s3jnjgzmxrci4aiuayrullxbdi/node_modules/astro/dist/container/index.js"\n' +
+2026-03-22T18:38:31.188Z	      '\n' +
+2026-03-22T18:38:31.188Z	      '\x1B[33m\x1B[1m18:37:51\x1B[22m [WARN] [vite]\x1B[39m Unexpected Node.js imports for environment "prerender". Do you need to enable the "nodejs_compat" compatibility flag? Refer to https://developers.cloudflare.com/workers/runtime-apis/nodejs/ for more details.\n' +
+2026-03-22T18:38:31.188Z	      ' - "node:path" imported from "src/pages/posts/[...slug].astro"\n' +
+2026-03-22T18:38:31.188Z	      ' - "node:path" imported from "node_modules/.pnpm/astro@6.0.6_@types+node@25.5.0_jiti@2.6.1_lightningcss@1.30.2_rollup@2.80.0_stylus@0.64.0_ter_s3jnjgzmxrci4aiuayrullxbdi/node_modules/astro/dist/core/config/schemas/relative.js"\n' +
+2026-03-22T18:38:31.188Z	      ' - "node:path" imported from "src/utils/gallery-utils.ts"\n' +
+2026-03-22T18:38:31.188Z	      ' - "node:path" imported from "src/utils/content-utils.ts"\n' +
+2026-03-22T18:38:31.188Z	      ' - "node:url" imported from "node_modules/.pnpm/astro@6.0.6_@types+node@25.5.0_jiti@2.6.1_lightningcss@1.30.2_rollup@2.80.0_stylus@0.64.0_ter_s3jnjgzmxrci4aiuayrullxbdi/node_modules/astro/dist/core/client-directive/build.js"\n' +
+2026-03-22T18:38:31.188Z	      ' - "node:url" imported from "node_modules/.pnpm/astro@6.0.6_@types+node@25.5.0_jiti@2.6.1_lightningcss@1.30.2_rollup@2.80.0_stylus@0.64.0_ter_s3jnjgzmxrci4aiuayrullxbdi/node_modules/astro/dist/core/config/schemas/relative.js"\n' +
+2026-03-22T18:38:31.189Z	      ' - "path" imported from "node_modules/.pnpm/postcss@8.5.8/node_modules/postcss/lib/input.js"\n' +
+2026-03-22T18:38:31.189Z	      ' - "url" imported from "node_modules/.pnpm/postcss@8.5.8/node_modules/postcss/lib/input.js"\n' +
+2026-03-22T18:38:31.189Z	      ' - "node:fs" imported from "src/utils/gallery-utils.ts"\n' +
+2026-03-22T18:38:31.189Z	      ' - "node:fs" imported from "src/utils/content-utils.ts"\n' +
+2026-03-22T18:38:31.189Z	      '\n' +
+2026-03-22T18:38:31.189Z	      '\x1B[33m\x1B[1m18:37:53\x1B[22m [WARN] [vite]\x1B[39m Unexpected Node.js imports for environment "prerender". Do you need to enable the "nodejs_compat" compatibility flag? Refer to https://developers.cloudflare.com/workers/runtime-apis/nodejs/ for more details.\n' +
+2026-03-22T18:38:31.189Z	      ' - "fs" imported from "node_modules/.pnpm/postcss@8.5.8/node_modules/postcss/lib/previous-map.js"\n' +
+2026-03-22T18:38:31.189Z	      ' - "fs" imported from "node_modules/.pnpm/esbuild@0.27.4/node_modules/esbuild/lib/main.js"\n' +
+2026-03-22T18:38:31.189Z	      ' - "path" imported from "node_modules/.pnpm/postcss@8.5.8/node_modules/postcss/lib/previous-map.js"\n' +
+2026-03-22T18:38:31.189Z	      ' - "path" imported from "node_modules/.pnpm/postcss@8.5.8/node_modules/postcss/lib/map-generator.js"\n' +
+2026-03-22T18:38:31.189Z	      ' - "path" imported from "node_modules/.pnpm/esbuild@0.27.4/node_modules/esbuild/lib/main.js"\n' +
+2026-03-22T18:38:31.189Z	      ' - "node:module" imported from "node_modules/.pnpm/astro@6.0.6_@types+node@25.5.0_jiti@2.6.1_lightningcss@1.30.2_rollup@2.80.0_stylus@0.64.0_ter_s3jnjgzmxrci4aiuayrullxbdi/node_modules/astro/dist/core/viteUtils.js"\n' +
+2026-03-22T18:38:31.189Z	      ' - "node:path" imported from "node_modules/.pnpm/astro@6.0.6_@types+node@25.5.0_jiti@2.6.1_lightningcss@1.30.2_rollup@2.80.0_stylus@0.64.0_ter_s3jnjgzmxrci4aiuayrullxbdi/node_modules/astro/dist/core/viteUtils.js"\n' +
+2026-03-22T18:38:31.189Z	      ' - "node:path" imported from "src/components/layout/Footer.astro"\n' +
+2026-03-22T18:38:31.189Z	      ' - "node:path" imported from "node_modules/.pnpm/@astrojs+mdx@5.0.2_astro@6.0.6_@types+node@25.5.0_jiti@2.6.1_lightningcss@1.30.2_rollup@2.80._elvqm7o7fzeyncri36fgkqhlvu/node_modules/@astrojs/mdx/dist/rehype-apply-frontmatter-export.js"\n' +
+2026-03-22T18:38:31.189Z	      ' - "node:path" imported from "src/content.config.ts"\n' +
+2026-03-22T18:38:31.190Z	      ' - "node:url" imported from "node_modules/.pnpm/astro@6.0.6_@types+node@25.5.0_jiti@2.6.1_lightningcss@1.30.2_rollup@2.80.0_stylus@0.64.0_ter_s3jnjgzmxrci4aiuayrullxbdi/node_modules/astro/dist/core/viteUtils.js"\n' +
+2026-03-22T18:38:31.190Z	      ' - "node:url" imported from "node_modules/.pnpm/@astrojs+mdx@5.0.2_astro@6.0.6_@types+node@25.5.0_jiti@2.6.1_lightningcss@1.30.2_rollup@2.80._elvqm7o7fzeyncri36fgkqhlvu/node_modules/@astrojs/mdx/dist/rehype-apply-frontmatter-export.js"\n' +
+2026-03-22T18:38:31.190Z	      ' - "url" imported from "node_modules/.pnpm/postcss@8.5.8/node_modules/postcss/lib/map-generator.js"\n' +
+2026-03-22T18:38:31.190Z	      ' - "node:fs" imported from "src/components/layout/Footer.astro"\n' +
+2026-03-22T18:38:31.190Z	      ' - "node:fs" imported from "src/content.config.ts"\n' +
+2026-03-22T18:38:31.190Z	      ' - "node:crypto" imported from "src/utils/crypto-utils.ts"\n' +
+2026-03-22T18:38:31.190Z	      ' - "os" imported from "node_modules/.pnpm/esbuild@0.27.4/node_modules/esbuild/lib/main.js"\n' +
+2026-03-22T18:38:31.190Z	      ' - "child_process" imported from "node_modules/.pnpm/esbuild@0.27.4/node_modules/esbuild/lib/main.js"\n' +
+2026-03-22T18:38:31.190Z	      ' - "crypto" imported from "node_modules/.pnpm/esbuild@0.27.4/node_modules/esbuild/lib/main.js"\n' +
+2026-03-22T18:38:31.190Z	      ' - "tty" imported from "node_modules/.pnpm/esbuild@0.27.4/node_modules/esbuild/lib/main.js"\n' +
+2026-03-22T18:38:31.190Z	      ' - "worker_threads" imported from "node_modules/.pnpm/esbuild@0.27.4/node_modules/esbuild/lib/main.js"\n' +
+2026-03-22T18:38:31.190Z	      '\n' +
+2026-03-22T18:38:31.190Z	      '\x1B[33m\x1B[1m18:38:03\x1B[22m [WARN] [vite]\x1B[39m Unexpected Node.js imports for environment "prerender". Do you need to enable the "nodejs_compat" compatibility flag? Refer to https://developers.cloudflare.com/workers/runtime-apis/nodejs/ for more details.\n' +
+2026-03-22T18:38:31.190Z	      ' - "node:path" imported from "src/components/common/CoverImage.astro"\n' +
+2026-03-22T18:38:31.191Z	      ' - "node:path" imported from "src/components/common/ImageWrapper.astro"\n' +
+2026-03-22T18:38:31.191Z	      ' - "node:path" imported from "node_modules/.pnpm/astro@6.0.6_@types+node@25.5.0_jiti@2.6.1_lightningcss@1.30.2_rollup@2.80.0_stylus@0.64.0_ter_s3jnjgzmxrci4aiuayrullxbdi/node_modules/astro/dist/core/util.js"\n' +
+2026-03-22T18:38:31.191Z	      ' - "node:path" imported from "node_modules/.pnpm/astro@6.0.6_@types+node@25.5.0_jiti@2.6.1_lightningcss@1.30.2_rollup@2.80.0_stylus@0.64.0_ter_s3jnjgzmxrci4aiuayrullxbdi/node_modules/astro/dist/content/loaders/glob.js"\n' +
+2026-03-22T18:38:31.191Z	      ' - "node:path" imported from "src/components/layout/Navbar.astro"\n' +
+2026-03-22T18:38:31.191Z	      ' - "node:path" imported from "node_modules/.pnpm/astro@6.0.6_@types+node@25.5.0_jiti@2.6.1_lightningcss@1.30.2_rollup@2.80.0_stylus@0.64.0_ter_s3jnjgzmxrci4aiuayrullxbdi/node_modules/astro/dist/content/utils.js"\n' +
+2026-03-22T18:38:31.191Z	      ' - "node:path" imported from "node_modules/.pnpm/common-ancestor-path@2.0.0/node_modules/common-ancestor-path/dist/esm/index.js"\n' +
+2026-03-22T18:38:31.191Z	      ' - "node:path" imported from "node_modules/.pnpm/astro@6.0.6_@types+node@25.5.0_jiti@2.6.1_lightningcss@1.30.2_rollup@2.80.0_stylus@0.64.0_ter_s3jnjgzmxrci4aiuayrullxbdi/node_modules/astro/dist/assets/utils/node.js"\n' +
+2026-03-22T18:38:31.191Z	      ' - "stream" imported from "node_modules/.pnpm/reading-time@1.5.0/node_modules/reading-time/lib/stream.js"\n' +
+2026-03-22T18:38:31.191Z	      ' - "stream" imported from "\x00stream?commonjs-external"\n' +
+2026-03-22T18:38:31.191Z	      ' - "stream" imported from "node_modules/.pnpm/pngjs@5.0.0/node_modules/pngjs/lib/png.js"\n' +
+2026-03-22T18:38:31.191Z	      ' - "stream" imported from "node_modules/.pnpm/pngjs@5.0.0/node_modules/pngjs/lib/packer-async.js"\n' +
+2026-03-22T18:38:31.191Z	      ' - "stream" imported from "node_modules/.pnpm/pngjs@5.0.0/node_modules/pngjs/lib/chunkstream.js"\n' +
+2026-03-22T18:38:31.191Z	      ' - "util" imported from "node_modules/.pnpm/reading-time@1.5.0/node_modules/reading-time/lib/stream.js"\n' +
+2026-03-22T18:38:31.191Z	      ' - "util" imported from "\x00util?commonjs-external"\n' +
+2026-03-22T18:38:31.191Z	      ' - "util" imported from "node_modules/.pnpm/pngjs@5.0.0/node_modules/pngjs/lib/png.js"\n' +
+2026-03-22T18:38:31.191Z	      ' - "util" imported from "node_modules/.pnpm/pngjs@5.0.0/node_modules/pngjs/lib/packer-async.js"\n' +
+2026-03-22T18:38:31.191Z	      ' - "util" imported from "node_modules/.pnpm/pngjs@5.0.0/node_modules/pngjs/lib/parser-async.js"\n' +
+2026-03-22T18:38:31.191Z	      ' - "util" imported from "node_modules/.pnpm/debug@4.4.3/node_modules/debug/src/node.js"\n' +
+2026-03-22T18:38:31.191Z	      ' - "util" imported from "node_modules/.pnpm/pngjs@5.0.0/node_modules/pngjs/lib/chunkstream.js"\n' +
+2026-03-22T18:38:31.191Z	      ' - "util" imported from "node_modules/.pnpm/pngjs@5.0.0/node_modules/pngjs/lib/filter-parse-async.js"\n' +
+2026-03-22T18:38:31.191Z	      ' - "util" imported from "node_modules/.pnpm/pngjs@5.0.0/node_modules/pngjs/lib/sync-inflate.js"\n' +
+2026-03-22T18:38:31.191Z	      ' - "node:fs" imported from "node_modules/.pnpm/astro@6.0.6_@types+node@25.5.0_jiti@2.6.1_lightningcss@1.30.2_rollup@2.80.0_stylus@0.64.0_ter_s3jnjgzmxrci4aiuayrullxbdi/node_modules/astro/dist/co'... 4932 more characters,
+2026-03-22T18:38:31.191Z	    stderr: "Cloning into '/opt/buildhome/repo/vault'...\n" +
+2026-03-22T18:38:31.191Z	      '\x1B[31m\x1B[1m18:37:33\x1B[22m [ERROR] [vite]\x1B[39m \x1B[31m(!) Failed to run dependency scan. Skipping dependency pre-bundling. Error: \x1B[31m  Failed to scan for dependencies from entries:\n' +
+2026-03-22T18:38:31.191Z	      '  /opt/buildhome/repo/src/config/FooterConfig.html\n' +
+2026-03-22T18:38:31.191Z	      '/opt/buildhome/repo/src/layouts/Layout.astro\n' +
+2026-03-22T18:38:31.191Z	      '/opt/buildhome/repo/src/layouts/MainGridLayout.astro\n' +
+2026-03-22T18:38:31.193Z	      '/opt/buildhome/repo/src/pages/404.astro\n' +
+2026-03-22T18:38:31.193Z	      '/opt/buildhome/repo/src/pages/[...page].astro\n' +
+2026-03-22T18:38:31.193Z	      '/opt/buildhome/repo/src/pages/about.astro\n' +
+2026-03-22T18:38:31.193Z	      '/opt/buildhome/repo/src/pages/archive.astro\n' +
+2026-03-22T18:38:31.193Z	      '/opt/buildhome/repo/src/pages/bangumi.astro\n' +
+2026-03-22T18:38:31.194Z	      '/opt/buildhome/repo/src/pages/friends.astro\n' +
+2026-03-22T18:38:31.194Z	      '/opt/buildhome/repo/src/pages/guestbook.astro\n' +
+2026-03-22T18:38:31.194Z	      '/opt/buildhome/repo/src/pages/portfolio.astro\n' +
+2026-03-22T18:38:31.194Z	      '/opt/buildhome/repo/src/pages/roadmap.astro\n' +
+2026-03-22T18:38:31.194Z	      '/opt/buildhome/repo/src/pages/rss.astro\n' +
+2026-03-22T18:38:31.194Z	      '/opt/buildhome/repo/src/pages/search.astro\n' +
+2026-03-22T18:38:31.194Z	      '/opt/buildhome/repo/src/pages/sponsor.astro\n' +
+2026-03-22T18:38:31.194Z	      '/opt/buildhome/repo/src/components/comment/Artalk.astro\n' +
+2026-03-22T18:38:31.194Z	      '/opt/buildhome/repo/src/components/comment/Disqus.astro\n' +
+2026-03-22T18:38:31.194Z	      '/opt/buildhome/repo/src/components/comment/Giscus.astro\n' +
+2026-03-22T18:38:31.194Z	      '/opt/buildhome/repo/src/components/comment/Twikoo.astro\n' +
+2026-03-22T18:38:31.194Z	      '/opt/buildhome/repo/src/components/comment/Waline.astro\n' +
+2026-03-22T18:38:31.194Z	      '/opt/buildhome/repo/src/components/comment/index.astro\n' +
+2026-03-22T18:38:31.194Z	      '/opt/buildhome/repo/src/components/analytics/GoogleAnalytics.astro\n' +
+2026-03-22T18:38:31.194Z	      '/opt/buildhome/repo/src/components/analytics/La51Analytics.astro\n' +
+2026-03-22T18:38:31.194Z	      '/opt/buildhome/repo/src/components/analytics/MicrosoftClarity.astro\n' +
+2026-03-22T18:38:31.194Z	      '/opt/buildhome/repo/src/components/analytics/UmamiAnalytics.astro\n' +
+2026-03-22T18:38:31.194Z	      '/opt/buildhome/repo/src/components/common/ButtonLink.astro\n' +
+2026-03-22T18:38:31.194Z	      '/opt/buildhome/repo/src/components/common/ButtonTag.astro\n' +
+2026-03-22T18:38:31.194Z	      '/opt/buildhome/repo/src/components/common/ClientPagination.astro\n' +
+2026-03-22T18:38:31.194Z	      '/opt/buildhome/repo/src/components/common/CoverImage.astro\n' +
+2026-03-22T18:38:31.194Z	      '/opt/buildhome/repo/src/components/common/DropdownItem.astro\n' +
+2026-03-22T18:38:31.194Z	      '/opt/buildhome/repo/src/components/common/DropdownItem.svelte\n' +
+2026-03-22T18:38:31.194Z	      '/opt/buildhome/repo/src/components/common/DropdownPanel.astro\n' +
+2026-03-22T18:38:31.194Z	      '/opt/buildhome/repo/src/components/common/DropdownPanel.svelte\n' +
+2026-03-22T18:38:31.194Z	      '/opt/buildhome/repo/src/components/common/FloatingButton.astro\n' +
+2026-03-22T18:38:31.194Z	      '/opt/buildhome/repo/src/components/common/Icon.svelte\n' +
+2026-03-22T18:38:31.194Z	      '/opt/buildhome/repo/src/components/common/ImageWrapper.astro\n' +
+2026-03-22T18:38:31.194Z	      '/opt/buildhome/repo/src/components/common/Markdown.astro\n' +
+2026-03-22T18:38:31.194Z	      '/opt/buildhome/repo/src/components/common/Pagination.astro\n' +
+2026-03-22T18:38:31.194Z	      '/opt/buildhome/repo/src/components/common/PioMessageBox.astro\n' +
+2026-03-22T18:38:31.194Z	      '/opt/buildhome/repo/src/components/common/WidgetLayout.astro\n' +
+2026-03-22T18:38:31.194Z	      '/opt/buildhome/repo/src/components/controls/ArchivePanel.svelte\n' +
+2026-03-22T18:38:31.194Z	      '/opt/buildhome/repo/src/components/controls/BackToComment.astro\n' +
+2026-03-22T18:38:31.194Z	      '/opt/buildhome/repo/src/components/controls/BackToHome.astro\n' +
+2026-03-22T18:38:31.196Z	      '/opt/buildhome/repo/src/components/controls/BackToTop.astro\n' +
+2026-03-22T18:38:31.196Z	      '/opt/buildhome/repo/src/components/controls/DisplaySettings.svelte\n' +
+2026-03-22T18:38:31.196Z	      '/opt/buildhome/repo/src/components/controls/DisplaySettingsIntegrated.svelte\n' +
+2026-03-22T18:38:31.196Z	      '/opt/buildhome/repo/src/components/controls/FloatingControls.astro\n' +
+2026-03-22T18:38:31.196Z	      '/opt/buildhome/repo/src/components/controls/FloatingTOC.astro\n' +
+2026-03-22T18:38:31.196Z	      '/opt/buildhome/repo/src/components/controls/LayoutSwitchButton.svelte\n' +
+2026-03-22T18:38:31.196Z	      '/opt/buildhome/repo/src/components/controls/LightDarkSwitch.svelte\n' +
+2026-03-22T18:38:31.196Z	      '/opt/buildhome/repo/src/components/controls/Search.svelte\n' +
+2026-03-22T18:38:31.198Z	      '/opt/buildhome/repo/src/components/controls/WallpaperSwitch.svelte\n' +
+2026-03-22T18:38:31.198Z	      '/opt/buildhome/repo/src/components/features/EncryptedPost.astro\n' +
+2026-03-22T18:38:31.198Z	      '/opt/buildhome/repo/src/components/features/FancyboxManager.astro\n' +
+2026-03-22T18:38:31.198Z	      '/opt/buildhome/repo/src/components/features/FontManager.astro\n' +
+2026-03-22T18:38:31.198Z	      '/opt/buildhome/repo/src/components/features/KatexManager.astro\n' +
+2026-03-22T18:38:31.198Z	      '/opt/buildhome/repo/src/components/features/Live2DWidget.astro\n' +
+2026-03-22T18:38:31.198Z	      '/opt/buildhome/repo/src/components/features/MusicManager.astro\n' +
+2026-03-22T18:38:31.198Z	      '/opt/buildhome/repo/src/components/features/MusicPlayer.astro\n' +
+2026-03-22T18:38:31.198Z	      '/opt/buildhome/repo/src/components/features/SakuraEffect.astro\n' +
+2026-03-22T18:38:31.198Z	      '/opt/buildhome/repo/src/components/features/SpineModel.astro\n' +
+2026-03-22T18:38:31.198Z	      '/opt/buildhome/repo/src/components/features/TypewriterText.astro\n' +
+2026-03-22T18:38:31.198Z	      '/opt/buildhome/repo/src/components/layout/CategoryBar.astro\n' +
+2026-03-22T18:38:31.198Z	      '/opt/buildhome/repo/src/components/layout/ConfigCarrier.astro\n' +
+2026-03-22T18:38:31.198Z	      '/opt/buildhome/repo/src/components/layout/DropdownMenu.astro\n' +
+2026-03-22T18:38:31.198Z	      '/opt/buildhome/repo/src/components/layout/Footer.astro\n' +
+2026-03-22T18:38:31.198Z	      '/opt/buildhome/repo/src/components/layout/NavMenuPanel.astro\n' +
+2026-03-22T18:38:31.198Z	      '/opt/buildhome/repo/src/components/layout/Navbar.astro\n' +
+2026-03-22T18:38:31.198Z	      '/opt/buildhome/repo/src/components/layout/PostCard.astro\n' +
+2026-03-22T18:38:31.198Z	      '/opt/buildhome/repo/src/components/layout/PostMeta.astro\n' +
+2026-03-22T18:38:31.199Z	      '/opt/buildhome/repo/src/components/layout/PostPage.astro\n' +
+2026-03-22T18:38:31.199Z	      '/opt/buildhome/repo/src/components/layout/SideBar.astro\n' +
+2026-03-22T18:38:31.199Z	      '/opt/buildhome/repo/src/components/misc/License.astro\n' +
+2026-03-22T18:38:31.199Z	      '/opt/buildhome/repo/src/components/misc/RecommendedPost.astro\n' +
+2026-03-22T18:38:31.199Z	      '/opt/buildhome/repo/src/components/misc/SharePoster.svelte\n' +
+2026-03-22T18:38:31.199Z	      '/opt/buildhome/repo/src/components/pages/AdvancedSearch.svelte\n' +
+2026-03-22T18:38:31.199Z	      '/opt/buildhome/repo/src/components/widget/Advertisement.astro\n' +
+2026-03-22T18:38:31.199Z	      '/opt/buildhome/repo/src/components/widget/Announcement.astro\n' +
+2026-03-22T18:38:31.199Z	      '/opt/buildhome/repo/src/components/widget/Calendar.astro\n' +
+2026-03-22T18:38:31.199Z	      '/opt/buildhome/repo/src/components/widget/Categories.astro\n' +
+2026-03-22T18:38:31.199Z	      '/opt/buildhome/repo/src/components/widget/Live2DWidget.astro\n' +
+2026-03-22T18:38:31.199Z	      '/opt/buildhome/repo/src/components/widget/Music.astro\n' +
+2026-03-22T18:38:31.199Z	      '/opt/buildhome/repo/src/components/widget/Profile.astro\n' +
+2026-03-22T18:38:31.199Z	      '/opt/buildhome/repo/src/components/widget/SidebarTOC.astro\n' +
+2026-03-22T18:38:31.199Z	      '/opt/buildhome/repo/src/components/widget/SiteStats.astro\n' +
+2026-03-22T18:38:31.199Z	      '/opt/buildhome/repo/src/components/widget/SpineModel.astro\n' +
+2026-03-22T18:38:31.199Z	      '/opt/buildhome/repo/src/components/widget/Tags.astro\n' +
+2026-03-22T18:38:31.199Z	      '/opt/buildhome/repo/src/pages/gallery/[album].astro\n' +
+2026-03-22T18:38:31.199Z	      '/opt/buildhome/repo/src/pages/gallery/index.astro\n' +
+2026-03-22T18:38:31.199Z	      '/opt/buildhome/repo/src/pages/posts/[...slug].astro\n' +
+2026-03-22T18:38:31.199Z	      '/opt/buildhome/repo/src/components/pages/bangumi/BangumiSection.astro\n' +
+2026-03-22T18:38:31.199Z	      '/opt/buildhome/repo/src/components/pages/bangumi/Card.astro\n' +
+2026-03-22T18:38:31.199Z	      '/opt/buildhome/repo/src/components/pages/bangumi/FilterControls.astro\n' +
+2026-03-22T18:38:31.199Z	      '/opt/buildhome/repo/src/components/pages/bangumi/TabNav.astro\n' +
+2026-03-22T18:38:31.199Z	      '/opt/buildhome/repo/src/components/pages/gallery/AlbumCard.astro\n' +
+2026-03-22T18:38:31.199Z	      '/opt/buildhome/repo/src/components/pages/gallery/PhotoCard.astro\n' +
+2026-03-22T18:38:31.199Z	      '\n' +
+2026-03-22T18:38:31.199Z	      '  \x1B[31m\x1B[31m✘ \x1B[41;31m[\x1B[41;97mERROR\x1B[41;31m]\x1B[0m \x1B[1mNo matching export in "html:/opt/buildhome/repo/src/components/widget/Advertisement.astro" for import "default"\x1B[0m\n' +
+2026-03-22T18:38:31.200Z	      '\n' +
+2026-03-22T18:38:31.200Z	      '    src/components/layout/SideBar.astro:2:7:\n' +
+2026-03-22T18:38:31.200Z	      '\x1B[37m      2 │ import \x1B[32mAdvertisement\x1B[37m from "@/components/widget/Advertisement.astro";\n' +
+2026-03-22T18:38:31.200Z	      '        ╵        \x1B[32m~~~~~~~~~~~~~\x1B[0m\n' +
+2026-03-22T18:38:31.200Z	      '\n' +
+2026-03-22T18:38:31.200Z	      '\n' +
+2026-03-22T18:38:31.200Z	      '\x1B[31m✘ \x1B[41;31m[\x1B[41;97mERROR\x1B[41;31m]\x1B[0m \x1B[1mNo matching export in "html:/opt/buildhome/repo/src/components/widget/Announcement.astro" for import "default"\x1B[0m\n' +
+2026-03-22T18:38:31.200Z	      '\n' +
+2026-03-22T18:38:31.200Z	      '    src/components/layout/SideBar.astro:3:7:\n' +
+2026-03-22T18:38:31.200Z	      '\x1B[37m      3 │ import \x1B[32mAnnouncement\x1B[37m from "@/components/widget/Announcement.astro";\n' +
+2026-03-22T18:38:31.200Z	      '        ╵        \x1B[32m~~~~~~~~~~~~\x1B[0m\n' +
+2026-03-22T18:38:31.200Z	      '\n' +
+2026-03-22T18:38:31.200Z	      '\n' +
+2026-03-22T18:38:31.200Z	      '\x1B[31m✘ \x1B[41;31m[\x1B[41;97mERROR\x1B[41;31m]\x1B[0m \x1B[1mNo matching export in "html:/opt/buildhome/repo/src/components/widget/Calendar.astro" for import "default"\x1B[0m\n' +
+2026-03-22T18:38:31.200Z	      '\n' +
+2026-03-22T18:38:31.200Z	      '    src/components/layout/SideBar.astro:4:7:\n' +
+2026-03-22T18:38:31.201Z	      '\x1B[37m      4 │ import \x1B[32mCalendar\x1B[37m from "@/components/widget/Calendar.astro";\n' +
+2026-03-22T18:38:31.201Z	      '        ╵        \x1B[32m~~~~~~~~\x1B[0m\n' +
+2026-03-22T18:38:31.201Z	      '\n' +
+2026-03-22T18:38:31.201Z	      '\n' +
+2026-03-22T18:38:31.201Z	      '\x1B[31m✘ \x1B[41;31m[\x1B[41;97mERROR\x1B[41;31m]\x1B[0m \x1B[1mNo matching export in "html:/opt/buildhome/repo/src/components/widget/Categories.astro" for import "default"\x1B[0m\n' +
+2026-03-22T18:38:31.201Z	      '\n' +
+2026-03-22T18:38:31.201Z	      '    src/components/layout/SideBar.astro:5:7:\n' +
+2026-03-22T18:38:31.201Z	      '\x1B[37m      5 │ import \x1B[32mCategories\x1B[37m from "@/components/widget/Categories.astro";\n' +
+2026-03-22T18:38:31.201Z	      '        ╵        \x1B[32m~~~~~~~~~~\x1B[0m\n' +
+2026-03-22T18:38:31.201Z	      '\n' +
+2026-03-22T18:38:31.201Z	      '\n' +
+2026-03-22T18:38:31.201Z	      '\x1B[31m✘ \x1B[41;31m[\x1B[41;97mERROR\x1B[41;31m]\x1B[0m \x1B[1mNo matching export in "html:/opt/buildhome/repo/src/components/widget/Music.astro" for import "default"\x1B[0m\n' +
+2026-03-22T18:38:31.201Z	      '\n' +
+2026-03-22T18:38:31.201Z	      '    src/components/layout/SideBar.astro:6:7:\n' +
+2026-03-22T18:38:31.201Z	      '\x1B[37m      6 │ import \x1B[32mMusic\x1B[37m from "@/components/widget/Music.astro";\n' +
+2026-03-22T18:38:31.201Z	      '        ╵        \x1B[32m~~~~~\x1B[0m\n' +
+2026-03-22T18:38:31.202Z	      '\n' +
+2026-03-22T18:38:31.202Z	      '\n' +
+2026-03-22T18:38:31.202Z	      '\x1B[31m✘ \x1B[41;31m[\x1B[41;97mERROR\x1B[41;31m]\x1B[0m \x1B[1mNo matching export in "html:/opt/buildhome/repo/src/components/widget/Profile.astro" for import "default"\x1B[0m\n' +
+2026-03-22T18:38:31.202Z	      '\n' +
+2026-03-22T18:38:31.202Z	      '    src/components/layout/SideBar.astro:7:7:\n' +
+2026-03-22T18:38:31.202Z	      '\x1B[37m      7 │ import \x1B[32mProfile\x1B[37m from "@/components/widget/Profile.astro";\n' +
+2026-03-22T18:38:31.202Z	      '        ╵        \x1B[32m~~~~~~~\x1B[0m\n' +
+2026-03-22T18:38:31.202Z	      '\n' +
+2026-03-22T18:38:31.202Z	      '\n' +
+2026-03-22T18:38:31.202Z	      '\x1B[31m✘ \x1B[41;31m[\x1B[41;97mERROR\x1B[41;31m]\x1B[0m \x1B[1mNo matching export in "html:/opt/buildhome/repo/src/components/widget/SidebarTOC.astro" for import "default"\x1B[0m\n' +
+2026-03-22T18:38:31.202Z	      '\n' +
+2026-03-22T18:38:31.202Z	      '    src/components/layout/SideBar.astro:8:7:\n' +
+2026-03-22T18:38:31.202Z	      '\x1B[37m      8 │ import \x1B[32mSidebarTOC\x1B[37m from "@/components/widget/SidebarTOC.astro";\n' +
+2026-03-22T18:38:31.202Z	      '        ╵        \x1B[32m~~~~~~~~~~\x1B[0m\n' +
+2026-03-22T18:38:31.202Z	      '\n' +
+2026-03-22T18:38:31.202Z	      '\n' +
+2026-03-22T18:38:31.202Z	      '\x1B[31m✘ \x1B[41;31m[\x1B[41;97mERROR\x1B[41;31m]\x1B[0m \x1B[1mNo matching export in "html:/opt/buildhome/repo/src/components/widget/SiteStats.astro" for import "default"\x1B[0m\n' +
+2026-03-22T18:38:31.202Z	      '\n' +
+2026-03-22T18:38:31.202Z	      '    src/components/layout/SideBar.astro:9:7:\n' +
+2026-03-22T18:38:31.202Z	      '\x1B[37m      9 │ import \x1B[32mSiteStats\x1B[37m from "@/components/widget/SiteStats.astro";\n' +
+2026-03-22T18:38:31.202Z	      '        ╵        \x1B[32m~~~~~~~~~\x1B[0m\n' +
+2026-03-22T18:38:31.202Z	      '\n' +
+2026-03-22T18:38:31.202Z	      '\n' +
+2026-03-22T18:38:31.202Z	      '\x1B[31m✘ \x1B[41;31m[\x1B[41;97mERROR\x1B[41;31m]\x1B[0m \x1B[1mNo matching export in "html:/opt/buildhome/repo/src/components/widget/Tags.astro" for import "default"\x1B[0m\n' +
+2026-03-22T18:38:31.202Z	      '\n' +
+2026-03-22T18:38:31.202Z	      '    src/components/layout/SideBar.astro:10:7:\n' +
+2026-03-22T18:38:31.202Z	      '\x1B[37m      10 │ import \x1B[32mTags\x1B[37m from "@/components/widget/Tags.astro";\n' +
+2026-03-22T18:38:31.202Z	      '         ╵        \x1B[32m~~~~\x1B[0m\n' +
+2026-03-22T18:38:31.202Z	      '\n' +
+2026-03-22T18:38:31.202Z	      '\n' +
+2026-03-22T18:38:31.203Z	      '    at failureErrorWithLog (/opt/buildhome/repo/node_modules/.pnpm/esbuild@0.27.4/node_modules/esbuild/lib/main.js:1748:15)\n' +
+2026-03-22T18:38:31.203Z	      '    at /opt/buildhome/repo/node_modules/.pnpm/esbuild@0.27.4/node_modules/esbuild/lib/main.js:1207:25\n' +
+2026-03-22T18:38:31.203Z	      '    at runOnEndCallbacks (/opt/buildhome/repo/node_modules/.pnpm/esbuild@0.27.4/node_modules/esbuild/lib/main.js:1588:45)\n' +
+2026-03-22T18:38:31.203Z	      '    at buildResponseToResult (/opt/buildhome/repo/node_modules/.pnpm/esbuild@0.27.4/node_modules/esbuild/lib/main.js:1205:7)\n' +
+2026-03-22T18:38:31.203Z	      '    at /opt/buildhome/repo/node_modules/.pnpm/esbuild@0.27.4/node_modules/esbuild/lib/main.js:1217:9\n' +
+2026-03-22T18:38:31.203Z	      '    at new Promise (<anonymous>)\n' +
+2026-03-22T18:38:31.203Z	      '    at requestCallbacks.on-end (/opt/buildhome/repo/node_modules/.pnpm/esbuild@0.27.4/node_modules/esbuild/lib/main.js:1216:54)\n' +
+2026-03-22T18:38:31.203Z	      '    at handleRequest (/opt/buildhome/repo/node_modules/.pnpm/esbuild@0.27.4/node_modules/esbuild/lib/main.js:909:17)\n' +
+2026-03-22T18:38:31.203Z	      '    at handleIncomingPacket (/opt/buildhome/repo/node_modules/.pnpm/esbuild@0.27.4/node_modules/esbuild/lib/main.js:934:7)\n' +
+2026-03-22T18:38:31.203Z	      '    at Socket.readFromStdout (/opt/buildhome/repo/node_modules/.pnpm/esbuild@0.27.4/node_modules/esbuild/lib/main.js:862:7)\x1B[39m\n' +
+2026-03-22T18:38:31.203Z	      'Failed to get static paths from the Cloudflare prerender server (500: Internal Server Error).\n' +
+2026-03-22T18:38:31.203Z	      'Error: No such module '... 1711 more characters,
+2026-03-22T18:38:31.203Z	    failed: true,
+2026-03-22T18:38:31.203Z	    timedOut: false,
+2026-03-22T18:38:31.203Z	    isCanceled: false,
+2026-03-22T18:38:31.203Z	    killed: false
+2026-03-22T18:38:31.203Z	  }
+2026-03-22T18:38:31.203Z	
+2026-03-22T18:38:31.203Z	
+2026-03-22T18:38:31.206Z	✘ [ERROR] Running custom build `pnpm run build` failed. There are likely more logs from your build command above.
+2026-03-22T18:38:31.206Z	
+2026-03-22T18:38:31.237Z	
+2026-03-22T18:38:31.237Z	🪵  Logs were written to "/opt/buildhome/.config/.wrangler/logs/wrangler-2026-03-22_18-37-03_180.log"
+2026-03-22T18:38:31.238Z	
+2026-03-22T18:38:31.241Z	Cloudflare collects anonymous telemetry about your usage of Wrangler. Learn more at https://github.com/cloudflare/workers-sdk/tree/main/packages/wrangler/telemetry.md
+2026-03-22T18:38:31.241Z	
+2026-03-22T18:38:31.254Z	Failed: error occurred while running deploy command

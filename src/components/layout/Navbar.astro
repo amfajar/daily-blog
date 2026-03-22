@@ -1,6 +1,5 @@
 ---
 import { Picture } from "astro:assets";
-import * as path from "node:path";
 import type { ImageMetadata } from "astro";
 import { Icon } from "astro-icon/components";
 import DisplaySettings from "@/components/controls/DisplaySettingsIntegrated.svelte";
@@ -80,9 +79,9 @@ if (isLocalSrcLogo) {
 		"../../**/*.{png,jpg,jpeg,webp,avif,gif,svg}",
 		{ import: "default" },
 	);
-	const normalizedPath = path
-		.normalize(path.join("../../", logoValue))
-		.replace(/\\/g, "/");
+	const normalizedPath = ("../../" + logoValue)
+		.replace(/\\/g, "/")
+		.replace(/\/+/g, "/");
 	const file = files[normalizedPath];
 	if (file) {
 		logoImg = await file();

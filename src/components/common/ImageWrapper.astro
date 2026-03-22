@@ -1,6 +1,5 @@
 ---
 import { Image, Picture } from "astro:assets";
-import * as path from "node:path";
 import type { ImageMetadata } from "astro";
 import type { ImageFormat, ResponsiveImageLayout } from "@/types/config";
 import {
@@ -66,9 +65,9 @@ if (isLocal) {
 			import: "default",
 		},
 	);
-	let normalizedPath = path
-		.normalize(path.join("../../", basePath, src))
-		.replace(/\\/g, "/");
+	let normalizedPath = ("../../" + (basePath === "/" ? "" : basePath + "/") + src)
+		.replace(/\\/g, "/")
+		.replace(/\/+/g, "/");
 	const file = files[normalizedPath];
 	if (!file) {
 		console.error(

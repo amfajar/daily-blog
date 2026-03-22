@@ -12,6 +12,8 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 pnpm-debug.log*
+build_output*.log
+*.bak
 
 # environment variables
 .env

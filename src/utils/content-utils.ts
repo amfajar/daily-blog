@@ -1,62 +1,8 @@
 import { type CollectionEntry, getCollection } from "astro:content";
-import fs from "node:fs";
-import path from "node:path";
 import I18nKey from "@i18n/i18nKey";
 import { i18n } from "@i18n/translation";
 import { getCategoryUrl, slugify } from "@utils/url-utils";
 
-// Helper to extract first H1 from markdown content
-function extractTitleFromMarkdown(postId: string, pFilePath?: string): string | null {
-	try {
-		let filePath = "";
-		if (pFilePath) {
-			// Check if pFilePath is already absolute
-			if (path.isAbsolute(pFilePath)) {
-				filePath = pFilePath;
-			} else {
-				filePath = path.join(process.cwd(), pFilePath);
-			}
-		} else {
-			const vaultPath = path.join(process.cwd(), "vault");
-			filePath = path.join(vaultPath, postId);
-		}
-
-		if (!fs.existsSync(filePath)) {
-			if (fs.existsSync(filePath + ".md")) filePath += ".md";
-			else if (fs.existsSync(filePath + ".mdx")) filePath += ".mdx";
-		}
-
-		if (!fs.existsSync(filePath)) return null;
-
-		// Read first 2KB of the file
-		const fd = fs.openSync(filePath, "r");
-		const buffer = Buffer.alloc(2048);
-		const bytesRead = fs.readSync(fd, buffer, 0, 2048, 0);
-		fs.closeSync(fd);
-
-		const content = buffer.toString("utf8", 0, bytesRead);
-		// Match first # Heading or H1 style
-		const match = content.match(/^#\s+(.+)$/m);
-		let title = "";
-		if (match) {
-			title = match[1].trim();
-			// Remove common markdown syntax from the title (bold, italic, code)
-			title = title.replace(/(\*\*|__)(.*?)\1/g, "$2");
-			title = title.replace(/(\*|_)(.*?)\1/g, "$2");
-			title = title.replace(/`(.+?)`/g, "$1");
-		} else {
-			// If no H1 found, fallback to the file name without extension
-			const basename = path.basename(filePath, path.extname(filePath));
-			// Clean up prefixes like "2026-03-20 - " or "01. "
-			title = basename.replace(/^(\d{4}-\d{2}-\d{2}\s*-\s*|\d{2}\.\s*)/, "");
-		}
-		
-		return title;
-	} catch (e) {
-		console.error(`Failed to extract title for ${postId}:`, e);
-		return null;
-	}
-}
 
 // Helper to auto-assign category based on file ID (path)
 function ensureCategory(post: CollectionEntry<"posts">) {
@@ -108,11 +54,25 @@ async function getRawSortedPosts() {
 		ensureCategory(updatedPost);
 
 		// Extract title from content if frontmatter title is generic "Untitled"
-		if (updatedPost.data.title === "Untitled") {
-			const filePath = (post as any).filePath;
-			const extractedTitle = extractTitleFromMarkdown(post.id, filePath);
-			if (extractedTitle) {
-				updatedPost.data.title = extractedTitle;
+		if (updatedPost.data.title === "Untitled" && post.body) {
+			// Match first # Heading or H1 style from post.body
+			const match = post.body.match(/^#\s+(.+)$/m);
+			let title = "";
+			if (match) {
+				title = match[1].trim();
+				// Remove common markdown syntax from the title (bold, italic, code)
+				title = title.replace(/(\*\*|__)(.*?)\1/g, "$2");
+				title = title.replace(/(\*|_)(.*?)\1/g, "$2");
+				title = title.replace(/`(.+?)`/g, "$1");
+				updatedPost.data.title = title;
+			} else {
+				// If no H1 found, fallback to the file name without extension
+				// post.id is usually the relative path from the collection root
+                const fileName = post.id.split('/').pop() || "";
+                const dotIndex = fileName.lastIndexOf('.');
+				const basename = dotIndex === -1 ? fileName : fileName.substring(0, dotIndex);
+				// Clean up prefixes like "2026-03-20 - " or "01. "
+				updatedPost.data.title = basename.replace(/^(\d{4}-\d{2}-\d{2}\s*-\s*|\d{2}\.\s*)/, "");
 			}
 		}
 
@@ -243,10 +203,20 @@ export async function getCategoryList(): Promise<Category[]> {
  */
 function tokenizeTitle(title: string): Set<string> {
 	const tokens = new Set<string>();
-	const segmenter = new Intl.Segmenter("zh", { granularity: "word" });
-	for (const { segment, isWordLike } of segmenter.segment(title)) {
-		if (!isWordLike) continue;
-		tokens.add(segment.toLowerCase());
+	// Check if Intl.Segmenter is available (added in Node 14.5.0 / modern browsers)
+	if (typeof Intl !== 'undefined' && (Intl as any).Segmenter) {
+		const segmenter = new (Intl as any).Segmenter("zh", { granularity: "word" });
+		for (const { segment, isWordLike } of segmenter.segment(title)) {
+			if (!isWordLike) continue;
+			tokens.add(segment.toLowerCase());
+		}
+	} else {
+		// Fallback for environments without Intl.Segmenter
+		// Simple word segmentation: split by punctuation and whitespace
+		const words = title.split(/[\s\p{P}]+/u);
+		for (const word of words) {
+			if (word.length > 0) tokens.add(word.toLowerCase());
+		}
 	}
 	return tokens;
 }

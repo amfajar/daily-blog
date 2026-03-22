@@ -1,8 +1,6 @@
 import { defineCollection } from "astro:content";
 import { glob } from "astro/loaders";
 import { z } from "astro/zod";
-import fs from "node:fs";
-import path from "node:path";
 
 // ─── Category enum — matches Obsidian vault folders ────────────────────────
 const categoryEnum = z.enum([
