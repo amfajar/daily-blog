@@ -1,10 +1,10 @@
 /**
- * 图标加载管理器
- * 负责处理图标的加载状态显示
+ * Icon loading manager
+ * Responsible for handling icon loading state display
  */
 
 export function initIconLoader() {
-	// 初始化单个图标容器
+	// Initialize single icon container
 	function initContainer(container: Element) {
 		if (container.hasAttribute("data-icon-initialized")) return;
 		container.setAttribute("data-icon-initialized", "true");
@@ -19,7 +19,7 @@ export function initIconLoader() {
 
 		if (!loadingIndicator || !iconElement) return;
 
-		// 检查图标是否已经加载
+		// Check if the icon is already loaded
 		function checkIconLoaded() {
 			const hasContent =
 				iconElement.shadowRoot && iconElement.shadowRoot.children.length > 0;
@@ -31,24 +31,24 @@ export function initIconLoader() {
 			return false;
 		}
 
-		// 显示图标，隐藏加载指示器
+		// Show icon, hide loading indicator
 		function showIcon() {
 			loadingIndicator.style.display = "none";
 			iconElement.classList.remove("opacity-0");
 			iconElement.classList.add("opacity-100");
 		}
 
-		// 显示加载指示器，隐藏图标
+		// Show loading indicator, hide icon
 		function showLoading() {
 			loadingIndicator.style.display = "inline-flex";
 			iconElement.classList.remove("opacity-100");
 			iconElement.classList.add("opacity-0");
 		}
 
-		// 初始状态
+		// Initial state
 		showLoading();
 
-		// 监听图标加载事件
+		// Listen for icon load event
 		iconElement.addEventListener("load", () => {
 			showIcon();
 		});
@@ -76,7 +76,7 @@ export function initIconLoader() {
 				attributes: true,
 			});
 
-			// 设置超时，避免无限等待
+			// Set timeout to avoid infinite waiting
 			setTimeout(() => {
 				observer.disconnect();
 				if (!checkIconLoaded()) {
@@ -85,16 +85,16 @@ export function initIconLoader() {
 			}, 5000);
 		}
 
-		// 立即检查一次（可能已经加载完成）
+		// Check once immediately (might already be loaded)
 		setTimeout(() => {
 			checkIconLoaded();
 		}, 100);
 	}
 
-	// 初始化页面上现有的图标
+	// Initialize existing icons on the page
 	document.querySelectorAll("[data-icon-container]").forEach(initContainer);
 
-	// 监听新添加的图标
+	// Listen for newly added icons
 	if (window.MutationObserver) {
 		const observer = new MutationObserver((mutations) => {
 			mutations.forEach((mutation) => {

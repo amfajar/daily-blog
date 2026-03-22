@@ -34,10 +34,8 @@ import { url } from "@/utils/url-utils";
 export async function getStaticPaths() {
 	const blogEntries = await getSortedPosts();
 	return blogEntries.map((entry) => {
-		// 将 id 转换为 slug（移除扩展名）以匹配路由参数
-		const slug = removeFileExtension(entry.id);
 		return {
-			params: { slug },
+			params: { slug: entry.data.slug },
 			props: { entry },
 		};
 	});
@@ -56,7 +54,7 @@ const bannerPostMeta = {
 	minutes: remarkPluginFrontmatter.minutes,
 };
 
-// 处理随机图：如果image为"api"，则从配置的API获取随机图
+// Process random image: if image is "api", get random image from configured API
 const processedImage = processCoverImageSync(entry.data.image, entry.id);
 const apiUrls = getApiUrlList(entry.data.image, entry.id);
 
@@ -84,7 +82,7 @@ if (processedImage) {
 	}
 }
 
-// 处理头像URL
+// Process avatar URL
 let posterAvatarUrl: string | null = profileConfig.avatar || null;
 if (posterAvatarUrl) {
 	const isLocalAvatar = !(
@@ -141,7 +139,7 @@ const relatedPosts = await getRelatedPosts(entry, 5);
   headings={headings}
   bannerPostMeta={bannerPostMeta}
 >
-  <!-- KaTeX 按需加载 - 仅在文章页面 -->
+  <!-- KaTeX on-demand loading - Only on post pages -->
   <KatexManager slot="head" />
   
   <script
@@ -231,7 +229,7 @@ const relatedPosts = await getRelatedPosts(entry, 5);
           updated={entry.data.updated}
           tags={entry.data.tags}
           category={entry.data.category || undefined}
-          id={entry.id}
+          id={entry.data.slug}
         />
         {
           !processedImage && (
@@ -263,7 +261,7 @@ const relatedPosts = await getRelatedPosts(entry, 5);
             <Content />
           </Markdown>
 
-          {/* 赞助按钮 & 分享按钮 */}
+          {/* Sponsor Button & Share Button */}
           {
             (siteConfig.sharePoster || (sponsorConfig.showButtonInPost && siteConfig.pages.sponsor)) && (
               <div class="mb-6 rounded-xl onload-animation">
@@ -351,7 +349,7 @@ const relatedPosts = await getRelatedPosts(entry, 5);
             <Content />
           </Markdown>
 
-          {/* 赞助按钮 & 分享按钮 */}
+          {/* Sponsor Button & Share Button */}
           {
             (siteConfig.sharePoster || (sponsorConfig.showButtonInPost && siteConfig.pages.sponsor)) && (
               <div class="mb-6 rounded-xl onload-animation">
@@ -437,7 +435,7 @@ const relatedPosts = await getRelatedPosts(entry, 5);
     </div>
   </div>
 
-  <!-- 上次编辑时间 -->
+  <!-- Last edited time -->
   {
     siteConfig.showLastModified && (() => {
       const lastModified = dayjs(
@@ -445,7 +443,7 @@ const relatedPosts = await getRelatedPosts(entry, 5);
       );
       const now = dayjs();
       const daysDiff = now.diff(lastModified, "day");
-      // 使用用户定义的阈值，如果没有定义则默认为1天
+      // Use user-defined threshold, default to 1 day if not defined
       const outdatedThreshold = siteConfig.outdatedThreshold ?? 1;
       const shouldShowOutdatedCard = daysDiff >= outdatedThreshold;
 
@@ -468,7 +466,7 @@ const relatedPosts = await getRelatedPosts(entry, 5);
                   <div class="text-[1.0rem] leading-tight text-black/75 dark:text-white/75">
                     {`${i18n(I18nKey.lastModifiedPrefix)}${dateStr}${
                       isOutdated
-                        ? `，${i18n(I18nKey.lastModifiedDaysAgo).replace("{days}", daysDiff.toString())}`
+                        ? `, ${i18n(I18nKey.lastModifiedDaysAgo).replace("{days}", daysDiff.toString())}`
                         : ""
                     }`}
                   </div>
@@ -522,6 +520,6 @@ const relatedPosts = await getRelatedPosts(entry, 5);
 
   <RecommendedPost relatedPosts={relatedPosts} currentPostId={entry.id} />
 
-  <!-- 评论 -->
+  <!-- Comments -->
   {entry.data.comment && !entry.data.password && <Comment post={entry} />}
 </MainGridLayout>

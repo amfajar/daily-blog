@@ -26,7 +26,7 @@ declare global {
 
 export function getDefaultHue(): number {
 	const fallback = "250";
-	// 检查是否在浏览器环境中
+	// Check if in browser environment
 	if (typeof document === "undefined") {
 		return Number.parseInt(fallback, 10);
 	}
@@ -35,12 +35,12 @@ export function getDefaultHue(): number {
 }
 
 export function getDefaultTheme(): LIGHT_DARK_MODE {
-	// 如果配置文件中设置了 defaultMode，使用配置的值
-	// 否则使用 DEFAULT_THEME（向后兼容）
+	// If defaultMode is set in the config file, use the configured value
+	// Otherwise use DEFAULT_THEME (for backward compatibility)
 	return siteConfig.themeColor.defaultMode ?? DEFAULT_THEME;
 }
 
-// 获取系统主题
+// Get system theme
 export function getSystemTheme(): LIGHT_DARK_MODE {
 	if (typeof window === "undefined") {
 		return LIGHT_MODE;
@@ -50,7 +50,7 @@ export function getSystemTheme(): LIGHT_DARK_MODE {
 		: LIGHT_MODE;
 }
 
-// 解析主题（如果是system模式，则获取系统主题）
+// Resolve theme (if system mode, get system theme)
 export function resolveTheme(theme: LIGHT_DARK_MODE): LIGHT_DARK_MODE {
 	if (theme === SYSTEM_MODE) {
 		return getSystemTheme();
@@ -59,7 +59,7 @@ export function resolveTheme(theme: LIGHT_DARK_MODE): LIGHT_DARK_MODE {
 }
 
 export function getHue(): number {
-	// 先检查全局对象
+	// Check global object first
 	if (typeof window === "undefined" || !window.localStorage) {
 		return getDefaultHue();
 	}
@@ -68,7 +68,7 @@ export function getHue(): number {
 }
 
 export function setHue(hue: number): void {
-	// 先检查是否在浏览器环境
+	// Check if in browser environment first
 	if (
 		typeof window === "undefined" ||
 		!window.localStorage ||
@@ -85,20 +85,20 @@ export function setHue(hue: number): void {
 }
 
 export function applyThemeToDocument(theme: LIGHT_DARK_MODE) {
-	// 检查是否在浏览器环境中
+	// Check if in browser environment
 	if (typeof document === "undefined") {
 		return;
 	}
 
-	// 解析主题
+	// Resolve theme
 	const resolvedTheme = resolveTheme(theme);
 
-	// 获取当前主题状态的完整信息
+	// Get full information of the current theme state
 	const currentIsDark = document.documentElement.classList.contains("dark");
 	const currentTheme = document.documentElement.getAttribute("data-theme");
 
-	// 计算目标主题状态
-	let targetIsDark = false; // 初始化默认值
+	// Calculate target theme state
+	let targetIsDark = false; // Initialize default value
 	switch (resolvedTheme) {
 		case LIGHT_MODE:
 			targetIsDark = false;
@@ -107,31 +107,31 @@ export function applyThemeToDocument(theme: LIGHT_DARK_MODE) {
 			targetIsDark = true;
 			break;
 		default:
-			// 处理默认情况，使用当前主题状态
+		// Handle default case, use current theme state
 			targetIsDark = currentIsDark;
 			break;
 	}
 
-	// 检测是否真的需要主题切换：
-	// 1. dark类状态是否改变
-	// 2. expressiveCode主题是否需要更新
+	// Detect if theme switch is actually needed:
+	// 1. Whether the dark class state has changed
+	// 2. Whether the expressiveCode theme needs updating
 	const needsThemeChange = currentIsDark !== targetIsDark;
 	const expectedTheme = targetIsDark
 		? expressiveCodeConfig.darkTheme
 		: expressiveCodeConfig.lightTheme;
 	const needsCodeThemeUpdate = currentTheme !== expectedTheme;
 
-	// 如果既不需要主题切换也不需要代码主题更新，直接返回
+	// If neither theme switch nor code theme update is needed, return directly
 	if (!needsThemeChange && !needsCodeThemeUpdate) {
 		return;
 	}
 
-	// 批量 DOM 操作，减少重绘
+	// Batch DOM operations to reduce reflows
 	if (needsThemeChange) {
-		// 添加过渡保护类（但会导致大量重绘，所以使用更轻量的方式）
+		// Add transition protection class (but it causes a lot of reflow, so use a more lightweight way)
 		// document.documentElement.classList.add("is-theme-transitioning");
 
-		// 直接切换主题，利用 CSS 变量的特性让浏览器优化过渡
+		// Switch theme directly, use CSS variable features for browser-optimized transitions
 		if (targetIsDark) {
 			document.documentElement.classList.add("dark");
 		} else {
@@ -145,13 +145,13 @@ export function applyThemeToDocument(theme: LIGHT_DARK_MODE) {
 	}
 }
 
-// 系统主题监听器引用
+// System theme listener reference
 let systemThemeListener:
 	| ((e: MediaQueryListEvent | MediaQueryList) => void)
 	| null = null;
 
 export function setTheme(theme: LIGHT_DARK_MODE): void {
-	// 检查是否在浏览器环境中
+	// Check if in browser environment
 	if (
 		typeof localStorage === "undefined" ||
 		typeof localStorage.setItem !== "function"
@@ -159,24 +159,24 @@ export function setTheme(theme: LIGHT_DARK_MODE): void {
 		return;
 	}
 
-	// 先应用主题
+	// Apply theme first
 	applyThemeToDocument(theme);
 
-	// 保存到localStorage
+	// Save to localStorage
 	localStorage.setItem("theme", theme);
 
-	// 如果切换到 system 模式，需要监听系统主题变化
+	// If switching to system mode, need to listen for system theme changes
 	if (theme === SYSTEM_MODE) {
 		setupSystemThemeListener();
 	} else {
-		// 如果切换其他模式，移除系统主题监听
+		// If switching to other modes, remove system theme listener
 		cleanupSystemThemeListener();
 	}
 }
 
-// 设置系统主题监听器
+// Set system theme listener
 export function setupSystemThemeListener() {
-	// 先清理之前的监听器
+	// Clean up previous listener first
 	cleanupSystemThemeListener();
 
 	if (typeof window === "undefined") {
@@ -185,17 +185,17 @@ export function setupSystemThemeListener() {
 
 	const mediaQuery = window.matchMedia("(prefers-color-scheme: dark)");
 
-	// 处理系统主题变化的回调
+	// Handle callback for system theme changes
 	const handleSystemThemeChange = (e: MediaQueryListEvent | MediaQueryList) => {
 		const isDark = e.matches;
 		const currentIsDark = document.documentElement.classList.contains("dark");
 
-		// 如果主题状态没有变化，直接返回
+		// If theme state has not changed, return directly
 		if (currentIsDark === isDark) {
 			return;
 		}
 
-		// 直接应用系统主题，不使用过渡保护类以避免大量重绘
+		// Apply system theme directly, avoiding transition protection classes to prevent heavy reflow
 		if (isDark) {
 			document.documentElement.classList.add("dark");
 		} else {
@@ -208,25 +208,25 @@ export function setupSystemThemeListener() {
 			: expressiveCodeConfig.lightTheme;
 		document.documentElement.setAttribute("data-theme", expressiveTheme);
 
-		// 触发自定义事件通知其他组件（仅在真正切换时触发）
+		// Trigger custom event to notify other components (only when actually switching)
 		window.dispatchEvent(new CustomEvent("theme-change"));
 	};
 
-	// 立即调用一次以设置初始状态
+	// Call once immediately to set initial state
 	handleSystemThemeChange(mediaQuery);
 
-	// 监听系统主题变化（现代浏览器）
+	// Listen for system theme changes (modern browsers)
 	if (mediaQuery.addEventListener) {
 		mediaQuery.addEventListener("change", handleSystemThemeChange);
 	} else {
-		// 兼容旧浏览器
+		// Compatibility for old browsers
 		mediaQuery.addListener(handleSystemThemeChange);
 	}
 
 	systemThemeListener = handleSystemThemeChange;
 }
 
-// 清理系统主题监听器
+// Clean up system theme listener
 function cleanupSystemThemeListener() {
 	if (typeof window === "undefined" || !systemThemeListener) {
 		return;
@@ -237,7 +237,7 @@ function cleanupSystemThemeListener() {
 	if (mediaQuery.removeEventListener) {
 		mediaQuery.removeEventListener("change", systemThemeListener);
 	} else {
-		// 兼容旧浏览器
+		// Compatibility for old browsers
 		mediaQuery.removeListener(systemThemeListener);
 	}
 
@@ -245,7 +245,7 @@ function cleanupSystemThemeListener() {
 }
 
 export function getStoredTheme(): LIGHT_DARK_MODE {
-	// 检查是否在浏览器环境中
+	// Check if in browser environment
 	if (
 		typeof localStorage === "undefined" ||
 		typeof localStorage.getItem !== "function"
@@ -257,7 +257,7 @@ export function getStoredTheme(): LIGHT_DARK_MODE {
 	);
 }
 
-// 初始化主题监听器（用于页面加载后）
+// Initialize theme listener (for use after page load)
 export function initThemeListener() {
 	if (
 		typeof localStorage === "undefined" ||
@@ -268,7 +268,7 @@ export function initThemeListener() {
 
 	const theme = getStoredTheme();
 
-	// 如果主题是 system 模式，需要监听系统主题变化
+	// If theme is in system mode, need to listen for system theme changes
 	if (theme === SYSTEM_MODE) {
 		setupSystemThemeListener();
 	}
@@ -276,44 +276,44 @@ export function initThemeListener() {
 
 // Wallpaper mode functions
 export function applyWallpaperModeToDocument(mode: WALLPAPER_MODE) {
-	// 检查是否允许切换壁纸模式
+	// Check if wallpaper mode switching is allowed
 	const isSwitchable = backgroundWallpaper.switchable ?? true;
 	if (!isSwitchable) {
-		// 如果不允许切换，直接返回，不执行任何操作
+		// If switching is not allowed, return directly without any action
 		return;
 	}
 
-	// 获取当前的壁纸模式
+	// Get current wallpaper mode
 	const currentMode =
 		(document.documentElement.getAttribute(
 			"data-wallpaper-mode",
 		) as WALLPAPER_MODE) || backgroundWallpaper.mode;
 
-	// 如果模式没有变化，直接返回
+	// If mode hasn't changed, return directly
 	if (currentMode === mode) {
-		// 即使是相同模式，也要确保UI状态正确
+		// Ensure UI state is correct even for the same mode
 		ensureWallpaperState(mode);
 		return;
 	}
 
-	// 添加过渡保护类
+	// Add transition protection class
 	document.documentElement.classList.add("is-wallpaper-transitioning");
 
-	// 更新数据属性
+	// Update data attribute
 	document.documentElement.setAttribute("data-wallpaper-mode", mode);
 
-	// 使用 requestAnimationFrame 确保在下一帧执行，避免闪屏
+	// Use requestAnimationFrame to execute on the next frame to avoid flashing screens
 	requestAnimationFrame(() => {
 		const body = document.body;
 
-		// 移除所有壁纸相关的CSS类
+		// Remove all wallpaper-related CSS classes
 		body.classList.remove(
 			"enable-banner",
 			"wallpaper-transparent",
 			"no-banner-layout",
 		);
 
-		// 根据模式添加相应的CSS类
+		// Add corresponding CSS classes based on mode
 		switch (mode) {
 			case WALLPAPER_BANNER:
 				body.classList.add("enable-banner");
@@ -334,28 +334,28 @@ export function applyWallpaperModeToDocument(mode: WALLPAPER_MODE) {
 				break;
 		}
 
-		// 更新导航栏透明模式
+		// Update navbar transparency mode
 		updateNavbarTransparency(mode);
 
-		// 在下一帧移除过渡保护类
+		// Remove transition protection class on next frame
 		requestAnimationFrame(() => {
 			document.documentElement.classList.remove("is-wallpaper-transitioning");
 		});
 	});
 }
 
-// 确保壁纸状态正确
+// Ensure wallpaper state is correct
 function ensureWallpaperState(mode: WALLPAPER_MODE) {
 	const body = document.body;
 
-	// 移除所有壁纸相关的CSS类
+	// Remove all wallpaper-related CSS classes
 	body.classList.remove(
 		"enable-banner",
 		"wallpaper-transparent",
 		"no-banner-layout",
 	);
 
-	// 根据模式添加相应的CSS类
+	// Add corresponding CSS classes based on mode
 	switch (mode) {
 		case WALLPAPER_BANNER:
 			body.classList.add("enable-banner");
@@ -372,30 +372,30 @@ function ensureWallpaperState(mode: WALLPAPER_MODE) {
 			break;
 	}
 
-	// 更新导航栏透明模式
+	// Update navbar transparency mode
 	updateNavbarTransparency(mode);
 }
 
 function showBannerMode() {
-	// 显示 wallpaper-wrapper 并切换为 banner 模式
+	// Show wallpaper-wrapper and switch to banner mode
 	const wallpaperWrapper = document.getElementById("wallpaper-wrapper");
 	if (wallpaperWrapper) {
-		// 移除 overlay 模式类
+		// Remove overlay mode class
 		wallpaperWrapper.classList.remove("wallpaper-overlay");
 
-		// 恢复 banner 模式的 top 定位
+		// Restore top positioning for banner mode
 		wallpaperWrapper.style.top = `-${BANNER_HEIGHT_EXTEND}vh`;
 
-		// 检查当前是否为首页
+		// Check if current page is homepage
 		const isHomePage = checkIsHomePage(window.location.pathname);
 		const isMobile = window.innerWidth < 1024;
 
-		// 移动端非首页时，不显示banner；桌面端始终显示
+		// On mobile non-homepage, do not show banner; desktop always shows
 		if (isMobile && !isHomePage) {
 			wallpaperWrapper.style.display = "none";
 			wallpaperWrapper.classList.add("mobile-hide-banner");
 		} else {
-			// 首页或桌面端：先设置display，然后使用requestAnimationFrame确保渲染
+			// Homepage or desktop: set display first, then use requestAnimationFrame to ensure rendering
 			wallpaperWrapper.style.display = "block";
 			wallpaperWrapper.style.setProperty("display", "block", "important");
 			requestAnimationFrame(() => {
@@ -407,22 +407,22 @@ function showBannerMode() {
 		}
 	}
 
-	// 显示横幅图片来源文本
+	// Show banner image source text
 	const creditDesktop = document.getElementById("banner-credit-desktop");
 	const creditMobile = document.getElementById("banner-credit-mobile");
 	if (creditDesktop) creditDesktop.style.display = "";
 	if (creditMobile) creditMobile.style.display = "";
 
-	// 显示横幅首页文本（如果启用且是首页）
+	// Show banner home text (if enabled and on homepage)
 	const bannerTextOverlay = document.querySelector(".banner-home-text-overlay");
 	if (bannerTextOverlay) {
-		// 检查是否启用 homeText
+		// Check if homeText is enabled
 		const homeTextEnabled = backgroundWallpaper.banner?.homeText?.enable;
 
-		// 检查当前是否为首页
+		// Check if current page is homepage
 		const isHomePage = checkIsHomePage(window.location.pathname);
 
-		// 只有在启用且在首页时才显示
+		// Only show if enabled and on homepage
 		if (homeTextEnabled && isHomePage) {
 			bannerTextOverlay.classList.remove("hidden");
 		} else {
@@ -430,15 +430,15 @@ function showBannerMode() {
 		}
 	}
 
-	// 调整主内容位置
+	// Adjust main content position
 	adjustMainContentPosition("banner");
 
-	// 处理移动端非首页主内容区域位置
+	// Handle main content area position for mobile non-homepage
 	const mainContentWrapper = document.querySelector(".absolute.w-full.z-30");
 	if (mainContentWrapper) {
 		const isHomePage = checkIsHomePage(window.location.pathname);
 		const isMobile = window.innerWidth < 1024;
-		// 只在移动端非首页时调整主内容位置
+		// Offset main content position only when not on homepage on mobile
 		if (isMobile && !isHomePage) {
 			mainContentWrapper.classList.add("mobile-main-no-banner");
 		} else {
@@ -446,18 +446,18 @@ function showBannerMode() {
 		}
 	}
 
-	// 移除透明效果（横幅模式不使用半透明）
+	// Remove transparency effect (banner mode doesn't use semi-transparent)
 	adjustMainContentTransparency(false);
 
-	// 调整导航栏透明度
+	// Adjust navbar transparency
 	const navbar = document.getElementById("navbar");
 	if (navbar) {
-		// 获取导航栏透明模式配置（banner模式）
+		// Get navbar transparency mode configuration (banner mode)
 		const transparentMode =
 			backgroundWallpaper.banner?.navbar?.transparentMode || "semi";
 		navbar.setAttribute("data-transparent-mode", transparentMode);
 
-		// 重新初始化半透明模式滚动检测（如果需要）
+		// Re-initialize scrolling detection for semi-transparent mode (if needed)
 		if (
 			transparentMode === "semifull" &&
 			typeof window.initSemifullScrollDetection === "function"
@@ -468,12 +468,12 @@ function showBannerMode() {
 }
 
 function showOverlayMode() {
-	// 切换 wallpaper-wrapper 为 overlay 模式
+	// Switch wallpaper-wrapper to overlay mode
 	const wallpaperWrapper = document.getElementById("wallpaper-wrapper");
 	if (wallpaperWrapper) {
-		// 添加 overlay 模式类
+		// Add overlay mode class
 		wallpaperWrapper.classList.add("wallpaper-overlay");
-		// 显示壁纸
+		// Show wallpaper
 		wallpaperWrapper.style.display = "block";
 		wallpaperWrapper.style.setProperty("display", "block", "important");
 		wallpaperWrapper.style.top = "";
@@ -485,27 +485,27 @@ function showOverlayMode() {
 		});
 	}
 
-	// 隐藏横幅图片来源文本
+	// Hide banner image source text
 	const creditDesktop = document.getElementById("banner-credit-desktop");
 	const creditMobile = document.getElementById("banner-credit-mobile");
 	if (creditDesktop) creditDesktop.style.display = "none";
 	if (creditMobile) creditMobile.style.display = "none";
 
-	// 隐藏横幅首页文本
+	// Hide banner homepage text
 	const bannerTextOverlay = document.querySelector(".banner-home-text-overlay");
 	if (bannerTextOverlay) {
 		bannerTextOverlay.classList.add("hidden");
 	}
 
-	// 调整主内容透明度
+	// Adjust main content transparency
 	adjustMainContentTransparency(true);
 
-	// 调整布局为紧凑模式
+	// Adjust layout to compact mode
 	adjustMainContentPosition("overlay");
 }
 
 function hideAllWallpapers() {
-	// 隐藏壁纸
+	// Hide wallpaper
 	const wallpaperWrapper = document.getElementById("wallpaper-wrapper");
 
 	if (wallpaperWrapper) {
@@ -515,19 +515,19 @@ function hideAllWallpapers() {
 		wallpaperWrapper.classList.remove("wallpaper-overlay");
 	}
 
-	// 隐藏横幅图片来源文本
+	// Hide banner image source text
 	const creditDesktop = document.getElementById("banner-credit-desktop");
 	const creditMobile = document.getElementById("banner-credit-mobile");
 	if (creditDesktop) creditDesktop.style.display = "none";
 	if (creditMobile) creditMobile.style.display = "none";
 
-	// 隐藏横幅首页文本
+	// Hide banner homepage text
 	const bannerTextOverlay = document.querySelector(".banner-home-text-overlay");
 	if (bannerTextOverlay) {
 		bannerTextOverlay.classList.add("hidden");
 	}
 
-	// 调整主内容位置和透明度
+	// Adjust main content position and transparency
 	adjustMainContentPosition("none");
 	adjustMainContentTransparency(false);
 }
@@ -539,46 +539,46 @@ function updateNavbarTransparency(mode: WALLPAPER_MODE) {
 	let transparentMode: string;
 	let enableBlur: boolean;
 
-	// 根据当前壁纸模式设置导航栏透明模式和模糊效果
+	// Set navbar transparency mode and blur effect based on current wallpaper mode
 	if (mode === WALLPAPER_OVERLAY) {
-		// 全屏壁纸模式
+		// Fullscreen wallpaper mode
 		transparentMode = "none";
 		enableBlur = false;
 	} else if (mode === WALLPAPER_NONE) {
-		// 纯色背景模式
+		// Pure color background mode
 		transparentMode = "none";
 		enableBlur = false;
 	} else {
-		// Banner模式：使用配置的透明模式和模糊效果
+		// Banner mode: use configured transparency mode and blur effect
 		transparentMode =
 			backgroundWallpaper.banner?.navbar?.transparentMode || "semi";
 		enableBlur = backgroundWallpaper.banner?.navbar?.enableBlur ?? true;
 	}
 
-	// 更新导航栏的透明模式属性
+	// Update navbar transparency mode attribute
 	navbar.setAttribute("data-transparent-mode", transparentMode);
 	navbar.setAttribute("data-enable-blur", String(enableBlur));
 
-	// 移除现有的透明模式类
+	// Remove existing transparency mode classes
 	navbar.classList.remove(
 		"navbar-transparent-semi",
 		"navbar-transparent-full",
 		"navbar-transparent-semifull",
 	);
 
-	// 移除scrolled类
+	// Remove scrolled class
 	navbar.classList.remove("scrolled");
 
-	// 滚动检测功能
+	// Scrolling detection functionality
 	if (
 		transparentMode === "semifull" &&
 		mode === WALLPAPER_BANNER &&
 		typeof window.initSemifullScrollDetection === "function"
 	) {
-		// 仅在Banner模式的semifull下启用滚动检测
+		// Enable scroll detection only in Banner mode with semifull
 		window.initSemifullScrollDetection();
 	} else if (window.semifullScrollHandler) {
-		// 移除滚动监听器
+		// Remove scrolling listener
 		window.removeEventListener("scroll", window.semifullScrollHandler);
 		delete window.semifullScrollHandler;
 	}
@@ -592,21 +592,21 @@ function adjustMainContentPosition(
 	) as HTMLElement;
 	if (!mainContent) return;
 
-	// 移除现有的位置类
+	// Remove existing position classes
 	mainContent.classList.remove("mobile-main-no-banner", "no-banner-layout");
 
 	switch (mode) {
 		case "banner":
-			// Banner模式：主内容在banner下方
+			// Banner mode: main content below banner
 			mainContent.style.top = "calc(var(--banner-height) - 3rem)";
 			break;
 		case "overlay":
-			// Overlay模式：使用紧凑布局，主内容从导航栏下方开始
+			// Overlay mode: use compact layout, main content starts below navbar
 			mainContent.classList.add("no-banner-layout");
 			mainContent.style.top = "5.5rem";
 			break;
 		case "none":
-			// 无壁纸模式：主内容从导航栏下方开始
+			// No wallpaper mode: main content starts below navbar
 			mainContent.classList.add("no-banner-layout");
 			mainContent.style.top = "5.5rem";
 			break;
@@ -632,7 +632,7 @@ function adjustMainContentTransparency(enable: boolean) {
 }
 
 export function setWallpaperMode(mode: WALLPAPER_MODE): void {
-	// 检查是否在浏览器环境中
+	// Check if in browser environment
 	if (
 		typeof localStorage === "undefined" ||
 		typeof localStorage.setItem !== "function"
@@ -644,14 +644,14 @@ export function setWallpaperMode(mode: WALLPAPER_MODE): void {
 }
 
 export function initWallpaperMode(): void {
-	// 初始化透明模式参数（透明度/模糊度/卡片透明度）
+	// Initialize transparency mode parameters (opacity/blur/card transparency)
 	applyStoredOverlaySettingsToDocument();
 	const storedMode = getStoredWallpaperMode();
 	applyWallpaperModeToDocument(storedMode);
 }
 
 export function getStoredWallpaperMode(): WALLPAPER_MODE {
-	// 检查是否在浏览器环境中
+	// Check if in browser environment
 	if (
 		typeof localStorage === "undefined" ||
 		typeof localStorage.getItem !== "function"
@@ -814,7 +814,7 @@ export function applyStoredOverlaySettingsToDocument(): void {
 export function getDefaultWavesEnabled(): boolean {
 	const wavesConfig = backgroundWallpaper.banner?.waves?.enable;
 	if (typeof wavesConfig === "object") {
-		// 如果是分设备配置，检查当前设备
+		// If it is a per-device configuration, check the current device
 		const isMobile =
 			typeof window !== "undefined" ? window.innerWidth < 768 : false;
 		return isMobile
@@ -853,9 +853,9 @@ export function applyWavesEnabledToDocument(enabled: boolean): void {
 	if (typeof document === "undefined") {
 		return;
 	}
-	// 更新 html 属性，CSS 会立即生效
+	// Update html attribute, CSS will take effect immediately
 	document.documentElement.setAttribute("data-waves-enabled", String(enabled));
-	// 同时更新元素样式（兼容性）
+	// Also update element style (compatibility)
 	const wavesElement = document.getElementById("header-waves");
 	if (wavesElement) {
 		if (enabled) {
@@ -902,12 +902,12 @@ export function applyBannerTitleEnabledToDocument(enabled: boolean): void {
 	if (typeof document === "undefined") {
 		return;
 	}
-	// 更新 html 属性，CSS 会立即生效
+	// Update html attribute, CSS will take effect immediately
 	document.documentElement.setAttribute(
 		"data-banner-title-enabled",
 		String(enabled),
 	);
-	// 同时更新元素样式（兼容性）
+	// Also update element style (compatibility)
 	const bannerTextOverlay = document.querySelector(
 		".banner-home-text-overlay",
 	) as HTMLElement;

@@ -1,42 +1,42 @@
 import type { SponsorConfig } from "../types/config";
 
 export const sponsorConfig: SponsorConfig = {
-	// 页面标题，如果留空则使用 i18n 中的翻译
+	// Page title; if empty, use the translation in i18n
 	title: "",
 
-	// 页面描述文本，如果留空则使用 i18n 中的翻译
+	// Page description text; if empty, use the translation in i18n
 	description: "",
 
-	// 赞助用途说明
+	// Sponsorship usage explanation
 	usage:
-		"您的赞助将用于服务器维护、内容创作和功能开发，帮助我持续提供优质内容。",
+		"Your sponsorship will be used for server maintenance, content creation, and feature development, helping me continue to provide high-quality content.",
 
-	// 是否显示赞助者列表
+	// Whether to show the sponsors list
 	showSponsorsList: true,
 
-	// 是否显示评论区，需要先在commentConfig.ts启用评论系统
+	// Whether to show the comment section; requires first enabling the comment system in commentConfig.ts
 	showComment: true,
 
-	// 是否在文章详情页底部显示赞助按钮
+	// Whether to show the sponsor button at the bottom of post detail pages
 	showButtonInPost: true,
 
-	// 赞助方式列表
+	// Sponsorship methods list
 	methods: [
 		{
-			name: "支付宝",
+			name: "Alipay",
 			icon: "fa7-brands:alipay",
-			// 收款码图片路径（需要放在 public 目录下）
+			// Path to the payment QR code image (must be in the public directory)
 			qrCode: "/assets/images/sponsor/alipay.png",
 			link: "",
-			description: "使用 支付宝 扫码赞助",
+			description: "Sponsor via Alipay QR code",
 			enabled: true,
 		},
 		{
-			name: "微信",
+			name: "WeChat",
 			icon: "fa7-brands:weixin",
 			qrCode: "/assets/images/sponsor/wechat.png",
 			link: "",
-			description: "使用 微信 扫码赞助",
+			description: "Sponsor via WeChat QR code",
 			enabled: true,
 		},
 		{
@@ -48,27 +48,27 @@ export const sponsorConfig: SponsorConfig = {
 			enabled: true,
 		},
 		{
-			name: "爱发电",
+			name: "Afdian",
 			icon: "simple-icons:afdian",
 			qrCode: "",
 			link: "https://ifdian.net/a/cuteleaf",
-			description: "通过 爱发电 进行赞助",
+			description: "Sponsor via Afdian",
 			enabled: true,
 		},
 	],
 
-	// 赞助者列表（可选）
+	// Sponsors list (optional)
 	sponsors: [
-		// 示例：已实名赞助者
+		// Example: Identified sponsor
 		{
-			name: "夏叶",
+			name: "Summer Leaf",
 			amount: "¥50",
 			date: "2025-10-01",
 		},
 
-		// 示例：匿名赞助者
+		// Example: Anonymous sponsor
 		{
-			name: "匿名用户",
+			name: "Anonymous User",
 			amount: "¥20",
 			date: "2025-10-01",
 		},

@@ -1,78 +1,78 @@
 import type { CommentConfig } from "../types/config";
 
 export const commentConfig: CommentConfig = {
-	// 评论系统类型: none, twikoo, waline, giscus, disqus, artalk，默认为none，即不启用评论系统
+	// Comment system type: none, twikoo, waline, giscus, disqus, artalk. Default is none (disabled).
 	type: "none",
 
-	//twikoo评论系统配置
+	// Twikoo comment system configuration
 	twikoo: {
 		envId: "https://twikoo.vercel.app",
-		// 设置 Twikoo 评论系统语言
-		lang: "zh-CN",
-		// 是否启用文章访问量统计功能
+		// Set Twikoo language
+		lang: "en",
+		// Whether to enable post visitor count statistics
 		visitorCount: true,
 	},
 
-	//waline评论系统配置
+	// Waline comment system configuration
 	waline: {
-		// waline 后端服务地址
+		// Waline backend service address
 		serverURL: "https://waline.vercel.app",
-		// 设置 Waline 评论系统语言
-		lang: "zh-CN",
-		// 设置 Waline 评论系统表情地址
+		// Set Waline language
+		lang: "en",
+		// Set Waline emoji URLs
 		emoji: [
 			"https://unpkg.com/@waline/emojis@1.4.0/weibo",
 			"https://unpkg.com/@waline/emojis@1.4.0/bilibili",
 			"https://unpkg.com/@waline/emojis@1.4.0/bmoji",
 		],
-		// 评论登录模式。可选值如下：
-		//   'enable'   —— 默认，允许访客匿名评论和用第三方 OAuth 登录评论，兼容性最佳。
-		//   'force'    —— 强制必须登录后才能评论，适合严格社区，关闭匿名评论。
-		//   'disable'  —— 禁止所有登录和 OAuth，仅允许匿名评论（填写昵称/邮箱），适用于极简留言。
+		// Comment login mode:
+		// 'enable'  -- Default, allows guest comments and 3rd-party OAuth login.
+		// 'force'   -- Login required to comment, suitable for strict communities.
+		// 'disable' -- Login and OAuth disabled, only allows guest comments (name/email).
 		login: "enable",
-		// 是否启用文章访问量统计功能
+		// Whether to enable post visitor count statistics
 		visitorCount: true,
 	},
 
-	// artalk评论系统配置
+	// Artalk comment system configuration
 	artalk: {
-		// artalk后端程序 API 地址
+		// Artalk backend API address
 		server: "https://artalk.example.com/",
-		// 设置 Artalk 语言
-		locale: "zh-CN",
-		// 是否启用文章访问量统计功能
+		// Set Artalk language
+		locale: "en",
+		// Whether to enable post visitor count statistics
 		visitorCount: true,
 	},
 
-	//giscus评论系统配置
+	// Giscus comment system configuration
 	giscus: {
-		// 设置 Giscus 评论系统仓库
+		// Set Giscus repository
 		repo: "CuteLeaf/Firefly",
-		// 设置 Giscus 评论系统仓库ID
+		// Set Giscus repository ID
 		repoId: "R_kgD2gfdFGd",
-		// 设置 Giscus 评论系统分类
+		// Set Giscus category
 		category: "General",
-		// 获取 Giscus 评论系统分类ID
+		// Set Giscus category ID
 		categoryId: "DIC_kwDOKy9HOc4CegmW",
-		// 获取 Giscus 评论系统映射方式
+		// Set Giscus mapping method
 		mapping: "title",
-		// 获取 Giscus 评论系统严格模式
+		// Set Giscus strict mode
 		strict: "0",
-		// 获取 Giscus 评论系统反应功能
+		// Set Giscus reactions functionality
 		reactionsEnabled: "1",
-		// 获取 Giscus 评论系统元数据功能
+		// Set Giscus metadata functionality
 		emitMetadata: "1",
-		// 获取 Giscus 评论系统输入位置
+		// Set Giscus input location
 		inputPosition: "top",
-		// 获取 Giscus 评论系统语言
-		lang: "zh-CN",
-		// 获取 Giscus 评论系统加载方式
+		// Set Giscus language
+		lang: "en",
+		// Set Giscus loading method
 		loading: "lazy",
 	},
 
-	//disqus评论系统配置
+	// Disqus comment system configuration
 	disqus: {
-		// 获取 Disqus 评论系统
+		// Set Disqus shortname
 		shortname: "firefly",
 	},
 };

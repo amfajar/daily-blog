@@ -1,57 +1,58 @@
 import type { AdConfig } from "../types/config";
 
-// 这里只是配置广告内容，如果要开关请在sidebarConfig.ts中控制侧边栏组件的的启用组件即可
+// This file only configures the advertisement content. 
+// To enable/disable, control the sidebar component in sidebarConfig.ts.
 
-// 广告配置1 - 纯图片广告（无边距）
+// Ad configuration 1 - Pure image ad (no padding)
 export const adConfig1: AdConfig = {
 	image: {
 		src: "assets/images/cover.avif",
-		alt: "广告横幅",
+		alt: "Ad Banner",
 		link: "#",
 		external: true,
 	},
 
-	// 是否允许关闭广告
+	// Whether to allow closing the ad
 	closable: true,
 
-	// 显示次数限制，-1为无限制
+	// Display count limit, -1 for unlimited
 	displayCount: -1,
 
-	// 组件内边距配置，可通过取消注释生效
+	// Component padding configuration
 	padding: {
-		// 零边距，图片占满整个组件
+		// Zero padding; the image fills the entire component
 		all: "0",
 
-		// 四边1rem边距
+		// 1rem padding on all sides
 		// all: "1rem",
 
-		// 顶部无边距
+		// No top padding
 		// top: "0",
 
-		// 右侧无边距
+		// No right padding
 		// right: "1rem",
 
-		// 底部无边距
+		// No bottom padding
 		// bottom: "1rem",
 
-		// 左侧无边距
+		// No left padding
 		// left: "1rem",
 	},
 };
 
-// 广告配置2 - 完整内容广告
+// Ad configuration 2 - Full content ad
 export const adConfig2: AdConfig = {
-	title: "支持博主",
+	title: "Support the Author",
 	content:
-		"如果您觉得本站内容对您有帮助，欢迎支持我们的创作！您的支持是我们持续更新的动力。",
+		"If you find the content of this site helpful, you're welcome to support our creation! Your support is our motivation for continuous updates.",
 	image: {
 		src: "assets/images/cover.avif",
-		alt: "支持博主",
+		alt: "Support the Author",
 		link: "about/",
 		external: false,
 	},
 	link: {
-		text: "支持一下",
+		text: "Support",
 		url: "about/",
 		external: false,
 	},

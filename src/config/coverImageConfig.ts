@@ -1,36 +1,36 @@
 import type { CoverImageConfig } from "../types/config";
 
 /**
- * 文章封面图配置
+ * Post cover image configuration
  *
- * enableInPost - 是否在文章详情页显示封面图
+ * enableInPost - Whether to show the cover image on the post detail page
  *
- * 随机封面图使用说明：
- * 1. 在文章的 Frontmatter 中添加 image: "api" 即可使用随机图功能
- * 2. 系统会依次尝试所有配置的 API，全部失败后使用备用图片
+ * Random cover image instructions:
+ * 1. Add image: "api" to the post's frontmatter to use the random image feature
+ * 2. The system will try all configured APIs in order; if all fail, it uses the fallback image
  *
- * // 文章 Frontmatter 示例：
+ * // Post Frontmatter Example:
  * ---
- * title: 文章标题
+ * title: Post Title
  * image: "api"
  * ---
  */
 export const coverImageConfig: CoverImageConfig = {
-	// 是否在文章详情页显示封面图
+	// Whether to show the cover image on the post detail page
 	enableInPost: true,
 
 	randomCoverImage: {
-		// 随机封面图功能开关
+		// Random cover image feature toggle
 		enable: false,
-		// 封面图API列表
+		// List of cover image APIs
 		apis: [
 			"https://t.alcy.cc/pc",
 			"https://www.dmoe.cc/random.php",
 			"https://uapis.cn/api/v1/random/image?category=acg&type=pc",
 		],
-		// API失败时的回退图片路径（相对于src目录或以/开头的public目录路径）
+		// Fallback image path (relative to src directory or starting with / for public directory) when API fails
 		fallback: "assets/images/cover.avif",
-		// 是否显示加载动画
+		// Whether to show loading animation
 		showLoading: false,
 	},
 };

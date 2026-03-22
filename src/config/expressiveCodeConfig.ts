@@ -1,32 +1,32 @@
 import type { ExpressiveCodeConfig } from "../types/config";
 
 /**
- * expressive-code配置
+ * expressive-code configuration
  * @see https://expressive-code.com/
- * 修改本配置后需要重启Astro开发服务器才能生效
+ * Restart the Astro dev server after modifying this configuration to see changes.
  */
 
 export const expressiveCodeConfig: ExpressiveCodeConfig = {
-	// 暗色主题（用于暗色模式）
+	// Dark theme (used in dark mode)
 	darkTheme: "one-dark-pro",
 
-	// 亮色主题（用于亮色模式）
+	// Light theme (used in light mode)
 	lightTheme: "one-light",
 
-	// 更多样式请看expressive-code的官方文档
+	// For more styles, refer to the expressive-code official documentation:
 	// https://expressive-code.com/guides/themes/
 
-	// 代码块折叠插件配置
+	// Code block collapsible plugin configuration
 	pluginCollapsible: {
-		enable: true, // 启用折叠功能
-		lineThreshold: 15, // 当代码行数超过15行时显示折叠按钮
-		previewLines: 8, // 折叠时显示前8行
-		defaultCollapsed: true, // 默认折叠长代码块
+		enable: true, // Enable collapsible functionality
+		lineThreshold: 15, // Show collapse button when code exceeds 15 lines
+		previewLines: 8, // Show the first 8 lines when collapsed
+		defaultCollapsed: true, // Collapse long code blocks by default
 	},
 
-	// 语言徽章插件配置
+	// Language badge plugin configuration
 	pluginLanguageBadge: {
-		// 是否启用语言徽章插件
+		// Whether to enable the language badge plugin
 		enable: false,
 	},
 };

@@ -1,23 +1,23 @@
 import type { AnnouncementConfig } from "../types/config";
 
 export const announcementConfig: AnnouncementConfig = {
-	// 公告标题
-	title: "公告",
+	// Announcement title
+	title: "Welcome! 🌱",
 
-	// 公告内容
-	content: "欢迎来到我的博客！这是一则示例公告。",
+	// Announcement content
+	content: "Welcome to My Blog! This is my daily learning journal. Feel free to explore!",
 
-	// 是否允许用户关闭公告
+	// Allow user to close the announcement
 	closable: true,
 
 	link: {
-		// 启用链接
+		// Enable link
 		enable: true,
-		// 链接文本
-		text: "了解更多",
-		// 链接 URL
+		// Link text
+		text: "About me",
+		// Link URL
 		url: "/about/",
-		// 内部链接
+		// Internal link
 		external: false,
 	},
 };

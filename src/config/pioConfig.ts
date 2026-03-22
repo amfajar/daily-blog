@@ -1,45 +1,46 @@
 import type { Live2DModelConfig, SpineModelConfig } from "../types/config";
 
-// Spine 看板娘配置
+// Spine mascot configuration
 export const spineModelConfig: SpineModelConfig = {
-	// Spine 看板娘开关
+	// Spine mascot switch
 	enable: false,
 
-	// Spine模型配置
+	// Spine model configuration
 	model: {
-		// Spine模型文件路径
+		// Spine model file path
 		path: "/pio/models/spine/firefly/1310.json",
-		// 模型缩放比例
+		// Model scale ratio
 		scale: 1.0,
-		// X轴偏移
+		// X-axis offset
 		x: 0,
-		// Y轴偏移
+		// Y-axis offset
 		y: 0,
 	},
 
-	// 位置配置
+	// Position configuration
 	position: {
-		// 显示位置 bottom-left，bottom-right，top-left，top-right，注意：在右下角可能会挡住返回顶部按钮
+		// Display position: bottom-left, bottom-right, top-left, top-right. 
+		// Note: Being in the bottom-right might block the 'Back to Top' button.
 		corner: "bottom-left",
-		// 距离边缘0px
+		// Distance from the edge: 0px
 		offsetX: 0,
-		// 距离下边缘0px
+		// Distance from the bottom edge: 0px
 		offsetY: 0,
 	},
 
-	// 尺寸配置
+	// Size configuration
 	size: {
-		// 容器宽度
+		// Container width
 		width: 135,
-		// 容器高度
+		// Container height
 		height: 165,
 	},
 
-	// 交互配置
+	// Interaction configuration
 	interactive: {
-		// 交互功能开关
+		// Interaction switch
 		enabled: true,
-		// 点击时随机播放的动画列表
+		// List of animations to play randomly on click
 		clickAnimations: [
 			"emoji_0",
 			"emoji_1",
@@ -48,91 +49,93 @@ export const spineModelConfig: SpineModelConfig = {
 			"emoji_4",
 			"emoji_5",
 			"emoji_6",
+			"emoji_7",
 		],
-		// 点击时随机显示的文字消息
+		// Text messages to display randomly on click
 		clickMessages: [
-			"你好呀！我是流萤~",
-			"今天也要加油哦！✨",
-			"想要一起去看星空吗？🌟",
-			"记得要好好休息呢~",
-			"有什么想对我说的吗？💫",
-			"让我们一起探索未知的世界吧！🚀",
-			"每一颗星星都有自己的故事~⭐",
-			"希望能带给你温暖和快乐！💖",
+			"Hello! I'm Firefly~",
+			"Good luck today! ✨",
+			"Want to go see the stars together? 🌟",
+			"Remember to take a good rest~",
+			"Is there anything you want to tell me? 💫",
+			"Let's explore the unknown world together! 🚀",
+			"Every star has its own story~ ⭐",
+			"I hope I can bring you warmth and happiness! 💖",
 		],
-		// 文字显示时间（毫秒）
+		// Message display duration (ms)
 		messageDisplayTime: 3000,
-		// 待机动画列表
+		// list of idle animations
 		idleAnimations: ["idle", "emoji_0", "emoji_1", "emoji_3", "emoji_4"],
-		// 待机动画切换间隔（毫秒）
+		// Idle animation switch interval (ms)
 		idleInterval: 8000,
 	},
 
-	// 响应式配置
+	// Responsive configuration
 	responsive: {
-		// 在移动端隐藏
+		// Hide on mobile devices
 		hideOnMobile: true,
-		// 移动端断点
+		// Mobile breakpoint
 		mobileBreakpoint: 768,
 	},
 
-	// 层级
-	zIndex: 1000, // 层级
+	// Z-index
+	zIndex: 1000,
 
-	// 透明度
+	// Opacity
 	opacity: 1.0,
 };
 
-// Live2D 看板娘配置
+// Live2D mascot configuration
 export const live2dModelConfig: Live2DModelConfig = {
-	// Live2D 看板娘开关
+	// Live2D mascot switch
 	enable: false,
-	// Live2D模型配置
+	// Live2D model configuration
 	model: {
-		// Live2D模型文件路径
+		// Live2D model file path
 		path: "/pio/models/live2d/snow_miku/model.json",
 		// path: "/pio/models/live2d/illyasviel/illyasviel.model.json",
 	},
 
-	// 位置配置
+	// Position configuration
 	position: {
-		// 显示位置 bottom-left，bottom-right，top-left，top-right，注意：在右下角可能会挡住返回顶部按钮
+		// Display position: bottom-left, bottom-right, top-left, top-right. 
+		// Note: Being in the bottom-right might block the 'Back to Top' button.
 		corner: "bottom-left",
-		// 距离边缘0px
+		// Distance from the edge: 0px
 		offsetX: 0,
-		// 距离下边缘0px
+		// Distance from the bottom edge: 0px
 		offsetY: 0,
 	},
 
-	// 尺寸配置
+	// Size configuration
 	size: {
-		// 容器宽度
+		// Container width
 		width: 135,
-		// 容器高度
+		// Container height
 		height: 165,
 	},
 
-	// 交互配置
+	// Interaction configuration
 	interactive: {
-		// 交互功能开关
+		// Interaction switch
 		enabled: true,
-		// 点击时随机显示的文字消息，motions 和 expressions 将从模型 JSON 文件中自动读取
+		// Text messages to display randomly on click; motions and expressions are auto-read from the model JSON
 		clickMessages: [
-			"你好！我是Miku~",
-			"有什么需要帮助的吗？",
-			"今天天气真不错呢！",
-			"要不要一起玩游戏？",
-			"记得按时休息哦！",
+			"Hello! I'm Miku~",
+			"Is there anything I can help you with?",
+			"The weather is really nice today!",
+			"Want to play a game together?",
+			"Remember to rest on time!",
 		],
-		// 随机显示的文字消息显示时间（毫秒）
+		// Random text message display duration (ms)
 		messageDisplayTime: 3000,
 	},
 
-	// 响应式配置
+	// Responsive configuration
 	responsive: {
-		// 在移动端隐藏
+		// Hide on mobile devices
 		hideOnMobile: true,
-		// 移动端断点
+		// Mobile breakpoint
 		mobileBreakpoint: 768,
 	},
 };

@@ -1,40 +1,40 @@
 import type { FriendLink, FriendsPageConfig } from "../types/config";
 
-// 可以在src/content/spec/friends.md中编写友链页面下方的自定义内容
+// You can write custom content below the friend links in src/content/spec/friends.md
 
-// 友链页面配置
+// Friends page configuration
 export const friendsPageConfig: FriendsPageConfig = {
-	// 页面标题，如果留空则使用 i18n 中的翻译
+	// Page title; if empty, use the translation in i18n
 	title: "",
 
-	// 页面描述文本，如果留空则使用 i18n 中的翻译
+	// Page description text; if empty, use the translation in i18n
 	description: "",
 
-	// 是否显示底部自定义内容（friends.mdx 中的内容）
+	// Whether to show custom content from friends.mdx
 	showCustomContent: true,
 
-	// 是否显示评论区，需要先在commentConfig.ts启用评论系统
+	// Whether to show the comment section; requires enabling the comment system in commentConfig.ts
 	showComment: true,
 
-	// 是否开启随机排序配置，如果开启，就会忽略权重，构建时进行一次随机排序
+	// Whether to enable random sorting; if enabled, weights are ignored and a random sort is done at build time.
 	randomizeSort: false,
 };
 
-// 友链配置
+// Friends link configuration
 export const friendsConfig: FriendLink[] = [
 	{
-		title: "夏夜流萤",
+		title: "Summer Night Firefly",
 		imgurl: "https://q1.qlogo.cn/g?b=qq&nk=7618557&s=640",
-		desc: "飞萤之火自无梦的长夜亮起，绽放在终竟的明天。",
+		desc: "The fire of the firefly rises from the dreamless long night, blooming in the final tomorrow.",
 		siteurl: "https://blog.cuteleaf.cn",
 		tags: ["Blog"],
-		weight: 10, // 权重，数字越大排序越靠前
-		enabled: true, // 是否启用
+		weight: 10, // Weight, larger numbers come first
+		enabled: true, // Whether to enable
 	},
 	{
 		title: "Firefly Docs",
 		imgurl: "https://docs-firefly.cuteleaf.cn/logo.png",
-		desc: "Firefly主题模板文档",
+		desc: "Firefly theme template documentation",
 		siteurl: "https://docs-firefly.cuteleaf.cn",
 		tags: ["Docs"],
 		weight: 9,
@@ -51,7 +51,7 @@ export const friendsConfig: FriendLink[] = [
 	},
 ];
 
-// 获取启用的友链并进行排序
+// Get enabled friend links and sort them
 export const getEnabledFriends = (): FriendLink[] => {
 	const friends = friendsConfig.filter((friend) => friend.enabled);
 

@@ -9,13 +9,13 @@ const { page } = Astro.props;
 let delay = 0;
 const interval = 50;
 
-// 类型别名避免Fragment语法问题
+// Type alias to avoid Fragment syntax issues
 type PostEntry = CollectionEntry<"posts">;
 
 const masonryEnabled = siteConfig.postListLayout.grid.masonry;
 const columnWidth = siteConfig.postListLayout.grid.columnWidth || 280;
 
-// 根据配置设置初始布局模式，避免闪烁
+// Set initial layout mode based on config to avoid flickering
 const defaultLayout = siteConfig.postListLayout.defaultMode || "list";
 const initialLayoutClass =
 	defaultLayout === "grid"
@@ -40,7 +40,7 @@ const initialLayoutClass =
         category={entry.data.category}
         published={entry.data.published}
         updated={entry.data.updated}
-        url={getPostUrlBySlug(entry.id)}
+        url={getPostUrlBySlug(entry.data.slug)}
         image={entry.data.image}
         description={entry.data.description}
         draft={entry.data.draft}
@@ -54,20 +54,20 @@ const initialLayoutClass =
   }
 </div>
 
-<!-- 立即执行脚本：防止刷新时的布局闪烁 -->
+<!-- Immediate execution script: prevent layout flicker on refresh -->
 <script is:inline define:vars={{ defaultLayout, columnWidth }}>
   (function() {
     const savedLayout = localStorage.getItem('postListLayout');
 
-    // 如果有保存的布局且与默认布局不同，更新容器布局
+    // Update container layout if there is a saved layout and it differs from the default
     if (savedLayout && savedLayout !== defaultLayout) {
       const container = document.getElementById('post-list-container');
 
       if (container) {
-        // 禁用过渡动画
+        // Disable transition animation
         container.style.transition = 'none';
 
-        // 移除所有布局类
+        // Remove all layout classes
         container.classList.remove('list-mode', 'grid-mode', 'post-grid-auto', 'flex', 'flex-col', 'gap-4', 'md:gap-4');
 
         if (savedLayout === 'grid') {
@@ -76,7 +76,7 @@ const initialLayoutClass =
           container.classList.add('list-mode', 'flex', 'flex-col', 'gap-4', 'md:gap-4');
         }
 
-        // 强制重排后恢复过渡动画
+        // Restore transition animation after forced reflow
         container.offsetHeight;
         container.style.transition = '';
       }
@@ -85,27 +85,27 @@ const initialLayoutClass =
 </script>
 
 <script>
-  // 动态布局切换脚本
+  // Dynamic layout switching script
   function initLayout() {
     const postListContainer = document.getElementById("post-list-container");
     if (!postListContainer) return;
 
-    // 检查屏幕宽度
+    // Check screen width
     const screenWidth = window.innerWidth;
     const isSmallScreen = screenWidth < 1200;
 
-    // 从localStorage读取用户偏好
+    // Read user preference from localStorage
     const savedLayout = localStorage.getItem("postListLayout");
     const defaultLayout =
       postListContainer.getAttribute("data-default-layout") || "list";
     let currentLayout = savedLayout || defaultLayout;
 
-    // 如果屏幕宽度小于1200px，强制使用列表模式
+    // Force list mode if screen width is less than 1200px
     if (isSmallScreen) {
       currentLayout = "list";
     }
 
-    // 应用布局
+    // Apply layout
     updatePostListLayout(currentLayout);
   }
 
@@ -199,30 +199,30 @@ const initialLayoutClass =
     const masonryEnabled = container.getAttribute("data-masonry-enabled") === "true";
     if (!masonryEnabled) return;
 
-    // 仅在 grid 模式下应用
+    // Only apply in grid mode
     if (!container.classList.contains("grid-mode")) return;
 
     const items = Array.from(container.querySelectorAll(".post-card-item"));
     if (items.length === 0) return;
 
-    // 瀑布流配置
+    // Masonry configuration
     const gap = 16; // 1rem = 16px
     const columnWidth = parseInt(container.getAttribute("data-column-width") || "280");
 
-    // 重置容器样式以允许绝对定位
+    // Reset container style to allow absolute positioning
     container.style.position = "relative";
-    container.style.display = "block"; // 覆盖 grid display
+    container.style.display = "block"; // Override grid display
 
-    // 使用 offsetWidth 避免 transform: scale 的影响
+    // Use offsetWidth to avoid the impact of transform: scale
     const containerWidth = container.offsetWidth;
-    // 根据容器宽度和最小列宽动态计算列数
+    // Dynamically calculate the number of columns based on container width and minimum column width
     const colCount = Math.max(1, Math.floor((containerWidth + gap) / (columnWidth + gap)));
     const itemWidth = (containerWidth - (colCount - 1) * gap) / colCount;
 
     const colHeights = new Array(colCount).fill(0);
 
     items.forEach((item) => {
-      // 找到最短的列放置
+      // Find the shortest column to place the item
       const colIndex = colHeights.indexOf(Math.min(...colHeights));
 
       // @ts-ignore
@@ -232,7 +232,7 @@ const initialLayoutClass =
       // @ts-ignore
       item.style.setProperty('height', 'auto', 'important');
 
-      // 获取高度，优先使用 offsetHeight 避免 transform 影响
+      // Get height, prioritize offsetHeight to avoid transform impact
       // @ts-ignore
       const height = item.offsetHeight;
 
@@ -250,12 +250,12 @@ const initialLayoutClass =
     container.style.height = `${Math.max(...colHeights)}px`;
   }
 
-  // 页面加载时初始化布局
+  // Initialize layout on page load
   document.addEventListener("DOMContentLoaded", function () {
-    // 延迟一点确保DOM完全加载
+    // Delay a bit to ensure DOM is fully loaded
     setTimeout(initLayout, 50);
 
-    // 监听图片加载以重新计算布局
+    // Listen for image loading to recalculate layout
     const imgs = document.querySelectorAll('#post-list-container img');
     imgs.forEach(img => {
         // @ts-ignore
@@ -266,21 +266,21 @@ const initialLayoutClass =
     });
   });
 
-  // 页面显示时也初始化布局（处理页面切换）
+  // Also initialize layout when page is shown (handles tab switching)
   document.addEventListener("visibilitychange", function () {
     if (!document.hidden) {
       setTimeout(initLayout, 100);
     }
   });
 
-  // 监听布局变化事件
+  // Listen for layout change events
   window.addEventListener("layoutChange", function (event) {
     // @ts-ignore
     const newLayout = event.detail.layout;
     const postListContainer = document.getElementById("post-list-container");
     if (!postListContainer) return;
 
-    // 检查屏幕宽度，如果小于1200px则强制使用列表模式
+    // Check screen width; force list mode if less than 1200px
     const screenWidth = window.innerWidth;
     const isSmallScreen = screenWidth < 1200;
 
@@ -291,7 +291,7 @@ const initialLayoutClass =
     }
   });
 
-  // 监听窗口大小变化
+  // Listen for window resize
   let resizeTimeout: any;
   window.addEventListener("resize", function () {
     clearTimeout(resizeTimeout);
@@ -300,11 +300,11 @@ const initialLayoutClass =
     }, 250);
   });
 
-  // 监听页面导航事件（Astro的客户端路由）
+  // Listen for page navigation events (Astro's client-side routing)
   document.addEventListener("astro:page-load", function () {
     setTimeout(initLayout, 50);
 
-    // 监听图片加载
+    // Listen for image loading
     const imgs = document.querySelectorAll('#post-list-container img');
     imgs.forEach(img => {
         // @ts-ignore
@@ -319,7 +319,7 @@ const initialLayoutClass =
     setTimeout(initLayout, 50);
   });
 
-  // 立即执行一次（处理页面刷新）
+  // Execute once immediately (handles page refresh)
   setTimeout(initLayout, 0);
 </script>
 
@@ -332,20 +332,20 @@ const initialLayoutClass =
 </style>
 
 <style>
-  /* 布局切换动画 */
+  /* Layout switching animation */
   #post-list-container {
-    /* 限制过渡属性为 opacity 和 transform，避免响应父元素位置变化 */
+    /* Limit transition properties to opacity and transform to avoid responding to parent position changes */
     transition: opacity 0.5s cubic-bezier(0.4, 0, 0.2, 1),
                 transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
   }
 
-  /* 文章卡片的过渡动画 */
+  /* Transition animation for post cards */
   #post-list-container > :global(*) {
     transition: opacity 0.4s cubic-bezier(0.4, 0, 0.2, 1),
                 transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   }
 
-  /* 布局切换时的动画效果 */
+  /* Animation effects during layout switching */
   #post-list-container {
     transition: opacity 0.2s ease-out, transform 0.2s ease-out;
   }
@@ -355,7 +355,7 @@ const initialLayoutClass =
     transform: translateY(10px);
   }
 
-  /* 移除特定模式下的子元素动画，避免布局计算冲突 */
+  /* Remove child element animations in specific modes to avoid layout calculation conflicts */
   /*
   #post-list-container.layout-switching > :global(*) {
     transform: scale(0.98);
@@ -377,7 +377,7 @@ const initialLayoutClass =
     height: 1rem !important;
   }
 
-  /* 列表模式下，有封面的文章，摘要最多显示两行 */
+  /* In list mode, posts with covers display at most two lines of summary */
   #post-list-container.list-mode :global(.has-cover .description) {
     display: -webkit-box !important;
     -webkit-box-orient: vertical !important;
@@ -425,7 +425,7 @@ const initialLayoutClass =
     margin-bottom: 0.75rem !important;
     padding-right: 0 !important;
   }
-  /* 网格模式下，有封面的文章，摘要最多显示两行 */
+  /* In grid mode, posts with covers display at most three lines of summary */
   #post-list-container.grid-mode :global(.has-cover .description) {
     display: -webkit-box !important;
     -webkit-box-orient: vertical !important;

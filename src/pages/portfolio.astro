@@ -1,0 +1,103 @@
+---
+import { getCollection } from "astro:content";
+import MainGridLayout from "@/layouts/MainGridLayout.astro";
+
+// Get all portfolio entries that are not drafts
+const allPortfolio = await getCollection("portfolio", ({ data }) => !data.draft);
+
+// Sort newest to oldest
+allPortfolio.sort((a, b) => {
+  const aDate = a.data.date?.getTime() ?? 0;
+  const bDate = b.data.date?.getTime() ?? 0;
+  return bDate - aDate;
+});
+
+// Status label mapping
+const STATUS_LABEL: Record<string, { label: string; class: string }> = {
+  completed: { label: "✅ Completed",    class: "bg-green-100 text-green-800 dark:bg-green-900/30 dark:text-green-400" },
+  draft:     { label: "🚧 In Progress", class: "bg-yellow-100 text-yellow-800 dark:bg-yellow-900/30 dark:text-yellow-400" },
+};
+---
+
+<MainGridLayout title="Portfolio" description="BI Analyst portfolio — SQL, Power BI, Excel, and more">
+  <div class="flex w-full rounded-(--radius-large) overflow-hidden relative">
+    <div class="card-base z-10 px-6 md:px-9 py-8 relative w-full">
+
+      {/* ─── Header ─────────────────────────────────── */}
+      <h1 class="text-3xl font-bold mb-2 text-(--primary)">📁 Portfolio</h1>
+      <p class="text-(--text-secondary) mb-8">
+        Collection of BI Analyst projects — data analysis, dashboards, and SQL.
+      </p>
+
+      {allPortfolio.length === 0 ? (
+        /* ─── Empty state ───────────────────────────── */
+        <div class="flex flex-col items-center justify-center py-20 gap-4 text-center">
+          <div class="text-6xl opacity-30">📂</div>
+          <p class="text-xl font-semibold text-(--text-secondary)">Projects Coming Soon</p>
+          <p class="text-(--text-muted) max-w-sm">
+            Portfolio projects will appear here once Markdown files from{" "}
+            <code class="bg-(--code-bg) px-1.5 py-0.5 rounded text-sm">
+              Current/05. BI Analyst/05. Projects/
+            </code>{" "}
+            are added to the <code class="bg-(--code-bg) px-1.5 py-0.5 rounded text-sm">portfolio</code> collection.
+          </p>
+          <p class="text-sm text-(--text-muted) mt-2 opacity-70">
+            Tools to be showcased: SQL · Power BI · Excel · Python
+          </p>
+        </div>
+      ) : (
+        /* ─── Project grid ──────────────────────────── */
+        <div class="grid gap-5 sm:grid-cols-2 lg:grid-cols-2">
+          {allPortfolio.map((project) => {
+            const status = STATUS_LABEL[project.data.status ?? "draft"];
+            return (
+              <div
+                class="card-base p-5 flex flex-col gap-3 hover:-translate-y-1 transition-transform duration-200"
+              >
+                {/* Title + Status */}
+                <div class="flex items-start justify-between gap-2">
+                  <h2 class="font-bold text-lg text-(--text-primary) leading-snug">
+                    {project.data.title}
+                  </h2>
+                  {status && (
+                    <span class={`text-xs px-2 py-0.5 rounded-full font-medium whitespace-nowrap ${status.class}`}>
+                      {status.label}
+                    </span>
+                  )}
+                </div>
+
+                {/* Description */}
+                {project.data.description && (
+                  <p class="text-sm text-(--text-secondary) leading-relaxed">
+                    {project.data.description}
+                  </p>
+                )}
+
+                {/* Tools */}
+                {project.data.tools.length > 0 && (
+                  <div class="flex flex-wrap gap-1.5 mt-auto pt-1">
+                    {project.data.tools.map((tool) => (
+                      <span
+                        class="text-xs px-2 py-0.5 rounded-full bg-(--tag-bg) text-(--tag-color) font-medium"
+                      >
+                        {tool}
+                      </span>
+                    ))}
+                  </div>
+                )}
+
+                {/* Tags */}
+                {project.data.tags.length > 0 && (
+                  <div class="flex flex-wrap gap-1 text-xs text-(--text-muted)">
+                    {project.data.tags.map((tag) => `#${tag}`).join(" ")}
+                  </div>
+                )}
+              </div>
+            );
+          })}
+        </div>
+      )}
+
+    </div>
+  </div>
+</MainGridLayout>

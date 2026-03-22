@@ -1,67 +1,65 @@
-# 配置文件说明
+# Configuration File Guide
 
-本目录包含 Firefly 主题的所有配置文件，采用模块化设计，每个文件负责特定的功能模块。
+This directory contains all the configuration files for the Firefly theme. It uses a modular design where each file is responsible for a specific functional module.
 
-## 📁 配置文件结构
+## 📁 Configuration File Structure
 
-```
+```text
 src/config/
-├── index.ts              # 配置索引文件 - 统一导出
-├── siteConfig.ts         # 站点基础配置
-├── backgroundWallpaper.ts # 背景壁纸配置
-├── profileConfig.ts      # 用户资料配置
-├── musicConfig.ts        # 音乐播放器配置
-├── sakuraConfig.ts       # 樱花特效配置
-├── commentConfig.ts      # 评论系统配置
-├── announcementConfig.ts # 公告配置
-├── licenseConfig.ts      # 许可证配置
-├── footerConfig.ts       # 页脚配置
-├── expressiveCodeConfig.ts # 代码高亮配置
-├── fontConfig.ts         # 字体配置
-├── sidebarConfig.ts      # 侧边栏配置
-├── navBarConfig.ts       # 导航栏配置
-├── pioConfig.ts          # Pio 模型配置
-├── adConfig.ts           # 广告配置
-├── friendsConfig.ts      # 友链配置
-├── galleryConfig.ts      # 相册配置
-├── sponsorConfig.ts      # 赞助配置
-├── coverImageConfig.ts   # 封面图配置
-└── README.md             # 本文件
+├── index.ts              # Configuration Index - Unified Export
+├── siteConfig.ts         # Base Site Configuration
+├── backgroundWallpaper.ts # Background & Banner Configuration
+├── profileConfig.ts      # User Profile Configuration
+├── musicConfig.ts        # Music Player Configuration
+├── sakuraConfig.ts       # Sakura Effect Configuration
+├── commentConfig.ts      # Comment System Configuration
+├── announcementConfig.ts # Announcement Configuration
+├── licenseConfig.ts      # License Configuration
+├── footerConfig.ts       # Footer Configuration
+├── expressiveCodeConfig.ts # Code Highlighting Configuration
+├── fontConfig.ts         # Font Configuration
+├── sidebarConfig.ts      # Sidebar Configuration
+├── navBarConfig.ts       # Navigation Bar Configuration
+├── pioConfig.ts          # Pio Model Configuration
+├── adConfig.ts           # Ad Configuration
+├── friendsConfig.ts      # Friend Links Configuration
+├── galleryConfig.ts      # Album Configuration
+├── sponsorConfig.ts      # Sponsor Configuration
+├── coverImageConfig.ts   # Cover Image Configuration
+└── README.md             # This file
 ```
 
-## 🚀 使用方式
+## 🚀 Usage
 
-### 推荐：使用配置索引（统一导入）
+### Recommended: Use Config Index (Unified Import)
+
 ```typescript
-import { siteConfig, profileConfig } from '../config';
+import { siteConfig, profileConfig } from "@/config";
 ```
 
-### 直接导入单个配置
+### Direct Import of Single Config
+
 ```typescript
-import { siteConfig } from '../config/siteConfig';
-import { profileConfig } from '../config/profileConfig';
+import { siteConfig } from "@/config/siteConfig";
 ```
 
-## 📋 配置文件列表
+## 📋 Configuration File List
 
-- `siteConfig.ts` - 站点基础配置（标题、描述、主题色等）
-- `backgroundWallpaper.ts` - 背景壁纸配置（壁纸模式、图片、横幅文字等）
-- `profileConfig.ts` - 用户资料配置（头像、姓名、社交链接等）
-- `musicConfig.ts` - 音乐播放器配置（支持本地音乐和 Meting API）
-- `sakuraConfig.ts` - 樱花特效配置（数量、速度、尺寸等）
-- `commentConfig.ts` - 评论系统配置（Twikoo 评论和文章访问量统计）
-- `announcementConfig.ts` - 公告配置（标题、内容、链接等）
-- `licenseConfig.ts` - 许可证配置（CC 协议等）
-- `footerConfig.ts` - 页脚配置（HTML 注入等）
-- `expressiveCodeConfig.ts` - 代码高亮配置（主题等）
-- `fontConfig.ts` - 字体配置（字体族、大小等）
-- `sidebarConfig.ts` - 侧边栏配置（组件布局等）
-- `navBarConfig.ts` - 导航栏配置（链接、样式等）
-- `pioConfig.ts` - Pio 模型配置（Spine、Live2D 等）
-- `adConfig.ts` - 广告配置（广告位设置等）
-- `friendsConfig.ts` - 友链配置（友链列表等）
-- `sponsorConfig.ts` - 赞助配置（赞助方式、二维码等）
-- `coverImageConfig.ts` - 封面图配置（随机封面图列表等）
-
-
-```
+- `siteConfig.ts` - Base site configuration (Title, description, theme color, etc.)
+- `backgroundWallpaper.ts` - Background wallpaper configuration (Mode, images, banner text, etc.)
+- `profileConfig.ts` - User profile configuration (Avatar, name, social links, etc.)
+- `musicConfig.ts` - Music player configuration (Supports local and Meting API)
+- `sakuraConfig.ts` - Sakura effect configuration (Quantity, speed, size, etc.)
+- `commentConfig.ts` - Comment system configuration (Twikoo comments and view statistics)
+- `announcementConfig.ts` - Announcement configuration (Title, content, link, etc.)
+- `licenseConfig.ts` - License configuration (CC protocols, etc.)
+- `footerConfig.ts` - Footer configuration (HTML injection, etc.)
+- `expressiveCodeConfig.ts` - Code highlighting configuration (Themes, etc.)
+- `fontConfig.ts` - Font configuration (Families, sizes, etc.)
+- `sidebarConfig.ts` - Sidebar configuration (Component layout, etc.)
+- `navBarConfig.ts` - Navigation bar configuration (Links, styles, etc.)
+- `pioConfig.ts` - Pio model configuration (Spine, Live2D, etc.)
+- `adConfig.ts` - Ad configuration (Ad placements, etc.)
+- `friendsConfig.ts` - Friend links configuration (Friend lists, etc.)
+- `sponsorConfig.ts` - Sponsor configuration (Payment methods, QR codes, etc.)
+- `coverImageConfig.ts` - Cover image configuration (Random cover lists, etc.)

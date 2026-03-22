@@ -1,23 +1,23 @@
-// 字体配置
+// Font configuration
 export const fontConfig = {
-	// 是否启用自定义字体功能
+	// Whether to enable custom font functionality
 	enable: false,
-	// 是否预加载字体文件
+	// Whether to preload font files
 	preload: true,
-	// 当前选择的字体，支持多个字体组合
+	// Currently selected fonts, supports multiple font combinations
 	selected: ["misans-regular"],
 
-	// 字体列表
-	// 推荐使用可靠的 CDN 服务商提供的字体链接，它天然做了按需分片加载，且性能较好
+	// Font list
+	// It's recommended to use font links provided by reliable CDN providers; they naturally handle on-demand sharding and perform well.
 	//
-	// 也可以使用本地字体文件，需自行进行字体子集化处理，否则会因为字体文件庞大增加带宽负担导致页面加载缓慢甚至无法加载
-	// 如果进行字体子集化处理，会导致动态内容（如评论，Bangumi等）无法正确显示字体，因此不推荐使用本地字体文件
+	// You can also use local font files, but you need to handle font subsetting yourself. Otherwise, large font files will increase bandwidth burden, making page loading slow or even failing.
+	// If font subsetting is performed, dynamic content (such as comments, Bangumi, etc.) will not display the font correctly; therefore, local font files are not recommended.
 	fonts: {
-		// 系统字体
+		// System fonts
 		system: {
 			id: "system",
-			name: "系统字体",
-			src: "", // 系统字体无需 src
+			name: "System Fonts",
+			src: "", // System fonts do not need src
 			family:
 				"system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, sans-serif",
 		},
@@ -40,7 +40,7 @@ export const fontConfig = {
 			display: "swap" as const,
 		},
 
-		// 小米字体 - MiSans Normal
+		// MiSans Normal
 		"misans-normal": {
 			id: "misans-normal",
 			name: "MiSans Normal",
@@ -50,7 +50,7 @@ export const fontConfig = {
 			display: "swap" as const,
 		},
 
-		// 小米字体 - MiSans Regular
+		// MiSans Regular
 		"misans-regular": {
 			id: "misans-regular",
 			name: "MiSans Regular",
@@ -60,7 +60,7 @@ export const fontConfig = {
 			display: "swap" as const,
 		},
 
-		// 小米字体 - MiSans Semibold
+		// MiSans Semibold
 		"misans-semibold": {
 			id: "misans-semibold",
 			name: "MiSans Semibold",
@@ -71,7 +71,7 @@ export const fontConfig = {
 		},
 	},
 
-	// 全局字体回退
+	// Global font fallback
 	fallback: [
 		"system-ui",
 		"-apple-system",

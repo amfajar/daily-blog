@@ -1,220 +1,220 @@
 import type { SidebarLayoutConfig } from "../types/config";
 
 /**
- * 侧边栏布局配置
+ * Sidebar layout configuration
  */
 export const sidebarLayoutConfig: SidebarLayoutConfig = {
-	// 是否启用侧边栏功能
+	// Whether to enable sidebar functionality
 	enable: true,
 
-	// 侧边栏位置：
-	// left: 仅显示左侧边栏
-	// right: 仅显示右侧边栏
-	// both: 双侧边栏，1280px以上同时显示左右，769-1279px根据tabletSidebar配置显示其中一侧
+	// Sidebar position:
+	// left: Only show the left sidebar
+	// right: Only show the right sidebar
+	// both: Dual sidebars; both show above 1280px, one side shows between 769-1279px based on tabletSidebar config
 	position: "both",
 
-	// 平板端(769-1279px)显示哪侧侧边栏，仅position为both时生效
-	// left: 平板端显示左侧边栏
-	// right: 平板端显示右侧边栏
+	// Which side to show on tablet (769-1279px), only takes effect when position is both
+	// left: Show the left sidebar on tablet
+	// right: Show the right sidebar on tablet
 	tabletSidebar: "left",
 
-	// 使用单侧栏(position为left或right)时，是否在文章详情页显示双侧边栏
-	// 当position为left时开启此项，文章详情页将额外显示右侧边栏
-	// 当position为right时开启此项，文章详情页将额外显示左侧边栏
-	// 适用在只想用单侧栏，但在文章详情页想用对侧栏的目录等组件的场景
+	// When using a single sidebar (position is left or right), whether to show dual sidebars on post detail pages.
+	// When position is left, enabling this will additionally show the right sidebar on post pages.
+	// When position is right, enabling this will additionally show the left sidebar on post pages.
+	// Useful if you want a single sidebar generally but want dual sidebars for TOC or other components on posts.
 	showBothSidebarsOnPostPage: true,
 
-	// 左侧边栏组件配置列表
-	// 组件的渲染顺序完全取决于它们在配置数组中出现的顺序，但top的组件会优先于sticky位置的组件渲染
-	// type 组件类型
-	// enable 是否启用该组件
-	// position 组件位置：top固定顶部，sticky粘性定位(会跟随页面滚动)
-	// showOnPostPage 是否在文章详情页显示该组件
-	// showOnNonPostPage 是否在非文章详情页显示该组件（除文章详情页外都显示）
-	// configId 组件配置ID（目前仅广告组件使用），用于区分不同的广告配置
-	// responsive 响应式配置（部分组件可用，可用来设定部分组件需要的参数）
+	// Left sidebar component configuration list
+	// Rendering order depends entirely on the order in the configuration array, but 'top' components render before 'sticky' ones.
+	// type: Component type
+	// enable: Whether to enable the component
+	// position: Component position ('top' is fixed, 'sticky' follows scroll)
+	// showOnPostPage: Whether to show the component on post detail pages
+	// showOnNonPostPage: Whether to show the component on non-post pages (shown everywhere except post detail pages)
+	// configId: Component config ID (currently only used by advertisement component) to distinguish various ad configs
+	// responsive: Responsive configuration (available for some components to set specific parameters)
 	leftComponents: [
 		{
-			// 组件类型：用户资料组件
+			// Component type: Profile component
 			type: "profile",
-			// 是否启用该组件
+			// Whether to enable the component
 			enable: true,
-			// 组件位置
+			// Component position
 			position: "top",
-			// 是否在文章详情页显示
+			// Whether to show on post detail pages
 			showOnPostPage: true,
 		},
 		{
-			// 组件类型：公告组件
+			// Component type: Announcement component
 			type: "announcement",
-			// 是否启用该组件
+			// Whether to enable the component
 			enable: true,
-			// 组件位置
+			// Component position
 			position: "top",
-			// 是否在文章详情页显示
+			// Whether to show on post detail pages
 			showOnPostPage: true,
 		},
 		{
-			// 组件类型：音乐播放器
+			// Component type: Music player
 			type: "music",
-			// 是否启用该组件
+			// Whether to enable the component
 			enable: true,
-			// 组件位置
+			// Component position
 			position: "sticky",
-			// 是否在文章详情页显示
+			// Whether to show on post detail pages
 			showOnPostPage: true,
 		},
 		{
-			// 组件类型：分类组件
+			// Component type: Categories component
 			type: "categories",
-			// 是否启用该组件
+			// Whether to enable the component
 			enable: true,
-			// 组件位置
+			// Component position
 			position: "sticky",
-			// 是否在文章详情页显示
+			// Whether to show on post detail pages
 			showOnPostPage: true,
-			// 响应式配置
+			// Responsive configuration
 			responsive: {
-				// 折叠阈值：当分类数量超过>5个时自动折叠
+				// Collapse threshold: auto-collapse when categories count > 5
 				collapseThreshold: 5,
 			},
 		},
 		{
-			// 组件类型：标签组件
+			// Component type: Tags component
 			type: "tags",
-			// 是否启用该组件
+			// Whether to enable the component
 			enable: true,
-			// 组件位置
+			// Component position
 			position: "sticky",
-			// 是否在文章详情页显示
+			// Whether to show on post detail pages
 			showOnPostPage: true,
-			// 响应式配置
+			// Responsive configuration
 			responsive: {
-				// 折叠阈值：当标签数量超过>10个时自动折叠
+				// Collapse threshold: auto-collapse when tags count > 10
 				collapseThreshold: 10,
 			},
 		},
 		{
-			// 组件类型：广告栏组件 1
+			// Component type: Advertisement component 1
 			type: "advertisement",
-			// 是否启用该组件
+			// Whether to enable the component
 			enable: false,
-			// 组件位置
+			// Component position
 			position: "sticky",
-			// 是否在文章详情页显示
+			// Whether to show on post detail pages
 			showOnPostPage: true,
-			// 配置ID：使用第一个广告配置
+			// Config ID: Use the first ad configuration
 			configId: "ad1",
 		},
 	],
 
-	// 右侧边栏组件配置列表
+	// Right sidebar component configuration list
 	rightComponents: [
 		{
-			// 组件类型：站点统计组件
+			// Component type: Site statistics component
 			type: "stats",
-			// 是否启用该组件
+			// Whether to enable the component
 			enable: true,
-			// 组件位置
+			// Component position
 			position: "top",
-			// 是否在文章详情页显示
+			// Whether to show on post detail pages
 			showOnPostPage: true,
 		},
 		{
-			// 组件类型：日历组件
+			// Component type: Calendar component
 			type: "calendar",
-			// 是否启用该组件
+			// Whether to enable the component
 			enable: true,
-			// 组件位置
+			// Component position
 			position: "sticky",
-			// 是否在文章详情页显示
+			// Whether to show on post detail pages
 			showOnPostPage: false,
 		},
 		{
-			// 组件类型：侧边栏目录组件（只在文章详情页显示）
+			// Component type: Sidebar TOC component (only shown on post detail pages)
 			type: "sidebarToc",
-			// 是否启用该组件
+			// Whether to enable the component
 			enable: true,
-			// 组件位置
+			// Component position
 			position: "sticky",
-			// 是否在文章详情页显示
+			// Whether to show on post detail pages
 			showOnPostPage: true,
-			// 是否在非文章详情页显示
+			// Whether to show on non-post pages
 			showOnNonPostPage: false,
 		},
 		{
-			// 组件类型：广告栏组件 2
+			// Component type: Advertisement component 2
 			type: "advertisement",
-			// 是否启用该组件
+			// Whether to enable the component
 			enable: false,
-			// 组件位置
+			// Component position
 			position: "sticky",
-			// 是否在文章详情页显示
+			// Whether to show on post detail pages
 			showOnPostPage: true,
-			// 配置ID：使用第二个广告配置
+			// Config ID: Use the second ad configuration
 			configId: "ad2",
 		},
 	],
 
-	// 移动端底部组件配置列表
-	// 这些组件只在移动端(<768px)显示在页面底部，独立于左右侧边栏配置
+	// Mobile bottom component configuration list
+	// These show at the bottom of the page on mobile (<768px), independent of sidebar configs.
 	mobileBottomComponents: [
 		{
-			// 组件类型：用户资料组件
+			// Component type: Profile component
 			type: "profile",
-			// 是否启用该组件
+			// Whether to enable the component
 			enable: true,
-			// 是否在文章详情页显示
+			// Whether to show on post detail pages
 			showOnPostPage: true,
 		},
 		{
-			// 组件类型：公告组件
+			// Component type: Announcement component
 			type: "announcement",
-			// 是否启用该组件
+			// Whether to enable the component
 			enable: true,
-			// 是否在文章详情页显示
+			// Whether to show on post detail pages
 			showOnPostPage: true,
 		},
 		{
-			// 组件类型：音乐播放器
+			// Component type: Music player
 			type: "music",
-			// 是否启用该组件
+			// Whether to enable the component
 			enable: true,
-			// 是否在文章详情页显示
+			// Whether to show on post detail pages
 			showOnPostPage: true,
 		},
 		{
-			// 组件类型：分类组件
+			// Component type: Categories component
 			type: "categories",
-			// 是否启用该组件
+			// Whether to enable the component
 			enable: true,
-			// 是否在文章详情页显示
+			// Whether to show on post detail pages
 			showOnPostPage: true,
-			// 响应式配置
+			// Responsive configuration
 			responsive: {
-				// 折叠阈值：当分类数量超过5个时自动折叠
+				// Collapse threshold: auto-collapse when categories count > 5
 				collapseThreshold: 5,
 			},
 		},
 		{
-			// 组件类型：标签组件
+			// Component type: Tags component
 			type: "tags",
-			// 是否启用该组件
+			// Whether to enable the component
 			enable: true,
-			// 是否在文章详情页显示
+			// Whether to show on post detail pages
 			showOnPostPage: true,
-			// 响应式配置
+			// Responsive configuration
 			responsive: {
-				// 折叠阈值：当标签数量超过20个时自动折叠
+				// Collapse threshold: auto-collapse when tags count > 20
 				collapseThreshold: 20,
 			},
 		},
 		{
-			// 组件类型：站点统计组件
+			// Component type: Site statistics component
 			type: "stats",
-			// 是否启用该组件
+			// Whether to enable the component
 			enable: true,
-			// 是否在文章详情页显示
+			// Whether to show on post detail pages
 			showOnPostPage: true,
 		},
 	],

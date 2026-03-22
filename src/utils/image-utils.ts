@@ -5,7 +5,7 @@ import type { ImageFormat } from "../types/config";
 const { randomCoverImage } = coverImageConfig;
 
 /**
- * 根据seed生成确定性hash值
+ * Generate a deterministic hash value based on a seed
  */
 function getSeedHash(seed?: string): number {
 	return seed
@@ -18,7 +18,7 @@ function getSeedHash(seed?: string): number {
 }
 
 /**
- * 为API URL添加seed参数，确保每篇文章获取不同图片
+ * Add a seed parameter to the API URL to ensure different images for each post
  */
 function appendSeedParam(apiUrl: string, hash: number): string {
 	if (hash === 0) return apiUrl;
@@ -27,10 +27,10 @@ function appendSeedParam(apiUrl: string, hash: number): string {
 }
 
 /**
- * 处理文章封面图
- * 当image字段为"api"时，返回第一个API的URL（客户端会按顺序尝试所有API）
- * @param image - 文章frontmatter中的image字段值
- * @param seed - 用于生成唯一URL的种子（文章id或slug）
+ * Process post cover image
+ * When the image field is "api", return the URL of the first API (client will try all APIs in order)
+ * @param image - Value of the image field in the post frontmatter
+ * @param seed - Seed used to generate a unique URL (post id or slug)
  */
 export function processCoverImageSync(
 	image: string | undefined,
@@ -52,16 +52,16 @@ export function processCoverImageSync(
 		return "";
 	}
 
-	// 始终使用第一个API，失败时由客户端按顺序尝试后续API
+	// Always use the first API; if it fails, the client will try subsequent APIs in order
 	const hash = getSeedHash(seed);
 	return appendSeedParam(randomCoverImage.apis[0], hash);
 }
 
 /**
- * 获取所有随机封面图API URL列表（带seed参数）
- * 用于客户端按顺序尝试，第一个成功即使用，全部失败则显示回退图片
- * @param image - 文章frontmatter中的image字段值
- * @param seed - 用于生成唯一URL的种子（文章id或slug）
+ * Get all random cover image API URL lists (with seed parameter)
+ * Used by the client to try in order; first success is used, fallback image if all fail
+ * @param image - Value of the image field in the post frontmatter
+ * @param seed - Seed used to generate a unique URL (post id or slug)
  */
 export function getApiUrlList(
 	image: string | undefined,
@@ -76,7 +76,7 @@ export function getApiUrlList(
 }
 
 /**
- * 获取图片优化格式配置
+ * Get image optimization format configuration
  */
 export function getImageFormats(): ImageFormat[] {
 	const formatConfig = siteConfig.imageOptimization?.formats ?? "both";
@@ -91,14 +91,14 @@ export function getImageFormats(): ImageFormat[] {
 }
 
 /**
- * 获取图片优化质量配置
+ * Get image optimization quality configuration
  */
 export function getImageQuality(): number {
 	return siteConfig.imageOptimization?.quality ?? 80;
 }
 
 /**
- * 获取图片回退格式
+ * Get image fallback format
  */
 export function getFallbackFormat(): "avif" | "webp" {
 	const formatConfig = siteConfig.imageOptimization?.formats ?? "both";
@@ -106,7 +106,7 @@ export function getFallbackFormat(): "avif" | "webp" {
 }
 
 /**
- * 检查是否需要为图片添加 referrerpolicy="no-referrer" 以解决防盗链 403 问题
+ * Check if referrerpolicy="no-referrer" should be added to the image to solve hotlinking 403 issues
  */
 export function shouldAddNoReferrer(urlStr: string): boolean {
 	if (!urlStr.startsWith("http")) return false;

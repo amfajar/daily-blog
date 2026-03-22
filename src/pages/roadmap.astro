@@ -1,0 +1,111 @@
+---
+import { getCollection } from "astro:content";
+import MainGridLayout from "@/layouts/MainGridLayout.astro";
+
+// Get all roadmap entries that are not drafts
+const allRoadmap = await getCollection("roadmap", ({ data }) => !data.draft);
+
+// Sort by year → month
+allRoadmap.sort((a, b) => {
+  const yearDiff = (a.data.year ?? 0) - (b.data.year ?? 0);
+  if (yearDiff !== 0) return yearDiff;
+  return (a.data.month ?? 0) - (b.data.month ?? 0);
+});
+
+// Category definition (display order and label)
+const CATEGORIES = [
+  { slug: "Japanese",   label: "🇯🇵 Japanese" },
+  { slug: "English",    label: "🇬🇧 English" },
+  { slug: "Komunikasi", label: "🗣️ Komunikasi" },
+  { slug: "Problem Solving", label: "🧩 Problem Solving" },
+  { slug: "BI Analyst", label: "📊 BI Analyst" },
+] as const;
+
+type CategorySlug = (typeof CATEGORIES)[number]["slug"];
+
+// Group entries by category
+const byCategory = new Map<CategorySlug, typeof allRoadmap>();
+for (const cat of CATEGORIES) {
+  byCategory.set(
+    cat.slug,
+    allRoadmap.filter((e) => e.data.category === cat.slug)
+  );
+}
+
+// Month names in English
+const BULAN = [
+  "", "January", "February", "March", "April", "May", "June",
+  "July", "August", "September", "October", "November", "December",
+];
+---
+
+<MainGridLayout title="Roadmap" description="Monthly learning roadmap">
+  <div class="flex w-full rounded-(--radius-large) overflow-hidden relative">
+    <div class="card-base z-10 px-6 md:px-9 py-8 relative w-full">
+
+      {/* ─── Header ─────────────────────────────────── */}
+      <h1 class="text-3xl font-bold mb-2 text-(--primary)">📋 Learning Roadmap</h1>
+      <p class="text-(--text-secondary) mb-8">
+        My monthly learning plan — updated at the beginning of each month.
+      </p>
+
+      {allRoadmap.length === 0 ? (
+        /* ─── Empty state ───────────────────────────── */
+        <div class="flex flex-col items-center justify-center py-20 gap-4 text-center">
+          <div class="text-6xl opacity-30">🗺️</div>
+          <p class="text-xl font-semibold text-(--text-secondary)">Roadmap Coming Soon</p>
+          <p class="text-(--text-muted) max-w-sm">
+            Monthly learning plans will appear here once Markdown files from
+            <code class="bg-(--code-bg) px-1.5 py-0.5 rounded text-sm">Monthly To-do/</code> are added.
+          </p>
+        </div>
+      ) : (
+        /* ─── Content: tabs per category ────────────── */
+        <div class="space-y-10">
+          {CATEGORIES.map(({ slug, label }) => {
+            const items = byCategory.get(slug) ?? [];
+            if (items.length === 0) return null;
+            return (
+              <section>
+                {/* Category heading */}
+                <h2 class="text-xl font-bold mb-4 flex items-center gap-2">
+                  <span>{label}</span>
+                  <span class="text-sm font-normal text-(--text-secondary) ml-1">
+                    ({items.length} months)
+                  </span>
+                </h2>
+
+                {/* Timeline */}
+                <div class="relative pl-6 border-l-2 border-(--primary) border-opacity-30 space-y-6">
+                  {items.map((entry) => (
+                    <div class="relative">
+                      {/* Dot on the timeline */}
+                      <div class="absolute -left-[1.45rem] top-1.5 w-3 h-3 rounded-full bg-(--primary) ring-2 ring-(--card-bg)" />
+
+                      {/* Card */}
+                      <div class="card-base p-4 hover:translate-x-1 transition-transform duration-200">
+                        <div class="flex items-center gap-2 mb-1">
+                          {entry.data.month && (
+                            <span class="text-xs font-mono px-2 py-0.5 rounded-full bg-(--tag-bg) text-(--tag-color)">
+                              {BULAN[entry.data.month]}
+                              {entry.data.year ? ` ${entry.data.year}` : ""}
+                            </span>
+                          )}
+                          <span class="font-semibold text-(--text-primary)">{entry.data.title}</span>
+                        </div>
+                        {entry.data.description && (
+                          <p class="text-sm text-(--text-secondary) mt-1">{entry.data.description}</p>
+                        )}
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </section>
+            );
+          })}
+        </div>
+      )}
+
+    </div>
+  </div>
+</MainGridLayout>

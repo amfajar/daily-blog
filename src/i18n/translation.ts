@@ -34,11 +34,11 @@ export function i18n(key: I18nKey): string {
 	const currentLang = getTranslation(lang);
 	const value = currentLang[key];
 
-	// 如果当前语言没有翻译（或为空），则使用中文作为备选
-	if (!value && lang.toLowerCase() !== "zh_cn") {
-		const chineseValue = zh_CN[key];
-		if (chineseValue) {
-			return chineseValue;
+	// Fallback to English if translation is missing
+	if (!value && lang.toLowerCase() !== "en") {
+		const englishValue = en[key];
+		if (englishValue) {
+			return englishValue;
 		}
 	}
 

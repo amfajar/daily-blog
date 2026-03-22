@@ -1,43 +1,50 @@
 import type { BackgroundWallpaperConfig } from "@/types/config";
 
 export const backgroundWallpaper: BackgroundWallpaperConfig = {
-	// 壁纸模式："banner" 横幅壁纸，"overlay" 全屏透明，"none" 纯色背景无壁纸
+	// Wallpaper mode: "banner" for banner wallpaper, "overlay" for full-screen transparency, "none" for solid background without wallpaper
 	mode: "banner",
-	// 是否允许用户通过导航栏切换壁纸模式，设为false可提升性能（只渲染当前模式）
+	// Whether to allow users to switch wallpaper modes via the navigation bar. Set to false to improve performance (only renders the current mode).
 	switchable: true,
 	/**
-	 * 背景图片配置
-	 * 图片路径支持三种格式：
-	 * 1. public 目录（以 "/" 开头，不优化）："/assets/images/banner.avif"
-	 * 2. src 目录（不以 "/" 开头，自动优化但会增加构建时间，推荐）："assets/images/banner.avif"
-	 * 3. 远程 URL："https://example.com/banner.jpg"
-	 * 注意：远程URL和public目录的图片不会被优化，请确保图片体积足够小以免影响加载速度
+	 * Background image configuration
+	 * Image paths support three formats:
+	 * 1. public directory (starts with "/", no optimization): "/assets/images/banner.avif"
+	 * 2. src directory (does not start with "/", auto-optimized but increases build time, recommended): "assets/images/banner.avif"
+	 * 3. Remote URL: "https://example.com/banner.jpg"
+	 * Note: Images in the remote URL and public directory won't be optimized. Ensure the image volume is small enough to avoid affecting loading speed.
 	 *
-	 * 建议不要替换d1-d6，m1-m6这些默认示例图片，但你可以删除掉节省空间
-	 * 因为以后可能会更换示例图片，导致你自定义的图片被覆盖
-	 * 所以建议使用自己的图片的时候命名为其他名称，不要使用d1-d6，m1-m6这些名称
+	 * It's recommended not to replace default example images (d1-d6, m1-m6), but you can delete them to save space.
+	 * Since example images might be updated in the future, your custom images might be overwritten if you use these names.
+	 * Therefore, it's suggested to name your own images differently and avoid using d1-d6 or m1-m6.
 	 *
-	 * 如果只使用一张图片或者使用随机图API，推荐直接使用字符串格式：
-	 * desktop: "https://t.alcy.cc/pc",   // 随机图API
-	 * desktop: "assets/images/DesktopWallpaper/d1.avif", // 单张图片
+	 * If using only one image or a random image API, the string format is recommended:
+	 * desktop: "https://t.alcy.cc/pc",   // Random image API
+	 * desktop: "assets/images/DesktopWallpaper/d1.avif", // Single image
 	 *
-	 * mobile: "https://t.alcy.cc/mp", // 随机图API
-	 * mobile: "assets/images/MobileWallpaper/m1.avif", // 单张图片
+	 * mobile: "https://t.alcy.cc/mp", // Random image API
+	 * mobile: "assets/images/MobileWallpaper/m1.avif", // Single image
 	 *
-	 * 支持配置多张图片（数组），每次刷新页面随机显示一张：
+	 * Supports multi-image configurations (arrays); one will be randomly shown on each page refresh:
 	 * desktop: [
 	 * "assets/images/DesktopWallpaper/d1.avif",
 	 * "assets/images/DesktopWallpaper/d2.avif",
+	 * "assets/images/DesktopWallpaper/d3.avif",
+	 * "assets/images/DesktopWallpaper/d4.avif",
+	 * "assets/images/DesktopWallpaper/d5.avif",
+	 * "assets/images/DesktopWallpaper/d6.avif",
 	 * ],
 	 *
-	 * mobile:[
-	 *   "assets/images/MobileWallpaper/m1.avif",
-	 *   "assets/images/MobileWallpaper/m2.avif",
+	 * mobile: [
+	 * "assets/images/MobileWallpaper/m1.avif",
+	 * "assets/images/MobileWallpaper/m2.avif",
+	 * "assets/images/MobileWallpaper/m3.avif",
+	 * "assets/images/MobileWallpaper/m4.avif",
+	 * "assets/images/MobileWallpaper/m5.avif",
+	 * "assets/images/MobileWallpaper/m6.avif",
 	 * ],
 	 */
 	src: {
-		// 桌面背景图片（支持单张或多张随机）
-		// desktop: "assets/images/DesktopWallpaper/d1.avif",
+		// Desktop background image (supports single or multiple random)
 		desktop: [
 			"assets/images/DesktopWallpaper/d1.avif",
 			"assets/images/DesktopWallpaper/d2.avif",
@@ -46,8 +53,7 @@ export const backgroundWallpaper: BackgroundWallpaperConfig = {
 			"assets/images/DesktopWallpaper/d5.avif",
 			"assets/images/DesktopWallpaper/d6.avif",
 		],
-		// 移动背景图片（支持单张或多张随机）
-		// mobile: "assets/images/MobileWallpaper/m1.avif",
+		// Mobile background image (supports single or multiple random)
 		mobile: [
 			"assets/images/MobileWallpaper/m1.avif",
 			"assets/images/MobileWallpaper/m2.avif",
@@ -57,104 +63,103 @@ export const backgroundWallpaper: BackgroundWallpaperConfig = {
 			"assets/images/MobileWallpaper/m6.avif",
 		],
 	},
-	// Banner模式特有配置
+	// Banner mode specific configuration
 	banner: {
-		// 图片位置
-		// 支持所有CSS object-position值，如: 'top', 'center', 'bottom', 'left top', 'right bottom', '25% 75%', '10px 20px'..
-		// 如果不知道怎么配置百分百之类的配置，推荐直接使用：'center'居中，'top'顶部居中，'bottom' 底部居中，'left'左侧居中，'right'右侧居中
+		// Image position
+		// Supports all CSS object-position values, e.g., 'top', 'center', 'bottom', 'left top', 'right bottom', '25% 75%', '10px 20px'...
 		position: "0% 20%",
 
-		// 主页横幅文字
+		// Home banner text
 		homeText: {
-			// 是否启用主页横幅文字
+			// Whether to enable home banner text
 			enable: true,
-			// 是否允许用户通过控制面板切换横幅标题显示
+			// Whether to allow users to switch banner title display via the control panel
 			switchable: true,
-			// 主页横幅主标题
-			title: "Lovely firefly!",
-			// 主页横幅主标题字体大小
+			// Home banner main title
+			title: "AMFAJAR",
+			// Home banner main title font size
 			titleSize: "3.8rem",
-			// 主页横幅副标题
+			// Home banner subtitle
 			subtitle: [
-				"In Reddened Chrysalis, I Once Rest",
-				"From Shattered Sky, I Free Fall",
-				"Amidst Silenced Stars, I Deep Sleep",
-				"Upon Lighted Fyrefly, I Soon Gaze",
-				"From Undreamt Night, I Thence Shine",
-				"In Finalized Morrow, I Full Bloom",
+				"Hi there! I'm Fajar. Welcome to my blog.",
+				"I write about data, languages, and my daily notes.",
+				"Learning data analytics, one step at a time.",
+				"Practicing Japanese and English every single day.",
+				"Writing things down helps me learn better.",
+				"Happy to have you here. Let's learn together!",
 			],
-			// 主页横幅副标题字体大小
+			// Home banner subtitle font size
 			subtitleSize: "1.5rem",
 			typewriter: {
-				// 是否启用打字机效果
-				// 打字机开启 → 循环显示所有副标题
-				// 打字机关闭 → 每次刷新随机显示一条副标题
+				// Whether to enable typewriter effect. 
+				// Typewriter ON → Cycles through all subtitles. 
+				// Typewriter OFF → Randomly displays one subtitle on each refresh.
 				enable: true,
-				// 打字速度（毫秒）
+				// Typing speed (ms)
 				speed: 100,
-				// 删除速度（毫秒）
+				// Deletion speed (ms)
 				deleteSpeed: 50,
-				// 完全显示后的暂停时间（毫秒）
+				// Pause time after fully displayed (ms)
 				pauseTime: 2000,
 			},
 		},
-		// 图片来源
+		// Image source
 		credit: {
 			enable: {
-				// 桌面端显示横幅图片来源文本
+				// Show banner image credit text on desktop
 				desktop: true,
-				// 移动端显示横幅图片来源文本
+				// Show banner image credit text on mobile
 				mobile: true,
 			},
 			text: {
-				// 桌面端要显示的来源文本
-				desktop: "Pixiv - 晚晚喵",
-				// 移动端要显示的来源文本
+				// Credit text to display on desktop
+				desktop: "Artist: Wanwanmiao (Pixiv)",
+				// Credit text to display on mobile
 				mobile: "Pixiv - KiraraShss",
 			},
 			url: {
-				// 桌面端原始艺术品或艺术家页面的 URL 链接
+				// URL link to the original artwork or artist page on desktop
 				desktop: "https://www.pixiv.net/users/108801776",
-				// 移动端原始艺术品或艺术家页面的 URL 链接
+				// URL link to the original artwork or artist page on mobile
 				mobile: "https://www.pixiv.net/users/42715864",
 			},
 		},
-		// 横幅导航栏配置
+		// Banner navigation bar configuration
 		navbar: {
-			// 横幅导航栏透明模式："semi" 半透明，"full" 完全透明，"semifull" 动态透明
+			// Banner navigation bar transparent mode: "semi" for semi-transparent, "full" for fully transparent, "semifull" for dynamic transparency
 			transparentMode: "semifull",
-			// 是否开启毛玻璃模糊效果，开启可能会影响页面性能，如果不开启则是半透明，请根据自己的喜好开启
+			// Whether to enable frosting (blur) effect. Enabling might affect page performance; if disabled, it will be semi-transparent.
 			enableBlur: true,
-			// 毛玻璃模糊度
+			// Frosting blur degree
 			blur: 10,
 		},
-		// 水波纹动画效果配置，开启会影响页面性能，请根据自己的喜好开启
+		// Water ripple animation effect configuration. Enabling affects page performance.
 		waves: {
 			enable: {
-				// 桌面端是否启用水波纹动画效果
+				// Whether to enable water ripple animation on desktop
 				desktop: true,
-				// 移动端是否启用水波纹动画效果
+				// Whether to enable water ripple animation on mobile
 				mobile: true,
 			},
-			// 是否允许用户通过控制面板切换水波纹动画
+			// Whether to allow users to switch water ripple animation via the control panel
 			switchable: true,
 		},
 	},
-	// 全屏透明覆盖模式特有配置
+	// Full-screen transparent overlay mode specific configuration
 	overlay: {
-		// 是否允许用户通过控制面板调整全屏透明模式参数
+		// Whether to allow users to adjust full-screen transparent mode parameters via the control panel
 		switchable: {
 			opacity: true,
 			blur: true,
 			cardOpacity: true,
 		},
-		// 层级，确保壁纸在背景层
+		// Z-index, ensures the wallpaper is in the background layer
 		zIndex: -1,
-		// 壁纸透明度
+		// Wallpaper opacity
 		opacity: 0.8,
-		// 背景模糊度
+		// Background blur
 		blur: 10,
-		// 卡片透明度，0-1之间，值越小越透明
+		// Card opacity, between 0-1; smaller values are more transparent
 		cardOpacity: 0.5,
 	},
 };

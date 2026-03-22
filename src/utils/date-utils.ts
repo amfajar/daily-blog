@@ -4,7 +4,7 @@ export function formatDateToYYYYMMDD(date: Date): string {
 	return date.toISOString().substring(0, 10);
 }
 
-// 国际化日期格式化函数
+// Internationalized date formatting function
 export function formatDateI18n(
 	dateInput: Date | string,
 	includeTime?: boolean,
@@ -12,7 +12,7 @@ export function formatDateI18n(
 	const date = typeof dateInput === "string" ? new Date(dateInput) : dateInput;
 	const lang = siteConfig.lang || "en";
 
-	// 根据语言设置不同的日期格式
+		// Set different date formats based on language
 	const options: Intl.DateTimeFormatOptions = {
 		year: "numeric",
 		month: "long",
@@ -25,12 +25,12 @@ export function formatDateI18n(
 		options.second = "2-digit";
 	}
 
-	// 如果配置了时区，则将其用于格式化（IANA 时区字符串）
+		// Use timezone if configured (IANA timezone string)
 	if (siteConfig.timezone) {
 		(options as Intl.DateTimeFormatOptions).timeZone = siteConfig.timezone;
 	}
 
-	// 语言代码映射
+		// Language code mapping
 	const localeMap: Record<string, string> = {
 		zh_CN: "zh-CN",
 		zh_TW: "zh-TW",
@@ -54,12 +54,12 @@ export function formatDateI18n(
 		: date.toLocaleDateString(locale, options);
 }
 
-// 国际化日期时间格式化函数（带时分秒）
+// Internationalized date-time formatting function (with hours, minutes, seconds)
 export function formatDateI18nWithTime(dateInput: Date | string): string {
 	return formatDateI18n(dateInput, true);
 }
 
-// 统一格式为 YYYY-MM-DD HH:mm，支持站点时区
+// Uniform format is YYYY-MM-DD HH:mm, supports site timezone
 export function formatDateTimeToYYYYMMDDHHmm(dateInput: Date | string): string {
 	const date = typeof dateInput === "string" ? new Date(dateInput) : dateInput;
 

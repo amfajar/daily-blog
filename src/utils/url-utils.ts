@@ -2,8 +2,8 @@ import I18nKey from "@i18n/i18nKey";
 import { i18n } from "@i18n/translation";
 
 /**
- * 移除文件扩展名（.md, .mdx, .markdown）
- * 用于将 Astro v5 Content Layer API 的 id 转换为 URL 友好的 slug
+ * Remove file extensions (.md, .mdx, .markdown)
+ * Used to convert Astro v5 Content Layer API ids into URL-friendly slugs
  */
 export function removeFileExtension(id: string): string {
 	return id.replace(/\.(md|mdx|markdown)$/i, "");
@@ -20,9 +20,21 @@ function joinUrl(...parts: string[]): string {
 	return joined.replace(/\/+/g, "/");
 }
 
+export function slugify(text: string): string {
+	return text
+		.toLowerCase()
+		.normalize("NFD")
+		.replace(/[\u0300-\u036f]/g, "")
+		.replace(/[^a-z0-9 -]/g, "")
+		.trim()
+		.replace(/\s+/g, "-")
+		.replace(/-+/g, "-");
+}
+
 export function getPostUrlBySlug(slug: string): string {
-	// 移除文件扩展名（如 .md, .mdx 等）
+	// Remove file extensions (like .md, .mdx etc.)
 	const slugWithoutExt = removeFileExtension(slug);
+	// If slug already contains path (old format) or is a slugified title (new format)
 	return url(`/posts/${slugWithoutExt}/`);
 }
 
@@ -42,7 +54,7 @@ export function getCategoryUrl(category: string | null): string {
 }
 
 export function getDir(path: string): string {
-	// 移除文件扩展名
+	// Remove file extension
 	const pathWithoutExt = removeFileExtension(path);
 	const lastSlashIndex = pathWithoutExt.lastIndexOf("/");
 	if (lastSlashIndex < 0) {

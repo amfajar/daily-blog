@@ -1,6 +1,6 @@
 /**
- * TOC (Table of Contents) 工具类
- * 用于 SidebarTOC 和 FloatingTOC 的共享逻辑
+ * TOC (Table of Contents) utility class
+ * Shared logic for SidebarTOC and FloatingTOC
  */
 
 import I18nKey from "@/i18n/i18nKey";
@@ -31,7 +31,7 @@ export class TOCManager {
 	}
 
 	/**
-	 * 查找文章内容容器
+	 * Find article content container
 	 */
 	private getContentContainer(): Element | null {
 		return (
@@ -42,7 +42,7 @@ export class TOCManager {
 	}
 
 	/**
-	 * 查找所有标题
+	 * Find all headings
 	 */
 	private getAllHeadings(): HTMLElement[] {
 		const contentContainer = this.getContentContainer();
@@ -55,7 +55,7 @@ export class TOCManager {
 	}
 
 	/**
-	 * 计算最小深度
+	 * Calculate minimum depth
 	 */
 	private calculateMinDepth(headings: HTMLElement[]): number {
 		let minDepth = 10;
@@ -67,7 +67,7 @@ export class TOCManager {
 	}
 
 	/**
-	 * 过滤标题
+	 * Filter headings
 	 */
 	private filterHeadings(headings: HTMLElement[]): HTMLElement[] {
 		return Array.from(headings).filter((heading) => {
@@ -77,7 +77,7 @@ export class TOCManager {
 	}
 
 	/**
-	 * 获取标题的纯文本内容（排除 script/style 标签的文本）
+	 * Get clean text content of a heading (exclude content of script/style tags)
 	 */
 	private getCleanTextContent(element: HTMLElement): string {
 		const clone = element.cloneNode(true) as HTMLElement;
@@ -88,7 +88,7 @@ export class TOCManager {
 	}
 
 	/**
-	 * 转义 HTML 属性值，避免标题中的引号破坏属性
+	 * Escape HTML attribute values to prevent quotes in titles from breaking attributes
 	 */
 	private escapeHtmlAttr(value: string): string {
 		return value
@@ -100,7 +100,7 @@ export class TOCManager {
 	}
 
 	/**
-	 * 生成徽章内容
+	 * Generate badge content
 	 */
 	private generateBadgeContent(depth: number, heading1Count: number): string {
 		if (depth === this.minDepth) {
@@ -113,14 +113,14 @@ export class TOCManager {
 	}
 
 	/**
-	 * 空状态文案
+	 * Empty state text
 	 */
 	private getEmptyStateHTML(): string {
 		return `<div class="text-center py-8 text-gray-500 dark:text-gray-400"><p>${i18n(I18nKey.tocEmpty)}</p></div>`;
 	}
 
 	/**
-	 * 生成TOC HTML
+	 * Generate TOC HTML
 	 */
 	public generateTOCHTML(): string {
 		const headings = this.getAllHeadings();
@@ -201,7 +201,7 @@ export class TOCManager {
 	}
 
 	/**
-	 * 更新TOC内容
+	 * Update TOC content
 	 */
 	public updateTOCContent(): void {
 		const tocContent = document.getElementById(this.contentId);
@@ -214,7 +214,7 @@ export class TOCManager {
 	}
 
 	/**
-	 * 获取可见的标题ID
+	 * Get visible heading IDs
 	 */
 	private getVisibleHeadingIds(): string[] {
 		const headings = this.getAllHeadings();
@@ -231,7 +231,7 @@ export class TOCManager {
 			}
 		});
 
-		// 如果没有可见标题，选择最接近屏幕顶部的标题
+		// If no headings are visible, select the one closest to the top of the screen
 		if (visibleHeadingIds.length === 0 && headings.length > 0) {
 			let closestHeading: string | null = null;
 			let minDistance = Number.POSITIVE_INFINITY;
@@ -257,35 +257,35 @@ export class TOCManager {
 	}
 
 	/**
-	 * 更新活动状态
+	 * Update active state
 	 */
 	public updateActiveState(): void {
 		if (!this.tocItems || this.tocItems.length === 0) return;
 
-		// 移除所有活动状态
+		// Remove all active states
 		this.tocItems.forEach((item) => {
 			item.classList.remove("visible");
 		});
 
 		const visibleHeadingIds = this.getVisibleHeadingIds();
 
-		// 找到对应的TOC项并添加活动状态
+		// Find corresponding TOC item and add active state
 		const activeItems = this.tocItems.filter((item) => {
 			const headingId = item.dataset.headingId;
 			return headingId && visibleHeadingIds.includes(headingId);
 		});
 
-		// 添加活动状态
+		// Add active state
 		activeItems.forEach((item) => {
 			item.classList.add("visible");
 		});
 
-		// 更新活动指示器
+		// Update active indicator
 		this.updateActiveIndicator(activeItems);
 	}
 
 	/**
-	 * 更新活动指示器
+	 * Update active indicator
 	 */
 	private updateActiveIndicator(activeItems: HTMLElement[]): void {
 		const indicator = document.getElementById(this.indicatorId);
@@ -313,14 +313,14 @@ export class TOCManager {
 		indicator.style.height = `${height}px`;
 		indicator.style.opacity = "1";
 
-		// 自动滚动到活动项
+		// Auto scroll to active item
 		if (firstActive) {
 			this.scrollToActiveItem(firstActive);
 		}
 	}
 
 	/**
-	 * 滚动到活动项
+	 * Scroll to active item
 	 */
 	private scrollToActiveItem(activeItem: HTMLElement): void {
 		if (!activeItem) return;
@@ -330,17 +330,17 @@ export class TOCManager {
 			?.closest(".toc-scroll-container");
 		if (!tocContainer) return;
 
-		// 清除之前的定时器
+		// Clear previous timeout
 		if (this.scrollTimeout) {
 			clearTimeout(this.scrollTimeout);
 		}
 
-		// 使用节流机制
+		// Use throttling mechanism
 		this.scrollTimeout = window.setTimeout(() => {
 			const containerRect = tocContainer.getBoundingClientRect();
 			const itemRect = activeItem.getBoundingClientRect();
 
-			// 只在元素不在可视区域时才滚动
+			// Only scroll when element is not in visible area
 			const isVisible =
 				itemRect.top >= containerRect.top &&
 				itemRect.bottom <= containerRect.bottom;
@@ -350,7 +350,7 @@ export class TOCManager {
 				const containerHeight = tocContainer.clientHeight;
 				const itemHeight = activeItem.clientHeight;
 
-				// 计算目标滚动位置，将元素居中显示
+				// Calculate target scroll position to center the element
 				const targetScroll =
 					itemOffsetTop - containerHeight / 2 + itemHeight / 2;
 
@@ -363,7 +363,7 @@ export class TOCManager {
 	}
 
 	/**
-	 * 处理点击事件
+	 * Handle click events
 	 */
 	public handleClick(event: Event): void {
 		event.preventDefault();
@@ -387,7 +387,7 @@ export class TOCManager {
 	}
 
 	/**
-	 * 设置IntersectionObserver
+	 * Setup IntersectionObserver
 	 */
 	public setupObserver(): void {
 		const headings = this.getAllHeadings();
@@ -414,7 +414,7 @@ export class TOCManager {
 	}
 
 	/**
-	 * 绑定点击事件
+	 * Bind click events
 	 */
 	public bindClickEvents(): void {
 		this.tocItems.forEach((item) => {
@@ -423,7 +423,7 @@ export class TOCManager {
 	}
 
 	/**
-	 * 清理
+	 * Cleanup
 	 */
 	public cleanup(): void {
 		if (this.observer) {
@@ -437,7 +437,7 @@ export class TOCManager {
 	}
 
 	/**
-	 * 初始化
+	 * Initialization
 	 */
 	public init(): void {
 		this.updateTOCContent();
@@ -448,7 +448,7 @@ export class TOCManager {
 }
 
 /**
- * 检查是否为文章页面
+ * Check if current page is a post page
  */
 export function isPostPage(): boolean {
 	return window.location.pathname.includes("/posts/");

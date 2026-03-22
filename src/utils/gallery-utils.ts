@@ -3,7 +3,7 @@ import path from "node:path";
 import type { GalleryAlbum } from "@/types/config";
 
 /**
- * 扫描相册目录中的所有图片文件
+ * Scan all image files in the gallery directory
  */
 export function scanAlbumPhotos(albumId: string): string[] {
 	const dir = path.join(process.cwd(), "public", "gallery", albumId);
@@ -12,7 +12,7 @@ export function scanAlbumPhotos(albumId: string): string[] {
 		.readdirSync(dir)
 		.filter((f) => /\.(jpe?g|png|webp|avif|gif)$/i.test(f))
 		.sort();
-	// 将 cover.* 排到第一位
+	// Put cover.* at the first position
 	const coverIdx = files.findIndex((f) => /^cover\./i.test(f));
 	if (coverIdx > 0) {
 		const [coverFile] = files.splice(coverIdx, 1);
@@ -22,8 +22,8 @@ export function scanAlbumPhotos(albumId: string): string[] {
 }
 
 /**
- * 获取相册封面图
- * 优先级：手动指定 > cover.* 文件 > 第一张图片
+ * Get gallery cover image
+ * Priority: manually specified > cover.* file > first image
  */
 export function getAlbumCover(album: GalleryAlbum, photos: string[]): string {
 	if (album.cover) return album.cover;
